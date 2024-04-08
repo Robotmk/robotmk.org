@@ -1,3 +1,9 @@
 baseURL: https://example.org/
 languageCode: en-us
-title: My New Hugo Site
+# title: My New Hugo Site
+theme: mainroad
+
+params:
+  logo:
+    image: rmk_crop_transp_w150.png
+  highlightColor: "#00D391"

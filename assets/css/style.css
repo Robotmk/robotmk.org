@@ -67,7 +67,7 @@ body {
 }
 
 .container--outer {
-	margin: 25px auto;
+	/* margin: 25px auto; */
 	box-shadow: 0 0 10px rgba(50, 50, 50, .17);
 }
 
@@ -383,9 +383,13 @@ select {
 	fill: #ddd;
 }
 
-/* Header */
-.header {
-	background: #fff;
+/* Header sticky: https://codepen.io/abbeyjfitzgerald/pen/LexmVG*/
+.header.sticky-top {
+	background: #2b3842;
+	position: -webkit-sticky;
+	position: sticky;
+	top: 0;
+	/* width: 100%; */
 }
 
 .logo {

@@ -1,0 +1,28 @@
+# Hugo generated files
+/public/
+/resources/_gen/
+/hugo_stats.json
+
+# Ignore SCSS config files if using Hugo Pipes
+/assets/scss/config/_variables.scss
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Temporary files created by editors or IDEs
+*.swp
+*.swo
+*.bak
+*.tmp
+*.temp
+
+# Ignore environment specific files such as .env
+.env
+
+# Other files and directories to ignore
+.vscode/
+*.log
+*.sql
+*.tar.gz
+

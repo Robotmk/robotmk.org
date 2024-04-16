@@ -1,8 +1,7 @@
 ---
-title: Blog
+title: News
 description: Robotmk Synthetic Monitoring Best Practices, Insights and News
 menu: main
-# weight: 20
-weight: 20
+weight: 25
 authorbox: true
 ---

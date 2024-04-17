@@ -14,4 +14,6 @@ sidebar: true
 pager: false
 #menu: main
 #weight: 10
+# --- must be in the leaf bundle folder or static
+#thumbnail: ""
 ---

@@ -1,8 +1,12 @@
 ---
 title: "{{ replace .TranslationBaseName '-' ' ' | title }}"
-#menutitle: 
+# -- predefined URL
+# slug: 
+# -- for posts in menubar, use this (shorter) title
+# menutitle: 
 description: 
-lead: 
+# --- Italic subheading
+# lead: 
 thumbnail: ""
 date: "{{ .Date }}"
 categories:
@@ -14,4 +18,6 @@ sidebar: true
 pager: false
 #menu: main
 #weight: 10
+# --- must be in the leaf bundle folder or static
+#thumbnail: ""
 ---

@@ -12,6 +12,9 @@ menu:
       url: "https://www.robotmk.org/#academy"
       weight: 30
 
+author:
+  name: "Simon Meggle"
+  bio: "John Doe's true identity is unknown. Maybe he is a successful blogger or writer. Nobody knows it."
 
 params:
   copyright: ELABIT GmbH
@@ -25,14 +28,12 @@ params:
     single: "right"
     # Enable widgets in given order
     widgets: ["search", "recent", "categories", "taglist", "social"]
-  author:
-    name: "John Doe"
-    bio: "John Doe's true identity is unknown. Maybe he is a successful blogger or writer. Nobody knows it."
     avatar: "img/avatar.png"
   widgets: 
     social: 
       github: "elabit"
       email: "mail@robotmk.org"
+  post_meta: ["author", "date", "categories"]
 
 markup:
   goldmark:

@@ -17,27 +17,7 @@ author:
   bio: "https://www.robotmk.org/pages/professionalsupport"
   avatar: "portrait_simon_meggle_rund_300x300.png"
 
-params:
-  copyright: ELABIT GmbH
-  logo:
-    image: rmk_crop_transp_w150.png
-  highlightColor: "#00D391"
-  mainSections: ["docs", "post", "blog"]
 
-
-  sidebar:
-    home: "right"  
-    list: "right"  
-    single: "right"
-    # Enable widgets in given order
-    widgets: ["search", "recent", "categories", "taglist", "social", "languages"]
-    avatar: "img/avatar.png"
-  widgets: 
-    social: 
-      github: "elabit"
-      email: "mail@robotmk.org"
-  post_meta: ["author", "date", "categories"]
-  toc: true
 
 markup:
   goldmark:
@@ -59,3 +39,50 @@ languages:
     languageDirection: ltr
     languageName: Deutsch
     weight: 2
+
+### PARAMS
+
+params:
+  copyright: ELABIT GmbH
+  logo:
+    image: rmk_crop_transp_w150.png
+  highlightColor: "#00D391"
+  mainSections: ["docs", "post", "blog"]
+  sidebar:
+    home: "right"  
+    list: "right"  
+    single: "right"
+    # Enable widgets in given order
+    widgets: ["search", "recent", "categories", "taglist", "social", "languages"]
+    avatar: "img/avatar.png"
+  widgets: 
+    social: 
+      github: "elabit"
+      email: "mail@robotmk.org"
+  post_meta: ["author", "date", "categories"]
+  toc: true
+  # COMMENTS
+  giscus:
+    provider: giscus
+    commentable:
+      page: true
+      post: true
+      docs: false
+      project: false
+      publication: true
+      talk: false
+    giscus:
+      repo: elabit/blog.robotmk.org
+      repo_id: R_kgDOLwGo7g
+      category: Announcements
+      category_id: DIC_kwDOLwGo7s4CeyI5
+      mapping: og:title
+      strict: 0
+      reactions_enabled: 1
+      emit_metadata: 0
+      input_position: top
+      label: comment
+      theme: light
+      lang: en
+      data_loading: lazy
+      crossorigin: anonymous

@@ -63,7 +63,6 @@ params:
   toc: true
   # COMMENTS
   giscus:
-    provider: giscus
     commentable:
       page: true
       post: true
@@ -71,12 +70,13 @@ params:
       project: false
       publication: true
       talk: false
-    giscus:
+    conf:
       repo: elabit/blog.robotmk.org
       repo_id: R_kgDOLwGo7g
       category: Announcements
       category_id: DIC_kwDOLwGo7s4CeyI5
-      mapping: og:title
+      # mapping: og:title
+      mapping: pathname
       strict: 0
       reactions_enabled: 1
       emit_metadata: 0

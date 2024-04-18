@@ -1,19 +1,19 @@
 {{ if isset .Site.Params "giscus" }}
-XXX
+
 <script src="https://giscus.app/client.js"
-        data-repo="{{site.Params.comments.giscus.repo}}"
-        data-repo-id="{{site.Params.comments.giscus.repo_id}}"
-        data-category="{{site.Params.comments.giscus.category}}"
-        data-category-id="{{site.Params.comments.giscus.category_id}}"
-        data-mapping="{{site.Params.comments.giscus.mapping}}"
-        data-strict="{{site.Params.comments.giscus.strict}}"
-        data-reactions-enabled="{{site.Params.comments.giscus.reactions_enabled}}"
-        data-emit-metadata="{{site.Params.comments.giscus.emit_metadata}}"
-        data-input-position="{{site.Params.comments.giscus.input_position}}"
-        data-theme="{{site.Params.comments.giscus.theme}}"
-        data-lang="{{site.Params.comments.giscus.lang}}"
-        data-loading="{{site.Params.comments.giscus.data_loading}}"
-        data-crossorigin="{{site.Params.comments.giscus.crossorigin}}"
+        data-repo="{{.Site.Params.giscus.conf.repo}}"
+        data-repo-id="{{.Site.Params.giscus.conf.repo_id}}"
+        data-category="{{.Site.Params.giscus.conf.category}}"
+        data-category-id="{{.Site.Params.giscus.conf.category_id}}"
+        data-mapping="{{.Site.Params.giscus.conf.mapping}}"
+        data-strict="{{.Site.Params.giscus.conf.strict}}"
+        data-reactions-enabled="{{.Site.Params.giscus.conf.reactions_enabled}}"
+        data-emit-metadata="{{.Site.Params.giscus.conf.emit_metadata}}"
+        data-input-position="{{.Site.Params.giscus.conf.input_position}}"
+        data-theme="{{.Site.Params.giscus.conf.theme}}"
+        data-lang="{{.Site.Params.giscus.conf.lang}}"
+        {{/*  data-loading="{{.Site.Params.giscus.conf.data_loading}}"  */}}
+        data-crossorigin="{{.Site.Params.giscus.conf.crossorigin}}"
         async>
 </script>
 <noscript>Please enable JavaScript to view the comments powered by giscus.</noscript>

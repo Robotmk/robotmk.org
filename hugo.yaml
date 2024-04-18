@@ -12,9 +12,10 @@ menu:
       url: "https://www.robotmk.org/#academy"
       weight: 30
 
-author:
+author: 
   name: "Simon Meggle"
-  bio: "John Doe's true identity is unknown. Maybe he is a successful blogger or writer. Nobody knows it."
+  bio: "https://www.robotmk.org/pages/professionalsupport"
+  avatar: "portrait_simon_meggle_rund_300x300.png"
 
 params:
   copyright: ELABIT GmbH
@@ -22,20 +23,39 @@ params:
     image: rmk_crop_transp_w150.png
   highlightColor: "#00D391"
   mainSections: ["docs", "post", "blog"]
+
+
   sidebar:
     home: "right"  
     list: "right"  
     single: "right"
     # Enable widgets in given order
-    widgets: ["search", "recent", "categories", "taglist", "social"]
+    widgets: ["search", "recent", "categories", "taglist", "social", "languages"]
     avatar: "img/avatar.png"
   widgets: 
     social: 
       github: "elabit"
       email: "mail@robotmk.org"
   post_meta: ["author", "date", "categories"]
+  toc: true
 
 markup:
   goldmark:
     renderer:
       unsafe: true  # Allows HTML in Markdown
+
+defaultContentLanguage: en
+defaultContentLanguageInSubdir: true
+languages:
+  en:
+    # contentDir: content/en
+    languageCode: en-US
+    languageDirection: ltr
+    languageName: English
+    weight: 1
+  de:
+    # contentDir: content/de
+    languageCode: de-DE
+    languageDirection: ltr
+    languageName: Deutsch
+    weight: 2

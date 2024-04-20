@@ -27,6 +27,7 @@ thumbnail: "img/start-title.webp"
 Mit diesem Tutorial gelingt Dir der Einstig in Synthetic Monitoring mit Robotmk.  
 Gleichzeitig erhältst Du eine Schritt-für-Schritt-Anleitung, anhand der Du Deine eigene Installation überprüfen kannst. 
 
+<!--more-->
 
 ## Voraussetzungen 
 
@@ -43,9 +44,7 @@ Gleichzeitig erhältst Du eine Schritt-für-Schritt-Anleitung, anhand der Du Dei
 
 ### Download von RCC
 
-TODO: Schritt einfügen
-
-**Wichtig:** Der Checkmk-Agent, den wir gleich zusammen mit dem Scheduler installieren, wird das RCC-Binary mitbringen. Du kannst diesen Schritt hier also überspringen, wenn Du den Robot sofort (d.h. ohne vorherigen Test) in Checkmk integrieren willst. Fahre in diesem Fall mit Schritt xxx fort. 
+**Wichtig:** Der Checkmk-Agent, den wir gleich zusammen mit dem Scheduler installieren, wird das RCC-Binary mitbringen. Du kannst diesen Schritt hier also überspringen, wenn Du den Robot sofort (d.h. ohne vorherigen Test) in Checkmk integrieren willst. Fahre in diesem Fall mit dem nächsten Schritt fort. 
 
 Für einen vorherigen Test oder aber die Einrichtung eines Entwicklungs-Hosts musst Du Dir das RCC-Binary selbst besorgen. Lade es [hier](https://downloads.robocorp.com/rcc/releases/index.html) herunter ([v17.18](https://downloads.robocorp.com/rcc/releases/v17.18.0/windows64/rcc.exe)) und speichere es an einem Ort Deiner Wahl. Ich habe mir angewöhnt, ein Verzeichnis `bin` im User-Profil anzulegen: `c:\Users\simonmeggle\bin\rcc.exe`
 

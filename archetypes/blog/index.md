@@ -23,3 +23,7 @@ pager: false
 # --- must be in the leaf bundle folder or static
 #thumbnail: ""
 ---
+
+
+
+<!--more-->

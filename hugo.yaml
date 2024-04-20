@@ -53,7 +53,7 @@ params:
     list: "right"  
     single: "right"
     # Enable widgets in given order
-    widgets: ["search", "recent", "categories", "taglist", "social", "languages"]
+    widgets: ["languages", "search", "recent", "categories", "taglist", "social"]
     avatar: "img/avatar.png"
   widgets: 
     social: 

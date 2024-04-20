@@ -27,6 +27,8 @@ thumbnail: "img/start-title.webp"
 This tutorial will help you get started with Synthetic Monitoring and Robotmk.  
 At the same time, you will receive step-by-step instructions that you can use to check your own installation. 
 
+<!--more-->
+
 ## Prerequisites 
 
 - Windows-VM 
@@ -43,8 +45,7 @@ At the same time, you will receive step-by-step instructions that you can use to
 
 ### Download the RCC binary
 
-TODO: Schritt einfügen
-**Important:** The Checkmk agent, which we will install soon, will include the RCC binary. You can therefore skip this step here if you want to integrate the robot into Checkmk immediately (i.e. without prior testing). In this case, continue with step TODO. 
+**Important:** The Checkmk agent, which we will install soon, will include the RCC binary. You can therefore skip this step here if you want to integrate the robot into Checkmk immediately (i.e. without prior testing). In this case, continue with the next step. 
 
 For a prior test or to set up a development host, you will need to obtain the RCC binary yourself. Download it [here](https://downloads.robocorp.com/rcc/releases/index.html) ([v17.18](https://downloads.robocorp.com/rcc/releases/v17.18.0/windows64/rcc.exe)) and save it to a location of your choice. I have got into the habit of creating a `bin` directory in the user profile: `c:\Users\simonmeggle\bin\rcc.exe`
 

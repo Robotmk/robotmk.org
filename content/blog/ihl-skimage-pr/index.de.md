@@ -1,19 +1,27 @@
 ---
+draft: true
 title: "Kantenerkennung für die IageHorizonlibrary fixme"
-# slug: 
+# --- Italic subheading
 lead: "Which problems can arise of image recognition within ImageHorizonLibrary - and how we solved it."
+# -- giscus id to match comments
+commentid: ihl-edgedetection
+# -- predefined URL
+# slug: 
+# -- for posts in menubar, use this (shorter) title
+# menutitle: 
+description: 
 date: "2022-02-24T12:23:07+01:00"
 categories:
   - "libraries"
 tags:
   - "robotframework"
   - "ui-testing"
-authorbox: false
+authorbox: true
 sidebar: true
 pager: false
 #menu: main
 #weight: 10
-author: "Simon Meggle"
+# --- must be in the leaf bundle folder or static
 thumbnail: "img/ihl-title.png"
 ---
 

@@ -1,21 +1,28 @@
 ---
-title: "RCC: Your Ultimate Tool for Effortless Python Environment Management in Robotmk"
-slug: "rcc-the-ultimate-tool-for-robotmk"
+draft: true
+title: Effiziente Python-Integration in Robotmk dank RCC
+# --- Italic subheading
+lead: Alles, was Du das 'virtualenv on steroids' wissen musst.
 # -- giscus id to match comments
-commentid: rcc-ultimate-tool
-lead: Alles was Du über die Ausführung von Robot Framework durch Robotmk wissen musst.
-date: "2024-04-16T15:49:17+02:00"
+commentid: ihl-edgedetection
+# -- predefined URL
+slug: rcc-efficient-python-integration
+# -- for posts in menubar, use this (shorter) title
+# menutitle: 
+description:
+date: 2024-04-16T15:49:17+02:00
 categories:
-  - ""
+  - knowhow
 tags:
-  - ""
+  - rcc
+  - robotmk
 authorbox: true
 sidebar: true
 pager: false
 #menu: main
 #weight: 10
-author: "Simon Meggle"
-thumbnail: "rcc-environments.webp"
+# --- must be in the leaf bundle folder or static
+thumbnail: rcc-environments.webp
 ---
 
 ## Einführung

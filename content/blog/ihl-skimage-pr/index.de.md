@@ -1,15 +1,15 @@
 ---
-draft: true
-title: "Kantenerkennung für die IageHorizonlibrary fixme"
+draft: false
+title: "Kantenerkennung für die ImageHorizonlibrary"
 # --- Italic subheading
-lead: "Which problems can arise of image recognition within ImageHorizonLibrary - and how we solved it."
+lead: "Welche Problem beim Einsatz der Bilderkennung mit der ImageHorizonLibrary entstehen können - und wie wir sie gelöst haben."
 # -- giscus id to match comments
 commentid: ihl-edgedetection
 # -- predefined URL
 # slug: 
 # -- for posts in menubar, use this (shorter) title
 # menutitle: 
-description: 
+description: What problems can arise when using image recognition with the ImageHorizonLibrary - and how we solved them.
 date: "2022-02-24T12:23:07+01:00"
 categories:
   - "libraries"
@@ -25,282 +25,297 @@ pager: false
 thumbnail: "img/ihl-title.png"
 ---
 
-(Note: instead of [ImageHorizonLibrary](https://eficode.github.io/robotframework-imagehorizonlibrary/doc/ImageHorizonLibrary.html) I am using the acronym **IHL**.)
+Robustere Tests durch Einsatz der Canny Kantenerkennung in der ImageHorizonLibrary.
+
+<!--more-->
+
+(Hinweis: statt [ImageHorizonLibrary](https://eficode.github.io/robotframework-imagehorizonlibrary/doc/ImageHorizonLibrary.html) verwende ich die Abkürzung **IHL**.) 
 
 ## TL'DR
 
-* The image pattern based approach für UI automation attempts to find a sub-image on a screenshot of the current desktop. The region of the detected area can then be clicked on.
-* However, already 1 deviating pixel is enough to let this method fail in the default settings.
-* Libraries like **IHL** allow smaller pixel deviations by accepting an additional tolerance parameter (`confidence`, `tolerance`, `similarity`...).
-* **Obviously identical images with massive pixels of minimum deviations are still a problem, though.**
-* "Canny edge detection" is a proven method to extract only the lines from images which describe areas with high contrast. 
-* [Gautam Ilango](https://github.com/gautamilango) and me have filed a [pull request](https://github.com/eficode/robotframework-imagehorizonlibrary/pull/57) to the **IHL** which adds this method as an additional strategy. 
+* Der Bildpattern-basierte Ansatz zur UI-Automatisierung versucht, auf einem Screenshot des aktuellen Desktops einen bestimmten Teilbereich zu finden. Auf die Region des erkannten Bereichs kann dann z.B. mit der Maus geklickt werden. 
+* Bereits 1 abweichender Pixel lässt die Methode mit den Standardeinstellungen allerdings fehlschlagen.
+* Libraries wie **IHL** erlauben kleinere Pixel-Abweichungen, indem sie einen prozentualen Toleranzwert entgegennehmen (`confidence`, `tolerance`, `similarity`...).
+* **Problematisch bleiben die Unterschiede augenscheinlich identischer Bilder, bei denen eine große Masse der Pixel um minimale Details abweicht.**
+* Kantenerkennung ("Canny edge detection") ist ein probates Mittel, um aus Bildern nur noch die Linien zu extrahieren, welche hohe Kontrastübergänge beschreiben. 
+* Ein [Pull Request](https://github.com/eficode/robotframework-imagehorizonlibrary/pull/57) von [Gautam Ilango](https://github.com/gautamilango) und mir ergänzt die ImageHorizonLibrary um diese Methode als zusätzliche Strategie.  
 
 
-## Basics: This is how the image recognition works
+## Basics: So funktioniert die Bilderkennung
 
-The [Robot Framework](https://robotframework.org/) library **ImageHorizon** is based on the Python module [PyAutoGUI](https://pyautogui.readthedocs.io/en/latest/). With this module, mouse and keyboard can be automatically controlled on Linux, Mac and Windows. Thanks to the **IHL**, this technology can be used in Robot Framework tests, for example in end2end monitoring with Robotmk.
+Die für [Robot Framework](https://robotframework.org/) geschriebene Library **ImageHorizon** arbeitet auf Basis des Python-Moduls [PyAutoGUI](https://pyautogui.readthedocs.io/en/latest/). Mit diesem Modul können Maus und Tastatur auf Linux, Mac und Windows automatisiert gesteuert werden. Dank der **IHL** kann diese Technologie in Robot-Tests eingesetzt werden, zum Beispiel für End2End-Monitoring mit Robotmk.  
 
-To ensure that the library knows where it should move the mouse pointer to (e.g., to complete a click), it must first search this target region with a so called *reference picture*.
+Damit die Library weiß, wohin sie den Mauszeiger führen soll (z.B. um einen Klick auszuführen), muss ihr die Zielregion vorher bekannt sein. Diese sucht sie anhand eines sogenannten *Referenzbildes*. 
 
-Let's take this dialog box as an example:
+Nehmen wir als Beispiel dieses Dialogfeld: 
 
-{{< figure src="img/ihl-skimage-pr-notepad-save.png" title="An example dialogue" >}}
+{{< figure src="img/ihl-skimage-pr-notepad-save.png" title="Ein exemplarischer Dialog" >}}
 
-In order to press the button "*Nicht speichern*" ('do not save'), the library needs to search for a reference image (`nicht_speichern.png`) which you have to create in the project folder:
 
-{{< figure src="img/ihl-skimage-pr-nicht-speichern.png" title="The reference image in original quality" >}}
+Um den Button "Nicht speichern" anklicken zu können, wird ein Referenzbild erstellt und unter dem Namen `nicht_speichern.png` im Testordner abgelegt:
 
-Within the test, the **IHL** keyword  `Click Image` ([link](https://eficode.github.io/robotframework-imagehorizonlibrary/doc/ImageHorizonLibrary.html#Click%20Image)) is used: the only argument it needs is the name of the reference image (without its extension): 
+{{< figure src="img/ihl-skimage-pr-nicht-speichern.png" title="Das Referenzbild in Originalqualität" >}}
+
+An der Stelle im Test, wo die Abfrage erwartet wird, kommt das **IHL**-Keyword `Click Image` ([Link](https://eficode.github.io/robotframework-imagehorizonlibrary/doc/ImageHorizonLibrary.html#Click%20Image)) zum Einsatz: als Argument wird lediglich der Name der Referenzdatei `nicht_speichern` angegeben: 
 
 ```robot
     Click Image  nicht_speichern
 ```
 
-The keyword `Click Image` works as follows: 
 
-1. create a screenshot of the current screen ("*haystack*")
-2. load the reference image ("*needle*") 
-3. searche the needle within the haystack
+Im Keyword `Click Image` passiert nun folgendes: 
+
+1. Erstellen eines Screenshots vom aktuellen Bildschirm ("*Haystack*" = Heuhaufen)
+2. Laden des Referenzbildes ("*Needle*" = Nadel) 
+3. Suchen der Nadel im Heuhaufen
 
 
-> **Side note**: In programming, images are represented as a [matrix of numbers](https://www.analyticsvidhya.com/blog/2019/09/9-powerful-tricks-for-working-image-data-skimage-python/). 
-> These numbers describe the intensity of each pixel in the picture. In contrast to grayscale images (which have 1 value per pixel), RGB images are represented by a matrix of 3 values per pixel.  
-> "Searching" a reference image in the haystack image is therefore the mathematical task to determine the coordinate of a (sub) matrix within another (bigger) matrix.
+> **Side note**: Bilder werden in der Informatik dargestellt als eine [Matrix aus Zahlen](https://www.analyticsvidhya.com/blog/2019/09/9-powerful-tricks-for-working-image-data-skimage-python/). <br>
+> Diese Zahlen beschreiben die Intensität eines jeden Pixels im Gesamtbild. Im Gegensatz zu Graustufenbildern (1 Wert pro Pixel) sind RGB-Bilder eine Matrix aus 3 Werten pro Pixel.<br>
+> Die "Suche" eines Referenzbildes im Gesamtbild besteht also aus der mathematischen Aufgabe, die Koordinate einer (Sub-)Matrix innerhalb einer anderen zu bestimmen. 
  
-## Small pixel deviations and their solution
+## Kleine Pixel-Abweichungen und die Lösung 
 
-The procedure described above works as long as the *needle* matrix exists exactly within the *haystack*.  
-Even one different RGB value (e.g. `(233,40,22)` instead of `(233,41,22)`) ends in an empty result. Game Over. Test FAILED.  
+Die oben beschriebene Vorgehensweise funktioniert so lange, wie die *Needle*-Matrix exakt im *Haystack* vorhanden ist. 
 
-> *"Deviation ..." Hold on - either an application runs or it doesn't. How should a **deviation of individual pixels** happen?"*
+Tanzt auch nur ein RGB-Wert (z.B. `(233,40,22)`) aus der Reihe (z.B. `(233,41,22)`), so liefert die Suche nach dem *Needle*-Bild ein leeres Ergebnis. Game Over. Test FAILED.  
 
-At first glance the scenario of pixel deviations seems to be absurd: one would like to believe that the *haystack* images are completely predictable. This is why you should not rely on that: 
+> *"Abweichung...? Moment mal - entweder eine Applikation läuft oder sie läuft nicht. Wie soll es denn zur **Abweichung einzelner Pixel** kommen?"*
 
-- **Image compression**: It is common practice that End2End monitoring connects to the applications via RDP or Citrix (for example to measure the performance of remote connections).  
-  Such systems are often preconfigured to dynamically compress the transferred screen data to make working over lame network connections possible. User won't notice the resultant artifacts, but End2End-Tests will fail. 
+Auf den ersten Blick scheint das Szenario von Pixel-Abweichungen konstruiert: man möchte gerne glauben, dass *Haystack*-Bilder 100% vorhersehbar sind. Hier die zwei Hauptgründe, warum man sich darauf nicht verlassen sollte: 
+
+
+- **Bildkompression**: Nicht selten werden beim End2End-Monitoring die Applikationen über Citrix oder RDP getestet (z.B. um die Performance über WAN-Strecken zu messen).
+  Der Administrator solcher Systeme kann eine Einstellung vorgeben (und macht das meistens auch!), die eine Einwahl auch über eine langsame Netzwerkverbindung erlaubt; der Einwahlserver kompensiert das, indem er die Bildinformation für den Client dynamisch herunterrechnet. Die dabei entstehenden Artefakte im Bild stören zwar keinen Endanwender, bringen aber den End2End-Test zu Fall.
   
 {{< figure src="img/ihl-skimage-pr-nicht-speichern-komprimiert.jpg" >}}
 
-- **Font Anti-Aliasing** (also: "font-smoothing"): computer fonts are vector based, whereas monitors are raster based. Anti-Aliasing is used by the computer to make the line of a font to be "between" two pixels. This adds artificial halftone pixels to the displayed text which make the test to appear smoother and easily readable. 
-  See [Wikipedia](https://en.wikipedia.org/wiki/Font_rasterization) for more information:  
+- **Schriftglättung** (Font-Antialiasing): Schriftarten sind vektorbasiert, Computerdisplays aber rasterbasiert. Anti-Aliasing ist vereinfacht gesagt das, was der Computer unternehmen kann, wenn eine darzustellende Schriftlinie nicht exakt in das Raster der Bildschirms passt. Er errechnet dann weitere Pixel in Zwischentönen, sodass die Schrift für das menschliche Auge "weich" aussieht und leichter zu lesen ist.  
+  Siehe [Wikipedia](https://en.wikipedia.org/wiki/Font_rasterization):
 
 {{< figure src="img/ihl-skimage-pr.md-fontantialiasing.png" >}}
 
-- **Bonus reason no. 3**: 3rd party sources. See practical example below.
+- **Bonus-Grund Nr. 3**: Fremd-Quellen. Dazu später mehr (Praxisbeispiel).
 
-I guess these were the problems which the authors of the **ImageHorizonLibrary**, [Eficode](https://www.eficode.com), faced; anyway, the **IHL** provides an option called `confidence` (Keyword: [Set Confidence](https://eficode.github.io/robotframework-imagehorizonlibrary/doc/ImageHorizonLibrary.html#Set%20Confidence)). `confidence` is a value between `0` and `0.99` and describes how many percent of the *needle* image have to be contained in the *haystack* image. 
+Mit diesen Problemen hatten wohl auch schon die Autoren der ImageHorizonLibrary, [Eficode](https://www.eficode.com), zu tun; jedenfalls beinhaltet die **IHL** die Möglichkeit, einen Wert namens `confidence` zu setzen (Keyword: [Set Confidence](https://eficode.github.io/robotframework-imagehorizonlibrary/doc/ImageHorizonLibrary.html#Set%20Confidence)). `confidence` ist ein Wert zwischen `0` und `0.99` und beschreibt, wieviel Prozent des Referenzbildes (*Needle*) im Suchbild (*Haystack*) enthalten sein müssen - oder anders ausgedrückt: wie viele Augen die Library bei der Bilderkennung zudrücken darf.
 
 ```
-# Setting confidence during library import
+# Setzen von Confidence beim Import der Library
 Library  ImageHorizonLibrary  confidence=0.95
-# alternative way: setting during the test
+# Alternativ: Ändern von Confidence während des Tests
 Set Confidence  0.95
 ```
 
-> `confidence` needs `python-opencv` to be installed.
 
+> `confidence` ist ein Feature, welches die Installation des Python-Moduls `python-opencv` erfordert.
 
-### confidence: a practical example
+### confidence: Praxisbeispiel
 
-The following picture shows the letter "a" in a picture with the dimensions of 10x10px:
+Das folgende Bild zeigt den Buchstaben "a" in einem Bild mit den Abmessungen 10x10px: 
 
 {{< figure src="img/ihl-skimage-pr-a.png" title="10x10px" >}}
 
-Let us assume that this letter should be recognized on the desktop and the picture above is now used as a reference image (*needle*).
+Lass uns annehmen, dass dieser Buchstabe auf dem Desktop erkannt werden soll und dieses Bild nun als Referenzbild (*Needle*) verwendet wird. 
 
-**The image will always be recognized.** 
+**Die Erkennung wird zu 100% funktionieren.** 
 
-Now we enable the **font anti-aliasing** in our operating system's settings. It adds additional pixels (~20) to the original image:
+Wir schalten nun die **Schriftartglättung** des Betriebssystems ein. Sie fügt der Darstellung des Buchstabens plötzlich weitere "künstliche" Pixel hinzu (es sind ca. 20): 
 
 {{< figure src="img/ihl-skimage-pr-a-smooth.png" title="10x10px" >}}
 
-**Now the test fails.** 
+**Unser Test schlägt nun fehl.** 
 
-We have a bad suspicion: font smoothing! We lower the `confidence` value to `0.9`. Only 90% of the *needle* image have to match now. 
+Wir haben einen üblen Verdacht: Schriftartglättung! Also drehen wir am `confidence`-Wert und setzen diesen auf `0.9` herunter. Jetzt müssen nur noch 90% des *Needle*-Bildes übereinstimmen.  
 
-**The test still fails.**
+**Der Test schlägt immer noch fehl.**
 
-Again we lower `confidence` to `0.8` and - horray: **IHL** recognizes the letter again. The non-matching pixels are shown in the following image in yellow. That are 19 pixels of 100, which means we are *just below* the tolerance of 20%: 
+Wir setzen `confidence` auf `0.8` herab und siehe da - **IHL** erkennt den Buchstaben wieder. Die im folgenden Bild gelb markierten Pixel sind die, welche **IHL** beim Bildvergleich als nicht mit der Region im Originalbild übereinstimmend erkannt hat. Das sind 19 Pixel von 100 und damit sind wir *gerade noch* unter der Toleranz von 20%: 
 
 {{< figure src="img/ihl-skimage-pr-a-20.png" title="10x10px" >}}
 
-### Confidence: an intermediate conclusion
+### Confidence: ein Zwischenfazit
 
-**Small pixel deviations can be catched by carefully lowering the `confidence` level.**
-
-
-> Always make sure that the configuration of systems you are using for execution of End2End tests follows a strict scheme. 
+**Wenn man sich mit dem `confidence`-Level langsam nach unten tastet, kann man geringe Pixelabweichungen abfangen.**
 
 
-## The danger of massive pixel deviations
+> Stelle sicher, dass die Systeme, auf denen Du Tests ausführst, nach ganz strikten Regeln eingerichtet sind.<br>Dazu gehören Punkte wie die oben erklärte Schriftglättung, aber auch die Auflösung (Stichwort: responsive UI), Bildschirmschoner, etc. 
 
-All examples shown so far, with small pixel deviations, were executed with the image recognition method of **ImageHorizonLibrary**, which is based on `pyautogui`. 
+## Die Gefahr massiver Pixelabweichungen
 
-What about **larger pixel deviations**? 
+Die bisher gezeigten Beispiele wurden allesamt mit dem mit dem auf `pyautogui` basierenden Bilderkennungs-Modus von **IHL** durchgeführt. Damit konnte ich aufzeigen, dass man sich hier und da mit einer Anpassung der `confidence` helfen kann, um "kleinere" Pixel-Abweichungen in den Griff zu bekommen. 
 
-> *Even larger...? Come on.*
+Wie sieht es denn mit **größeren Abweichungen** aus? 
 
-**Yes**. That happens.
+> *Noch größere Abweichungen? So etwas kommt doch nicht vor!*
 
-### Why confidence can fail
+**Doch**. Das kommt vor. 
 
-Let's pick up the last example and assume that the letter should also be recognized when its **background color** changes. This happens for example when the mouse pointer "hovers" over a button. (Apart from that, this error cannot happen in web based tests done with [Selenium](https://robotframework.org/SeleniumLibrary/SeleniumLibrary.html) or [Playwright](https://marketsquare.github.io/robotframework-browser/Browser.html)!)
+### Warum confidence alleine scheitert
 
-Again, in yellow: the pixels which do not match with the reference image: 
+Greifen wir das Beispiel vom vorherigen Abschnitt auf und nehmen an, dass der Buchstabe auch dann erkannt werden soll, wenn sich die **Hintergrundfarbe** geändert hat. Das ist z.B. der Fall beim "Hover"-Effekt eines Buttons, wenn man die Maus darüber bewegt. (Im Übrigen kann dieser Fehler in Web-Tests mit [Selenium](https://robotframework.org/SeleniumLibrary/SeleniumLibrary.html) oder [Playwright](https://marketsquare.github.io/robotframework-browser/Browser.html) nicht vorkommen!) 
+
+Wieder in Gelb dargestellt: die Pixel, die nicht mit dem Referenzbild übereinstimmen: 
+
 
 {{< figure src="img/ihl-skimage-pr-a-all.png" title="10x10px" >}}{{< figure src="img/ihl-skimage-pr-a.png" title="10x10px" >}}
 
-**3/4 of the upper image is different from the original image below.** Only 23% of the pixels match.
+**Dieses Bild (oben) stimmt zu über 3/4 nicht mehr mit dem Originalbild (unten) überein.** Nur noch 23% der Pixel entsprechen dem Original. 
 
-In purely arithmetical terms also a `confidence` value of `0.2` works (assuming that the *haystack* image is as small like that). But in practice, the *haystack* is always a full screen, where the algorithm will find dozens of matching regions!
+Rein rechnerisch funktioniert auch ein `confidence`-Wert von `0.2` mit einem so kleinen *Haystack*-Bild wie in diesem Beispiel. 
+In der Praxis jedoch ist der *Haystack* ein ganzer Bildschirm, in dem es Dutzende solcher "20%"-Übereinstimmungen geben kann. 
 
-### Practical example (turn every stone...)
+### Praxisbeispiel (dreh wirklich jeden Stein um...)
 
-I want to substantiate this case with an example from a customer project. Lession learned: don't take anything as granted. 
+Diesen Fall möchte ich gerne mit einem Beispiel aus einem Kundenprojekt untermauern. Und dieses Beispiel zeigt wieder einmal, dass man nichts als gegeben hinnehmen sollte. 
 
-I had implemented a Robotmk End2End monitoring test for a **highway management application**.
+Ich hatte mit Robotmk einen End2End-Test für eine **Autobahn-Management-Software** implementiert. 
 
-During the integration phase, I discovered that the test which should check the proper loading of the map **failed in 3-5% of the executions**. The only error I got: *Image not found.*
+In der Integrationsphase fiel auf, dass von dem Robot-Test, der das Laden der Landes-Autobahnkarte mit **IHL** überprüfen sollte, ca. **3-5% der Ausführungen fehlschlugen**. Die Fehlermeldung war: *Image not found.*
 
-*Not seriously*, I thought, conscientiously checking all the logs. But without any new finding.  
+*Kann doch nicht sein*, denkt man sich und prüft gewissenhaft die Logs. Es sah alles gut aus. 
 
-And of course, I also fiddled around with `confidence`. :-) But it was painful to have no feedback about what the library exactly detected. The results got even worse. 
+Und natürlich fummelte ich an der `confidence`. :-) Aber ohne Feedback, *was genau* **IHL** erkennt, war das totaler Blindflug. Die Ergebnisse wurden nur noch schlechter. 
 
-In the course of my error search I expanded the test so that on every run it first took a partial screenshot (btw, a really cool feature of [Screencap Library](https://mihaiparvu.github.io/ScreenCapLibrary/ScreenCapLibrary.html)) of exactly the map region which should be checked. 
+Im Rahmen meiner Fehlersuche erweiterte ich daraufhin den Test, sodass er unmittelbar vor der Erkennung partial Screenshots (ein cooles Feature der [Screencap Library](https://mihaiparvu.github.io/ScreenCapLibrary/ScreenCapLibrary.html)) von exakt der zu erkennenden Kartenregion anlegte.
 
-The following two images show 
+Hier zwei solcher Bilder der Landeskarte: 
 
-- the reference image
-- the cropped screenshot image
+- das Referenzbild
+- den zugeschnittenen Teil des Screenshots
   
-and obviously, they seem to be fully identical, even when zooming in (don't they?): 
+und sie scheinen - auch bei extremer Vergrößerung - absolut gleich auszusehen (oder nicht?): 
 
 {{< figure src="img/ihl-skimage-pr-highwaymap.png" title="identical - or not? " >}}
 
-After some time, I compared the MD5 checksums of all those screenshots. 
+Nach einiger Zeit verglich ich dann die MD5-Prüfsummen der angelegten Screenshots von den Maps, **wie sie tatsächlich angezeigt wurden**. 
 
-**I was pretty astonished**: indeed, most of the checksums were equal (the reference image matched), but a small amount of the checksums, taken on three different hosts, **were different**! (Look at the `b17` und `cd2` sums...!) 
+**Ich staunte nicht schlecht**: Wie erwartet waren die meisten Prüfsummen gleich (das Referenzbild passte also), ein kleiner Teil der Prüfsummen aber war auf den drei Testhosts tatsächlich **stets unterschiedlich**! (Seht euch die MD5-Hashes mal genau an: `b17` und `cd2` sind komplementär Ausreißer und Haupt-Hash!)
+
 
 {{< figure src="img/ihl-skimage-pr-md5sumpng.png" title="MD5 sums on all test hosts" >}}
 
-(Yes, of course: replacing those aged test VMs with fresh ones would probably have resolved the issue or at least provided more insights. But they would have taken too long to order....)
+(Natürlich wünscht man sich in so einem Fall drei frisch aufgesetzte Test-Maschinen. Aber das Leben ist kein Ponyhof: neue VMs hätten Wochen gedauert...)
 
-I then uploaded both images to an [online image comparison service](https://online-image-comparison.com).
+Ich lud dann je ein Haupt-Bild und ein "Ausreißer"-Bild in ein [Online-Tool für Bildvergleiche](https://online-image-comparison.com) hoch.
 
-**One and the same Map. Two images.**
-(To avoid misinterpretations: the red pixels are the differences...)
+
+**Ein und dieselbe Karte. Zwei Bilder.**
+(Damit keine Missverständnisse auftreten: die roten Pixel sind die Unterschiede... )
 
 {{< figure src="img/ihl-skimage-pr-diff.png" title="Oops. " >}}
 
-OMG... Occasionally, the maps are indeed loaded in a different way from the map provider. Strongly magnified, you can divine a **minimum change in brightness** at some regions.
+Ja, die Maps werden vereinzelt tatsächlich unterschiedlich vom Map-Provider geladen. Bei starker Vergrößerung sieht man an bestimmten Stellen eine **minimale Veränderung der Helligkeit**.  
 
-But... why? I won't find out the solution to that question. I just learned something (again): when you are searching for the cause of an error, *turn every stone*...
+Ich darf sagen, dass ich an diesem Ergebnis zu knabbern hatte: wie kann ein und derselbe Kartenausschnitt auf drei Testmaschinen in 3-5% der Fälle so unterschiedlich geladen werden? (Die Antwort werde ich vermutlich nie erfahren. Für mich war es ein wichtiges Learning, beim Debugging wirklich *jeden* Stein umzudrehen...)
 
-### Edge detection to the rescue 
+### Kantenerkennung to the rescue 
 
-The brilliant idea came from colleague Frank Striegel (Noser Engineering AG, CH): *needle* and *haystack* have to be *processed* before the image comparison to remove all "ambient noise" (wherever it may come from).
+Die zündende Idee kam vom Kollegen Frank Striegel (NOSER Engineering AG, CH): *Needle* und *Haystack* müssen vor dem Bildvergleich jeweils von solchem "Grundrauschen" (woher auch immer es kommt) bereinigt werden.  
 
-Based on his prototype, I developed a custom keyword which pre-processes both images with the edge detection algorithm from the [skimage framework for Python](https://scikit-image.org/docs/).
-The comparison is then done the on the resulting images. It worked pretty well. 
+Aus seinem Protypen heraus entwickelte ich ein custom Keyword, welches mit Hilfe des [skimage-Frameworks für Python](https://scikit-image.org/docs/) beide Bilder vorab mit Kantenerkennung verarbeitet und die daraus resultierenden Bilder zum Vergleich heranzieht. Es funktionierte. 
 
-## Extending the ImageHorizonLibrary with skimage
+## Erweiterung der ImageHorizon-Library mit skimage
 
-Soon I rejected the idea to write a complete new library for that use case. **IHL** is such a great library and I had implemented a lot of tests with it. I simply like it because of its substructure (Pyautogui, that's all). For comparison only: the [SikuliXLibrary for Robot Framework](https://github.com/rainmanwy/robotframework-SikuliLibrary) requires Java (!) and a "JRobot Remote Server" (!!) in order to translate the Python Keywords into Java commands. 
+Vorweg: Die Idee, eine komplett neue Library zu schreiben, war schnell vom Tisch. Die ImageHorizonLibrary ist eine hervorragende Library für RobotFramework, die ich allein wegen ihres Unterbaus (Pyautogui, das war's) schätze. Zum Vergleich: die [SikuliXLibrary für Robot Framework](https://github.com/rainmanwy/robotframework-SikuliLibrary) erfordert Java (!) und einen "JRobot Remote Server" (!!) zu Übersetzung der Python-Keywords in Java-Kommandos. 
 
-During the last weeks, Gautam Ilango and I intensively worked on an extension of the **ImageHorizonLibrary**. It offers the great possibility to use edge detection in End2End tests. Now we are close to send a **pull request** to Eficode - and we are very curious about their reponse! :-) 
+Zusammen mit Franks Kollege Gautam (ebenfalls NOSER AG) habe ich in den letzten Wochen intensiv an einer Erweiterung der ImageHorizonLibrary programmiert, welche die Möglichkeit bietet, Kantenerkennung in End2End-Tests einzusetzen. Wir sind kurz davor, den **Pullrequest** an Eficode zu stellen und auch mächtig gespannt, ob er angenommen wird. :-) 
 
-### Canny edge detection in a nutshell
+### Kantenerkennung in a nutshell
 
-You can find a lot of information about the edge detection algorithm in the internet. We are using the so-called "**Canny Edge Detection**" algorithm (developed by John Francis Canny in 1986, brilliantly explained [here](https://towardsdatascience.com/canny-edge-detection-step-by-step-in-python-computer-vision-b49c3a2d8123). It consists of those **five steps**:
+Wie Edge detection genau funktioniert, ist vielfach im Netz beschrieben. Der von uns eingesetzte "**Canny-Algorithmus**" (entwickelt von John Francis Canny, 1986, ganz hervorragend dokumentiert [hier](https://towardsdatascience.com/canny-edge-detection-step-by-step-in-python-computer-vision-b49c3a2d8123)) unterteilt sich in diese fünf Schritte: 
 
-1. **Gaussian blur** to reduce noise. The `sigma` parameter defines the intensity of the filter.
-2. **edge detection according to Sobel**: determination of the brightness curve along the x and y axes; determination of peaks by derivation 
-3. **non-max-suppression**: edges of a guaranteed width of 1px by removing irrelevant edges
-4. **Double threshold**: classification of egde pixels into strong, weak and low candidates
-5. **Hysterese**: removing weak candidates respectively allocating them to adjacent candidates
+1. **Gaußscher Weichzeichner**, um Rauschen und Unreinheiten zu reduzieren. Der `sigma`-Parameter bestimmt die Stärke des Filters. 
+2. **Sobel'sche Kantenerkennung**: Bestimmung des Helligkeitsverlaufes in x- und y-Richtung; Bestimmung der Peaks durch Ableitung  
+3. **non-max-suppression**: garantiert 1px breite Kanten durch Entfernen von nicht relevanten Pixeln
+4. **Double threshold**: Klassifizierung von Kanten-Pixeln in strong, weak und low candidates
+5. **Hysterese**: Entfernung von weak candidates, bzw. Zuteilung zu benachbarten candidates. 
 
-The effect of the `sigma` parameter in step 1 on the detected edges is shown on [Wikipedia](https://en.wikipedia.org/wiki/Gaussian_blur#Edge_detection):  
+Wie sich der `sigma`-Parameter von Schritt 1 auf die final erkannten Kanten auswirkt, ist anschaulich dargestellt auf [Wikipedia](https://en.wikipedia.org/wiki/Gaussian_blur#Edge_detection):  
 
 {{< figure src="img/ihl-skimage-pr-gaussian.gif" title="Sigma parameter in action" >}}
 
-### The strategy "edge"
 
-Our extended version of the **IHL** is fully compatible to the existing version. Using the "[Strategy](https://refactoring.guru/design-patterns/strategy)" design pattern I was able to make the adaption as less invasive as possible. 
+### Die Strategie "edge"
 
-This means that if you import the **IHL** library as usual, it uses till the `pyautogui` module for image recognition: 
+Die von uns erweiterte **IHL** ist voll kompatibel zur bestehenden Version. Ich habe unter Anwendung des [Strategy](https://refactoring.guru/design-patterns/strategy)-Design-Patterns dafür gesorgt, dass der Eingriff in den Code so minimal wie möglich erfolgt. 
+
+Das bedeutet, dass sich in der Handhabung der Library nichts ändert. Ohne weitere Parametrisierung arbeitet sie nach wie vor mit der Bilderkennung per `pyautogui`:
 
     Library  ImageHorizonLibrary  reference_folder=...
 
-Now let's say that a *needle* image cannot be found in the *haystack* because of too much deviating pixels. In that case (and only then!) you have a reason to switch the strategy with the keyword `Set Strategy`:
+Nun angenommen, ein *Needle*-Bild wird wegen zu starker Abweichungen nicht zuverlässig im *Haystack* gefunden. Dann (und wirklich nur dann!) gibt es einen guten Grund, zur Bilderkennung die Kantenerkennung hinzuzuziehen. Das Keyword `Set Strategy` erlaubt es, die Strategie während des Tests zu setzen: 
 
     Set Strategy  edge
 
-From that moment on, all existing keywords of the **IHL** are using edge detection for image recognition. Both reference and screenshot image are reduced to their very relevant content (= the edges) bofore they are compared against.
+Alle bestehenden Keywords der **IHL** arbeiten ab diesem Moment mit der Bilderkennung auf Basis der edge detection. Referenz- und Screenshot-Bild werden vor dem Bildvergleich also erst per Kantenerkennung auf das Wesentliche reduziert. 
 
-In certain situations it possible that even after the edge detection the reference image can't be found on the screenshot (e.g. when artifacts of RDP/Citrix compression resulted in a little different edge line).
+In bestimmten Situationen kann es vorkommen, dass das Referenzbild selbst nach der Kantenerkennung nicht zuverlässig auf dem Screenshot gefunden werden kann (z.B. weil Artefakte bei der Bildkompression durch RDP/Citrix einen minimal anderen Kantenverlauf ergeben haben). 
 
-But pixel deviations like this occur only *along* the edge line, thus they are *relevant* imageinformation. In this case, a smaller confidence level of `0.9` for example is sufficient to get a robust image detection even in this case. 
+Solche Pixelabweichungen bewegen sich im vom Grundrauschen bereinigten Bild aber immer im Bereich der Kanten, zählen also zur relevanten Bildinformation. Es reicht somit, `confidence` ggf. leicht herabzusetzen (z.b. auf `0.9`), um eine verlässliche Bilderkennung zu erreichen. 
 
-### The image debugger 
+### Der Image Debugger 
 
-If this were it all, the **IHL** would have "another" recognition strategy which "somehow works better", but you wouldn't still know why.  
+Bliebe es beim bisher Vorgestellten, so besäße die **IHL** nun eine weitere Erkennungsstrategie, die zwar "irgendwie besser" arbeitet, deren Arbeitsweise aber ebenfalls nicht nachvollziehbar ist.  
 
-To be able to fine-tune `confidence` in both strategies (and others in skimage), a new keyword `Debug Image` was created. Simply use it right before the line in a Robot test where the recognition of a reference image is unwilling to work: 
+Damit in beiden Strategien die `confidence` und in skimage auch noch weitere Parameter feinjustiert werden können, wurde ein neues Keyword `Debug Image` geschaffen. Es kann direkt vor der Stelle im Test eingesetzt werden, wo ein Referenzbild nicht zuverlässig funktionieren will. 
 
 ```
 Debug Image
 Click Image  image_varying
 ```
 
-After the suite restart, the test will pause at the problematic position and open the **ImageHorizon-Debugger-GUI**, which was crafted by Gautam Ilango.
+Nach einem Neustart der Robot-Suite wird der Test nun an exakt der problematischen Stelle anhalten und die **ImageHorizon-Debugger-GUI** öffnen, welche Gautam Ilango entwickelt hat. 
 
-The debugger allows to select the *needle* image from the [reference_folder](https://eficode.github.io/robotframework-imagehorizonlibrary/doc/ImageHorizonLibrary.html): 
+Von hier aus wählt man das *Needle*-Bild aus dem [reference_folder](https://eficode.github.io/robotframework-imagehorizonlibrary/doc/ImageHorizonLibrary.html): 
 
 {{< figure src="img/ihl-skimage-load-img.png" title="Select the needle image" >}}
 
-Below of that there are two sections for both strategies with a button `Detect reference image` and a handful of sliders for different parameters:  
+Darunter teilt sich die Ansicht in zwei Bereiche für die beiden Erkenungsstrategien "Default" und "Edge" mit verschiedenen Slidern zur jeweiligen Parametrisierungund je einem Button `Detect reference image`:
+
 
 {{< figure src="img/ihl-skimage-sections.png" title="The computation section wiht both strategies to test" >}}
 
-When you click this button the debugger will try to detect the reference image with the according strategy on the current desktop. It will do it exactly like during a keyword execution like `Wait For`.
-The viewer in the lower area of the window shows the needle image and, left of that, a thumbnail image of the current ***haystack* image with all matching regions**:
+Klickt man diesen, so versucht der Debugger, das Referenzbild mit der entsprechenden Strategie auf dem Desktop zu finden - auf exakt die Weise wie bei Ausführung eines Robot-Keywords (z.B. `Wait For`).
+
+Der Viewer im unteren Bereich zeigt daraufhin das Needle-image und links davon, **rot markiert, alle auf dem Desktop gefundenen Treffer**.
 
 {{< figure src="img/ihl-skimage-imageviewer.png" title="Result section with match preview" >}}
 
-The debugger UI gives you answers to two important questions: 
+Der Image Debugger liefert hier zwei wichtige Informationen: 
 
-- **How many matches?** - Up to now, you were in the dark here. In case of multiple (equal) matches the library always takes the first one - without any warning. There is no guarantee that this order won't change.  
-"**Matches found**" helps to decide whether it is better to search first for an unique "fixed point" and to navigate from there with relative keywords like `Click To The Right Of`. 
-- **How is the detection quality?** - Up to now it was difficult to find a proper value for `confidence`.
-"**Max. Peak Value**" indicates the percentage of matching pixels in the *best* matching region. This eases fine-tuning of `confidence` a lot. 
-
-As soon as you are satisfied with the settings, you can copy/paste the keyword `Set Strategy` into the Robot test file. 
+- **Wie viele Treffer wurden insgesamt gefunden?** - Bisher tappte man hier mehr oder weniger um Dunklen. Bei mehreren (gleichen) Treffern greift die Library nämlich zum ersten im Array aller erkannten Regions - ohne weitere Warnung. 
+Anhand "**Matches found**" kann man entscheiden, ob man sich besser ein eindeutiges Referenzbild als "Fixpunkt" suchen und von dort aus mit relativen Keywords zum gewünschten Punkt gehen sollte (z.b. mit `Click To The Right Of`). 
+- **Wie ist die Erkennungsqualität?** - Bisher war die Einstellung der `confidence` nur aufwändig per "try & error" (Bild matcht/matcht nicht) möglich. 
+Der "**Max. Peak Value**" zeigt an, zu wie viel Prozent das Referenzbild im *besten* Match übereinstimmt. Das erleichtert die Feinjustierung der `confidence` erheblich. 
+  
+Ist die optimale Einstellung gefunden, kann das Keyword `Set Strategy` zur Parametrisierung der Strategie per copy/paste in das Robot-File übertragen werden.  
 
 --- 
 
-A click on "**Edge detection debugger**" opens another window which shows *needle* and *haystack* images **before and after the edge detection**. The viewer also allows to zoom into the images in order to inspect the regions: 
+So richtig interessant wird die Sache, wenn man nach Ausführung der Kantenerkennung den Button "**Edge detection debugger**" klickt: er öffnet ein weiteres Fenster, in dem man *Needle*- und *Haystack*-Bild **vor und nach der Kantenerkennung** sehen kann. Die erkannten Bereiche können mit der Lupe herangezoomt und bewertet werden: 
 
 {{< figure src="img/ihl-skimage-detaildebugger.png" title="Detailled view of the matching results" >}}
 
-Thanks to this visual feedback, `confidence` (and in case of skimage also `sigma`, `low_threshold` and `high_threshold`) can now be adjusted in a way that preferably only one single match can be achieved. 
+`confidence` (und im Fall von skimage auch `sigma`, `low_threshold` und `high_threshold`) können dank visueller Kontrolle über den Debugger nun so justiert werden, dass möglichst nur ein Treffer erzielt wird. 
 
 
-> "Matches" are only counted if the found area contains more similar pixels than set by `confidence`. Even if you see more than one match while debugging, the strategy always returns only the coordinates of the *best match* during test execution.
+> Als "Treffer" zählen nur die Regionen mit einer Pixel-Übereinstimmung höher als die `confidence`. Auch wenn während des Debuggens mehrere Treffer sichtbar sind, so wird während der Ausführung immer die Koordinate der Region zurückgegeben, welche die *höchste Übereinstimmung* aufweist.  
 
-## Conclusion
+## Zusammenfassung
 
-Our extension to the **ImageHorizonLibrary** makes application tests possible even if the *haystack* image was "optimized" or "falsified" (this is in the eye of the beholder...) due to **image compression, font smoothing** etc., or even if content from **external sources** cannot be taken as predictable (as shown in the example of the highway operator application).
+Unsere Erweiterung der **ImageHorizonLibrary** durch **Kantenerkennung** ermöglicht das Testen von Applikationen auch dann, wenn das *Haystack*-Bild durch **Bildkompression**, **Schriftglättung** o.ä. "optimiert" bzw. "verfälscht" wurde (das liegt im Auge des Betrachters...), oder gar durch **dynamisch nachgeladene Inhalte** nicht 100% vorhersehbar ist - wie am Bespiel der Autobahn-Operator-Software zu sehen. 
 
-Apropos, this is how the swiss national map looks like after edge detection (the yellow dashed line shows the dimensions of the reference image): 
+Apropos, so sieht übrigens die Karte der Schweiz nach der Kantenerkennung aus (die gelbe Linie zeigt die Abmessungen des Referenzbildes):
 
 {{< figure src="img/ihl-skimage-chmap.png" title="The swiss national map image after edge detection has been applied" >}}
 
-We (Gautam and me) are very proud about this further development which we have presented to Eficode as a [pull request on Github](https://github.com/eficode/robotframework-imagehorizonlibrary/pull/57).
+Gautam und ich sind sehr stolz auf diese Weiterentwicklung, die wir Eficode nun in Form eines [Pullrequests auf Github](https://github.com/eficode/robotframework-imagehorizonlibrary/pull/57) vorgelegt haben.
 
 ## Updates
 
-Until the pull request gets accepted, you can try out the current state of the edge detection strategy as follows: 
+### 2022-05
+Der Pullrequest ist aktuell noch nicht akzeptiert. Wenn Du die Erweiterung der ImageHorizonLibrary schon einmal testen möchtest, gehe wie folgt vor: 
+
 
 ```bash
 # --- create a new virtual environment 
@@ -320,6 +335,17 @@ git checkout skimage
 pip install -e . 
 ```
 
-## Thanks to ABRAXAS Informatik AG
+### 2023-02
 
-And again, a million thanks to [ABRAXAS Informatik AG (CH)](https://abraxas.ch) for the excellent collaboration, your candour for Open Source Software and last but not least the financial resources, which made all this possible.  
+Ich durfte meine Erfahrungen auf der Robocon 2023 im Rahmen eines Techtalks präsentieren: 
+
+{{< youtube l6sppkxZ_wg >}}
+
+Gegen Ende des Videos erkläre ich auch den aktuellen Stand der Dinge: leider war Eficode bis heute nicht bereit, die Library an einen anderen Maintainer zu übergeben - trotz der vielen offenen Issues und der fehlenden Zeit zur Wartung und Weiterentwicklung (wie sie selbst zugaben). 
+
+Einen Fork mit einer dauerhaften Abhängigkeit zur Codebasis von Eficode halte ich für eine sehr schlechte Idee. Es steht die Idee im Raum, die Library komplett neu zu schreiben unter Berücksichtigung dieser Punkte: 
+
+- Fixen offener Bugs 
+- Hinzufügen längst überfälliger Keywords
+- Implementieren der Kantenerkennungs-Strategie
+

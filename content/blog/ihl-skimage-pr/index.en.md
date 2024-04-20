@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: "Edge detection for the ImageHorizonLibrary"
 # --- Italic subheading
 lead: "Which problems can arise of image recognition within ImageHorizonLibrary - and how we solved it."
@@ -24,6 +24,10 @@ pager: false
 # --- must be in the leaf bundle folder or static
 thumbnail: "img/ihl-title.png"
 ---
+
+Robustere Tests durch Einsatz der Canny Kantenerkennung in der ImageHorizonLibrary.
+
+<!--more-->
 
 (Note: instead of [ImageHorizonLibrary](https://eficode.github.io/robotframework-imagehorizonlibrary/doc/ImageHorizonLibrary.html) I am using the acronym **IHL**.)
 
@@ -320,6 +324,17 @@ git checkout skimage
 pip install -e . 
 ```
 
-## Thanks to ABRAXAS Informatik AG
+### 2023-02
 
-And again, a million thanks to [ABRAXAS Informatik AG (CH)](https://abraxas.ch) for the excellent collaboration, your candour for Open Source Software and last but not least the financial resources, which made all this possible.  
+I was able to present my experiences at Robocon 2023 as part of a techtalk: 
+
+{{< youtube l6sppkxZ_wg >}}
+
+Towards the end of the video, I also explain the current state of affairs: unfortunately, Eficode has not yet been willing to hand over the library to another maintainer - despite the many open issues and the lack of time for maintenance and further development (as they themselves admitted). 
+
+I think a fork with a permanent dependency on Eficode's code base is a very bad idea. The idea is to completely rewrite the library with these points in mind: 
+
+- Fixing open bugs 
+- Adding long overdue keywords
+- Implement the edge detection strategy
+

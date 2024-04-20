@@ -311,6 +311,10 @@ Apropos, so sieht übrigens die Karte der Schweiz nach der Kantenerkennung aus (
 
 Gautam und ich sind sehr stolz auf diese Weiterentwicklung, die wir Eficode nun in Form eines [Pullrequests auf Github](https://github.com/eficode/robotframework-imagehorizonlibrary/pull/57) vorgelegt haben.
 
+
+---
+
+
 ## Updates
 
 ### 2022-05

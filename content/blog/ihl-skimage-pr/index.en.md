@@ -302,6 +302,8 @@ Apropos, this is how the swiss national map looks like after edge detection (the
 
 We (Gautam and me) are very proud about this further development which we have presented to Eficode as a [pull request on Github](https://github.com/eficode/robotframework-imagehorizonlibrary/pull/57).
 
+---
+
 ## Updates
 
 Until the pull request gets accepted, you can try out the current state of the edge detection strategy as follows: 

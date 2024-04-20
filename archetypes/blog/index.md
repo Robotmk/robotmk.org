@@ -1,6 +1,8 @@
 ---
 draft: true
 title: "{{ replace .TranslationBaseName '-' ' ' | title }}"
+# -- giscus id to match comments
+# commentid: 
 # -- predefined URL
 # slug: 
 # -- for posts in menubar, use this (shorter) title

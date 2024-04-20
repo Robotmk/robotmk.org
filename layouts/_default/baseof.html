@@ -3,9 +3,8 @@
 <head>
 	<meta charset="UTF-8">
 	<!-- Conditional Meta Tag for Posts with Titles -->
-    {{ if and (eq .Type "blog") .Title }}
-    {{/*  {{ if eq .Type "blog" }}  */}}
-    	<meta property="og:title" content="{{ .Title }}">
+    {{ if and (or (eq .Type "blog") (eq .Type "news")) .Params.commentid }}
+    	<meta property="og:title" content="{{ .Type}}-{{ .Params.commentid }}-{{ .Lang }}">
     {{ end }}
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>{{ block "title" . }}{{ if not .IsHome }}{{ .Title }} - {{ end }}{{ .Site.Title }}{{ end }}</title>

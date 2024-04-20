@@ -1,6 +1,8 @@
 ---
 draft: true
 title: "{{ replace .TranslationBaseName '-' ' ' | title }}"
+# --- Italic subheading
+# lead: 
 # -- giscus id to match comments
 # commentid: 
 # -- predefined URL
@@ -8,8 +10,6 @@ title: "{{ replace .TranslationBaseName '-' ' ' | title }}"
 # -- for posts in menubar, use this (shorter) title
 # menutitle: 
 description: 
-# --- Italic subheading
-# lead: 
 date: "{{ .Date }}"
 categories:
   - ""

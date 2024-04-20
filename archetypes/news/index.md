@@ -1,22 +1,22 @@
 ---
 draft: true
 title: "{{ replace .TranslationBaseName '-' ' ' | title }}"
+# --- Italic subheading
+# lead: 
 # -- giscus id to match comments
 # commentid: 
-#menutitle: 
-description: 
-lead: 
-thumbnail: ""
+# -- predefined URL
+# slug: 
+# -- for posts in menubar, use this (shorter) title
+# menutitle: 
+description: null
 date: "{{ .Date }}"
 categories:
-  - "news"
+  - news
 tags:
   - ""
 authorbox: true
 sidebar: true
 pager: false
-#menu: main
-#weight: 10
-# --- must be in the leaf bundle folder or static
-#thumbnail: ""
+thumbnail: ""
 ---

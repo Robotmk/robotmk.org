@@ -1,13 +1,15 @@
 ---
-draft: true
-title: "Robotmk Schnellstart"
+draft: false
+title: "Robotmk v2 Schnellstart"
+# --- Italic subheading
+lead: Eine Schnellstart-Anleitung zur Inbetriebnahme von Robotmk.
+# -- giscus id to match comments
+commentid: rmkv2-quickstart
 # -- predefined URL
 # slug: 
 # -- for posts in menubar, use this (shorter) title
-menutitle: Guide
-lead: Eine Schnellstart-Anleitung zur Inbetriebnahme von Robotmk.
-# --- Italic subheading
-# lead: 
+menutitle: Getting Started
+description: 
 date: "2024-04-17T21:37:42+02:00"
 categories:
   - "tutorials"
@@ -22,11 +24,8 @@ weight: 10
 thumbnail: "img/start-title.webp"
 ---
 
-Wie Du einen minimalen Web-Test mit Robotmk in Checkmk integrierst. 
-
-<!--more-->
-
-Mit diesem Tutorial gelingt Dir der Einstig in Synthetic Monitoring mit Robotmk. Gleichzeitig erhältst Du eine Schritt-für-Schritt-Anleitung, anhand der Du Deine eigene Installation überprüfen kannst. 
+Mit diesem Tutorial gelingt Dir der Einstig in Synthetic Monitoring mit Robotmk.  
+Gleichzeitig erhältst Du eine Schritt-für-Schritt-Anleitung, anhand der Du Deine eigene Installation überprüfen kannst. 
 
 
 ## Voraussetzungen 
@@ -35,14 +34,16 @@ Mit diesem Tutorial gelingt Dir der Einstig in Synthetic Monitoring mit Robotmk.
   - mit Internet-Zugriff
   - 8 GB RAM
   - 4, besser 8 CPUs
-  - Basis-Monitoring durch Checkmk ("Vanilla"-Agent)
-- Checkmk 2.3
+  - Basis-Monitoring durch Checkmk eingerichtet ("Vanilla"-Agent)
+- Checkmk 2.3 auf einem Linux-Host
 
 > Das Tool "RCC" wird später vom Checkmk-Agenten zwar automatisch mit installiert (`ProgramData/checkmk/agent/bin`). Ich finde es aber trotzdem praktisch, eine "eigene" Kopie des Binaries für lokale Tests zur Hand zu haben. 
 
 ## Windows-Testclient 
 
 ### Download von RCC
+
+TODO: Schritt einfügen
 
 **Wichtig:** Der Checkmk-Agent, den wir gleich zusammen mit dem Scheduler installieren, wird das RCC-Binary mitbringen. Du kannst diesen Schritt hier also überspringen, wenn Du den Robot sofort (d.h. ohne vorherigen Test) in Checkmk integrieren willst. Fahre in diesem Fall mit Schritt xxx fort. 
 
@@ -62,13 +63,13 @@ Nun ist es an der Zeit, das [Repo](https://github.com/elabit/robotmk-examples/ar
 
 > Das Repository https://github.com/elabit/robotmk-examples habe ich extra für Beispiel-Suites angelegt. Speichere es am Besten in Deinen Bookmarks. 
 
-Entzippe die Datei `master.zip` und speichere den Unterordner `web/cmk_synthetic_web` im Ordner `C:\robots\` ab. Dieser Ordner dient als sog. Basisverzeichnis für alle Robot-Suites. 
+Entzippe die Datei `master.zip` und speichere den Unterordner `web/cmk_synthetic_web` im Ordner `C:\robots\` ab. Dieser Ordner dient als sog. **Basisverzeichnis** für alle Robot-Suites. 
 
 {{< figure src="img/robot-basedir.png" title="Speicherort des neuen Robots" >}}
 
 ### Ausführen des Robots mit RCC
 
-> Bedenke, dass wir bisher *keinerlei Software* installiert haben. Gleich schlägt die Stunde von RCC! 
+> Hier noch der Hinweis, dass wir bisher *keinerlei Software* installiert haben. Gleich schlägt die Stunde von RCC! 
 
 Öffne eine CMD und wechsle in den eben kopierten Ordner `C:\robots\cmk_synthetic_web`. 
 
@@ -95,19 +96,26 @@ Der Robotmk-Scheduler, der auf dem Windows-Client später die Robot-Tests ausfü
 {{< figure src="img/bakery-search.png" title="Alle Robotmk-Regeln werden am leichtesten über das Suchwort 'robot' gefunden." >}}
 
 
-{{< figure src="img/bakery-rule.png" title="Die ausgefüllte Bakery-Rule für den Robotmk Scheduler." >}}
+{{< figure src="img/bakery-rule.png" title="Die Bakery-Rule für den Robotmk Scheduler." >}}
 
-Die Felder im einzelnen: 
+Erklärungen / Werte der einzelnen Felder: 
 
-1. Das Basisverzeichnis, in dem wir die Beispielsuite abgelegt hatten.
-2. Die erste (und einzige) parallele Ausführungsgruppe.
-3. Je Ausführungsgruppe sind sequenzielle Ausführungen von Robot Framework-Suites möglich. 
-4. Ausführungsintervall der Gruppe
-5. Name der zu testenden Applikation (Beispiel: "SAP")
-6. Der Pfad zur Robot Framework-Suite wird *relativ zum Basisverzeichnis* angegeben. 
-7. Dieser Timeout bestimmt, wie viel Zeit die Suite vom Scheduler zur Ausführung bekommt. Danach wird sie terminiert. 
-8. Relative Pfadangabe (wie 6.) zur `robot.yaml` (zentrale Config-Datei für RCC, enthält Verweis zur `conda.yaml`)
-9. Timeout zum Bauen des Environments. 
+| No  | Beschreibung                                                                                                       | Wert                            |
+| --- | ------------------------------------------------------------------------------------------------------------------ | ------------------------------- |
+| 1.  | Das Basisverzeichnis, in dem wir die Beispielsuite abgelegt hatten.                                                | `C:\robots`                     |
+| 2.  | Die erste (und einzige) parallele Ausführungsgruppe.                                                               |                                 |
+| 3.  | Je Ausführungsgruppe sind sequenzielle Ausführungen von Robot Framework-Suites möglich.                            |                                 |
+| 4.  | Ausführungsintervall der Gruppe                                                                                    | `3`                             |
+| 5.  | Name der zu testenden Applikation                                                                                  | `GoogleSearch`                  |
+| 6.  | Der Pfad zur Robot Framework-Suite wird *relativ zum Basisverzeichnis* angegeben.                                  | `cmk_synthetic_web\tests.robot` |
+| 7.  | Dieser Timeout bestimmt, wie viel Zeit die Suite vom Scheduler zur Ausführung bekommt. Danach wird sie terminiert. | `1`                             |
+| 8.  | Relative Pfadangabe (wie 6.) zur `robot.yaml` (zentrale Config-Datei für RCC, enthält Verweis zur `conda.|yaml`)   | `cmk_synthetic_web\robot.yaml`  |
+| 9.  | Timeout zum Bauen des Environments.                                                                                | `10`                            |
+
+Ganz unten wird die Regel auf den Host `windows` beschränkt: 
+
+
+{{< figure src="img/bakery-condition.png" title="Die Condition schränkt die Regel auf nur einen Host ein." >}}
 
 Danach die Regel speichern. 
 
@@ -120,6 +128,8 @@ Nun in die Agent Bakery wechseln...
 ...und einen neuen Installationsagenten backen: 
 
 {{< figure src="img/agent-bake.png" title="Backen eines neuen Agenten." >}}
+
+Sobald die Erzeugung des Agenten-Installers fertig ist, siehst Du eine neue Zeile, in welcher ganz rechts der Host steht, auf den Du die Regel beschränkt hast (`windows`). Lade von hier das MSI-Paket herunter. 
 
 {{< figure src="img/agent-baked.png" title="Download MSI-Installer" >}}
 
@@ -136,7 +146,13 @@ Der Scheduler durchläuft nach dem Start des Agenten zwei Phasen:
 - **Phase 1**: Sequenzielles Bauen aller RCC Environments
 - **Phase 2**: Scheduling der Plans (=Konfigurierte Robot Framework-Suites) im konfigurierten Intervall. 
 
-Sobald das Environment gebaut wurde und die erste Ausführung der Suite im Hintergrund (="headless") erfolgte, lassen sich zwei weitere Services discovern: 
+Bis das Environment im Hintergrund vom Scheduler gebaut wurde, können ein paar Minuten vergehen.  
+Wann es beendet ist, siehst Du daran, dass sich der Output des Scheduler Services ändert: 
+
+
+{{< figure src="img/plan-scheduling.png" title="Der Scheduler hat das Environment gebaut." >}}
+
+Nachdem die erste Ausführung der Suite im Hintergrund (="headless") erfolgt ist, lassen sich zwei weitere Services discovern: 
 
 {{< figure src="img/discovery-plan-test.png" title="Plan- u. TestService" >}}
 
@@ -147,19 +163,25 @@ Sobald das Environment gebaut wurde und die erste Ausführung der Suite im Hinte
 
 ## Checkliste 
 
-TODO: sdfsdfs
-
-
-
 Diese Checkliste fasst noch einmal alle Schritte in Kürze zusammen: 
 
 - ✓ Herunterladen und Entpacken des [Beispiel-Repos](https://github.com/elabit/robotmk-examples/archive/refs/heads/main.zip)
 - ✓ Speichern der Robot-Suite im Basisverzeichnis  `C:\robots\`
-- ✓ Die **Bakery-Regel** in Checkmk benötigt mindestens
+- ✓ Die **Bakery-Regel** in Checkmk benötigt mindestens diese Einstellungen:
   - ✓ Basisverzeichnis (z.B. `C:\robots\`)
   - ✓ Ausführungsintervall der Gruppe
   - ✓ Application Name 
-  - ✓ Pfad zum Suite-File/Verzeichnis
-  - ✓ Pfad zur `robot.yaml`
+  - ✓ (relativer) Pfad zum Suite-File/Verzeichnis
+  - ✓ (relativer) Pfad zur `robot.yaml`
 - ✓ Backen / Deployen / Installieren des Agenten
 - ✓ Discovery
+
+---
+
+## Zusammenfassung
+
+Mit diesen paar Schritten hast Du Deinen ersten Robot Framework-basierten Web-Test in Checkmk integriert.  
+**Hier ein paar Tips für Deine nächsten Schritte:**
+
+- Erkunde die Monitoring-Regel "*Robotmk tests*", mit der Du den discoverten Test und auch die im Test enthaltenen Keywords auf ihre Laufzeit überwachen kannst. 
+- Installiere und öffne Visual Studio Code. Starte eine RCC-Shell im Suite-Verzeichnis und führe `code .` aus. Das bringt öffnet die IDE direkt im RCC-Environment. Hier kannst Du die Robot-Suite ansehen und ein bisschen experimentieren. 

@@ -28,7 +28,8 @@
 
 # Authorbox
 - id: authorbox_name
-  translation: "Über {{ .Name }}"
+  # translation: "Über {{ .Name }}"
+  translation: "Über den Autor"
 
 # Sidebar
 - id: sidebar_warning
@@ -94,4 +95,17 @@
     Parameter lassen sich beliebig viele weitere Gruppen konfigurieren."
 
 - id: author_bio
-  translation: Simon ist Gründer des <a href='www.robotmk.org'>Robotmk</a>-Projekts und der <a href='www.elabit.de'>ELABIT GmbH</a>, und hat sich auf die Integration von Robot Framework-Tests in Checkmk-Umgebungen spezialisiert. Er hat über 20 Jahre Erfahrung im Open-Source-Monitoring und arbeitet inzwischen als Teilzeit-Produktmanager bei <a href='www.checkmk.com'>Checkmk</a>.<br>Für Synthetic Monitoring mit Robotmk bietet er vertiefende Online-Kurse und Workshops an und unterstützt Kunden bei der Implementierung.
+  translation: <b>Simon Meggle</b> ist Gründer des <a href='www.robotmk.org'>Robotmk</a>-Projekts und der <a href='www.elabit.de'>ELABIT GmbH</a>, und hat sich auf die Integration von Robot Framework-Tests in Checkmk-Umgebungen spezialisiert. Er hat über 20 Jahre Erfahrung im Open-Source-Monitoring und arbeitet inzwischen als Teilzeit-Produktmanager bei <a href='www.checkmk.com'>Checkmk</a>.<br>Für Synthetic Monitoring mit Robotmk bietet er vertiefende Online-Kurse und Workshops an und unterstützt Kunden bei der Implementierung.<br>Auf blog.robotmk.org berichtet er über die neuesten Entwicklungen bei Robotmk/Robot Framework, verfasst Tutorials und verrät der Community seine Best Practices. 
+
+# URLS
+- id: url_privacypolicy
+  translation: "https://www.robotmk.org/pages/privacypolicy"
+
+- id: privacy_policy
+  translation: "Datenschutzerklärung"
+
+# BREVO Forms 
+- id: brevo_form_iframe_src_robotmk_blog_newsletter
+  translation: "https://cbbd9bbd.sibforms.com/serve/MUIFAJR37-lG6CotT2Fg5_xzB_iCln_YvPwBtJygT4rgeF9sDhTlfjvll4_E2HUI-Loa4y2wZTCRB1D2U1Xkir8kR0ofwMr2l8NXhYdrl69hxUih-wrurIKxxzdSv6iEHjM7XWSldL7FHjithVuK3aYaIR2fI_f2-AC0VBVV4-G-Ym3XHlP_6kRwvtXp-kPupg6vNNIZmEmAqiN1"
+
+

@@ -3,11 +3,12 @@ Site:
     ☐ Suchfunktion mit Luna @1h 
     ☐ Mail obfuscation
     ✔ Author box @1h @done(24-04-18 21:44)
-    ☐ newsletter anmeldung @1h  @critical
+    ☐ Brevo: 
+        ☐ Formular einbinden DE/EN @1h  @critical
     ☐ authopr box @1h
         ☐ Author-Bild @30m  
-    ☐ Kommentarfunktion @1h
-        ☐ link comments with custom key @1h @critical
+    ✔ Kommentarfunktion @1h @done(24-04-21 11:14)
+        ✔ link comments with custom key @1h @critical @done(24-04-21 11:14)
     ☐ Maintenance: 
         ☐ slug überall
     
@@ -22,5 +23,9 @@ Blog:
         ☐ IHL ergänzen um RCC-basierte Installation @20m
     Authoring: 
         ☐ Application, Variant, plan ids und Servicenamen
+        ☐ RCC explained
+
         
+Marketing: 
+    ☐ Thank you page for newsletter only subscription (-> Blog) @1h
 

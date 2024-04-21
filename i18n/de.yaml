@@ -52,7 +52,7 @@
 
 # Recent Posts widget
 - id: recent_title
-  translation: "Zuletzt für Dich verfasst"
+  translation: "Zuletzt verfasst"
 
 # Social widget
 - id: social_title

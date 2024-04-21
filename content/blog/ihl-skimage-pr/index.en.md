@@ -25,7 +25,7 @@ pager: false
 thumbnail: "img/ihl-title.png"
 ---
 
-Robustere Tests durch Einsatz der Canny Kantenerkennung in der ImageHorizonLibrary.
+Edge Detection in the `ImageHorizonLibrary` - an experiment with great potential.
 
 <!--more-->
 

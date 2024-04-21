@@ -2,7 +2,7 @@
 draft: false
 title: "Robotmk v2 Schnellstart"
 # --- Italic subheading
-lead: Eine Schnellstart-Anleitung zur Inbetriebnahme von Robotmk.
+lead: Step by Step den ersten RobotFramework-Test mit Robotmk in Checkmk integrieren.
 # -- giscus id to match comments
 commentid: rmkv2-quickstart
 # -- predefined URL
@@ -21,11 +21,12 @@ pager: false
 menu: main
 weight: 10
 # --- must be in the leaf bundle folder or static
-thumbnail: "img/start-title.webp"
+thumbnail: "img/start-title.png"
 ---
 
-Mit diesem Tutorial gelingt Dir der Einstig in Synthetic Monitoring mit Robotmk.  
-Gleichzeitig erhältst Du eine Schritt-für-Schritt-Anleitung, anhand der Du Deine eigene Installation überprüfen kannst. 
+**Du weißt nicht, wie Du anfangen sollst?**  
+Mit dieser Schritt-für-Schritt-Anleitung gelingt Dir der Einstieg in Synthetic Monitoring mit Robotmk.  
+
 
 <!--more-->
 
@@ -44,7 +45,8 @@ Gleichzeitig erhältst Du eine Schritt-für-Schritt-Anleitung, anhand der Du Dei
 
 ### Download von RCC
 
-**Wichtig:** Der Checkmk-Agent, den wir gleich zusammen mit dem Scheduler installieren, wird das RCC-Binary mitbringen. Du kannst diesen Schritt hier also überspringen, wenn Du den Robot sofort (d.h. ohne vorherigen Test) in Checkmk integrieren willst. Fahre in diesem Fall mit dem nächsten Schritt fort. 
+> Der Checkmk-Agent, den wir gleich zusammen mit dem Scheduler installieren, wird das `rcc.exe`-Binary mitbringen. Du kannst diesen Schritt hier also überspringen, wenn Du den Robot sofort (d.h. ohne vorherigen Test) in Checkmk integrieren willst.  
+> Ich habe mir angewöhnt, dafür ein `bin`-Verzeichnis im User-Profil anzulegen und das Binary dort abzulegen (z.B. `c:\Users\simonmeggle\bin\rcc.exe`).
 
 Für einen vorherigen Test oder aber die Einrichtung eines Entwicklungs-Hosts musst Du Dir das RCC-Binary selbst besorgen. Lade es [hier](https://downloads.robocorp.com/rcc/releases/index.html) herunter ([v17.18](https://downloads.robocorp.com/rcc/releases/v17.18.0/windows64/rcc.exe)) und speichere es an einem Ort Deiner Wahl. Ich habe mir angewöhnt, ein Verzeichnis `bin` im User-Profil anzulegen: `c:\Users\simonmeggle\bin\rcc.exe`
 

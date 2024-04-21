@@ -2,7 +2,7 @@
 draft: false
 title: "Robotmk v2 quick start"
 # --- Italic subheading
-lead: This article helps you get started with Robotmk, including installation and minimal configuration.
+lead: Integrate the first RobotFramework test with Robotmk in Checkmk step by step.
 # -- giscus id to match comments
 commentid: rmkv2-quickstart
 # -- predefined URL
@@ -21,11 +21,11 @@ pager: false
 menu: main
 weight: 10
 # --- must be in the leaf bundle folder or static
-thumbnail: "img/start-title.webp"
+thumbnail: "img/start-title.png"
 ---
 
-This tutorial will help you get started with Synthetic Monitoring and Robotmk.  
-At the same time, you will receive step-by-step instructions that you can use to check your own installation. 
+**Don't know how to get started?**  
+This step-by-step guide will help you get started with Synthetic Monitoring with Robotmk.  
 
 <!--more-->
 
@@ -38,16 +38,14 @@ At the same time, you will receive step-by-step instructions that you can use to
   - basic monitoring by checkmk ("Vanilla"-Agent)
 - Checkmk 2.3 on a Linux host
 
-> The "RCC" tool will later be installed automatically by the Checkmk agent (`ProgramData/checkmk/agent/bin`). However, I still find it practical to have my "own" copy of the binary to hand for local tests. 
-
-
 ## Windows test client
 
 ### Download the RCC binary
 
-**Important:** The Checkmk agent, which we will install soon, will include the RCC binary. You can therefore skip this step here if you want to integrate the robot into Checkmk immediately (i.e. without prior testing). In this case, continue with the next step. 
+> The Checkmk agent, which we will install soon, will include the `rcc.exe` binary. You can therefore skip this step here if you want to integrate the robot into Checkmk immediately (i.e. without prior testing).  
+> I have got into the habit of creating a `bin` directory in the user profile and putting the binary there like this: `c:\Users\simonmeggle\bin\rcc.exe`
 
-For a prior test or to set up a development host, you will need to obtain the RCC binary yourself. Download it [here](https://downloads.robocorp.com/rcc/releases/index.html) ([v17.18](https://downloads.robocorp.com/rcc/releases/v17.18.0/windows64/rcc.exe)) and save it to a location of your choice. I have got into the habit of creating a `bin` directory in the user profile: `c:\Users\simonmeggle\bin\rcc.exe`
+For a prior test or to set up a development host, you will need to obtain the RCC binary yourself. Download it [here](https://downloads.robocorp.com/rcc/releases/index.html) ([v17.18](https://downloads.robocorp.com/rcc/releases/v17.18.0/windows64/rcc.exe)) and save it to a location of your choice. 
 
 Now add this folder to the user environment variable `%PATH%`: 
 

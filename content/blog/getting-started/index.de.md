@@ -58,8 +58,13 @@ Nun ist es an der Zeit, das [Repo](https://github.com/elabit/robotmk-examples/ar
 
 > Das Repository https://github.com/elabit/robotmk-examples habe ich extra für Beispiel-Suites angelegt. Speichere es am Besten in Deinen Bookmarks. 
 
-Entzippe die Datei `master.zip` und speichere den Unterordner `web/cmk_synthetic_web` im Ordner `C:\robots\` ab. Dieser Ordner dient als sog. **Basisverzeichnis** für alle Robot-Suites. 
 
+> Die Erstellung des Environments für den Web-Test `web/cmk_synthetic_web` benötigt einige Minuten (Python-Packages, NodeJS, ...).  
+Falls Du ein absolutes Minimal-Beispiel starten möchtest, kannst Du aus dem Demo-Repo alternativ den Robot `minimal` verwenden.  
+In diesem Fall wird außer Robot Framework nichts weiter installiert.
+
+Entzippe die Datei `master.zip` und speichere den Unterordner `web/cmk_synthetic_web` im Ordner `C:\robots\` ab. Dieser Ordner dient als sog. **Basisverzeichnis** für alle Robot-Suites.
+ 
 {{< figure src="img/robot-basedir.png" title="Speicherort des neuen Robots" >}}
 
 ### Ausführen des Robots mit RCC

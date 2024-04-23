@@ -26,3 +26,4 @@ Thumbs.db
 *.sql
 *.tar.gz
 
+.obsidian

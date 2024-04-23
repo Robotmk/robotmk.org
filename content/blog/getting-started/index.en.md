@@ -1,27 +1,21 @@
 ---
 draft: false
-title: "Robotmk v2 quick start"
-# --- Italic subheading
+title: Robotmk v2 quick start
 lead: Integrate the first RobotFramework test with Robotmk in Checkmk step by step.
-# -- giscus id to match comments
 commentid: rmkv2-quickstart
-# -- predefined URL
-# slug: 
-# -- for posts in menubar, use this (shorter) title
 menutitle: Getting started
-# --- Italic subheading
-date: "2024-04-17T21:37:42+02:00"
+date: 2024-04-17T21:37:42+02:00
 categories:
-  - ""
+  - tutorials
 tags:
-  - "Installation"
-authorbox: false
+  - Installation
+authorbox: true
 sidebar: true
 pager: false
 menu: main
 weight: 10
-# --- must be in the leaf bundle folder or static
-thumbnail: "img/start-title.png"
+thumbnail: img/start-title.png
+slug: robotmk-v2-quickstart
 ---
 
 **Don't know how to get started?**  
@@ -69,15 +63,32 @@ Unzip the file `master.zip` and save the subfolder `web/cmk_synthetic_web` in th
 
 > Please note that we have not yet installed *any software*. The hour of RCC is about to strike! 
 
-Open a CMD and change to the `C:\robots\cmk_synthetic_web` folder you just copied. 
+Open a CMD and change to the folder `C:\robots\cmk_synthetic_web` you just copied. 
+I will now explain a few commands in more detail, as they are important to understand: 
 
-The following command creates a virtual environment for everything our web test needs: Python (+packages), NodeJS (+packages), web browser.  
+- `where python`: Do we have Python available?  
+   The `where` command is the equivalent of the Linux command `which` and attempts to find the command passed as an argument via the `%PATH%` variable.  
+   The `%PATH%` variable usually consists of a whole series of search paths separated by semicolons. Windows searches for the specified programme in exactly this sequence of paths. 
+   With this test, I would like to find out whether Python is already installed on the system - and if so, where.  
+   There will probably be no output at all on your system. On the Windows shown in the video, only "pyenv" is displayed. (We don't need to go into this any further - there is no Python interpreter, period).
+-  `rcc task shell`: The fastest way into an RCC environment.  
+   This command starts `rcc` with the instruction to search for the file `robot.yaml` in the current directory. From this, rcc is only interested in a single line: the one that refers to the file `conda.yaml` (usually in the same directory).  
+   If `rcc` finds it, the tool now starts to build a completely isolated environment; it contains everything our web test needs: Python (+packages), NodeJS (+packages), and three web browsers (Firefox, Chromium, Webkit).  
+- `where python`: This time the command returns the path to the Python interpreter in the newly created environment. 
+- `where robot`: NodeJS is also installed and is found via `%PATH%`. (Isn't that cool? 😎)
+- `robot tests.robot`: Robot Framework also comes with a command line tool called `robot`, and this is also found in the search path.  
+To start the web test from this environment, it is sufficient to enter the name of the .robot file in the command. This starts the web browser in the foreground and Robot Framework performs a short Google search. 
+
+
+
 
 {{< figure src="img/rcc-task-shell-run.gif" title="Starting the robot with RCC" >}}
 
 > The execution of this test including the browser is completely based on an RCC environment! We have not installed any software beforehand!
 
-Now that we know that the robot works, let's move on to the integration in Checkmk. 
+This section has provided the proof: the robot can be started via RCC.  ✓
+
+In the next section we will now turn to the integration in Checkmk.  
 
 ---
 
@@ -133,7 +144,7 @@ As soon as the creation of the agent installer is finished, you will see a new l
 
 ### Discovery of the services
 
-The first service that can be diesovered immediately after deployment is the "Scheduler Status" service: 
+The first service that can be discovered immediately after deployment is the "Scheduler Status" service: 
 
 {{< figure src="img/discovery-schedulerstatus.png" title="Scheduler Status Service" >}}
 

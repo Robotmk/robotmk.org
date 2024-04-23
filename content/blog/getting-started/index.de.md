@@ -1,27 +1,21 @@
 ---
 draft: false
-title: "Robotmk v2 Schnellstart"
-# --- Italic subheading
+title: Robotmk v2 Schnellstart
 lead: Step by Step den ersten RobotFramework-Test mit Robotmk in Checkmk integrieren.
-# -- giscus id to match comments
 commentid: rmkv2-quickstart
-# -- predefined URL
-# slug: 
-# -- for posts in menubar, use this (shorter) title
 menutitle: Getting Started
-description: 
-date: "2024-04-17T21:37:42+02:00"
+date: 2024-04-17T21:37:42+02:00
 categories:
-  - "tutorials"
+  - tutorials
 tags:
-  - "Installation"
+  - Installation
 authorbox: true
 sidebar: true
 pager: false
 menu: main
 weight: 10
-# --- must be in the leaf bundle folder or static
-thumbnail: "img/start-title.png"
+thumbnail: img/start-title.png
+slug: robotmk-v2-schnellstart
 ---
 
 **Du weißt nicht, wie Du anfangen sollst?**  
@@ -73,14 +67,28 @@ Entzippe die Datei `master.zip` und speichere den Unterordner `web/cmk_synthetic
 > Hier noch der Hinweis, dass wir bisher *keinerlei Software* installiert haben. Gleich schlägt die Stunde von RCC! 
 
 Öffne eine CMD und wechsle in den eben kopierten Ordner `C:\robots\cmk_synthetic_web`. 
+Nun folgen ein paar Kommandos, die ich genauer erkläre, denn sie sind wichtig zum Verständnis: 
 
-Das folgende Kommando erzeugt ein virtuelles Environment für alles, was unser Web-Test benötigt: Python (+Packages), NodeJS (+Packages), Webbrowser.  
+- `where python`: Haben wir Python zur Verfügung?  
+  Das Kommando `where` ist das Äquivalent zum Linux-Befehl `which` und versucht, das als Argument übergebene Befehl über die `%PATH%`-Variable zu finden.  
+  Die `%PATH-Variable%` besteht in der Regel aus einer ganzen Reihe von Suchpfaden, die mit Semikolon voneinander getrennt sind. In genau dieser Reihenfolge der Pfade sucht Windows nach dem angegebenen Programm. 
+  Mit diesem Test möchte ich herausfinden, ob auf dem System zufällig schon Python installiert ist - und wenn ja, wo.  
+  Auf Deinem System wird vermutlich überhaupt keine Ausgabe kommen. Auf dem im Video gezeigten Windows wird lediglich "pyenv" angezeigt. (Das müssen wir nicht weiter vertiefen - es ist kein Python-Interpreter vorhanden, basta.)
+- `rcc task shell`: Der schnellste Weg in ein RCC-Environment.  
+  Dieser Befehl startet `rcc` mit der Anweisung, im aktuellen Verzeichnis nach der Datei `robot.yaml` zu suchen. Hiervon interessiert rcc nur eine einzige Zeile: nämlich die, welche auf die Datei `conda.yaml` (gewöhnlich im gleichen Verzeichnis) verweist.  
+  Wenn `rcc` sie findet, beginnt das Tool nun, ein komplett isoliertes Environment aufzubauen; darin ist alles, was unser Web-Test benötigt: Python (+Packages), NodeJS (+Packages), sowie dreierlei Webbrowser (Firefox, Chromium, Webkit).  
+- `where python`: Diesmal erhalten wir von dem Kommando den Pfad zum Python-Interpreter im neu erstellten Environment zurück. 
+- `where robot`: Auch NodeJS ist installiert und wird über `%PATH%` gefunden. (Ist das nicht cool...? 😎)
+- `robot tests.robot`: Auch Robot Framework bringt ein Kommandozeilentool namens `robot` mit, und auch dieses wird im Suchpfad gefunden. Um den Webtest von diesem Environment aus zu starten, reicht es, dem Befehl den Namen der .robot-Datei anzugeben. Damit startet der Webbrowser im Vordergrund und Robot Framework führt eine kurze Google-Suche aus. 
+  
 
 {{< figure src="img/rcc-task-shell-run.gif" title="Start des Robots mit RCC" >}}
 
 > Die Ausführung dieses Tests incl. des Browser erfolgt komplett auf Basis eines RCC-Environments! Wir haben keinerlei Software vorher installiert!
 
-Nun, da wir wissen, dass der Robot funktioniert, wenden wir uns nun der Integration in Checkmk zu. 
+Dieser Abschnitt hat den Beweis erbracht: der Robot kann über RCC gestartet werden. ✓
+
+Im nächsten Abschnitt wenden wir uns nun der Integration in Checkmk zu. 
 
 ---
 

@@ -1,28 +1,20 @@
 ---
 draft: false
-title: "Edge detection for the ImageHorizonLibrary"
-# --- Italic subheading
-lead: "Which problems can arise of image recognition within ImageHorizonLibrary - and how we solved it."
-# -- giscus id to match comments
+title: Edge detection for the ImageHorizonLibrary
+lead: Which problems can arise of image recognition within ImageHorizonLibrary - and how we solved it.
 commentid: ihl-edgedetection
-# -- predefined URL
-# slug: 
-# -- for posts in menubar, use this (shorter) title
-# menutitle: 
-description:
-date: "2022-02-24T12:23:07+01:00"
+description: 
+date: 2022-02-24T12:23:07+01:00
 categories:
-  - "libraries"
+  - libraries
 tags:
-  - "robotframework"
-  - "ui-testing"
+  - robotframework
+  - ui-testing
 authorbox: true
 sidebar: true
 pager: false
-#menu: main
-#weight: 10
-# --- must be in the leaf bundle folder or static
-thumbnail: "img/ihl-title.png"
+thumbnail: img/ihl-title.png
+slug: imagehorizon-edgedetection
 ---
 
 Edge Detection in the `ImageHorizonLibrary` - an experiment with great potential.

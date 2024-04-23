@@ -1,28 +1,20 @@
 ---
 draft: false
-title: "Kantenerkennung für die ImageHorizonlibrary"
-# --- Italic subheading
-lead: "Welche Problem beim Einsatz der Bilderkennung mit der ImageHorizonLibrary entstehen können - und wie wir sie gelöst haben."
-# -- giscus id to match comments
+title: Kantenerkennung für die ImageHorizonlibrary
+lead: Welche Problem beim Einsatz der Bilderkennung mit der ImageHorizonLibrary entstehen können - und wie wir sie gelöst haben.
 commentid: ihl-edgedetection
-# -- predefined URL
-# slug: 
-# -- for posts in menubar, use this (shorter) title
-# menutitle: 
 description: What problems can arise when using image recognition with the ImageHorizonLibrary - and how we solved them.
-date: "2022-02-24T12:23:07+01:00"
+date: 2022-02-24T12:23:07+01:00
 categories:
-  - "libraries"
+  - libraries
 tags:
-  - "robotframework"
-  - "ui-testing"
+  - robotframework
+  - ui-testing
 authorbox: true
 sidebar: true
 pager: false
-#menu: main
-#weight: 10
-# --- must be in the leaf bundle folder or static
-thumbnail: "img/ihl-title.png"
+thumbnail: img/ihl-title.png
+slug: imagehorizon-edgedetection
 ---
 
 Edge Detection in der `ImageHorizonLibrary` - ein Experiment mit viel Potential.

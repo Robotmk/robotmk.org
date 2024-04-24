@@ -18,7 +18,7 @@ thumbnail: img/start-title.png
 slug: robotmk-v2-quickstart
 ---
 
-**Don't know how to get started?**  
+  
 This step-by-step guide will help you get started with Synthetic Monitoring with Robotmk.  
 
 <!--more-->

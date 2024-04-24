@@ -18,7 +18,7 @@ thumbnail: img/start-title.png
 slug: robotmk-v2-schnellstart
 ---
 
-**Du weißt nicht, wie Du anfangen sollst?**  
+
 Mit dieser Schritt-für-Schritt-Anleitung gelingt Dir der Einstieg in Synthetic Monitoring mit Robotmk.  
 
 
@@ -64,7 +64,7 @@ Falls Du ein absolutes Minimal-Beispiel starten möchtest, kannst Du aus dem Dem
 In diesem Fall wird außer Robot Framework nichts weiter installiert.
 
 Entzippe die Datei `master.zip` und speichere den Unterordner `web/cmk_synthetic_web` im Ordner `C:\robots\` ab. Dieser Ordner dient als sog. **Basisverzeichnis** für alle Robot-Suites.
- 
+
 {{< figure src="img/robot-basedir.png" title="Speicherort des neuen Robots" >}}
 
 ### Ausführen des Robots mit RCC

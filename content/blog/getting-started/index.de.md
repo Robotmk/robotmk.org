@@ -27,11 +27,11 @@ Mit dieser Schritt-für-Schritt-Anleitung gelingt Dir der Einstieg in Synthetic 
 ## Voraussetzungen 
 
 - Windows-VM 
-  - mit Internet-Zugriff
+  - Internet-Zugriff (zum Download der Installations-Pakete durch `rcc`)
   - 8 GB RAM
-  - 4, besser 8 CPUs
+  - 4, besser 8 CPUs (2 CPUs funktionieren nicht - besser gar nicht erst versuchen)
   - Basis-Monitoring durch Checkmk eingerichtet ("Vanilla"-Agent)
-- Checkmk 2.3 auf einem Linux-Host
+- Checkmk 2.3 auf einem Linux-Server
 
 > Das Tool "RCC" wird später vom Checkmk-Agenten zwar automatisch mit installiert (`ProgramData/checkmk/agent/bin`). Ich finde es aber trotzdem praktisch, eine "eigene" Kopie des Binaries für lokale Tests zur Hand zu haben. 
 
@@ -42,7 +42,7 @@ Mit dieser Schritt-für-Schritt-Anleitung gelingt Dir der Einstieg in Synthetic 
 > Der Checkmk-Agent, den wir gleich zusammen mit dem Scheduler installieren, wird das `rcc.exe`-Binary mitbringen. Du kannst diesen Schritt hier also überspringen, wenn Du den Robot sofort (d.h. ohne vorherigen Test) in Checkmk integrieren willst.  
 > Ich habe mir angewöhnt, dafür ein `bin`-Verzeichnis im User-Profil anzulegen und das Binary dort abzulegen (z.B. `c:\Users\simonmeggle\bin\rcc.exe`).
 
-Für einen vorherigen Test oder aber die Einrichtung eines Entwicklungs-Hosts musst Du Dir das RCC-Binary selbst besorgen. Lade es [hier](https://downloads.robocorp.com/rcc/releases/index.html) herunter ([v17.18](https://downloads.robocorp.com/rcc/releases/v17.18.0/windows64/rcc.exe)) und speichere es an einem Ort Deiner Wahl. Ich habe mir angewöhnt, ein Verzeichnis `bin` im User-Profil anzulegen: `c:\Users\simonmeggle\bin\rcc.exe`
+Für einen vorherigen Test oder aber die Einrichtung eines Entwicklungs-Hosts musst Du Dir das RCC-Binary selbst besorgen. Lade es [hier](https://downloads.robocorp.com/rcc/releases/index.html) herunter (aktuell [v17.18](https://downloads.robocorp.com/rcc/releases/v17.18.0/windows64/rcc.exe)) und speichere es an einem Ort Deiner Wahl. Ich habe mir angewöhnt, ein Verzeichnis `bin` im User-Profil anzulegen: `c:\Users\simonmeggle\bin\rcc.exe`
 
 Füge diesen Ordner nun der User-Umgebungsvariable `%PATH%` hinzu: 
 

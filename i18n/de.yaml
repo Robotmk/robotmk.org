@@ -95,7 +95,7 @@
     Parameter lassen sich beliebig viele weitere Gruppen konfigurieren."
 
 - id: author_bio
-  translation: <b>Simon Meggle</b> ist Gründer des <a href='www.robotmk.org'>Robotmk</a>-Projekts und der <a href='www.elabit.de'>ELABIT GmbH</a>, und hat sich auf die Integration von Robot Framework-Tests in Checkmk-Umgebungen spezialisiert. Er hat über 20 Jahre Erfahrung im Open-Source-Monitoring und arbeitet inzwischen als Teilzeit-Produktmanager bei <a href='www.checkmk.com'>Checkmk</a>.<br>Für Synthetic Monitoring mit Robotmk bietet er vertiefende Online-Kurse und Workshops an und unterstützt Kunden bei der Implementierung.<br>Auf blog.robotmk.org berichtet er über die neuesten Entwicklungen bei Robotmk/Robot Framework, verfasst Tutorials und verrät der Community seine Best Practices. 
+  translation: <b>Simon Meggle</b> ist Gründer des <a href='https://www.robotmk.org'>Robotmk</a>-Projekts und der <a href='https://www.elabit.de'>ELABIT GmbH</a>, und hat sich auf die Integration von Robot Framework-Tests in Checkmk-Umgebungen spezialisiert. Er hat über 20 Jahre Erfahrung im Open-Source-Monitoring und arbeitet inzwischen als Teilzeit-Produktmanager bei <a href='https://www.checkmk.com'>Checkmk</a>.<br>Für Synthetic Monitoring mit Robotmk bietet er vertiefende Online-Kurse und Workshops an und unterstützt Kunden bei der Implementierung.<br>Auf blog.robotmk.org berichtet er über die neuesten Entwicklungen bei Robotmk/Robot Framework, verfasst Tutorials und verrät der Community seine Best Practices. 
 
 # URLS
 - id: url_privacypolicy

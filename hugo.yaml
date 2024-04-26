@@ -5,9 +5,9 @@ theme: mainroad
 
 menu:
   main:
-    - name: "Professional Support"
-      url: "https://www.robotmk.org/pages/professionalsupport"
-      weight: 40
+    # - name: "Professional Support"
+    #   url: "https://www.robotmk.org/pages/professionalsupport"
+    #   weight: 40
     - name: "Academy"
       url: "https://www.robotmk.org/#academy"
       weight: 30

@@ -2,6 +2,7 @@ baseURL: https://blog.robotmk.org/
 languageCode: en-us
 title: Robotmk | Blog
 theme: mainroad
+enableEmoji: true
 
 menu:
   main:

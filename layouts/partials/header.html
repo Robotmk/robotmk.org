@@ -1,4 +1,10 @@
 <header class="header sticky-top">
+	{{/*  https://github.com/statropy/github-button-hugo-shortcode  */}}
+	{{ if .HasShortcode "github_button" }}
+		<script async defer src="https://buttons.github.io/buttons.js"></script>
+	{{end}}
+	{{/*  https://github.com/statropy/github-button-hugo-shortcode  */}}
+	
 	<div class="container header__container">
 		{{ partial "logo.html" . }}
 		{{ partial "menu.html" . }}

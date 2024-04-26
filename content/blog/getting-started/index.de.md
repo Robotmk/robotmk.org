@@ -1,7 +1,7 @@
 ---
 draft: false
 title: Robotmk v2 Schnellstart
-lead: Step by Step den ersten RobotFramework-Test mit Robotmk in Checkmk integrieren.
+lead: Step by Step den ersten RobotFramework-Test mit Robotmk v2 in Checkmk integrieren.
 commentid: rmkv2-quickstart
 menutitle: Getting Started
 date: 2024-04-17T21:37:42+02:00
@@ -19,8 +19,7 @@ slug: robotmk-v2-schnellstart
 ---
 
 
-Mit dieser Schritt-für-Schritt-Anleitung gelingt Dir der Einstieg in Synthetic Monitoring mit Robotmk.  
-
+Mit dieser Schritt-für-Schritt-Anleitung gelingt Dir der Einstieg in Synthetic Monitoring mit der neuen, in Checkmk 2.3 enthaltenen Version von Robotmk.  
 
 <!--more-->
 
@@ -189,6 +188,10 @@ Diese Checkliste fasst noch einmal alle Schritte in Kürze zusammen:
   - ✓ (relativer) Pfad zur `robot.yaml`
 - ✓ Backen / Deployen / Installieren des Agenten
 - ✓ Discovery
+
+(Wenn alles geklappt hat, wäre das doch ein toller Zeitpunkt, das Projekt auf Github mit einem Stern :star: zu versehen, oder? :smile: )  
+{{< github_button button="star" user="elabit" repo="robotmk" count="true" large="true" dark="false" >}}
+
 
 ---
 

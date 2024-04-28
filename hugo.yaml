@@ -65,6 +65,8 @@ params:
   # URLS
   url:
     privacy_policy: ""
+  # Googlt Tag Manager 
+  gtm_id: GTM-P95BJXKK
   # COMMENTS
   giscus:
     commentable:

@@ -1,4 +1,9 @@
 <header class="header sticky-top">
+	{{/*  Google Tag Manager  */}}
+	{{ if .Site.Params.gtm_id}}
+		{{- partial "gtm.html" . }}
+	{{ end }}
+
 	{{/*  https://github.com/statropy/github-button-hugo-shortcode  */}}
 	{{ if .HasShortcode "github_button" }}
 		<script async defer src="https://buttons.github.io/buttons.js"></script>

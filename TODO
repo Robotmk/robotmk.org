@@ -14,11 +14,18 @@ Site:
         ✔ link comments with custom key @1h @critical @done(24-04-21 11:14)
     ☐ Maintenance: 
         ☐ slug überall
+    ☐ shortcode: do you like Robotmk - star it @30m
+    ☐ Google analytics @60m @critical
+    ☐ Thank you page umziehen @30m
+    ☐ Brevo 
+        ☐ Meeting Formular @1h @critical
+        ☐ Tracking @1h
+        ☐ Brevo Chat box @1h
     
 Design-Improvements: 
     ☐ Social Widgets schöner @30m
     ☐ responsive design: schmäler -> Menubar crappy @1h  @critical
-    ☐ Titelbilder kleiner @30m @critical
+    ✔ Titelbilder kleiner @30m @critical @done(24-04-24 07:43)
     ☐ Tags anders darstellen (https://www.designbombs.com/freebie/sliding-tags/) @30m
     ☐ Textumfluss in Listview verbessern @30m
 
@@ -28,7 +35,12 @@ Blog:
     Authoring: 
         ☐ Application, Variant, plan ids und Servicenamen
         ☐ RCC explained
+        ☐ Robotcode
+        ☐ FAQ
+        ☐ migration guide
         ☐ Professional Support
+        ☐ Mein Workshop Setup 
+        
 
         
 Marketing: 

@@ -217,6 +217,7 @@ Das folgende Video zeigt im einzelnen:
 - Den Start der Robot Framework Suite über die Debug/Start-Schaltflächen der RobotCode-Extension. Hier könntest Du nun direkt loslegen und den Test erweitern/anpassen.
 
 {{< figure src="img/windows-rcc.gif" loading="lazy" >}}
+
 ---
 
 <green>Abschließend lässt sich sagen</green>, dass RCC ein mächtiges Werkzeug ist, das die Entwicklung und Ausführung von Robotframework-Code erheblich vereinfacht, indem es dafür isolierte und portable Python-Umgebungen schafft.  

@@ -29,17 +29,25 @@ defaultContentLanguage: en
 defaultContentLanguageInSubdir: true
 languages:
   en:
-    # contentDir: content/en
     languageCode: en-US
     languageDirection: ltr
     languageName: English
     weight: 1
+    menu: 
+      main: 
+        - name: "Home"
+          url: "/en/"
+          weight: 1
   de:
-    # contentDir: content/de
     languageCode: de-DE
     languageDirection: ltr
     languageName: Deutsch
     weight: 2
+    menu: 
+      main: 
+        - name: "Home"
+          url: "/de/"
+          weight: 1
 
 ### PARAMS
 
@@ -47,8 +55,9 @@ params:
   copyright: ELABIT GmbH
   logo:
     image: rmk_crop_transp_w150.png
-  highlightColor: "#00D391"
-  mainSections: ["docs", "post", "blog"]
+  # Checkmk green
+  highlightColor: "#37d8ae" 
+  mainSections: ["news", "blog"]
   sidebar:
     home: "right"  
     list: "right"  

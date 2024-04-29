@@ -86,7 +86,7 @@ To start the web test from this environment, it is sufficient to enter the name 
 
 
 
-{{< figure src="img/rcc-task-shell-run.gif" title="Starting the robot with RCC" >}}
+{{< figure src="img/rcc-task-shell-run.gif" title="Starting the robot with RCC" loading="lazy">}}
 
 > The execution of this test including the browser is completely based on an RCC environment! We have not installed any software beforehand!
 

@@ -86,7 +86,7 @@ Nun folgen ein paar Kommandos, die ich genauer erkläre, denn sie sind wichtig z
 - `robot tests.robot`: Auch Robot Framework bringt ein Kommandozeilentool namens `robot` mit, und auch dieses wird im Suchpfad gefunden. Um den Webtest von diesem Environment aus zu starten, reicht es, dem Befehl den Namen der .robot-Datei anzugeben. Damit startet der Webbrowser im Vordergrund und Robot Framework führt eine kurze Google-Suche aus. 
   
 
-{{< figure src="img/rcc-task-shell-run.gif" title="Start des Robots mit RCC" >}}
+{{< figure src="img/rcc-task-shell-run.gif" title="Start des Robots mit RCC" loading="lazy">}}
 
 > Die Ausführung dieses Tests incl. des Browser erfolgt komplett auf Basis eines RCC-Environments! Wir haben keinerlei Software vorher installiert!
 

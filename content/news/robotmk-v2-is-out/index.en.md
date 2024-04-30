@@ -1,6 +1,6 @@
 ---
 draft: false
-title: "Robotmk v2 is out!"
+title: "🔔 Robotmk v2 is out!"
 # --- Italic subheading
 # lead: 
 # -- giscus id to match comments

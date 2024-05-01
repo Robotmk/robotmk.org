@@ -55,7 +55,13 @@
 		{{ block "header" . }}{{ partial "header.html" . }}{{ end }}
 		<div class="wrapper flex">
 			<div class="primary">
+			{{/*  https://www.ii.com/vscode-uri-scheme-and-hugo/  */}}
+			{{- if not hugo.IsProduction -}}
+				{{- partial "open-with-vscode" . -}}
+			{{- end -}}
+
 			{{ block "main" . }}
+
 				{{ with .Content }}
 				<div class="content main__content clearfix">
 					{{ . }}

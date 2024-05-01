@@ -1,0 +1,18 @@
+{{/*  https://www.ii.com/vscode-uri-scheme-and-hugo/  */}}
+
+{{- with .File -}}
+
+{{- $filepath := .Filename -}}
+{{- $dirpath := print hugo.WorkingDir "/content/" .Dir -}}
+{{- $sectionpath := print hugo.WorkingDir "/content/" .Section -}}
+
+
+<pre>
+<small>
+<b><a href="vscode://file/{{- $filepath -}}">Edit File</a></b>
+<a href="vscode://file/{{- $dirpath -}}">Edit Dir</a>
+<a href="vscode://file/{{- $sectionpath -}}">Edit Section</a>
+</small>
+</pre>
+
+{{- end -}}  <!-- END with .File -->

@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: "🔔 Robotmk On Air: Recording for the Checkmk Youtube Channel "
 # --- Italic subheading
 # lead: 

@@ -45,5 +45,6 @@ Ein großer Dank hierbei an Animesh. Er saß mit einer Engels-Geduld am Schnittp
 Diese Aufnahmesession ist nur der Auftakt für eine Serie weiterer Videos auf dem [Youtube-Kanal von Checkmk](https://www.youtube.com/@checkmk-channel) - weitere folgen!
 
 Und bald ist es so weit: ich arbeite gerade mit Hochdruck an der Fertigstellung des **Level1-Onlinekurses** zu Synthetic Monitoring mit Robotmk.  
+(Falls noch nicht geschehen: trag Dich [hier]({{< ref "/newsletter/" >}} "hier") ein, um rechtzeitig die Einladung dafür zu erhalten.) 
 
 Seid gespannt - mehr dazu demnächst hier!

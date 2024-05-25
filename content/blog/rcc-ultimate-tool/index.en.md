@@ -214,14 +214,19 @@ Make sure that you have installed Visual Studio Code and the extension [RobotCod
 
 We will use the Robot-[Suite](https://github.com/elabit/robotmk-examples/tree/main/web/cmk_synthetic_web) from the quick start tutorial as an example.
 
-The following video shows in detail: 
+The following video shows: 
 
 - Opening the `.robot` file directly in VS Code. Although the RobotCode extension is installed, no controls are displayed to start the test. This is because the extension cannot find a Python interpreter, let alone a RobotFramework installation. 
+
+{{< figure src="img/windows-rcc-nopython.gif" loading="lazy" >}}
+
+In the second video you can see how the RCC environment is created and the VS Code started in it has access to Python - the robot can be started: 
+
 - Open a `cmd` in the suite directory (=where the two RCC files `robot.yaml` and `conda.yaml` are located).
 - `rcc task shell` to activate the Python environment. If it does not exist, it will be recreated. 
 - `code .` to open the current folder in VS Code. As the paths in the CMD have already been "bent" to the RCC environment at this point, this CMD now behaves as if Python and all packages were in the operating system. Also VS Code uses these paths. 
 
-{{< figure src="img/windows-rcc.gif" loading="lazy" >}}
+{{< figure src="img/windows-rcc-python.gif" loading="lazy" >}}
 
 ---
 

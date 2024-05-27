@@ -2,25 +2,26 @@ Site:
     ☐ create 404 page @30m
     ☐ Suchfunktion mit Luna @1h 
     ☐ Mail obfuscation
+    ☐ Lazy loading (rcc) @1h
     ☐ i18n 
         ☐ sollte die aktuelle Sprache nicht anzeigen @30m
         ☐ sollte die aktuelle Seite umschalten @30m
     ✔ Author box @1h @done(24-04-18 21:44)
-    ☐ Brevo: 
-        ✔ Formular einbinden DE/EN @1h  @critical @done(24-04-21 19:35)
     ✔ authopr box @1h @done(24-04-21 19:36)
-        ✔ Author-Bild @30m @done(24-04-21 19:36)
+    ✔ Author-Bild @30m @done(24-04-21 19:36)
     ✔ Kommentarfunktion @1h @done(24-04-21 11:14)
-        ✔ link comments with custom key @1h @critical @done(24-04-21 11:14)
+    ✔ link comments with custom key @1h @critical @done(24-04-21 11:14)
     ☐ Maintenance: 
-        ☐ slug überall
-    ☐ shortcode: do you like Robotmk - star it @30m
-    ☐ Google analytics @60m @critical
+    ☐ slug überall
+    ✔ shortcode: do you like Robotmk - star it @30m @done(24-04-28 22:20)
+    ✔ Google analytics @60m @critical @done(24-04-28 22:20)
     ☐ Thank you page umziehen @30m
-    ☐ Brevo 
-        ☐ Meeting Formular @1h @critical
+    ☐ Robot Framework Playground
+    ✔ Brevo: @done(24-04-28 22:25)
+        ✔ Formular einbinden DE/EN @1h  @critical @done(24-04-21 19:35)
+        ✔ Meeting Formular @1h @critical @done(24-04-28 22:20)
         ☐ Tracking @1h
-        ☐ Brevo Chat box @1h
+        ✔ Brevo Chat box @1h @done(24-04-28 22:24)
     
 Design-Improvements: 
     ☐ Social Widgets schöner @30m
@@ -28,19 +29,28 @@ Design-Improvements:
     ✔ Titelbilder kleiner @30m @critical @done(24-04-24 07:43)
     ☐ Tags anders darstellen (https://www.designbombs.com/freebie/sliding-tags/) @30m
     ☐ Textumfluss in Listview verbessern @30m
+    ✔ Farben anpassen @done(24-04-30 00:54)
 
 Blog: 
     Refine: 
         ☐ IHL ergänzen um RCC-basierte Installation @20m
+        ☐ RCC needs som refinements @30m
     Authoring: 
+        ✔ RCC explained @done(24-04-30 00:54)
         ☐ Application, Variant, plan ids und Servicenamen
-        ☐ RCC explained
         ☐ Robotcode
         ☐ FAQ
         ☐ migration guide
         ☐ Professional Support
+        ☐ Self monitoring Checkmk
         ☐ Mein Workshop Setup 
-        
+
+News: 
+    ☐ Conference Workshops sold out 
+    ☐ Community Call (ankündigung / slides, film)
+
+    
+
 
         
 Marketing: 

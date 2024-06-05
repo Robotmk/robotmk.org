@@ -7,7 +7,7 @@ menu: footer
 weight: 1
 ---
 
-<h2>Information pursuant to Sect. 5 German Telemedia Act (TMG)</h2>
+<h2>Information pursuant to Sect. 5 Digitale-Dienste-Gesetz (DDG)</h2>
 
 {{< address_elabit >}}
 

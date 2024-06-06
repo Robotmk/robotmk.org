@@ -1,28 +1,488 @@
-{{ define "main" }}
-<main class="main list" role="main">
-	{{- with .Content }}
-	<div class="content main__content clearfix">
-		{{ . }}
-	</div>
-	{{- end }}
-	{{/*  {{ $paginator := .Paginate (where .Site.RegularPages "Type" "in" .Site.Params.mainSections) }}  */}}
-	{{/*  SME: order by date reverse  */}}
-	{{ $pages := where .Site.RegularPages "Type" "in" .Site.Params.mainSections }}
-	{{ $sortedPages := $pages.ByDate.Reverse }}
-	{{ $paginator := .Paginate $sortedPages }}
-	{{- range $paginator.Pages }}
-		{{- .Render "summary" }}
-	{{- end }}
-	{{- if and (eq $paginator.TotalNumberOfElements 0) (not $.Content) }}
-		<div class="warning">
-			{{ partial "svg/files.svg" (dict "class" "warning__icon") }}
-			<h3 class="warning__headline">{{ T "noposts_warning_title" | safeHTML }}</h3>
-			<div class="warning__text">
-				<p class="warning__description">{{ T "noposts_warning_description" | safeHTML }}</p>
-				<p class="warning__tip">{{ T "noposts_warning_tip" | safeHTML }}</p>
-			</div>
-		</div>
-	{{ end }}
-</main>
-{{ partial "pagination.html" . }}
-{{ end }}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RobotMK</title>
+  <link rel="stylesheet" href="{{(resources.Get "css/home.css").RelPermalink}}">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+
+<body>
+  {{/* top navbar section  */}}
+  <header class="header" data-preview-item="header" data-menu-style="" data-menu-type="header__nav--overlay"
+    data-section-uid="page_header">
+    <div id="skip-link"> <a href="#main-content"> Skip to main content </a> </div>
+    <div class="header__container">
+      <div class="header__wrapper">
+        <section class="header__logo header__logo___2909e"> <a href="/web/20240110155452/https://www.robotmk.org/"> <img
+              src="https://web.archive.org/web/20240110155452im_/https://import.cdn.thinkific.com/491201%2Fcustom_site_themes%2Fid%2FJR8BzX7fSYKUKOiEuPDL_robotmk2_crop.png"
+              srcset="https://web.archive.org/web/20240110155452im_/https://import.cdn.thinkific.com/491201%2Fcustom_site_themes%2Fid%2FJR8BzX7fSYKUKOiEuPDL_robotmk2_crop.png?width=384&amp;dpr=1 1x, https://web.archive.org/web/20240110155452im_/https://import.cdn.thinkific.com/491201%2Fcustom_site_themes%2Fid%2FJR8BzX7fSYKUKOiEuPDL_robotmk2_crop.png?width=384&amp;dpr=2 2x, https://web.archive.org/web/20240110155452im_/https://import.cdn.thinkific.com/491201%2Fcustom_site_themes%2Fid%2FJR8BzX7fSYKUKOiEuPDL_robotmk2_crop.png?width=384&amp;dpr=3 3x"
+              alt="" class="logo img-responsive" loading="lazy">
+            <h1 class="sr-only"> Robotmk </h1>
+          </a> </section> <button class="header__mobile-button hidden-print" aria-expanded="false"
+          aria-controls="header-dropdown-menu"> <span class="header__mobile-button__toggle-icon"> <span>Toggle
+              menu</span> </span> <span class="header__mobile-button__label "> Menu </span> </button>
+        <nav class="header__nav hidden-print">
+          <ul>
+            <li class="header__nav-item"> <a
+                href="https://web.archive.org/web/20240110155452/https://www.robotmk.org/#academy"
+                target="_self">Academy</a> </li>
+            <li class="header__nav-item"> <a href="https://web.archive.org/web/20240110155452/https://blog.robotmk.org/"
+                target="_blank">Blog</a> </li>
+            <li class="header__nav-item"> <a
+                href="https://web.archive.org/web/20240110155452/https://github.com/simonmeggle/robotmk/releases"
+                target="_blank">Download</a> </li>
+            <li class="header__nav-item"> <a
+                href="/web/20240110155452/https://www.robotmk.org/pages/professionalsupport" target="_self">Professional
+                Support</a> </li>
+            <li class="header__nav-item header__nav-sign-in"> <a
+                href="/web/20240110155452/https://www.robotmk.org/users/sign_in"> Sign In </a> </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="home" id="main-content" role="main">
+    <a id="cst-v2-section-b0e85d9649" style="opacity: 0; width: 0 !important; display: block;"></a>
+    {{/*  header section  */}}
+    <section
+      class="banneroverlay-opacity--45  section-background      section-background-overlay    section__content-alignment--left  section--has-additional-prices banner___42ec4"
+      data-preview-item="banner" data-section-uid="b0e85d9649">
+      <div class="banner__container banner__container--medium">
+        <div class="banner__wrapper">
+          <article class="section__content section__content___42ec4">
+            <header class="section__headings">
+              <h2 class="section__heading section__heading___42ec4"><b>Robotmk</b> integrates<br><b>Robot Framework</b> into
+                <b>Checkmk</b></h2>
+              <p class="section__subheading section__subheading___42ec4"><b>100% Robot Framework compatible<br>100% web
+                  based configuration<br>100% Raw data access<br><br>⭐️⭐️⭐️⭐️⭐️<br>The most downloaded MKP extension for
+                  Checkmk. <br>From spring 2024 integrated in Checkmk with the name "Synthetic Monitoring".</b></p>
+            </header>
+            <div class="product-action-buttons section__button-group"> </div>
+          </article>
+        </div>
+      </div>
+    </section>
+    {{/*  introduction - What is RobotMK?  */}}
+    <a id="cst-v2-section-JG75YkNt_" style="opacity: 0; width: 0 !important; display: block;"></a>
+    <section class="    rich-text section-height__medium      section__heading-alignment--left   rich-text___dda72"
+      data-preview-item="rich_text" data-section-uid="JG75YkNt_">
+      <div class="rich-text__container">
+        <div class="rich-text__wrapper">
+          <header class="section__headings section__headings___dda72">
+            <h2 class="section__heading">What is <b>RobotMK</b>?</h2>
+          </header>
+          <div class="section__content">
+            <div class="section__body">
+              <div class="custom-theme">
+                <div class="fr-view">
+                  <p><img
+                      src="https://web.archive.org/web/20240110155452im_/https://files.cdn.thinkific.com/file_uploads/491201/images/3e7/906/67a/robot_robotmk_checkmk.png"
+                      class="fr-fic fr-dib fr-draggable"></p>
+                  <p><br></p>
+                  <p><strong>RobotMK</strong> contains the names of the two tools <strong>Robot Framework</strong> and
+                    <strong>CheckMK</strong> (for further details see below).</p>
+                  <p>With <strong>Robot Framework</strong> you can automatically test programs, web sites (and much more...)
+                    from the perspective of the user.</p>
+                  <p>Software developers appreciate this type of tests, as an application can thus for instance be tested
+                    swiftly in all its facets and variations before being released in a new version.</p>
+                  <p>It is a great advantage to also have such tests in the monitoring system CheckMK and be able to check
+                    continuously...</p>
+                  <ul>
+                    <li>...whether the login into the CRM system functions – and how long it takes</li>
+                    <li>....whether the search function in the SAP/merchandise management system for randomly selected
+                      article numbers works</li>
+                    <li>...how efficiently the ordering process functions in the web shop</li>
+                  </ul>
+                  <p>...etc...</p>
+                  <p><strong>So far this possibility has not existed</strong>.&nbsp;</p>
+                  <p><strong>Now RobotMK creates a bridge and permits the integration of the results of Robot-tests into the
+                      monitoring system CheckMK.</strong></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    {{/*  LR Animation  */}}
+    <a id="cst-v2-section-vuTsybPfL" style="opacity: 0; width: 0 !important; display: block;"></a>
+    <section class="text-image section-height__mediumsection__content-alignment--lefttext-image___11aa9"
+      data-preview-item="text-image" data-section-uid="vuTsybPfL">
+      <div class="text-image__container text-image__container___11aa9">
+        <article class="section__content section__content___11aa9">
+          <div class="text-image__body has-image text-image__body___11aa9">
+            <header class="section__headings">
+              <h2 class="section__heading section__heading___11aa9">Create Runtime metrics.</h2>
+              <p class="section__subheading section__subheading___11aa9">Graph what you're interested in</p>
+            </header>
+            <div class="section__body"> Which elements of a Robot test (suites, tests, keywords) are to be recorded in
+              CheckMK-graphs, can be determined via a sophisticated, pattern-based rule system. <br>After all, the whole is
+              expected to remain clearly structured. </div>
+          </div>
+          <div class="text-image__image text-image__image___11aa9"> <img
+              src="https://web.archive.org/web/20240110155452im_/https://import.cdn.thinkific.com/491201%2Fcustom_site_themes%2Fid%2F06ReWDjTX2AdjCMQoAwo_robotmk_runtime_animated.gif"
+              srcset="https://web.archive.org/web/20240110155452im_/https://import.cdn.thinkific.com/491201%2Fcustom_site_themes%2Fid%2F06ReWDjTX2AdjCMQoAwo_robotmk_runtime_animated.gif?width=600 1x, https://web.archive.org/web/20240110155452im_/https://import.cdn.thinkific.com/491201%2Fcustom_site_themes%2Fid%2F06ReWDjTX2AdjCMQoAwo_robotmk_runtime_animated.gif?width=600&amp;dpr=2 2x, https://web.archive.org/web/20240110155452im_/https://import.cdn.thinkific.com/491201%2Fcustom_site_themes%2Fid%2F06ReWDjTX2AdjCMQoAwo_robotmk_runtime_animated.gif?width=600&amp;dpr=3 3x"
+              alt="" class="img-responsive" loading="lazy"> </div>
+        </article>
+      </div>
+    </section>
+    <a id="cst-v2-section-0QszOUVt9" style="opacity: 0; width: 0 !important; display: block;"></a>
+    <section class="    text-image section-height__medium      section__content-alignment--left   text-image___158b4"
+      data-preview-item="text-image" data-section-uid="vdzVM2jAv">
+      <div class="text-image__container text-image__container___158b4">
+        <article class="section__content section__content___158b4">
+          <div class="text-image__body has-image text-image__body___158b4">
+            <header class="section__headings">
+              <h2 class="section__heading section__heading___158b4">Detect functional disruptions.</h2>
+              <p class="section__subheading section__subheading___158b4">Murphy is always waiting around the corner</p>
+            </header>
+            <div class="section__body"> With Robotmk, functional faults in applications can be detected safely and
+              proactively - far before users notice anything. <br>(Wouldn't it be nice to be in a position where you can say
+              on the phone, <b><i>"We're already on it." </i></b>...?) </div>
+          </div>
+          <div class="text-image__image text-image__image___158b4"> <img
+              src="https://web.archive.org/web/20240110155452im_/https://import.cdn.thinkific.com/491201%2Fcustom_site_themes%2Fid%2FSfNXYERkQbGWwCv3m6tQ_broken_image.jpg"
+              srcset="https://web.archive.org/web/20240110155452im_/https://import.cdn.thinkific.com/491201%2Fcustom_site_themes%2Fid%2FSfNXYERkQbGWwCv3m6tQ_broken_image.jpg?width=600 1x, https://web.archive.org/web/20240110155452im_/https://import.cdn.thinkific.com/491201%2Fcustom_site_themes%2Fid%2FSfNXYERkQbGWwCv3m6tQ_broken_image.jpg?width=600&amp;dpr=2 2x, https://web.archive.org/web/20240110155452im_/https://import.cdn.thinkific.com/491201%2Fcustom_site_themes%2Fid%2FSfNXYERkQbGWwCv3m6tQ_broken_image.jpg?width=600&amp;dpr=3 3x"
+              alt="You don't see anything here, this is correct :-)" class="img-responsive" loading="lazy"> </div>
+        </article>
+      </div>
+    </section>
+    {{/*  feature listings  */}}
+    <a id="cst-v2-section-ycvadiUYk" style="opacity: 0; width: 0 !important; display: block;"></a>
+    <section
+      class="text-icon section-height__medium  section__background-decoration  section__heading-alignment--center text-icon___538a6"
+      data-preview-item="text-icon" data-section-uid="ycvadiUYk">
+      <div class="text-icon__container">
+        <header class="section__headings section__headings___538a6">
+          <h2 class="section__heading">Features</h2>
+          <p class="section__subheading">Why you should decide for the "lingua franca" of test automation.</p>
+        </header>
+        <article class="section__content">
+          <div class="text-icon__container">
+            <ul class="text-icon__list section__body">
+              <li class="text-icon__list-item"> <i class="fa fa-gears" aria-hidden="true"></i>
+                <h3 class="section__heading--secondary">Central control via WATO</h3>
+                <p><b>RobotMK</b> is configured via a powerful <b>rule system</b> in the web administration interface of
+                  CheckMK (WATO).</p>
+              </li>
+              <li class="text-icon__list-item"> <i class="fa fa-crop" aria-hidden="true"></i>
+                <h3 class="section__heading--secondary">Flexible output formatting</h3>
+                <p><b>RobotMK</b> evaluates intricately interleaved Robot results; the <b>pattern-based reduction</b> of the
+                  output to the essential ensures an optimum result. </p>
+              </li>
+              <li class="text-icon__list-item"> <i class="fa fa-volume-up" aria-hidden="true"></i>
+                <h3 class="section__heading--secondary">Readability</h3>
+                <p>The "<b>keyword-driven</b>" approach abstracts complex Python code and can be encapsulated at will – with
+                  free name choice. <br><b>The result</b>: traceable results and meaningful messages in the monitoring
+                  system.</p>
+              </li>
+              <li class="text-icon__list-item"> <i class="fa fa-handshake-o" aria-hidden="true"></i>
+                <h3 class="section__heading--secondary">100% Robot compatible</h3>
+                <p><b>RobotMK</b> does not require any adaptation to existing Robot tests; every Robot test can be
+                  integrated in CheckMK <b>without any intervention</b>.</p>
+              </li>
+              <li class="text-icon__list-item"> <i class="fa fa-area-chart" aria-hidden="true"></i>
+                <h3 class="section__heading--secondary">Performance monitoring</h3>
+                <p><b>RobotMK can monitor runtimes</b> at any level, be it whole suites, tests and keywords.<br>(Or how
+                  would you detect an insidious login time increase by 0.1s per month?)</p>
+              </li>
+              <li class="text-icon__list-item"> <i class="fa fa-binoculars" aria-hidden="true"></i>
+                <h3 class="section__heading--secondary">Worthwhile addition to CheckMK</h3>
+                <p><b>Checkmk</b> can only monitor up to <b>OSI layer 7</b>. Robotmk completes your monitoring with a
+                  detailled view inside applications to get a holistic view of services and their quality. </p>
+              </li>
+              <li class="text-icon__list-item"> <i class="fa fa-book" aria-hidden="true"></i>
+                <h3 class="section__heading--secondary">Swiss army knife</h3>
+                <p>The <b>Library concept</b> makes Robot Framework the <b>Suisse pocket knife</b>. You'll find a library
+                  for nearly any use case. And you are free to use them combined in a test.</p>
+              </li>
+              <li class="text-icon__list-item"> <i class="fa fa-comments-o" aria-hidden="true"></i>
+                <h3 class="section__heading--secondary">Strong community</h3>
+                <p>Great if you have backed the right horse, in case help is required: CheckMK and Robot have a worldwide,
+                  English speaking community at their disposal. </p>
+              </li>
+              <li class="text-icon__list-item"> <i class="fa fa-arrows-alt" aria-hidden="true"></i>
+                <h3 class="section__heading--secondary">Platform-independent</h3>
+                <p>One for all: Robot Framework works for all common platforms: Windows, Linux, MacOS, Android, iOS, ...
+                  including the appropriate test libraries in each case (e.g. Auto-IT for Windows automation).</p>
+              </li>
+              <li class="text-icon__list-item"> <i class="fa fa-unlock" aria-hidden="true"></i>
+                <h3 class="section__heading--secondary">100% Open Source</h3>
+                <p>RobotMK - like Robot Framework and CheckMK Raw – is published as an Open Source project. No hidden costs,
+                  no vendor-lock-in. <a name="academy"></a></p>
+              </li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+    {{/*  intro MK program certification - section 1 */}}
+    <a id="cst-v2-section-EmbrAcYht" style="opacity: 0; width: 0 !important; display: block;"></a>
+    <section
+    class="description section-height__medium section__column-layout__two-column section__heading-alignment--left description___97b96"
+    data-preview-item="description" data-section-uid="EmbrAcYht">
+    <div class="description__container description__container___97b96">
+      <div class="description__wrapper">
+        <header class="section__headings section__headings___97b96">
+          <h2 class="section__heading">
+            <a name="introducing-academy">Introducing the<br> <b>Robotmk Academy Certification Program.</b></a>
+          </h2>
+          <p class="section__subheading">Supercharge Your Monitoring Skills.</p>
+        </header>
+        <article class="section__content section__content___97b96">
+          <div class="section__body"> <b>Do you want to...</b><br><br>...write robust web tests? <br>...finally understand
+            and use CSS selectors? <br>...monitor any kind of Windows application? <br>...want to learn which are the most
+            useful Robot Framework libraries? <br>...reuse robot code with the help of Git? <br>...see how easy Robot
+            Framework tests can be debugged? <br>...learn how to program robots which are stable and
+            maintainable?<br>...get worthful bonus material, checklists and exercises? <br><br>✅ <b>...learn from an
+                industry expert?</b> <br> </div>
+          </article>
+        </div>
+      </div>
+    </section>
+    {{/*  intro MK program certification - section 2 */}}
+    <a id="cst-v2-section-tr6B52p_A" style="opacity: 0; width: 0 !important; display: block;"></a>
+    <section
+      class="description section-height__medium section__column-layout__one-column section__heading-alignment--left description___874eb"
+      data-preview-item="description" data-section-uid="tr6B52p_A">
+      <div class="description__container">
+        <div class="description__wrapper">
+          <header class="section__headings section__headings___874eb">
+            <p class="section__subheading"><b>Then don't miss out!</b><br>Be among the first to experience the
+              upcoming<br><br><b>🏅 Robotmk Academy Certification Program</b>. </p>
+          </header>
+          <article class="section__content section__content___874eb">
+            <div class="section__body"> It consists of three courses that build on each other, including a Windows/Linux lab
+              environment:<br><br>
+              <ul>
+                <li>Course Level 1️⃣ - <b>Robotmk Synthetic Monitoring Foundation 🧾</b>: <br>The fastest and safest way to
+                  get into synthetic monitoring with Robotmk and Checkmk</li>
+                <li>Course Level 2️⃣ - <b>Robotmk Synthetic Monitoring Advanced 🧾</b>: <br>Probably the most comprehensive
+                  course available on that subject - and probably the only one. Learn directly from the founder of Robotmk!
+                </li>
+                <li>Course Level 3️⃣ - <b>Robotmk Synthetic Monitoring Expert 🧾🏅</b>: <br>Technical preparation is not
+                  everything you need for a successful implementation of End2End monitoring (I had to learn that too...). In
+                  this course you will learn the proper planning, documentation and implementation of synthetic monitoring.
+                  <br>This is a feature-rich course based on 9 years of experience.</li>
+              </ul><br>At the end of each course you will receive a certificate of attendance. 🧾<br><b>Level 3</b>
+              concludes with the certificate <b><i>"Certified Robotmk Synthetic Monitoring Expert"</i></b>. 🏅<br>Apply now
+              and be notified as soon as the program launches!<br><br><b>Preregistration Benefits:</b><br>✅ <b>Priority
+                access</b> to course materials.<br>✅ Exclusive preregistration discount.<br>✅ <b>Early bird webinar
+                sessions</b> with the instructor.<br>✅ Stay updated with course developments and
+              schedules.<br><br><b>Anyone</b> can learn to keep their business applications <b>available, working and
+                performing</b> by following this certification system, because it takes you <b>straight to your goal</b>
+              without making any detours. <br><br>PS: If you take part in this learning program, it will not only serve your
+              company, because it can keep its applications available with a powerful tool. <br>The certification is also a
+              valuable addition to your own education portfolio that will help you stand out in the job market. 🤫 <br><br>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+    {{/*  Calendly booking  */}}
+    <section class="rich-text section-height__medium      section__heading-alignment--left   rich-text___52c21"
+      data-preview-item="rich_text" data-section-uid="64MYSzK4M">
+      <div class="rich-text__container rich-text__container___52c21">
+        <div class="rich-text__wrapper">
+          <div class="section__content">
+            <div class="section__body">
+              <div class="custom-theme">
+                <div class="fr-view">
+                  <h3>The doors to the Robotmk Certification Program are currently closed.</h3>
+                  <p>Complete the application below to be contacted when the doors are opening again:&nbsp;</p>
+                  <p><iframe style="border: 0;" width="540" height="800"
+                      src="https://web.archive.org/web/20240110155452if_/https://cbbd9bbd.sibforms.com/serve/MUIFAMl88miQSUdW1zCiBS_n7U9ydQa9HAKv3xbb8K1AcqmuWZ2fQ2byOZeBk_pJsroSOrhiPmSPmRDEASmr6rWDAOA06vslGFsLwwpmZFJg3jtSZEE98sNebdfDWGUfligVYylGEgGF_K3nIGkhVlZuaTULSYT36TbKSk-To3UmOs6rybsLCBNYMh8DiQv-hjv9GExR2EBlwjUW"
+                      scrolling="auto" allowfullscreen="" data-ruffle-polyfilled=""></iframe></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    {{/*  FAQ  */}}
+    <a id="cst-v2-section-lEHCo26W2" style="opacity: 0; width: 0 !important; display: block;"></a>
+    <section class="faq section-height__medium   section__heading-alignment--left faq___69d47" data-preview-item="faq"
+      data-section-uid="lEHCo26W2">
+      <div class="faq__container">
+        <div class="faq__wrapper">
+          <header class="section__headings section__headings___69d47">
+            <h2 class="section__heading">What often gets asked about Robotmk.</h2>
+          </header>
+          <article class="section__content">
+            <ul class="faq__list section__body">
+              <li class="faq__list-item">
+                <details>
+                  <summary> <strong> <i class="toga-icon toga-icon-caret-stroke-down" aria-hidden="true"></i> What do I need
+                      to get started with Robotmk? </strong> </summary>
+                  <p>Checkmk v2 is needed in the Enterprise version. If you want to test Checkmk first: you can download a
+                    free version from <a href="www.checkmk.com">checkmk.com</a> which is only limited in the number of
+                    services. </p>
+                </details>
+              </li>
+              <li class="faq__list-item">
+                <details>
+                  <summary> <strong> <i class="toga-icon toga-icon-caret-stroke-down" aria-hidden="true"></i> For me as
+                      programmer, the keywords of Robot look rather strange. How flexible can one be with them? </strong>
+                  </summary>
+                  <p>Writing automates tests in Python can be a mess. The keyword-driven syntax in Robot Framework
+                    facilitates readability, allowing test cases to be expressed in natural language, making them
+                    comprehensible even to non-technical stakeholders.<br>This approach eases reusability, as custom
+                    keywords can be defined once and utilized across multiple tests. Furthermore, it is possible to separate
+                    test data and test logic which simplifies test maintenance and modification.</p>
+                </details>
+              </li>
+              <li class="faq__list-item">
+                <details>
+                  <summary> <strong> <i class="toga-icon toga-icon-caret-stroke-down" aria-hidden="true"></i> Is there a
+                      recording function for End2End tests? </strong> </summary>
+                  <p>Recorder functionalities as readily advertised for commercial End2End tools should be treated with
+                    caution. A test recording is only as intelligent as the purpose behind it. This means: anybody recording
+                    click-click-click will receive click-click-click. A login, for example, should always be verified too,
+                    website elements should be localized in such a way that they also withstand changes in the UX design,
+                    etc. The implementation of End2End tests means actually addressing the behaviour of the SUT (System
+                    under test). </p>
+                </details>
+              </li>
+              <li class="faq__list-item">
+                <details>
+                  <summary> <strong> <i class="toga-icon toga-icon-caret-stroke-down" aria-hidden="true"></i> What has
+                      become of Sakuli v1? </strong> </summary>
+                  <p>The open source test tool ”Sakuli“, developed by Consol in 2014, has been officially phased out, as in
+                    particular the underlying web test tool “Sahi” did no longer meet modern requirements. The successor of
+                    Sakuli has appeared as a complete rewrite in version 2 (only the chargeable version allows the
+                    monitoring integration). </p>
+                </details>
+              </li>
+              <li class="faq__list-item">
+                <details>
+                  <summary> <strong> <i class="toga-icon toga-icon-caret-stroke-down" aria-hidden="true"></i> Can I also
+                      employ RobotMK in other monitoring systems (Nagios, Naemon, Icinga, Zabbix, Groundworks, Centreon,
+                      ...)? </strong> </summary>
+                  <p>RobotMK was especially developed for CheckMK; the wide range of parameterization as offered by the WATO
+                    surface of RobotMK cannot be reproduced via a traditional, Nagios-compatible check-in plug (possibly one
+                    more reason to take on Checkmk….)</p>
+                </details>
+              </li>
+              <li class="faq__list-item">
+                <details>
+                  <summary> <strong> <i class="toga-icon toga-icon-caret-stroke-down" aria-hidden="true"></i> So far I have
+                      written Selenium tests in Python. What reason should I have to change over to the Robot Framework?
+                    </strong> </summary>
+                  <p>If the tests remain exactly the same and are not to be integrated into a monitoring system, in effect
+                    no added value is generated by Robot. <br>The expense of integrating pure Python tests into a monitoring
+                    system should, however, not be underestimated, especially if the requirements become more complex in the
+                    course of time. <br>Sooner or later one would rather not program and maintain oneself the complete
+                    “framework“ for integrating various test methods (Web, GUI), troubleshooting etc.Exactly here lies the
+                    strength of the Robot Framework. And hence there is RobotMK.</p>
+                </details>
+              </li>
+              <li class="faq__list-item">
+                <details>
+                  <summary> <strong> <i class="toga-icon toga-icon-caret-stroke-down" aria-hidden="true"></i> My web
+                      application requires some interaction with the desktop. Is this possible with Robotmk? </strong>
+                  </summary>
+                  <p>Yes, in Robot Framework several libraries (=testing methods) can be used in mixed mode, e.g. robust
+                    modern web testing together with flexible image recognition methods. </p>
+                </details>
+              </li>
+              <li class="faq__list-item">
+                <details>
+                  <summary> <strong> <i class="toga-icon toga-icon-caret-stroke-down" aria-hidden="true"></i> Does the test
+                      client have to remain unlocked to be able to carry out End2End tests? </strong> </summary>
+                  <p>In the vast majority of cases, web tests can be executed headless, i.e. without a logged-in user.
+                    <br>For tests of native Windows UIs, a user must currently still be logged in on the desktop.
+                    <br>(Version 2 of Robotmk will soon provide a solution for this, which will also enable desktop sessions
+                    headless).</p>
+                </details>
+              </li>
+              <li class="faq__list-item">
+                <details>
+                  <summary> <strong> <i class="toga-icon toga-icon-caret-stroke-down" aria-hidden="true"></i> Where can I
+                      get professional support? </strong> </summary>
+                  <p>Important: if the future version 2 (spring 2024) of Robotmk is purchased as part of a "Checkmk
+                    Synthetic Monitoring" subscription, support can be obtained directly from Checkmk.<br> However, this
+                    support is limited to the functionality of Robotmk. <br>For consulting around Robot Framework,
+                    libraries, test development we and our partners are there for you. <br>You are welcome to use the form
+                    below to set up a non-binding call. In this we will clarify your initial situation and how we can
+                    support you in the best possible way. Feel free to use this offer. </p>
+                </details>
+              </li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+    {{/*  Quote  */}}
+    <a id="cst-v2-section-KZDprlXs-" style="opacity: 0; width: 0 !important; display: block;"></a>
+    <section class="    rich-text section-height__medium      section__heading-alignment--left   rich-text___e9f23"
+      data-preview-item="rich_text" data-section-uid="KZDprlXs-">
+      <div class="rich-text__container">
+        <div class="rich-text__wrapper">
+          <header class="section__headings section__headings___e9f23">
+            <h2 class="section__heading">A journey of a thousand miles<br>begins with the first step.</h2>
+            <p class="section__subheading"><i>(Chinese saying)</i></p>
+          </header>
+          <div class="section__content">
+            <div class="section__body">
+              <div class="custom-theme">
+                <div class="fr-view">
+                  <p><iframe width="100%" height="720"
+                      src="https://web.archive.org/web/20240110155452if_/https://meet.brevo.com/simon-meggle/borderless?l=robotmk-consultation-free"
+                      data-ruffle-polyfilled=""></iframe></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  {{/*  pre footer  */}}
+  <a id="cst-v2-section-pknpze7RG" style="opacity: 0; width: 0 !important; display: block;"></a>
+  <section
+    class="banneroverlay-opacity--52  section-background      section-background-overlay    section__content-alignment--left  section--has-additional-prices banner___f0c81"
+    data-preview-item="banner" data-section-uid="pknpze7RG">
+    <div class="banner__container banner__container--large">
+      <div class="banner__wrapper">
+        <article class="section__content section__content___f0c81">
+          <header class="section__headings">
+            <h2 class="section__heading section__heading___f0c81">Download Robotmk</h2>
+            <p class="section__subheading section__subheading___f0c81">MKP, Version 1.4.2 (compatible with Checkmk 2.2)
+            </p>
+          </header>
+          <div class="section__button-group"> <a class="button button-primary button--mobile-width-full"
+              href="https://web.archive.org/web/20240110155452/https://github.com/simonmeggle/robotmk/releases"> Get the
+              latest release from GitHub </a> </div>
+        </article>
+      </div>
+    </div>
+  </section>
+  {{/*  footer section  */}}
+  <a id="cst-v2-section-footer" style="opacity: 0; width: 0 !important; display: block;"></a>
+  <footer class="footer hidden-print" data-preview-item="footer" data-section-uid="footer">
+    <div class="footer__container">
+      <article class="section__content">
+        <ul class="footer__nav-site">
+          <li class="footer__nav-item"> <a href="/web/20240110155452/https://www.robotmk.org/pages/professionalsupport"
+              target="_blank">Professional Support</a> </li>
+          <li class="footer__nav-item"> <a href="/web/20240110155452/https://www.robotmk.org/collections"
+              target="_self">All Courses</a> </li>
+          <li class="footer__nav-item"> <a href="/web/20240110155452/https://www.robotmk.org/pages/imprint"
+              target="_self">Imprint</a> </li>
+          <li class="footer__nav-item"> <a
+              href="https://web.archive.org/web/20240110155452/https://www.robotmk.org/pages/privacypolicy"
+              target="_self">Privacy Policy</a> </li>
+          <li class="footer__nav-item"> <a href="" target="_self"></a> </li>
+        </ul> <span class="section__divide"></span>
+        <div class="footer__copyright"> © Copyright Robotmk 2024 </div>
+      </article>
+    </div>
+  </footer>
+</body>
+
+</html>

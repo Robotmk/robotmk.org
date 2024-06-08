@@ -1,12 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="{{site.LanguageCode}}">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RobotMK</title>
+  <title>{{site.Title}}</title>
+  {{ if eq .Site.LanguageCode "en-US" }}
+	<link rel="alternate" hreflang="x-default" href="{{site.BaseURL}}en/" />
+	<link rel="alternate" hreflang="de-DE" href="{{site.BaseURL}}de/"/>
+  {{else}}
+  <link rel="alternate" hreflang="x-default" href="{{site.BaseURL}}en/" />
+	<link rel="alternate" hreflang="en-US" href="{{site.BaseURL}}en/"/>
+  {{end}}
+
   <link rel="stylesheet" href="{{(resources.Get "css/home.css").RelPermalink}}">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+  {{/*  scripts  */}}
+  <!-- / VOLT-9: jQuery version upgrade ▼ -->
+  <script
+    src="https://web.archive.org/web/20240110155452js_/https://cdn.thinkific.com/assets/jquery/3.5.1/jquery.min.js"></script>
+  <script
+    src="https://web.archive.org/web/20240110155452js_/https://cdn.thinkific.com/assets/jquery-migrate/3.3.1/jquery-migrate.js"></script>
+  <!-- / VOLT-9: jQuery version upgrade ▲ -->
+  <script
+    src="https://web.archive.org/web/20240110155452js_/https://cdn.thinkific.com/assets/jquery-ujs/1.2.2/rails.min.js"></script>
+  
 </head>
 
 <body>
@@ -16,9 +34,8 @@
     <div id="skip-link"> <a href="#main-content"> Skip to main content </a> </div>
     <div class="header__container">
       <div class="header__wrapper">
-        <section class="header__logo header__logo___2909e"> <a href="/web/20240110155452/https://www.robotmk.org/"> <img
-              src="https://web.archive.org/web/20240110155452im_/https://import.cdn.thinkific.com/491201%2Fcustom_site_themes%2Fid%2FJR8BzX7fSYKUKOiEuPDL_robotmk2_crop.png"
-              srcset="https://web.archive.org/web/20240110155452im_/https://import.cdn.thinkific.com/491201%2Fcustom_site_themes%2Fid%2FJR8BzX7fSYKUKOiEuPDL_robotmk2_crop.png?width=384&amp;dpr=1 1x, https://web.archive.org/web/20240110155452im_/https://import.cdn.thinkific.com/491201%2Fcustom_site_themes%2Fid%2FJR8BzX7fSYKUKOiEuPDL_robotmk2_crop.png?width=384&amp;dpr=2 2x, https://web.archive.org/web/20240110155452im_/https://import.cdn.thinkific.com/491201%2Fcustom_site_themes%2Fid%2FJR8BzX7fSYKUKOiEuPDL_robotmk2_crop.png?width=384&amp;dpr=3 3x"
+        <section class="header__logo header__logo___2909e"> <a href="{{ absLangURL "/"}}"> <img
+              src="/images/index/nav-logo.png"
               alt="" class="logo img-responsive" loading="lazy">
             <h1 class="sr-only"> Robotmk </h1>
           </a> </section> <button class="header__mobile-button hidden-print" aria-expanded="false"
@@ -26,19 +43,11 @@
               menu</span> </span> <span class="header__mobile-button__label "> Menu </span> </button>
         <nav class="header__nav hidden-print">
           <ul>
+            {{ range .Site.Menus.home_nav }}
             <li class="header__nav-item"> <a
-                href="https://web.archive.org/web/20240110155452/https://www.robotmk.org/#academy"
-                target="_self">Academy</a> </li>
-            <li class="header__nav-item"> <a href="https://web.archive.org/web/20240110155452/https://blog.robotmk.org/"
-                target="_blank">Blog</a> </li>
-            <li class="header__nav-item"> <a
-                href="https://web.archive.org/web/20240110155452/https://github.com/simonmeggle/robotmk/releases"
-                target="_blank">Download</a> </li>
-            <li class="header__nav-item"> <a
-                href="/web/20240110155452/https://www.robotmk.org/pages/professionalsupport" target="_self">Professional
-                Support</a> </li>
-            <li class="header__nav-item header__nav-sign-in"> <a
-                href="/web/20240110155452/https://www.robotmk.org/users/sign_in"> Sign In </a> </li>
+              href="{{.URL}}"
+              target="_self">{{.Name}}</a> </li>
+            {{ end }}
           </ul>
         </nav>
       </div>
@@ -49,6 +58,7 @@
     <a id="cst-v2-section-b0e85d9649" style="opacity: 0; width: 0 !important; display: block;"></a>
     {{/*  header section  */}}
     <section
+      style="background:linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),url(/images/index/home-hero-bg.jpg);"
       class="banneroverlay-opacity--45  section-background      section-background-overlay    section__content-alignment--left  section--has-additional-prices banner___42ec4"
       data-preview-item="banner" data-section-uid="b0e85d9649">
       <div class="banner__container banner__container--medium">
@@ -73,34 +83,13 @@
       <div class="rich-text__container">
         <div class="rich-text__wrapper">
           <header class="section__headings section__headings___dda72">
-            <h2 class="section__heading">What is <b>RobotMK</b>?</h2>
+            <h2 class="section__heading">{{.Params.introduction_heading | markdownify}}</h2>
           </header>
           <div class="section__content">
             <div class="section__body">
               <div class="custom-theme">
                 <div class="fr-view">
-                  <p><img
-                      src="https://web.archive.org/web/20240110155452im_/https://files.cdn.thinkific.com/file_uploads/491201/images/3e7/906/67a/robot_robotmk_checkmk.png"
-                      class="fr-fic fr-dib fr-draggable"></p>
-                  <p><br></p>
-                  <p><strong>RobotMK</strong> contains the names of the two tools <strong>Robot Framework</strong> and
-                    <strong>CheckMK</strong> (for further details see below).</p>
-                  <p>With <strong>Robot Framework</strong> you can automatically test programs, web sites (and much more...)
-                    from the perspective of the user.</p>
-                  <p>Software developers appreciate this type of tests, as an application can thus for instance be tested
-                    swiftly in all its facets and variations before being released in a new version.</p>
-                  <p>It is a great advantage to also have such tests in the monitoring system CheckMK and be able to check
-                    continuously...</p>
-                  <ul>
-                    <li>...whether the login into the CRM system functions – and how long it takes</li>
-                    <li>....whether the search function in the SAP/merchandise management system for randomly selected
-                      article numbers works</li>
-                    <li>...how efficiently the ordering process functions in the web shop</li>
-                  </ul>
-                  <p>...etc...</p>
-                  <p><strong>So far this possibility has not existed</strong>.&nbsp;</p>
-                  <p><strong>Now RobotMK creates a bridge and permits the integration of the results of Robot-tests into the
-                      monitoring system CheckMK.</strong></p>
+                  {{ index (split .Content "<hr>") 1 | safeHTML }}
                 </div>
               </div>
             </div>
@@ -158,63 +147,19 @@
       data-preview-item="text-icon" data-section-uid="ycvadiUYk">
       <div class="text-icon__container">
         <header class="section__headings section__headings___538a6">
-          <h2 class="section__heading">Features</h2>
-          <p class="section__subheading">Why you should decide for the "lingua franca" of test automation.</p>
+          <h2 class="section__heading">{{.Params.features_title}}</h2>
+          <p class="section__subheading">{{.Params.features_description}}</p>
         </header>
         <article class="section__content">
           <div class="text-icon__container">
             <ul class="text-icon__list section__body">
-              <li class="text-icon__list-item"> <i class="fa fa-gears" aria-hidden="true"></i>
-                <h3 class="section__heading--secondary">Central control via WATO</h3>
-                <p><b>RobotMK</b> is configured via a powerful <b>rule system</b> in the web administration interface of
-                  CheckMK (WATO).</p>
+              {{range .Params.features}}
+              <li class="text-icon__list-item">
+                <i class="{{.icon}}" aria-hidden="true"></i>
+                <h3 class="section__heading--secondary">{{.heading | markdownify}}</h3>
+                {{.text | markdownify}}
               </li>
-              <li class="text-icon__list-item"> <i class="fa fa-crop" aria-hidden="true"></i>
-                <h3 class="section__heading--secondary">Flexible output formatting</h3>
-                <p><b>RobotMK</b> evaluates intricately interleaved Robot results; the <b>pattern-based reduction</b> of the
-                  output to the essential ensures an optimum result. </p>
-              </li>
-              <li class="text-icon__list-item"> <i class="fa fa-volume-up" aria-hidden="true"></i>
-                <h3 class="section__heading--secondary">Readability</h3>
-                <p>The "<b>keyword-driven</b>" approach abstracts complex Python code and can be encapsulated at will – with
-                  free name choice. <br><b>The result</b>: traceable results and meaningful messages in the monitoring
-                  system.</p>
-              </li>
-              <li class="text-icon__list-item"> <i class="fa fa-handshake-o" aria-hidden="true"></i>
-                <h3 class="section__heading--secondary">100% Robot compatible</h3>
-                <p><b>RobotMK</b> does not require any adaptation to existing Robot tests; every Robot test can be
-                  integrated in CheckMK <b>without any intervention</b>.</p>
-              </li>
-              <li class="text-icon__list-item"> <i class="fa fa-area-chart" aria-hidden="true"></i>
-                <h3 class="section__heading--secondary">Performance monitoring</h3>
-                <p><b>RobotMK can monitor runtimes</b> at any level, be it whole suites, tests and keywords.<br>(Or how
-                  would you detect an insidious login time increase by 0.1s per month?)</p>
-              </li>
-              <li class="text-icon__list-item"> <i class="fa fa-binoculars" aria-hidden="true"></i>
-                <h3 class="section__heading--secondary">Worthwhile addition to CheckMK</h3>
-                <p><b>Checkmk</b> can only monitor up to <b>OSI layer 7</b>. Robotmk completes your monitoring with a
-                  detailled view inside applications to get a holistic view of services and their quality. </p>
-              </li>
-              <li class="text-icon__list-item"> <i class="fa fa-book" aria-hidden="true"></i>
-                <h3 class="section__heading--secondary">Swiss army knife</h3>
-                <p>The <b>Library concept</b> makes Robot Framework the <b>Suisse pocket knife</b>. You'll find a library
-                  for nearly any use case. And you are free to use them combined in a test.</p>
-              </li>
-              <li class="text-icon__list-item"> <i class="fa fa-comments-o" aria-hidden="true"></i>
-                <h3 class="section__heading--secondary">Strong community</h3>
-                <p>Great if you have backed the right horse, in case help is required: CheckMK and Robot have a worldwide,
-                  English speaking community at their disposal. </p>
-              </li>
-              <li class="text-icon__list-item"> <i class="fa fa-arrows-alt" aria-hidden="true"></i>
-                <h3 class="section__heading--secondary">Platform-independent</h3>
-                <p>One for all: Robot Framework works for all common platforms: Windows, Linux, MacOS, Android, iOS, ...
-                  including the appropriate test libraries in each case (e.g. Auto-IT for Windows automation).</p>
-              </li>
-              <li class="text-icon__list-item"> <i class="fa fa-unlock" aria-hidden="true"></i>
-                <h3 class="section__heading--secondary">100% Open Source</h3>
-                <p>RobotMK - like Robot Framework and CheckMK Raw – is published as an Open Source project. No hidden costs,
-                  no vendor-lock-in. <a name="academy"></a></p>
-              </li>
+              {{end}}
             </ul>
           </div>
         </article>
@@ -483,6 +428,111 @@
       </article>
     </div>
   </footer>
+  <script>
+		$(document).ready(function () {
+			var headerHeight = 0
+
+			function dynamicHeaderHeight() {
+				var $logo = $('.logo'),
+					$header = $logo.closest('.header');
+
+				$logo.on('load', function () {
+					headerHeight = $header.outerHeight();
+
+				}).each(function () {
+					if (this.complete) {
+						$(this).trigger('load');
+					}
+				});
+			}
+
+			var $adminBar = $('.admin-notice__bar'),
+				$body = $('body.home-landing-page, body.course-landing-page, body.bundle-landing-page, body.page-template, body.coming-soon-page, body.student-certificate-page'),
+				$header = $('.header'),
+				$main = $('.home-landing-page main, .course-landing-page main, .bundle-landing-page main, .page-template main, .coming-soon-page main, .student-certificate-page main'),
+				$dropdownToggle = $('.dropdown__toggle-button'),
+				$mobileButton = $('.header__mobile-button'),
+				$navigation = $('.header__nav'),
+				$dropdownMenu = $('.dropdown__menu');
+
+			dynamicHeaderHeight();
+
+			var adminBarHeight = $adminBar.outerHeight(),
+				headerTop = $header.offset().top,
+				isMobile = window.matchMedia("only screen and (max-width: 767px)");
+
+			if (adminBarHeight != NaN) {
+				$body.css({
+					'margin-bottom': adminBarHeight
+				});
+			}
+
+			function toggleDropdownMenu() {
+				$('.dropdown').toggleClass('open');
+				$dropdownToggle.attr('aria-expanded', $dropdownToggle.attr('aria-expanded') == 'true' ? 'false' : 'true');
+			}
+			$dropdownToggle.on('click', toggleDropdownMenu);
+			$(document).on({
+				keydown: function (e) {
+					if (e.key == "Escape" && $('.dropdown').hasClass('open')) {
+						toggleDropdownMenu();
+					}
+				},
+				click: function (e) {
+					if (!$(e.target).closest('.open').length && $('.dropdown').hasClass('open')) {
+						toggleDropdownMenu();
+					}
+				}
+			});
+			$mobileButton.on('click', function (e) {
+				$header.attr('data-menu', $header.attr('data-menu') == 'open' ? 'closed' : 'open');
+				$mobileButton.attr('aria-expanded', $mobileButton.attr('aria-expanded') == 'true' ? 'false' : 'true');
+				$mobileButton.toggleClass('open');
+				$navigation.focus();
+			});
+
+			$(window).on('scroll', function (e) {
+				if (!isMobile.matches) {
+					if ($(window).scrollTop() > headerTop) {
+						$adminBar.addClass('fixed');
+						$header.addClass('fixed');
+						if ($header.data('menu-style') != 'floating') {
+							$body.css({
+								'padding-top': headerHeight
+							});
+						}
+					}
+					if ($(window).scrollTop() <= headerTop) {
+						$adminBar.removeClass('fixed');
+						if ($header.data('menu-style') != 'floating') {
+							$body.css({
+								'padding-top': 0
+							});
+						}
+						$header.removeClass('fixed');
+					}
+				}
+				else {
+					$header.removeClass('fixed');
+				}
+			});
+
+			$(window).on('resize', function () {
+				dynamicHeaderHeight();
+
+
+
+
+				if (isMobile.matches) {
+					$header.removeClass('fixed');
+					$body.css({
+						'padding-top': 0
+					});
+				}
+
+			});
+		});
+	</script>
 </body>
 
 </html>

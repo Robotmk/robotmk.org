@@ -7,6 +7,7 @@ sidebar: true
 menu: main
 weight: 100
 toc: false
+
 ---
 
 **Bleibe auf dem Laufenden mit allem, was in der Welt von Robotmk undRobot Framework passiert:**

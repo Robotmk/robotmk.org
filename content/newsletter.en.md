@@ -19,7 +19,9 @@ aliases:
 - Information on **events** and **meetups**
 - Be sure to tick the box if you want to stay informed about the launch of the **Robotmk Academy online course system.**  
 
-The **Robotmk Academy Online Course** will start its **closed beta phase** in the **mid of July** with a lowered price. 
+The **Robotmk Academy Online Course** will start its **closed beta phase** in the **mid of July 2024** with a lowered price. 
+
+![alt text](/rmka-rec.gif)
 
 ## Yes, keep me up to date:
 

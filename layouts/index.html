@@ -14,17 +14,13 @@
 
   <link rel="stylesheet" href="{{(resources.Get "css/home.css").RelPermalink}}">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-
-  {{/*  scripts  */}}
-  <!-- / VOLT-9: jQuery version upgrade ▼ -->
-  <script
-    src="https://web.archive.org/web/20240110155452js_/https://cdn.thinkific.com/assets/jquery/3.5.1/jquery.min.js"></script>
-  <script
-    src="https://web.archive.org/web/20240110155452js_/https://cdn.thinkific.com/assets/jquery-migrate/3.3.1/jquery-migrate.js"></script>
-  <!-- / VOLT-9: jQuery version upgrade ▲ -->
-  <script
-    src="https://web.archive.org/web/20240110155452js_/https://cdn.thinkific.com/assets/jquery-ujs/1.2.2/rails.min.js"></script>
   
+  {{/*  scripts  */}}
+  {{ $jquery351 := resources.Get "js/jquery-3.5.1.min.js" }}
+  {{ $jqueryMigrate := resources.Get "js/jquery-migrate.js" }}
+
+  {{ $js := slice $jquery351 $jqueryMigrate | resources.Concat "js/home.js" }}
+  <script async src="{{$jquery351.RelPermalink}}"></script>  
 </head>
 
 <body>
@@ -58,18 +54,17 @@
     <a id="cst-v2-section-b0e85d9649" style="opacity: 0; width: 0 !important; display: block;"></a>
     {{/*  header section  */}}
     <section
-      style="background:linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),url(/images/index/home-hero-bg.jpg);"
+      style="background:linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),url({{.Params.header.hero_img}});"
       class="banneroverlay-opacity--45  section-background      section-background-overlay    section__content-alignment--left  section--has-additional-prices banner___42ec4"
       data-preview-item="banner" data-section-uid="b0e85d9649">
       <div class="banner__container banner__container--medium">
         <div class="banner__wrapper">
           <article class="section__content section__content___42ec4">
             <header class="section__headings">
-              <h2 class="section__heading section__heading___42ec4"><b>Robotmk</b> integrates<br><b>Robot Framework</b> into
-                <b>Checkmk</b></h2>
-              <p class="section__subheading section__subheading___42ec4"><b>100% Robot Framework compatible<br>100% web
-                  based configuration<br>100% Raw data access<br><br>⭐️⭐️⭐️⭐️⭐️<br>The most downloaded MKP extension for
-                  Checkmk. <br>From spring 2024 integrated in Checkmk with the name "Synthetic Monitoring".</b></p>
+              <h2 class="section__heading section__heading___42ec4">{{.Params.header.title | markdownify}}</h2>
+              <p class="section__subheading section__subheading___42ec4">
+                {{ index (split .Content "<hr>") 1 | markdownify }}
+              </p>
             </header>
             <div class="product-action-buttons section__button-group"> </div>
           </article>
@@ -83,13 +78,13 @@
       <div class="rich-text__container">
         <div class="rich-text__wrapper">
           <header class="section__headings section__headings___dda72">
-            <h2 class="section__heading">{{.Params.introduction_heading | markdownify}}</h2>
+            <h2 class="section__heading">{{.Params.introduction.heading | markdownify}}</h2>
           </header>
           <div class="section__content">
             <div class="section__body">
               <div class="custom-theme">
                 <div class="fr-view">
-                  {{ index (split .Content "<hr>") 1 | safeHTML }}
+                  {{ index (split .Content "<hr>") 2 | safeHTML }}
                 </div>
               </div>
             </div>
@@ -105,38 +100,54 @@
         <article class="section__content section__content___11aa9">
           <div class="text-image__body has-image text-image__body___11aa9">
             <header class="section__headings">
-              <h2 class="section__heading section__heading___11aa9">Create Runtime metrics.</h2>
-              <p class="section__subheading section__subheading___11aa9">Graph what you're interested in</p>
+              <h2 class="section__heading section__heading___11aa9">{{ (index .Params.lr_animation 0).title | markdownify}}</h2>
+              <p class="section__subheading section__subheading___11aa9">{{ (index .Params.lr_animation 0).subtitle | markdownify}}</p>
             </header>
-            <div class="section__body"> Which elements of a Robot test (suites, tests, keywords) are to be recorded in
-              CheckMK-graphs, can be determined via a sophisticated, pattern-based rule system. <br>After all, the whole is
-              expected to remain clearly structured. </div>
+            <div class="section__body"> {{ (index .Params.lr_animation 0).text | markdownify}} </div>
           </div>
           <div class="text-image__image text-image__image___11aa9"> <img
-              src="https://web.archive.org/web/20240110155452im_/https://import.cdn.thinkific.com/491201%2Fcustom_site_themes%2Fid%2F06ReWDjTX2AdjCMQoAwo_robotmk_runtime_animated.gif"
-              srcset="https://web.archive.org/web/20240110155452im_/https://import.cdn.thinkific.com/491201%2Fcustom_site_themes%2Fid%2F06ReWDjTX2AdjCMQoAwo_robotmk_runtime_animated.gif?width=600 1x, https://web.archive.org/web/20240110155452im_/https://import.cdn.thinkific.com/491201%2Fcustom_site_themes%2Fid%2F06ReWDjTX2AdjCMQoAwo_robotmk_runtime_animated.gif?width=600&amp;dpr=2 2x, https://web.archive.org/web/20240110155452im_/https://import.cdn.thinkific.com/491201%2Fcustom_site_themes%2Fid%2F06ReWDjTX2AdjCMQoAwo_robotmk_runtime_animated.gif?width=600&amp;dpr=3 3x"
-              alt="" class="img-responsive" loading="lazy"> </div>
+              src="{{ (index .Params.lr_animation 0).img }}"
+              alt="{{ (index .Params.lr_animation 0).img_alt }}" class="img-responsive" loading="lazy"> </div>
         </article>
       </div>
     </section>
+    <br>
+
     <a id="cst-v2-section-0QszOUVt9" style="opacity: 0; width: 0 !important; display: block;"></a>
+    <section class="    text-image section-height__medium      section__content-alignment--left   text-image___0da68"
+      data-preview-item="text-image" data-section-uid="0QszOUVt9">
+      <div class="text-image__container text-image__container___0da68">
+        <article class="section__content section__content___0da68">
+          <div class="text-image__body has-image text-image__body___0da68">
+            <header class="section__headings">
+              <h2 class="section__heading section__heading___0da68"> {{ (index .Params.lr_animation 1).title | markdownify}} </h2>
+              <p class="section__subheading section__subheading___0da68"> {{ (index .Params.lr_animation 1).subtitle | markdownify}} </p>
+            </header>
+            <div class="section__body"> {{ (index .Params.lr_animation 1).text | markdownify}} </div>
+          </div>
+          <div class="text-image__image text-image__image___0da68"> <img
+              src="{{ (index .Params.lr_animation 1).img }}"
+              alt="{{ (index .Params.lr_animation 1).img_alt }}" class="img-responsive" loading="lazy"> </div>
+        </article>
+      </div>
+    </section>
+    <br>
+
+    <a id="cst-v2-section-vdzVM2jAv" style="opacity: 0; width: 0 !important; display: block;"></a>
     <section class="    text-image section-height__medium      section__content-alignment--left   text-image___158b4"
       data-preview-item="text-image" data-section-uid="vdzVM2jAv">
       <div class="text-image__container text-image__container___158b4">
         <article class="section__content section__content___158b4">
           <div class="text-image__body has-image text-image__body___158b4">
             <header class="section__headings">
-              <h2 class="section__heading section__heading___158b4">Detect functional disruptions.</h2>
-              <p class="section__subheading section__subheading___158b4">Murphy is always waiting around the corner</p>
+              <h2 class="section__heading section__heading___158b4">{{ (index .Params.lr_animation 2).title | markdownify}}</h2>
+              <p class="section__subheading section__subheading___158b4">{{ (index .Params.lr_animation 2).subtitle | markdownify}}</p>
             </header>
-            <div class="section__body"> With Robotmk, functional faults in applications can be detected safely and
-              proactively - far before users notice anything. <br>(Wouldn't it be nice to be in a position where you can say
-              on the phone, <b><i>"We're already on it." </i></b>...?) </div>
+            <div class="section__body"> {{ (index .Params.lr_animation 2).text | markdownify}} </div>
           </div>
           <div class="text-image__image text-image__image___158b4"> <img
-              src="https://web.archive.org/web/20240110155452im_/https://import.cdn.thinkific.com/491201%2Fcustom_site_themes%2Fid%2FSfNXYERkQbGWwCv3m6tQ_broken_image.jpg"
-              srcset="https://web.archive.org/web/20240110155452im_/https://import.cdn.thinkific.com/491201%2Fcustom_site_themes%2Fid%2FSfNXYERkQbGWwCv3m6tQ_broken_image.jpg?width=600 1x, https://web.archive.org/web/20240110155452im_/https://import.cdn.thinkific.com/491201%2Fcustom_site_themes%2Fid%2FSfNXYERkQbGWwCv3m6tQ_broken_image.jpg?width=600&amp;dpr=2 2x, https://web.archive.org/web/20240110155452im_/https://import.cdn.thinkific.com/491201%2Fcustom_site_themes%2Fid%2FSfNXYERkQbGWwCv3m6tQ_broken_image.jpg?width=600&amp;dpr=3 3x"
-              alt="You don't see anything here, this is correct :-)" class="img-responsive" loading="lazy"> </div>
+              src="{{ (index .Params.lr_animation 2).img }}"
+              alt="{{ (index .Params.lr_animation 2).img_alt }}" class="img-responsive" loading="lazy"> </div>
         </article>
       </div>
     </section>
@@ -174,17 +185,12 @@
       <div class="description__wrapper">
         <header class="section__headings section__headings___97b96">
           <h2 class="section__heading">
-            <a name="introducing-academy">Introducing the<br> <b>Robotmk Academy Certification Program.</b></a>
+            <a name="introducing-academy">{{.Params.intro_mk_program.heading | markdownify}}</a>
           </h2>
-          <p class="section__subheading">Supercharge Your Monitoring Skills.</p>
+          <p class="section__subheading">{{.Params.intro_mk_program.subheading | markdownify}}</p>
         </header>
         <article class="section__content section__content___97b96">
-          <div class="section__body"> <b>Do you want to...</b><br><br>...write robust web tests? <br>...finally understand
-            and use CSS selectors? <br>...monitor any kind of Windows application? <br>...want to learn which are the most
-            useful Robot Framework libraries? <br>...reuse robot code with the help of Git? <br>...see how easy Robot
-            Framework tests can be debugged? <br>...learn how to program robots which are stable and
-            maintainable?<br>...get worthful bonus material, checklists and exercises? <br><br>✅ <b>...learn from an
-                industry expert?</b> <br> </div>
+          <div class="section__body"> {{.Params.intro_mk_program.text | markdownify}} </div>
           </article>
         </div>
       </div>
@@ -197,33 +203,10 @@
       <div class="description__container">
         <div class="description__wrapper">
           <header class="section__headings section__headings___874eb">
-            <p class="section__subheading"><b>Then don't miss out!</b><br>Be among the first to experience the
-              upcoming<br><br><b>🏅 Robotmk Academy Certification Program</b>. </p>
+            <p class="section__subheading"> {{.Params.intro_mk_program.lower_title | markdownify}} </p>
           </header>
           <article class="section__content section__content___874eb">
-            <div class="section__body"> It consists of three courses that build on each other, including a Windows/Linux lab
-              environment:<br><br>
-              <ul>
-                <li>Course Level 1️⃣ - <b>Robotmk Synthetic Monitoring Foundation 🧾</b>: <br>The fastest and safest way to
-                  get into synthetic monitoring with Robotmk and Checkmk</li>
-                <li>Course Level 2️⃣ - <b>Robotmk Synthetic Monitoring Advanced 🧾</b>: <br>Probably the most comprehensive
-                  course available on that subject - and probably the only one. Learn directly from the founder of Robotmk!
-                </li>
-                <li>Course Level 3️⃣ - <b>Robotmk Synthetic Monitoring Expert 🧾🏅</b>: <br>Technical preparation is not
-                  everything you need for a successful implementation of End2End monitoring (I had to learn that too...). In
-                  this course you will learn the proper planning, documentation and implementation of synthetic monitoring.
-                  <br>This is a feature-rich course based on 9 years of experience.</li>
-              </ul><br>At the end of each course you will receive a certificate of attendance. 🧾<br><b>Level 3</b>
-              concludes with the certificate <b><i>"Certified Robotmk Synthetic Monitoring Expert"</i></b>. 🏅<br>Apply now
-              and be notified as soon as the program launches!<br><br><b>Preregistration Benefits:</b><br>✅ <b>Priority
-                access</b> to course materials.<br>✅ Exclusive preregistration discount.<br>✅ <b>Early bird webinar
-                sessions</b> with the instructor.<br>✅ Stay updated with course developments and
-              schedules.<br><br><b>Anyone</b> can learn to keep their business applications <b>available, working and
-                performing</b> by following this certification system, because it takes you <b>straight to your goal</b>
-              without making any detours. <br><br>PS: If you take part in this learning program, it will not only serve your
-              company, because it can keep its applications available with a powerful tool. <br>The certification is also a
-              valuable addition to your own education portfolio that will help you stand out in the job market. 🤫 <br><br>
-            </div>
+            <div class="section__body"> {{ index (split .Content "<hr>") 3 | markdownify }} </div>
           </article>
         </div>
       </div>

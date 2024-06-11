@@ -211,7 +211,7 @@
         </div>
       </div>
     </section>
-    
+
     {{/*  FAQ  */}}
     <a id="cst-v2-section-lEHCo26W2" style="opacity: 0; width: 0 !important; display: block;"></a>
     <section class="faq section-height__medium   section__heading-alignment--left faq___69d47" data-preview-item="faq"
@@ -223,103 +223,19 @@
           </header>
           <article class="section__content">
             <ul class="faq__list section__body">
+              {{ range .Params.faq}}
               <li class="faq__list-item">
                 <details>
-                  <summary> <strong> <i class="toga-icon toga-icon-caret-stroke-down" aria-hidden="true"></i> What do I need
-                      to get started with Robotmk? </strong> </summary>
-                  <p>Checkmk v2 is needed in the Enterprise version. If you want to test Checkmk first: you can download a
-                    free version from <a href="www.checkmk.com">checkmk.com</a> which is only limited in the number of
-                    services. </p>
-                </details>
-              </li>
-              <li class="faq__list-item">
-                <details>
-                  <summary> <strong> <i class="toga-icon toga-icon-caret-stroke-down" aria-hidden="true"></i> For me as
-                      programmer, the keywords of Robot look rather strange. How flexible can one be with them? </strong>
+                  <summary> 
+                    <strong> 
+                      <i class="toga-icon toga-icon-caret-stroke-down" aria-hidden="true"></i> 
+                      {{.question}} 
+                    </strong> 
                   </summary>
-                  <p>Writing automates tests in Python can be a mess. The keyword-driven syntax in Robot Framework
-                    facilitates readability, allowing test cases to be expressed in natural language, making them
-                    comprehensible even to non-technical stakeholders.<br>This approach eases reusability, as custom
-                    keywords can be defined once and utilized across multiple tests. Furthermore, it is possible to separate
-                    test data and test logic which simplifies test maintenance and modification.</p>
+                  <p>{{ .answer | markdownify }}</p>
                 </details>
               </li>
-              <li class="faq__list-item">
-                <details>
-                  <summary> <strong> <i class="toga-icon toga-icon-caret-stroke-down" aria-hidden="true"></i> Is there a
-                      recording function for End2End tests? </strong> </summary>
-                  <p>Recorder functionalities as readily advertised for commercial End2End tools should be treated with
-                    caution. A test recording is only as intelligent as the purpose behind it. This means: anybody recording
-                    click-click-click will receive click-click-click. A login, for example, should always be verified too,
-                    website elements should be localized in such a way that they also withstand changes in the UX design,
-                    etc. The implementation of End2End tests means actually addressing the behaviour of the SUT (System
-                    under test). </p>
-                </details>
-              </li>
-              <li class="faq__list-item">
-                <details>
-                  <summary> <strong> <i class="toga-icon toga-icon-caret-stroke-down" aria-hidden="true"></i> What has
-                      become of Sakuli v1? </strong> </summary>
-                  <p>The open source test tool ”Sakuli“, developed by Consol in 2014, has been officially phased out, as in
-                    particular the underlying web test tool “Sahi” did no longer meet modern requirements. The successor of
-                    Sakuli has appeared as a complete rewrite in version 2 (only the chargeable version allows the
-                    monitoring integration). </p>
-                </details>
-              </li>
-              <li class="faq__list-item">
-                <details>
-                  <summary> <strong> <i class="toga-icon toga-icon-caret-stroke-down" aria-hidden="true"></i> Can I also
-                      employ RobotMK in other monitoring systems (Nagios, Naemon, Icinga, Zabbix, Groundworks, Centreon,
-                      ...)? </strong> </summary>
-                  <p>RobotMK was especially developed for CheckMK; the wide range of parameterization as offered by the WATO
-                    surface of RobotMK cannot be reproduced via a traditional, Nagios-compatible check-in plug (possibly one
-                    more reason to take on Checkmk….)</p>
-                </details>
-              </li>
-              <li class="faq__list-item">
-                <details>
-                  <summary> <strong> <i class="toga-icon toga-icon-caret-stroke-down" aria-hidden="true"></i> So far I have
-                      written Selenium tests in Python. What reason should I have to change over to the Robot Framework?
-                    </strong> </summary>
-                  <p>If the tests remain exactly the same and are not to be integrated into a monitoring system, in effect
-                    no added value is generated by Robot. <br>The expense of integrating pure Python tests into a monitoring
-                    system should, however, not be underestimated, especially if the requirements become more complex in the
-                    course of time. <br>Sooner or later one would rather not program and maintain oneself the complete
-                    “framework“ for integrating various test methods (Web, GUI), troubleshooting etc.Exactly here lies the
-                    strength of the Robot Framework. And hence there is RobotMK.</p>
-                </details>
-              </li>
-              <li class="faq__list-item">
-                <details>
-                  <summary> <strong> <i class="toga-icon toga-icon-caret-stroke-down" aria-hidden="true"></i> My web
-                      application requires some interaction with the desktop. Is this possible with Robotmk? </strong>
-                  </summary>
-                  <p>Yes, in Robot Framework several libraries (=testing methods) can be used in mixed mode, e.g. robust
-                    modern web testing together with flexible image recognition methods. </p>
-                </details>
-              </li>
-              <li class="faq__list-item">
-                <details>
-                  <summary> <strong> <i class="toga-icon toga-icon-caret-stroke-down" aria-hidden="true"></i> Does the test
-                      client have to remain unlocked to be able to carry out End2End tests? </strong> </summary>
-                  <p>In the vast majority of cases, web tests can be executed headless, i.e. without a logged-in user.
-                    <br>For tests of native Windows UIs, a user must currently still be logged in on the desktop.
-                    <br>(Version 2 of Robotmk will soon provide a solution for this, which will also enable desktop sessions
-                    headless).</p>
-                </details>
-              </li>
-              <li class="faq__list-item">
-                <details>
-                  <summary> <strong> <i class="toga-icon toga-icon-caret-stroke-down" aria-hidden="true"></i> Where can I
-                      get professional support? </strong> </summary>
-                  <p>Important: if the future version 2 (spring 2024) of Robotmk is purchased as part of a "Checkmk
-                    Synthetic Monitoring" subscription, support can be obtained directly from Checkmk.<br> However, this
-                    support is limited to the functionality of Robotmk. <br>For consulting around Robot Framework,
-                    libraries, test development we and our partners are there for you. <br>You are welcome to use the form
-                    below to set up a non-binding call. In this we will clarify your initial situation and how we can
-                    support you in the best possible way. Feel free to use this offer. </p>
-                </details>
-              </li>
+              {{ end }}
             </ul>
           </article>
         </div>

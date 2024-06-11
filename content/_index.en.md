@@ -98,8 +98,9 @@ Sooner or later one would rather not program and maintain oneself the complete â
   - question: 'My web application requires some interaction with the desktop. Is this possible with Robotmk?'
     answer: 'Yes, in Robot Framework several libraries (=testing methods) can be used in mixed mode, e.g. robust modern web testing together with flexible image recognition methods.'
   - question: 'Does the test client have to remain unlocked to be able to carry out End2End tests?'
-    answer: ' Where can I get professional support?'
-  - question: 'Does the test client have to remain unlocked to be able to carry out End2End tests?'
+    answer: ' In the vast majority of cases, web tests can be executed headless, i.e. without a logged-in user.<br> For tests of native Windows UIs, a user must currently still be logged in on the desktop.<br>
+(Version 2 of Robotmk will soon provide a solution for this, which will also enable desktop sessions headless).'
+  - question: 'Where can I get professional support?'
     answer: 'Important: if the future version 2 (spring 2024) of Robotmk is purchased as part of a "Checkmk Synthetic Monitoring" subscription, support can be obtained directly from Checkmk. <br> However, this support is limited to the functionality of Robotmk. <br> For consulting around Robot Framework, libraries, test development we and our partners are there for you. <br> You are welcome to use the form below to set up a non-binding call. In this we will clarify your initial situation and how we can support you in the best possible way. Feel free to use this offer.'
 ---
 

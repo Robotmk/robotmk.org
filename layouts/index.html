@@ -12,6 +12,22 @@
 	<link rel="alternate" hreflang="en-US" href="{{site.BaseURL}}en/"/>
   {{end}}
 
+  <meta name="description" content="{{ if .IsHome }}{{ .Site.Params.description }}{{ else }}{{ .Params.Description }}{{ end }}">
+	{{- if .Site.Params.opengraph }}
+		{{ template "_internal/opengraph.html" . }}
+	{{- end }}
+	{{- if .Site.Params.schema }}
+		{{ template "_internal/schema.html" . }}
+	{{- end }}
+	{{- if .Site.Params.twitter_cards }}
+		{{ template "_internal/twitter_cards.html" . }}
+	{{- end }}
+
+  <link rel="shortcut icon" href="{{ "favicon.ico" | relURL }}">
+	{{- if not .Site.IsServer }}
+		{{ template "_internal/google_analytics.html" . }}
+	{{- end }}
+
   <link rel="stylesheet" href="{{(resources.Get "css/home.css").RelPermalink}}">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
   
@@ -256,7 +272,7 @@
               <div class="custom-theme">
                 <div class="fr-view">
                   <p><iframe width="100%" height="720"
-                      src="https://web.archive.org/web/20240110155452if_/https://meet.brevo.com/simon-meggle/borderless?l=robotmk-consultation-free"
+                      src="https://meet.brevo.com/simon-meggle/borderless?l=robotmk-consultation-free"
                       data-ruffle-polyfilled=""></iframe></p>
                 </div>
               </div>

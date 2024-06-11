@@ -248,8 +248,8 @@
       <div class="rich-text__container">
         <div class="rich-text__wrapper">
           <header class="section__headings section__headings___e9f23">
-            <h2 class="section__heading">A journey of a thousand miles<br>begins with the first step.</h2>
-            <p class="section__subheading"><i>(Chinese saying)</i></p>
+            <h2 class="section__heading">{{.Params.quote.text | markdownify}}</h2>
+        <p class="section__subheading"><i>{{.Params.quote.credit}}</i></p>
           </header>
           <div class="section__content">
             <div class="section__body">

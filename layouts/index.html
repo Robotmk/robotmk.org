@@ -269,19 +269,18 @@
   {{/*  pre footer  */}}
   <a id="cst-v2-section-pknpze7RG" style="opacity: 0; width: 0 !important; display: block;"></a>
   <section
-    class="banneroverlay-opacity--52  section-background      section-background-overlay    section__content-alignment--left  section--has-additional-prices banner___f0c81"
+  style="background:linear-gradient(rgba(0,0,0,0.52), rgba(0,0,0,0.52)),url({{.Params.prefooter.hero_img}});"
+    class="banneroverlay-opacity--52  section-background section-background-overlay section__content-alignment--left  section--has-additional-prices banner___f0c81"
     data-preview-item="banner" data-section-uid="pknpze7RG">
     <div class="banner__container banner__container--large">
       <div class="banner__wrapper">
         <article class="section__content section__content___f0c81">
           <header class="section__headings">
-            <h2 class="section__heading section__heading___f0c81">Download Robotmk</h2>
-            <p class="section__subheading section__subheading___f0c81">MKP, Version 1.4.2 (compatible with Checkmk 2.2)
-            </p>
+            <h2 class="section__heading section__heading___f0c81">{{ T "download_rmk" }}</h2>
+            <p class="section__subheading section__subheading___f0c81">{{ T "rmk_version" }}</p>
           </header>
           <div class="section__button-group"> <a class="button button-primary button--mobile-width-full"
-              href="https://web.archive.org/web/20240110155452/https://github.com/simonmeggle/robotmk/releases"> Get the
-              latest release from GitHub </a> </div>
+              href="{{.Params.prefooter.releases}}"> {{ T "latest_release_cta" }} </a> </div>
         </article>
       </div>
     </div>

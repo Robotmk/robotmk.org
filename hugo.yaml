@@ -54,6 +54,19 @@ languages:
         - name: "Sign In"
           url: "https://www.robotmk.org/users/sign_in"
           weight: 50
+      home_footer:
+        - name: "Professional Support"
+          url: "https://www.robotmk.org/pages/professionalsupport"
+          weight: 10
+        - name: "All Courses"
+          url: "https://www.robotmk.org/collections"
+          weight: 20
+        - name: "Imprint"
+          url: "https://www.robotmk.org/pages/imprint"
+          weight: 30
+        - name: " Privacy Policy"
+          url: "https://www.robotmk.org/pages/privacypolicy"
+          weight: 40
   de:
     title: Robotmk
     languageCode: de-DE
@@ -81,10 +94,24 @@ languages:
         - name: "Se connecter"
           url: "https://www.robotmk.org/users/sign_in"
           weight: 50
+      home_footer:
+        - name: "Professional Support"
+          url: "https://www.robotmk.org/pages/professionalsupport"
+          weight: 10
+        - name: "All Courses"
+          url: "https://www.robotmk.org/collections"
+          weight: 20
+        - name: "Imprint"
+          url: "https://www.robotmk.org/pages/imprint"
+          weight: 30
+        - name: " Privacy Policy"
+          url: "https://www.robotmk.org/pages/privacypolicy"
+          weight: 40
 
 ### PARAMS
 
 params:
+  home_copyright: '© Copyright Robotmk 2024'
   copyright: ELABIT GmbH
   logo:
     image: rmk_crop_transp_w150.png

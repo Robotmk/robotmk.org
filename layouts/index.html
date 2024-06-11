@@ -291,18 +291,13 @@
     <div class="footer__container">
       <article class="section__content">
         <ul class="footer__nav-site">
-          <li class="footer__nav-item"> <a href="/web/20240110155452/https://www.robotmk.org/pages/professionalsupport"
-              target="_blank">Professional Support</a> </li>
-          <li class="footer__nav-item"> <a href="/web/20240110155452/https://www.robotmk.org/collections"
-              target="_self">All Courses</a> </li>
-          <li class="footer__nav-item"> <a href="/web/20240110155452/https://www.robotmk.org/pages/imprint"
-              target="_self">Imprint</a> </li>
-          <li class="footer__nav-item"> <a
-              href="https://web.archive.org/web/20240110155452/https://www.robotmk.org/pages/privacypolicy"
-              target="_self">Privacy Policy</a> </li>
+          {{ range site.Menus.home_footer}}
+          <li class="footer__nav-item"> <a href="{{.URL}}"
+            target="_blank">{{.Name}}</a> </li>
+          {{ end }}
           <li class="footer__nav-item"> <a href="" target="_self"></a> </li>
         </ul> <span class="section__divide"></span>
-        <div class="footer__copyright"> © Copyright Robotmk 2024 </div>
+        <div class="footer__copyright"> {{site.Params.home_copyright}} </div>
       </article>
     </div>
   </footer>

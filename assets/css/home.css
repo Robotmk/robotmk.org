@@ -467,7 +467,7 @@ body {
     padding: 16px 24px;
     border: 2px solid transparent;
     border-radius: 4px;
-    font-family: "Roboto",sans-serif;
+    font-family: "Open Sans",sans-serif;
     font-size: 16px;
     font-weight: 400;
     line-height: normal;
@@ -4536,7 +4536,7 @@ table th,table td {
 }
 
 body {
-    font-family: "Roboto",sans-serif;
+    font-family: "Open Sans",sans-serif;
     font-size: 16px;
     font-weight: 400;
     line-height: 1.5;
@@ -4554,18 +4554,18 @@ body {
 }
 
 form,input,textarea,label,fieldset,legend,select,optgroup,option,datalist,keygen,output {
-    font-family: "Roboto",sans-serif
+    font-family: "Open Sans",sans-serif
 }
 
 h1,h2,h3,h4,h5,h6 {
     margin: 0 0 1rem;
-    font-family: "Roboto",sans-serif;
+    font-family: "Open Sans",sans-serif;
     line-height: 1.2
 }
 
 .page__heading {
     margin: 0 0 1rem;
-    font-family: "Roboto",sans-serif;
+    font-family: "Open Sans",sans-serif;
     font-size: 27px;
     font-weight: 300;
     line-height: 1.2
@@ -4633,7 +4633,7 @@ h1,h2,h3,h4,h5,h6 {
 
 .section__heading {
     margin: 0;
-    font-family: "Roboto",sans-serif;
+    font-family: "Open Sans",sans-serif;
     font-size: 24px;
     font-weight: 300;
     line-height: 1.2;
@@ -4661,7 +4661,7 @@ h1,h2,h3,h4,h5,h6 {
 .section__subheading {
     margin-top: 16px;
     margin-bottom: 0;
-    font-family: "Roboto",sans-serif;
+    font-family: "Open Sans",sans-serif;
     font-size: 20px;
     font-weight: 300;
     line-height: 1.2;
@@ -5048,7 +5048,7 @@ h1,h2,h3,h4,h5,h6 {
 
 .affiliate__heading {
     margin: 0 0 1rem;
-    font-family: "Roboto",sans-serif;
+    font-family: "Open Sans",sans-serif;
     font-size: 27px;
     font-weight: 300;
     line-height: 1.2
@@ -5138,7 +5138,7 @@ h1,h2,h3,h4,h5,h6 {
 
 .affiliate__content h2 {
     margin: 0 0 1rem;
-    font-family: "Roboto",sans-serif;
+    font-family: "Open Sans",sans-serif;
     font-size: 27px;
     font-weight: 300;
     line-height: 1.2
@@ -5867,7 +5867,7 @@ h1,h2,h3,h4,h5,h6 {
     padding: 16px 24px;
     border: 2px solid transparent;
     border-radius: 4px;
-    font-family: "Roboto",sans-serif;
+    font-family: "Open Sans",sans-serif;
     font-size: 16px;
     font-weight: 400;
     line-height: normal;
@@ -6048,7 +6048,7 @@ h1,h2,h3,h4,h5,h6 {
     padding: 16px 24px;
     border: 2px solid transparent;
     border-radius: 4px;
-    font-family: "Roboto",sans-serif;
+    font-family: "Open Sans",sans-serif;
     font-size: 16px;
     font-weight: 400;
     line-height: normal;
@@ -6244,7 +6244,7 @@ h1,h2,h3,h4,h5,h6 {
 
 .collections__heading {
     margin: 0 0 1rem;
-    font-family: "Roboto",sans-serif;
+    font-family: "Open Sans",sans-serif;
     font-size: 27px;
     font-weight: 300;
     line-height: 1.2
@@ -6339,7 +6339,7 @@ h1,h2,h3,h4,h5,h6 {
 
 .course-review__heading {
     margin: 0 0 1rem;
-    font-family: "Roboto",sans-serif;
+    font-family: "Open Sans",sans-serif;
     font-size: 27px;
     font-weight: 300;
     line-height: 1.2
@@ -6353,7 +6353,7 @@ h1,h2,h3,h4,h5,h6 {
 
 .course-review__course-name {
     margin: 0 0 1rem;
-    font-family: "Roboto",sans-serif;
+    font-family: "Open Sans",sans-serif;
     font-size: 24px;
     font-weight: 300;
     line-height: 1.2
@@ -6625,7 +6625,7 @@ h1,h2,h3,h4,h5,h6 {
 
 .my-account__heading {
     margin: 0 0 1rem;
-    font-family: "Roboto",sans-serif;
+    font-family: "Open Sans",sans-serif;
     font-size: 27px;
     font-weight: 300;
     line-height: 1.2
@@ -6639,7 +6639,7 @@ h1,h2,h3,h4,h5,h6 {
 
 .my-account__subheading {
     margin: 0 0 1rem;
-    font-family: "Roboto",sans-serif;
+    font-family: "Open Sans",sans-serif;
     font-size: 24px;
     font-weight: 300;
     line-height: 1.2
@@ -6828,7 +6828,7 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 .my-account__avatar-label .button-upload {
-    font-family: "Roboto",sans-serif;
+    font-family: "Open Sans",sans-serif;
     font-size: 14px;
     font-weight: 600;
     line-height: 1;
@@ -7073,7 +7073,7 @@ h1,h2,h3,h4,h5,h6 {
     padding: 16px 24px;
     border: 2px solid transparent;
     border-radius: 4px;
-    font-family: "Roboto",sans-serif;
+    font-family: "Open Sans",sans-serif;
     font-size: 16px;
     font-weight: 400;
     line-height: normal;
@@ -7134,7 +7134,7 @@ table .btn-primary {
     padding: 16px 24px;
     border: 2px solid transparent;
     border-radius: 4px;
-    font-family: "Roboto",sans-serif;
+    font-family: "Open Sans",sans-serif;
     font-size: 16px;
     font-weight: 400;
     line-height: normal;
@@ -7250,7 +7250,7 @@ table .text-right {
 
 .password-reset__heading {
     margin: 0 0 1rem;
-    font-family: "Roboto",sans-serif;
+    font-family: "Open Sans",sans-serif;
     font-size: 27px;
     font-weight: 300;
     line-height: 1.2
@@ -7915,7 +7915,7 @@ table .text-right {
 
 .banner .section__button-group .product-action-buttons--has-additional-prices .form__control.product-action-buttons__additional-prices {
     border-width: 2px;
-    font-family: "Roboto",sans-serif;
+    font-family: "Open Sans",sans-serif;
     font-size: 16px;
     font-weight: 400
 }
@@ -9104,7 +9104,7 @@ table .text-right {
 .countdown__chrono strong {
     display: block;
     padding: 5px 0 0;
-    font-family: "Roboto",sans-serif;
+    font-family: "Open Sans",sans-serif;
     font-size: 14px;
     font-weight: 600
 }
@@ -9447,7 +9447,7 @@ table .text-right {
     position: relative;
     margin: 0;
     padding-right: 2rem;
-    font-family: "Roboto",sans-serif;
+    font-family: "Open Sans",sans-serif;
     font-size: 19.2px;
     font-weight: 400
 }
@@ -9491,7 +9491,7 @@ table .text-right {
     border: 0;
     background: none;
     color: #00d391;
-    font-family: "Roboto",sans-serif;
+    font-family: "Open Sans",sans-serif;
     font-weight: normal;
     text-transform: none
 }
@@ -10833,7 +10833,7 @@ table .text-right {
 
 .instructor__title {
     display: block;
-    font-family: "Roboto",sans-serif;
+    font-family: "Open Sans",sans-serif;
     font-size: 14px;
     font-weight: 400;
     line-height: 1.5
@@ -11336,7 +11336,7 @@ table .text-right {
     .header__nav-item>a:not(.button-secondary),.header__nav-item>button:not(.button-secondary) {
         display:inline-block;
         background-color: transparent;
-        font-family: "Roboto",sans-serif;
+        font-family: "Open Sans",sans-serif;
         font-size: 16px;
         text-transform: none
     }
@@ -11986,7 +11986,7 @@ table .text-right {
 
 .review__author {
     color: #191919;
-    font-family: "Roboto",sans-serif;
+    font-family: "Open Sans",sans-serif;
     font-size: 14px
 }
 
@@ -12484,7 +12484,7 @@ table .text-right {
 .testimonial__author {
     margin-bottom: 1.33333rem;
     color: #191919;
-    font-family: "Roboto",sans-serif;
+    font-family: "Open Sans",sans-serif;
     font-size: 14px;
     font-weight: bold
 }

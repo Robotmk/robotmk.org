@@ -5,9 +5,20 @@
 	</button>
 	<ul class="menu__list header_new__container">
 		{{- $currentNode := . }}
-		{{- range .Site.Menus.main }}
+		{{ $inMenu := slice }}
+
+		{{- range $k,$v := .Site.Menus.main }}
+		{{ $inMenu = $inMenu | append .URL }}
+		{{ end }}	
+
+		{{- range $k,$v := .Site.Menus.main }}
 		{{- if .Name }}
-		<li class="menu__item {{if eq .URL $.RelPermalink}} menu__item--active{{ end }}">
+		{{ if in site.Params.menu_filter $currentNode.RelPermalink }}
+		<li class="menu__item {{if and (eq $currentNode.RelPermalink (index $inMenu $k)) ($.IsPage) }}menu__item--active{{end}}">
+		{{ else }}
+		<li class="menu__item{{ if or ($currentNode.IsMenuCurrent "main" .) ($currentNode.HasMenuCurrent "main" .) }}menu__item--active{{ end }}">
+		{{ end }}
+		
 			<a class="menu__link" href="{{ .URL }}">
 				{{ .Pre }}
 				<span class="menu__text">

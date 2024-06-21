@@ -1,6 +1,5 @@
 baseURL: https://www.robotmk.org/
 languageCode: en-us
-title: Robotmk | Blog
 theme: mainroad
 enableEmoji: true
 
@@ -30,6 +29,8 @@ defaultContentLanguageInSubdir: true
 languages:
   en:
     languageCode: en-US
+    title: Robotmk
+    description: Welcome to RobotMK. The most downloaded MKP extension for Checkmk.
     languageDirection: ltr
     languageName: English
     weight: 1
@@ -38,7 +39,38 @@ languages:
         - name: "Home"
           url: "/en/"
           weight: 1
+      home_nav:
+        - name: "Academy"
+          url: "https://www.robotmk.org/#academy"
+          weight: 10
+        - name: "Blog"
+          url: "https://blog.robotmk.org"
+          weight: 20
+        - name: "Download"
+          url: "https://github.com/simonmeggle/robotmk/releases"
+          weight: 30
+        - name: "Professional Support"
+          url: "https://www.robotmk.org/pages/professionalsupport"
+          weight: 40
+        - name: "Sign In"
+          url: "https://www.robotmk.org/users/sign_in"
+          weight: 50
+      home_footer:
+        - name: "Professional Support"
+          url: "https://www.robotmk.org/pages/professionalsupport"
+          weight: 10
+        - name: "All Courses"
+          url: "https://www.robotmk.org/collections"
+          weight: 20
+        - name: "Imprint"
+          url: "https://www.robotmk.org/pages/imprint"
+          weight: 30
+        - name: " Privacy Policy"
+          url: "https://www.robotmk.org/pages/privacypolicy"
+          weight: 40
   de:
+    title: Robotmk
+    description: Welcome to RobotMK. The most downloaded MKP extension for Checkmk.
     languageCode: de-DE
     languageDirection: ltr
     languageName: Deutsch
@@ -48,10 +80,42 @@ languages:
         - name: "Home"
           url: "/de/"
           weight: 1
+      home_nav:
+        - name: "Académie"
+          url: "https://www.robotmk.org/#academy"
+          weight: 10
+        - name: "Blog"
+          url: "https://blog.robotmk.org"
+          weight: 20
+        - name: "Télécharger"
+          url: "https://github.com/simonmeggle/robotmk/releases"
+          weight: 30
+        - name: "Assistance professionnelle"
+          url: "https://www.robotmk.org/pages/professionalsupport"
+          weight: 40
+        - name: "Se connecter"
+          url: "https://www.robotmk.org/users/sign_in"
+          weight: 50
+      home_footer:
+        - name: "Professional Support"
+          url: "https://www.robotmk.org/pages/professionalsupport"
+          weight: 10
+        - name: "All Courses"
+          url: "https://www.robotmk.org/collections"
+          weight: 20
+        - name: "Imprint"
+          url: "https://www.robotmk.org/pages/imprint"
+          weight: 30
+        - name: " Privacy Policy"
+          url: "https://www.robotmk.org/pages/privacypolicy"
+          weight: 40
 
 ### PARAMS
 
 params:
+  # list sub pages which should appear in the nav menu
+  menu_filter: ["/en/blog/robotmk-v2-quickstart/", "/de/blog/robotmk-v2-schnellstart/"]
+  home_copyright: '© Copyright Robotmk 2024'
   copyright: ELABIT GmbH
   logo:
     image: rmk_crop_transp_w150.png

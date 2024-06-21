@@ -62,6 +62,16 @@
 - id: tags_title
   translation: "Tags"
 
+# prefooter home
+- id: download_rmk
+  translation: "Download Robotmk"
+
+- id: rmk_version
+  translation: "MKP, Version 1.4.2 (compatible with Checkmk 2.2)"
+
+- id: latest_release_cta
+  translation: "Get the latest release from GitHub"
+
 # Footer
 - id: footer_credits
   translation:

@@ -113,6 +113,7 @@ languages:
 ### PARAMS
 
 params:
+  # list sub pages which should appear in the nav menu
   menu_filter: ["/en/blog/robotmk-v2-quickstart/", "/de/blog/robotmk-v2-schnellstart/"]
   home_copyright: '© Copyright Robotmk 2024'
   copyright: ELABIT GmbH

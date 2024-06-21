@@ -1,7 +1,8 @@
 ---
 # header (hero)
 header:
-  title: '**Robotmk** integrates<br>**Robot Framework** into **Checkmk**'
+  # title: '**Robotmk** integrates<br>**Robot Framework** into **Checkmk**'
+  title: '**Test** like a **Robot**.<br>**Monitor** like a **Pro**.'
   hero_img: '/images/index/home-hero-bg.jpg'
   content_index: 1
 
@@ -112,12 +113,15 @@ prefooter:
 
 ---
 
-**100% Robot Framework compatible** <br>
-**100% web based configuration** <br>
-**100% Raw data access** <br>
-<br>⭐️⭐️⭐️⭐️⭐️<br>
-**The most downloaded MKP extension for Checkmk.** <br>
-**From spring 2024 integrated in Checkmk with the name "Synthetic Monitoring".** <br> 
+The official **Robot Framework**<br>
+integration for<br>
+**Checkmk**.<br>
+<br>
+<br>⭐️⭐️⭐️⭐️⭐️<br><br>
+✔ 100% Robot Framework compatible. <br>
+✔ 100% Checkmk integration. <br>
+✔ 100% Monitoring Data. <br>
+
 
 ---
 

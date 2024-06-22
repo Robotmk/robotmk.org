@@ -3,21 +3,10 @@ languageCode: en-us
 theme: mainroad
 enableEmoji: true
 
-menu:
-  main:
-    # - name: "Professional Support"
-    #   url: "https://www.robotmk.org/pages/professionalsupport"
-    #   weight: 40
-    - name: "Academy"
-      url: "https://www.robotmk.org/#academy"
-      weight: 30
-
 author: 
   name: "Simon Meggle"
   bio: "https://www.robotmk.org/pages/professionalsupport"
   avatar: "portrait_simon_meggle_rund_300x300.png"
-
-
 
 markup:
   goldmark:

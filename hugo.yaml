@@ -30,7 +30,7 @@ languages:
   en:
     languageCode: en-US
     title: Robotmk
-    description: Welcome to RobotMK. The most downloaded MKP extension for Checkmk.
+    description: Robotmk Homepage
     languageDirection: ltr
     languageName: English
     weight: 1

@@ -1,7 +1,7 @@
 ---
 # header (hero)
 header:
-  title: '**De Robotmk** integrates<br>**Robot Framework** into **Checkmk**'
+  title: '**Robotmk** integrates<br>**Robot Framework** into **Checkmk**'
   hero_img: '/images/index/home-hero-bg.jpg'
   content_index: 1
 

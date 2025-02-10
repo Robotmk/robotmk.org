@@ -10,7 +10,7 @@ title: "Robocon 25: Auf nach Helsinki! ✈️"
 # -- for posts in menubar, use this (shorter) title
 # menutitle: 
 description: 
-date: "2025-01-10T11:19:14+01:00"
+date: "2025-02-10T11:19:14+01:00"
 categories:
   - ""
 tags:

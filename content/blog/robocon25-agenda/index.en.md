@@ -155,3 +155,5 @@ I am looking forward to exchanging ideas with like-minded people, the latest dev
 **...boarding time! 💺**
 
 P.S.: Guess who is stupid enough to fly to Helsinki in February without a hat 😂
+
+![](window.png)

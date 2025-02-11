@@ -155,3 +155,4 @@ Ich freue mich auf den Austausch mit Gleichgesinnten, die neuesten Entwicklungen
 
 P.S.: Ratet mal, wer so doof ist, ohne Mütze im Februar nach Helsinki zu fliegen 😂
 
+![](window.png)

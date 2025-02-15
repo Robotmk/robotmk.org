@@ -18,7 +18,7 @@ tags:
 authorbox: true
 sidebar: true
 pager: false
-thumbnail: "img/pekka.png"
+thumbnail: "img/pekka_1.png"
 ---
 
 Die RoboCon-Woche startet traditionell mit dem **"Unconference Day"** – einem Tag, an dem sich die Robot Framework-Community frei organisiert und ohne festes Programm über die Themen austauscht, die sie am meisten bewegen.  
@@ -68,7 +68,7 @@ Vielversprechend klingen die Pläne für eine neue Syntax zur Maskierung von Var
 
 Jeder, der schon mal mit Testautomatisierung in sicherheitskritischen Bereichen gearbeitet hat, weiß, wie wichtig dieses Feature sein wird.  
 
-![](img/pekka.png)
+![](img/pekka_1.png)
 
 ---
 
@@ -99,7 +99,7 @@ Wo man in Selenium früher nach jedem Klick **explizite Wartezeiten** und Assert
 
 ➡️ **PlatynUI** könnte genau das für Desktop-Testing leisten – und das wäre ein echter **Quantensprung**!  
 
-![](img/daniel.png)
+![](img/daniel1.png)
 
 ---
 
@@ -112,4 +112,4 @@ Wo man in Selenium früher nach jedem Klick **explizite Wartezeiten** und Assert
 
 Die RoboCon 2025 hat offiziell begonnen – und dieser erste Tag hat die Messlatte schon jetzt verdammt hoch gelegt. Ich bin gespannt, was die nächsten Tage bringen!
 
-![](img/rioni.png)
+![](img/rioni1.png)

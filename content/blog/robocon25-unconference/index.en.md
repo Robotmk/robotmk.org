@@ -18,13 +18,13 @@ tags:
 authorbox: true
 sidebar: true
 pager: false
-thumbnail: "img/pekka.png"
+thumbnail: "img/pekka_1.png"
 ---
 
 
 The RoboCon week traditionally starts with the **"Unconference Day ”** - a day on which the Robot Framework community freely organizes itself and discusses the topics that move it most without a fixed program.  
 
-My summary of this day...
+**My summary of this day...**
 
 <!--more-->
 
@@ -70,7 +70,7 @@ The plans for a new syntax for masking variables, which protects secret data (su
 
 Anyone who has ever worked with test automation in security-critical areas knows how important this feature will be.  
 
-![](img/pekka.png)
+![](img/pekka_1.png)
 
 ---
 
@@ -100,7 +100,7 @@ Where in Selenium you used to have to include **explicit wait times** and assert
 
 ➡️ **PlatynUI** could do exactly that for desktop testing - and that would be a real **quantum leap**!  
 
-![](img/daniel.png)
+![](img/daniel1.png)
 
 ---
 
@@ -114,4 +114,4 @@ Where in Selenium you used to have to include **explicit wait times** and assert
 RoboCon 2025 has officially begun - and this first day has already set the bar pretty damn high. I can't wait to see what the next few days bring!
 
 
-![](img/rioni.png)
+![](img/rioni1.png)

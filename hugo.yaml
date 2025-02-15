@@ -52,7 +52,7 @@ params:
     image: rmk_crop_transp_w150.png
   # Checkmk green
   highlightColor: "#37d8ae" 
-  mainSections: ["news", "blog"]
+  mainSections: ["blog"]
   sidebar:
     home: "right"  
     list: "right"  

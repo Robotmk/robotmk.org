@@ -3,7 +3,8 @@
 header:
   # title: '**Robotmk** integrates<br>**Robot Framework** into **Checkmk**'
   title: '**Test** like a **Robot**.<br>**Monitor** like a **Pro**.'
-  hero_img: '/images/index/home-hero-bg.jpg'
+  # hero_img: '/images/index/home-hero-bg.jpg'
+  hero_img: '/images/index/cmk-hero-bg.jpg'
   content_index: 1
 
 # introduction section
@@ -12,97 +13,92 @@ introduction:
   content_index: 2
 
 # LR Animation
-lr_animation:
- - title: 'Create Runtime metrics.'
-   subtitle: "Graph what you're interested in"
-   text: 'Which elements of a Robot test (suites, tests, keywords) are to be recorded in Checkmk-graphs, can be determined via a sophisticated, pattern-based rule system. <br> After all, the whole is expected to remain clearly structured.'
-   img: '/images/index/robotmk_runtime_animated_1.gif'
-   img_alt: 'animated gif' 
- - title: 'Monitor runtimes.'
-   subtitle: 'As much as you want, at any level'
-   text: "In Robotmk the runtimes of all test elements are available for evaluation. <br> Here too, pattern based WATO rules allow to set runtime thresholds of Robot suites, tests and keywords."
-   img: '/images/index/robot_wato_runtime.png'
-   img_alt: ""
- - title: 'Detect functional disruptions.'
-   subtitle: 'Murphy is always waiting around the corner'
-   text: "With Robotmk, functional faults in applications can be detected safely and proactively - far before users notice anything. <br> (Wouldn't it be nice to be in a position where you can say on the phone, &quot;We're already on it.&quot; ...?)"
-   img: '/images/index/broken_image.jpg'
-   img_alt: "You don't see anything here, this is correct :-)"
+# lr_animation:
+#  - title: 'Create Runtime metrics.'
+#    subtitle: "Graph what you're interested in"
+#    text: 'Which elements of a Robot test (suites, tests, keywords) are to be recorded in Checkmk-graphs, can be determined via a sophisticated, pattern-based rule system. <br> After all, the whole is expected to remain clearly structured.'
+#    img: '/images/index/robotmk_runtime_animated_1.gif'
+#    img_alt: 'animated gif' 
+#  - title: 'Monitor runtimes.'
+#    subtitle: 'As much as you want, at any level'
+#    text: "In Robotmk the runtimes of all test elements are available for evaluation. <br> Here too, pattern based WATO rules allow to set runtime thresholds of Robot suites, tests and keywords."
+#    img: '/images/index/robot_wato_runtime.png'
+#    img_alt: ""
+#  - title: 'Detect functional disruptions.'
+#    subtitle: 'Murphy is always waiting around the corner'
+#    text: "With Robotmk, functional faults in applications can be detected safely and proactively - far before users notice anything. <br> (Wouldn't it be nice to be in a position where you can say on the phone, &quot;We're already on it.&quot; ...?)"
+#    img: '/images/index/broken_image.jpg'
+#    img_alt: "You don't see anything here, this is correct :-)"
 # features section
 features_title: 'Features' 
-features_description: 'Why you should decide for the "lingua franca" of test automation.'
+features_description: 'Why you should decide for Robotmk and Robot Framework, the "lingua franca" of test automation:'
 features:
-- heading: 'Central control via WATO'
+- heading: 'Central control from Checkmk'
   icon : 'fa fa-gears'
-  text: '**Robotmk** is configured via a powerful **rule system** in the web administration interface of Checkmk (WATO).'  
-- heading: 'Flexible output formatting'
-  icon: 'fa fa-crop'
-  text: '**Robotmk** evaluates intricately interleaved Robot results; the **pattern-based reduction** of the output to the essential ensures an optimum result.'  
+  text: 'The **Robot Framework execution** is configured entirely through the **Checkmk rule set**.'  
+# - heading: 'Flexible output formatting'
+#   icon: 'fa fa-crop'
+#   text: '**Robotmk** evaluates intricately interleaved Robot results; the **pattern-based reduction** of the output to the essential ensures an optimum result.'  
 - heading: 'Readability'
   icon: 'fa fa-volume-up'
-  text: 'The "**keyword-driven**" approach abstracts complex Python code and can be encapsulated at will – with free name choice. **The result**: traceable results and meaningful messages in the monitoring system.'  
+  text: 'The unique **keyword-driven** approach of Robot Framework abstracts the technical implementation from the execution logic. Your test cases remain **readable** and **maintainable**, regardless of their complexity.'  
 - heading: '100% Robot compatible'
   icon: 'fa fa-handshake-o'
-  text: '**Robotmk** does not require any adaptation to existing Robot tests; every Robot test can be integrated in Checkmk **without any intervention**.'  
+  text: '**Robotmk** does not require any adaptation to existing Robot tests; every Robot test can be integrated in Checkmk **directly**.'  
 - heading: 'Performance monitoring'
   icon: 'fa fa-area-chart'
   text: '**Robotmk can monitor runtimes** at any level, be it whole suites, tests and keywords. (Or how would you detect an insidious login time increase by 0.1s per month?)'  
-- heading: 'Worthwhile addition to Checkmk'
+- heading: 'Monitoring from the user perspective'
   icon: 'fa fa-binoculars'
-  text: '**Checkmk** can only monitor up to **OSI layer 7**. Robotmk completes your monitoring with a detailled view inside applications to get a holistic view of services and their quality.'
-- heading: 'Swiss army knife'
+  text: 'Where **Checkmk** ends, the world of **Robotmk** begins. Robotmk is the ideal addition for a holistic view of the **function** and **performance** of critical applications'
+- heading: 'Library Concept'
   icon: 'fa fa-book'
-  text: "The **Library concept** makes Robot Framework the **Suisse pocket knife**. You'll find a library for nearly any use case. And you are free to use them combined in a test." 
+  text: "The **Library concept** makes Robot Framework the **Suisse army knife**: Web, Desktop, REST, SAP, FTP, Kubernetes, Android, iOS, ... - there a libraries for any use case." 
 - heading:   'Strong community'
   icon: 'fa fa-comments-o'
-  text: 'Great if you have backed the right horse, in case help is required: Checkmk and Robot have a worldwide, English speaking community at their disposal.'  
+  text: 'Join a **community** of almost 40,000 Robot Framework users. Get help. Automate.'  
 - heading:   'Platform-independent'
   icon: 'fa fa-arrows-alt'
-  text: 'One for all: Robot Framework works for all common platforms: Windows, Linux, MacOS, Android, iOS, ... including the appropriate test libraries in each case (e.g. Auto-IT for Windows automation).'  
-- heading: '100% Open Source'
-  icon: 'fa fa-unlock'
-  text: 'Robotmk - like Robot Framework and Checkmk Raw – is published as an Open Source project. No hidden costs, no vendor-lock-in.'
-# intro MK program certification - section 2
-intro_mk_program:
-  heading: 'Introducing the <br> **Robotmk Academy Certification Program.**'
-  subheading: 'Supercharge Your Monitoring Skills.'
-  text: '**Do you want to...**  <br> 
-...write robust web tests?  <br>
-...finally understand and use CSS selectors?  <br>
-...monitor any kind of Windows application?  <br>
-...want to learn which are the most useful Robot Framework libraries?  <br>
-...reuse robot code with the help of Git?  <br>
-...see how easy Robot Framework tests can be debugged?  <br>
-...learn how to program robots which are stable and maintainable?  <br>
-...get worthful bonus material, checklists and exercises?  <br>
-<br>
-✅ **...learn from an industry expert?**'
-  lower_title: "**Then don't miss out!** <br> Be among the first to experience the upcoming"
+  text: 'Robot Framework is based on Python and therefore runs on **all operating systems**.'  
+
+
+# # intro MK program certification - section 2
+# intro_mk_program:
+#   heading: 'Introducing the <br> **Robotmk Academy Certification Program.**'
+#   subheading: 'Supercharge Your Monitoring Skills.'
+#   text: '**Do you want to...**  <br> 
+# ...write robust web tests?  <br>
+# ...finally understand and use CSS selectors?  <br>
+# ...monitor any kind of Windows application?  <br>
+# ...want to learn which are the most useful Robot Framework libraries?  <br>
+# ...reuse robot code with the help of Git?  <br>
+# ...see how easy Robot Framework tests can be debugged?  <br>
+# ...learn how to program robots which are stable and maintainable?  <br>
+# ...get worthful bonus material, checklists and exercises?  <br>
+# <br>
+# ✅ **...learn from an industry expert?**'
+#   lower_title: "**Then don't miss out!** <br> Be among the first to experience the upcoming"
 
 # faq
 faq:
-  - question: 'What do I need to get started with Robotmk?'
-    answer: 'Checkmk v2 is needed in the Enterprise version. If you want to test Checkmk first: you can download a free version from [checkmk.com](https://www.robotmk.org/www.checkmk.com) which is only limited in the number of services.'
-  - question: 'For me as programmer, the keywords of Robot look rather strange. How flexible can one be with them?'
-    answer: 'Writing automates tests in Python can be a mess. The keyword-driven syntax in Robot Framework facilitates readability, allowing test cases to be expressed in natural language, making them comprehensible even to non-technical stakeholders.
-This approach eases reusability, as custom keywords can be defined once and utilized across multiple tests. Furthermore, it is possible to separate test data and test logic which simplifies test maintenance and modification.'
-  - question: 'Is there a recording function for End2End tests?'
-    answer: 'Recorder functionalities as readily advertised for commercial End2End tools should be treated with caution. A test recording is only as intelligent as the purpose behind it. This means: anybody recording click-click-click will receive click-click-click. A login, for example, should always be verified too, website elements should be localized in such a way that they also withstand changes in the UX design, etc. The implementation of End2End tests means actually addressing the behaviour of the SUT (System under test).'
-  - question: 'What has become of Sakuli v1?'
-    answer: 'The open source test tool ”Sakuli“, developed by Consol in 2014, has been officially phased out, as in particular the underlying web test tool “Sahi” did no longer meet modern requirements. The successor of Sakuli has appeared as a complete rewrite in version 2 (only the chargeable version allows the monitoring integration).'
-  - question: 'Can I also employ Robotmk in other monitoring systems (Nagios, Naemon, Icinga, Zabbix, Groundworks, Centreon, ...)?'
-    answer: 'Robotmk was especially developed for Checkmk; the wide range of parameterization as offered by the WATO surface of Robotmk cannot be reproduced via a traditional, Nagios-compatible check-in plug (possibly one more reason to take on Checkmk….)'
-  - question: 'So far I have written Selenium tests in Python. What reason should I have to change over to the Robot Framework?'
-    answer: 'If the tests remain exactly the same and are not to be integrated into a monitoring system, in effect no added value is generated by Robot. <br>
-The expense of integrating pure Python tests into a monitoring system should, however, not be underestimated, especially if the requirements become more complex in the course of time. <br>
-Sooner or later one would rather not program and maintain oneself the complete “framework“ for integrating various test methods (Web, GUI), troubleshooting etc.Exactly here lies the strength of the Robot Framework. And hence there is Robotmk.'
-  - question: 'My web application requires some interaction with the desktop. Is this possible with Robotmk?'
-    answer: 'Yes, in Robot Framework several libraries (=testing methods) can be used in mixed mode, e.g. robust modern web testing together with flexible image recognition methods.'
-  - question: 'Does the test client have to remain unlocked to be able to carry out End2End tests?'
-    answer: ' In the vast majority of cases, web tests can be executed headless, i.e. without a logged-in user.<br> For tests of native Windows UIs, a user must currently still be logged in on the desktop.<br>
-(Version 2 of Robotmk will soon provide a solution for this, which will also enable desktop sessions headless).'
+  - question: 'What do I need to get started with Robotmk and Robot Framework?'
+    answer: 'Robotmk has formed the technical foundation of Checkmk Synthetic Monitoring since 2022. Therefore, a Checkmk installation is of course a prerequisite. For small installations and to try out Checkmk, the trial version is sufficient, which can be downloaded [here](https://checkmk.com/download/trial).'
+  - question: 'Do I need programming skills to use Robotmk?'
+    answer: 'Basic knowledge of Robot Framework is helpful, but the easy-to-understand syntax means that even beginners can quickly become productive. The keyword-driven syntax of Robot Framework is used precisely for the purpose of hiding complex Python code.'
+  - question: 'How do I prepare a Windows/Linux host for use as a test host?'
+    answer: 'Not at all. The installation packages for the test hosts are created by Checkmk, including configuration, scheduler, robot files and also a sophisticated technology to create the Python runtime environments virtually from scratch.'
+  - question: 'How can I test applications via Citrix with Robotmk?'
+    answer: 'The Citrix session can initially be set up with a web library, for example. As soon as Citrix starts, a library for screen pattern recognition can be used, which can work completely agnostic of the screen content. RDP sessions can also be tested with this.'
+  - question: 'What do I have to do to integrate existing Robot Framework tests?'
+    answer: 'No customization is required for the integration of existing robot suites.'
+  - question: 'Where can I download Robotmk?'
+    answer: 'Robotmk is an integral part of Checkmk and can be downloaded [here](https://checkmk.com/download/trial)'
+  - question: 'Who is behind Robotmk?'
+    answer: 'Robotmk was developed in 2020 by Simon Meggle (ELABIT GmbH) and initially released as an open source extension for Checkmk. Since 2022, Simon has been working as Product Manager "Synthetic Monitoring" for Checkmk, as well as in his own company as a consultant and trainer for Robotmk and Robot Framework.'
+  - question: 'What is the difference between Robotmk and Synthetic Monitoring?'
+    answer: 'Synthetic Monitoring is an established technical term for the automated, repeated simulation of user interactions with user interfaces and is also the product name in Checkmk. Robotmk is the name of the specific technical implementation for Checkmk.'
   - question: 'Where can I get professional support?'
-    answer: 'Important: if the future version 2 (spring 2024) of Robotmk is purchased as part of a "Checkmk Synthetic Monitoring" subscription, support can be obtained directly from Checkmk. <br> However, this support is limited to the functionality of Robotmk. <br> For consulting around Robot Framework, libraries, test development we and our partners are there for you. <br> You are welcome to use the form below to set up a non-binding call. In this we will clarify your initial situation and how we can support you in the best possible way. Feel free to use this offer.'
+    answer: 'Support for Robotmk is provided by [Checkmk](https://checkmk.com) GmbH. Consulting and training for Robotmk and Robot Framework is provided by [ELABIT](https://elabit.de) GmbH. ELABIT has also been an accredited training partner for the [RFCP](https://cert.robotframework.org) exam since 2024.' 
 quote:
   text: 'A journey of a thousand miles <br> **begins with the first step.**'
   credit: '(Chinese saying)'
@@ -115,35 +111,22 @@ prefooter:
 
 The official **Robot Framework**<br>
 integration for<br>
-**Checkmk**.<br>
+**Checkmk Synthetic Monitoring**.<br>
 <br>
 <br>⭐️⭐️⭐️⭐️⭐️<br><br>
-✔ 100% Robot Framework compatible. <br>
+✔ 100% Robot Framework. <br>
 ✔ 100% Checkmk integration. <br>
-✔ 100% Monitoring Data. <br>
+✔ 100% End User Experience Monitoring. <br>
 
 
 ---
 
 ![What is Robotmk](/images/index/home-introduction-banner-what-is-robotmk.png)
 
-**Robotmk**  contains the names of the two tools  **Robot Framework**  and  **Checkmk**  (for further details see below).
+**Robotmk** combines the power of the **Robot Framework** with the precision of **Checkmk** – for seamless end-to-end monitoring of your business-critical applications from the end-user perspective.
 
-With  **Robot Framework**  you can automatically test programs, web sites (and much more...) from the perspective of the user.
+**Robotmk** transforms the Robot Framework **test tool** into a **powerful, universal monitoring tool**.
 
-Software developers appreciate this type of tests, as an application can thus for instance be tested swiftly in all its facets and variations before being released in a new version.
-
-It is a great advantage to also have such tests in the monitoring system Checkmk and be able to check continuously...
-
--   ...whether the login into the CRM system functions – and how long it takes
--   ....whether the search function in the SAP/merchandise management system for randomly selected article numbers works
--   ...how efficiently the ordering process functions in the web shop
-
-...etc...
-
-**So far this possibility has not existed**.
-
-**Now Robotmk creates a bridge and permits the integration of the results of Robot-tests into the monitoring system Checkmk.**
 
 ---
 

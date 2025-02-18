@@ -101,7 +101,11 @@
         </div>
       </div>
     </section>
+
+
+
     {{/*  LR Animation  */}}
+    {{ with .Params.lr_animation }}
     <a id="cst-v2-section-vuTsybPfL" style="opacity: 0; width: 0 !important; display: block;"></a>
     <section class="text-image section-height__mediumsection__content-alignment--lefttext-image___11aa9"
       data-preview-item="text-image" data-section-uid="vuTsybPfL">
@@ -121,6 +125,7 @@
       </div>
     </section>
     <br>
+    
 
     <a id="cst-v2-section-0QszOUVt9" style="opacity: 0; width: 0 !important; display: block;"></a>
     <section class="    text-image section-height__medium      section__content-alignment--left   text-image___0da68"
@@ -160,6 +165,10 @@
         </article>
       </div>
     </section>
+    {{ end }}
+    {{/*  end lr_animation  */}}
+
+
     {{/*  feature listings  */}}
     <a id="cst-v2-section-ycvadiUYk" style="opacity: 0; width: 0 !important; display: block;"></a>
     <section
@@ -185,6 +194,8 @@
         </article>
       </div>
     </section>
+
+    {{ with .Params.intro_mk_program }}
     {{/*  intro MK program certification - section 1 */}}
     <a id="cst-v2-section-EmbrAcYht" style="opacity: 0; width: 0 !important; display: block;"></a>
     <section
@@ -220,6 +231,7 @@
         </div>
       </div>
     </section>
+    {{ end }}
 
     {{/*  FAQ  */}}
     <a id="cst-v2-section-lEHCo26W2" style="opacity: 0; width: 0 !important; display: block;"></a>
@@ -251,7 +263,7 @@
       </div>
     </section>
     {{/*  Quote  */}}
-    <a id="cst-v2-section-KZDprlXs-" style="opacity: 0; width: 0 !important; display: block;"></a>
+    {{/*  <a id="cst-v2-section-KZDprlXs-" style="opacity: 0; width: 0 !important; display: block;"></a>
     <section class="    rich-text section-height__medium      section__heading-alignment--left   rich-text___e9f23"
       data-preview-item="rich_text" data-section-uid="KZDprlXs-">
       <div class="rich-text__container">
@@ -262,7 +274,7 @@
           </header>
         </div>
       </div>
-    </section>
+    </section>  */}}
   </main>
   {{/*  pre footer  */}}
   <a id="cst-v2-section-pknpze7RG" style="opacity: 0; width: 0 !important; display: block;"></a>

@@ -240,11 +240,11 @@
       <div class="faq__container">
         <div class="faq__wrapper">
           <header class="section__headings section__headings___69d47">
-            <h2 class="section__heading">What often gets asked about Robotmk.</h2>
+            <h2 class="section__heading">{{ .Params.faq.title}}</h2>
           </header>
           <article class="section__content">
             <ul class="faq__list section__body">
-              {{ range .Params.faq}}
+              {{ range .Params.faq.questions}}
               <li class="faq__list-item">
                 <details>
                   <summary> 

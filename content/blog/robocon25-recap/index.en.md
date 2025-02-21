@@ -161,8 +161,8 @@ This experience ultimately led to the decision to use **Robot Framework**, which
 The following findings from the project were particularly valuable:  
 
 - **Involve stakeholders early on:** Broad coordination from the outset facilitates smooth implementation.  
--  Know the limits of test automation:** Manual tests remain important if the effort required for automation would be disproportionately high.  
--  Test automation is a marathon, not a sprint:** Successful test automation requires long-term maintenance and continuous development.  
+- **Know the limits of test automation:** Manual tests remain important if the effort required for automation would be disproportionately high.  
+- **Test automation is a marathon, not a sprint:** Successful test automation requires long-term maintenance and continuous development.  
 - **Maintenance is crucial:** The success of test automation stands and falls with the consistent maintenance and adaptation of the test cases over the entire runtime.  
 
 ---
@@ -189,7 +189,7 @@ The process has several advantages:
 
 - **Reduced run times:** The total number of tests executed decreases without compromising troubleshooting.  
 - **Efficiency gain:** Test coverage increases as tests target different areas of the code.  
--  Faster feedback:** Especially in continuous integration pipelines, the process delivers faster results.  
+- **Faster feedback:** Especially in continuous integration pipelines, the process delivers faster results.  
 
 Elmar emphasized that this approach particularly comes into its own when test suites become very large and long runtimes slow down development cycles.  
 His conclusion: by cleverly selecting tests according to the dissimilarity principle, **test times can be noticeably shortened** without losing **quality in the search for errors**.  
@@ -269,9 +269,9 @@ The main goals and features of PlatynUI summarized:
 - **Cross-Platform**: Support for Windows, Mac and Linux.  
 - No "zombie clicks": clicks only occur if the element is actually clickable - similar to the precondition checks of the BrowserLibrary.  
 - **State Awareness**: PlatynUI uses internal assertions to check whether, for example, a click action on a component is even possible.  
--  Universal**: Keywords that can be used as universally as possible, without being tied to specific component types.  
--  Targeted component approach**: Use of the Windows UI Automation API - independent of the visual appearance of the application.  
--  Spy tool**: PlatynUI brings its own tool to create XPath selectors quickly and easily.  
+- **Universal**: Keywords that can be used as universally as possible, without being tied to specific component types.  
+- **Targeted component approach**: Use of the Windows UI Automation API - independent of the visual appearance of the application.  
+- **Spy tool**: PlatynUI brings its own tool to create XPath selectors quickly and easily.  
 - **Open Source**: The library will be freely available.  
 
 ### Object Orientation First  
@@ -331,7 +331,7 @@ Pekka traditionally concludes his talk with a presentation of developments relat
 
 - **RobotCode** has now received the accolade of official robot framework extension for **VS Code** - and has recently become available for **PyCharm**.  
 - **Construct**, a development by Franz Haas, makes it easier to work with binary data.  
--  RobotDashboard**, written by Tim de Groot, makes it possible to display test results clearly in dashboards.  
+- **RobotDashboard**, written by Tim de Groot, makes it possible to display test results clearly in dashboards.  
 - and many more. 
 
 **My takeaway:** This shows once again how strongly the community works together, what creative ideas are generated and how projects are promoted through the support of the **Foundation**.  
@@ -352,8 +352,8 @@ In his **live demo**, Siddhant showed a selection of important tools and technol
 
 - **Healenium:** A project to implement self-healing test cases  
 - **GitHub Copilot:** Support for scripting through AI-supported suggestions  
--  Gemini Code Assist:** Optimization and improvement of existing tests  
--  OpenAI API / LLMs:** Dynamic generation of test cases and test data  
+- **Gemini Code Assist:** Optimization and improvement of existing tests  
+- **OpenAI API / LLMs:** Dynamic generation of test cases and test data  
 - **Own AI libraries:** Extension of Robot Framework with AI functionalities  
 
 Finally, Siddhant addressed the challenges that arise when integrating AI into test automation processes - from the complexity of implementation to the quality and stability of the generated tests.  

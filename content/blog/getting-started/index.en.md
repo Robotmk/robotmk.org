@@ -30,16 +30,17 @@ This step-by-step guide will help you get started with synthetic monitoring with
   - 8 GB RAM
   - 4, better 8 CPUs (don't even try with only 2 CPUs; it won't work)
   - basic monitoring by checkmk ("Vanilla"-Agent)
-- Checkmk 2.3 on a Linux server
+- Checkmk >= 2.3 on a Linux server
 
 ## Windows test client
 
 ### Download the RCC binary
 
 > The Checkmk agent, which we will install soon, will include the `rcc.exe` binary. You can therefore skip this step here if you want to integrate the robot into Checkmk immediately (i.e. without prior testing).  
-> I have got into the habit of creating a `bin` directory in the user profile and putting the binary there like this: `c:\Users\simonmeggle\bin\rcc.exe`
 
-For a prior test or to set up a development host, you will need to obtain the RCC binary yourself. Download it [here](https://downloads.robocorp.com/rcc/releases/index.html) (version [v17.18](https://downloads.robocorp.com/rcc/releases/v17.18.0/windows64/rcc.exe) is the current one at the time of writing) and save it to a location of your choice. 
+For a prior test or to set up a development host, you will need to obtain the RCC binary yourself. Download it [here]https://github.com/elabit/robotmk/releases) and save it to a location of your choice. 
+
+I have got into the habit of creating a `bin` directory in the user profile and putting the binary there like this: `c:\Users\simonmeggle\bin\rcc.exe`. Make sure to rename the file to `rcc.exe`.
 
 Now add this folder to the user environment variable `%PATH%`: 
 
@@ -49,15 +50,13 @@ Open a new CMD and test whether you can now execute `rcc` from any location:
 
 {{< figure src="img/cmd_where_rcc.png" title="First call of RCC" >}}
 
+If you get errors at this point, refer to the [RCC Troubleshooting](/en/blog/rcctrouble/) article.
+
 ### Download of the minimal example
 
-Now it's time to download the [repo](https://github.com/elabit/robotmk-examples/archive/refs/heads/main.zip) with the robot suite that we want to integrate into Checkmk. 
+Now it's time to download the [repository](https://github.com/Checkmk/robotmk-examples/archive/refs/heads/main.zip) with the robot suite that we want to integrate into Checkmk. 
 
-> I have created the repository https://github.com/elabit/robotmk-examples especially for example suites. It is best to save it in your bookmarks. 
-
-> Creating the environment for the web test `web/cmk_synthetic_web` takes a few minutes (Python packages, NodeJS, ...).  
-If you want to start an absolute minimal example, you can alternatively use the robot `minimal` from the demo repo.  
-In this case, nothing else is installed apart from Robot Framework.
+> I have created the repository https://github.com/Checkmk/robotmk-examples especially for example suites. It is best to save it in your bookmarks. 
 
 Unzip the file `master.zip` and save the subfolder `web/cmk_synthetic_web` in the folder `C:\robots\`. This folder serves as the so-called **base directory** for all robot suites. 
 

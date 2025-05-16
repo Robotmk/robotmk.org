@@ -30,7 +30,7 @@ Mit dieser Schritt-für-Schritt-Anleitung gelingt Dir der Einstieg in Synthetic 
   - 8 GB RAM
   - 4, besser 8 CPUs (2 CPUs funktionieren nicht - besser gar nicht erst versuchen)
   - Basis-Monitoring durch Checkmk eingerichtet ("Vanilla"-Agent)
-- Checkmk 2.3 auf einem Linux-Server
+- Checkmk >= 2.3 auf einem Linux-Server
 
 > Das Tool "RCC" wird später vom Checkmk-Agenten zwar automatisch mit installiert (`ProgramData/checkmk/agent/bin`). Ich finde es aber trotzdem praktisch, eine "eigene" Kopie des Binaries für lokale Tests zur Hand zu haben. 
 
@@ -39,9 +39,9 @@ Mit dieser Schritt-für-Schritt-Anleitung gelingt Dir der Einstieg in Synthetic 
 ### Download von RCC
 
 > Der Checkmk-Agent, den wir gleich zusammen mit dem Scheduler installieren, wird das `rcc.exe`-Binary mitbringen. Du kannst diesen Schritt hier also überspringen, wenn Du den Robot sofort (d.h. ohne vorherigen Test) in Checkmk integrieren willst.  
-> Ich habe mir angewöhnt, dafür ein `bin`-Verzeichnis im User-Profil anzulegen und das Binary dort abzulegen (z.B. `c:\Users\simonmeggle\bin\rcc.exe`).
 
-Für einen vorherigen Test oder aber die Einrichtung eines Entwicklungs-Hosts musst Du Dir das RCC-Binary selbst besorgen. Lade es [hier](https://downloads.robocorp.com/rcc/releases/index.html) herunter (aktuell [v17.18](https://downloads.robocorp.com/rcc/releases/v17.18.0/windows64/rcc.exe)) und speichere es an einem Ort Deiner Wahl. Ich habe mir angewöhnt, ein Verzeichnis `bin` im User-Profil anzulegen: `c:\Users\simonmeggle\bin\rcc.exe`
+
+Für einen vorherigen Test oder aber die Einrichtung eines Entwicklungs-Hosts musst Du Dir das RCC-Binary selbst besorgen. Lade es [hier](https://github.com/elabit/robotmk/releases) herunter und speichere es an einem Ort Deiner Wahl unter `rcc.exe` ab. Ich habe mir angewöhnt, ein Verzeichnis `bin` im User-Profil anzulegen: `c:\Users\simonmeggle\bin\rcc.exe`
 
 Füge diesen Ordner nun der User-Umgebungsvariable `%PATH%` hinzu: 
 
@@ -51,18 +51,16 @@ Füge diesen Ordner nun der User-Umgebungsvariable `%PATH%` hinzu:
 
 {{< figure src="img/cmd_where_rcc.png" title="Erster Aufruf von RCC" >}}
 
+Falls es hier zu Problemen kommt, hier sind mögliche Fehlerquellen beschrieben: [RCC Troubleshooting](/de/blog/rcctrouble/)
+
 ### Download des Minimal-Tests
 
-Nun ist es an der Zeit, das [Repo](https://github.com/elabit/robotmk-examples/archive/refs/heads/main.zip) mit der Robot-Suite herunterzuladen, die wir in Checkmk integrieren wollen. 
+Nun ist es an der Zeit, das [Demo-Repo](https://github.com/Checkmk/robotmk-examples/archive/refs/heads/main.zip) mit der Robot-Suite herunterzuladen, die wir in Checkmk integrieren wollen. 
 
-> Das Repository https://github.com/elabit/robotmk-examples habe ich extra für Beispiel-Suites angelegt. Speichere es am Besten in Deinen Bookmarks. 
+> Das Repository https://github.com/Checkmk/robotmk-examples habe ich extra für Beispiel-Suites angelegt. Speichere es am Besten in Deinen Bookmarks. 
 
 
-> Die Erstellung des Environments für den Web-Test `web/cmk_synthetic_web` benötigt einige Minuten (Python-Packages, NodeJS, ...).  
-Falls Du ein absolutes Minimal-Beispiel starten möchtest, kannst Du aus dem Demo-Repo alternativ den Robot `minimal` verwenden.  
-In diesem Fall wird außer Robot Framework nichts weiter installiert.
-
-Entzippe die Datei `master.zip` und speichere den Unterordner `web/cmk_synthetic_web` im Ordner `C:\robots\` ab. Dieser Ordner dient als sog. **Basisverzeichnis** für alle Robot-Suites.
+Entzippe die Datei `master.zip` und speichere den Unterordner `examples/web/cmk_synthetic_web` im Ordner `C:\robots\` ab. Dieser Ordner dient als sog. **Basisverzeichnis** für alle Robot-Suites.
 
 {{< figure src="img/robot-basedir.png" title="Speicherort des neuen Robots" >}}
 

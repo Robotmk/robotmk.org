@@ -20,7 +20,7 @@ authorbox: true
 sidebar: true
 pager: false
 thumbnail: ""
-vgwort: ac9628800cff4523bee577ff18c79b4a
+vgwort: https://vg04.met.vgwort.de/na/ac9628800cff4523bee577ff18c79b4a
 ---
 
 Das sonnige Frühlingswetter lud eigentlich dazu ein, den Tag im Freien zu verbringen, aber Animesh und ich blieben standhaft: ein Aufnahmetag 🎙️ 🎥 im Checkmk-Studio im Herzen von München. 

@@ -22,7 +22,7 @@ pager: false
 #weight: 10
 # --- must be in the leaf bundle folder or static
 thumbnail: "robocon_airport.png"
-vgwort: 390cba1dd4bd4570a5190555fe57fc00
+vgwort: https://vg04.met.vgwort.de/na/390cba1dd4bd4570a5190555fe57fc00
 ---
 
 

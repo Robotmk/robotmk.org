@@ -19,7 +19,7 @@ authorbox: true
 sidebar: true
 pager: false
 thumbnail: "img/robocon.png"
-vgwort: e03f65e0f8354a68a2c6740ec26916a6
+vgwort: https://vg04.met.vgwort.de/na/e03f65e0f8354a68a2c6740ec26916a6
 ---
 
 **RoboCon 2025** is behind me - four days full of **exciting presentations, inspiring talks and new ideas**.  

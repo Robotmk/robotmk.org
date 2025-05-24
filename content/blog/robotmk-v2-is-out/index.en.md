@@ -20,7 +20,7 @@ authorbox: true
 sidebar: true
 pager: false
 thumbnail: ""
-vgwort: 03f51259f13c4650af45bd1dfcb81959
+vgwort: https://vg04.met.vgwort.de/na/03f51259f13c4650af45bd1dfcb81959
 ---
 
 Today the time has come: [Checkmk 2.3 was released](https://checkmk.com/de/blog/discover-checkmk-23) and my "baby" Robotmk is now an integral part of this great monitoring system under the name "Synthetic Monitoring".  

@@ -15,9 +15,9 @@
     {{ if (eq hugo.Environment "development") }}
       <img 
       style="border: 1px solid red; padding: 2px;"
-      src="https://vg04.met.vgwort.de/na/{{ $page.Params.vgwort }}" width="1" height="1" alt="">
+      src="{{ $page.Params.vgwort }}" width="1" height="1" alt="">
     {{ else }}
-      <img src="https://vg04.met.vgwort.de/na/{{ $page.Params.vgwort }}" width="1" height="1" alt="">
+      <img src="{{ $page.Params.vgwort }}" width="1" height="1" alt="">
     {{ end }}
   {{ end }}
 {{ end }}

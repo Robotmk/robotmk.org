@@ -20,7 +20,7 @@ authorbox: true
 sidebar: true
 pager: false
 thumbnail: ""
-vgwort: af449055d6a14b09891b6b9210a3a5fc
+vgwort: https://vg04.met.vgwort.de/na/af449055d6a14b09891b6b9210a3a5fc
 ---
 
 The sunny spring weather actually invited us to spend the day outdoors, but Animesh and I persevered: a day of recording 🎙️ 🎥 in the Checkmk studio in the heart of Munich. 

@@ -16,6 +16,7 @@ menu: main
 # weight: 10
 thumbnail: img/start-title.png
 slug: robotmk-v2-quickstart
+vgwort: 16f96186fe6643c1a9e5cfdcfd3898fc
 ---
 
   

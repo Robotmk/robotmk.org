@@ -20,6 +20,7 @@ authorbox: true
 sidebar: true
 pager: false
 # thumbnail: "title-news-small.png"
+vgwort: 5e706e89c17c4abd8cbe7ac3caeed00c
 ---
 
 Heute war es so weit: [Checkmk 2.3 wurde released](https://checkmk.com/de/blog/discover-checkmk-23) und mein "Baby" Robotmk ist jetzt unter dem Namen "Synthetic Monitoring" fester Bestandteil dieses tollen Monitoringsystems.  

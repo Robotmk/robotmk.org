@@ -22,6 +22,7 @@ pager: false
 #weight: 10
 # --- must be in the leaf bundle folder or static
 #thumbnail: ""
+vgwort: 1360506dbdd3408db23ff8cf26aa26e4
 ---
 
 **RCC** ist das Kommandozeilenwerkzeug, um mit dem die Python-Environments für Robotmk Framework gebaut werden können.  

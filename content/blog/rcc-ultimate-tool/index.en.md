@@ -23,6 +23,7 @@ pager: false
 #weight: 10
 # --- must be in the leaf bundle folder or static
 thumbnail: img/rcc-environments.png
+vgwort: 2f494d1588e14947a7e1f587f3647246
 ---
 
 In this blog article, we shed light on the background to the development of RCC, the problems it solves and the immense advantage it brings to the Robotmk project.

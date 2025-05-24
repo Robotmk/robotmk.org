@@ -16,6 +16,7 @@ menu: main
 # weight: 10
 thumbnail: img/start-title.png
 slug: robotmk-v2-schnellstart
+vgwort: 4787e61336494b11bc3806b9c667f658
 ---
 
 
@@ -23,7 +24,7 @@ Mit dieser Schritt-für-Schritt-Anleitung gelingt Dir der Einstieg in Synthetic 
 
 <!--more-->
 
-## Voraussetzungen 
+## Die Voraussetzungen 
 
 - Windows-VM 
   - Internet-Zugriff (zum Download der Installations-Pakete durch `rcc`)

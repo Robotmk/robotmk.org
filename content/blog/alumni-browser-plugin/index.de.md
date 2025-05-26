@@ -149,13 +149,25 @@ Das ist länger, klar. Dafür aber umso **präziser** und nebenbei auch noch **s
 
 ### Installation und Verwendung
 
-Um das PLugin in einem bestehenden Webtest nutzen zu können, musst Du zunächst das Package des Plugins **installieren**: 
+Neben Python und NodeJS sind Robot Framework und BrowserLibrary sind Grundvoraussetzung.  
+Die zweite Zeile zeigt die Installation des PLugins: 
 
 ```
-pip install robotframework-alumniumbrowserplugin
+pip install robotframework==7.2 robotframework-browser==19.3
+pip install robotframework-alumniumbrowserplugin==0.1.4
 ```
 
-**Lade das Plugin** mit der Browser Library: 
+Das von der BrowserLibrary her bekannte `rfbrowser init` würde nebst Playwright auch die Binaries der drei untersützten Browser laden.  
+Hier läuft das anders: Alumnium installiert sein "eigenes" Playwright, dessen Browser (Chromium) die BrowserLibrary über den CDP-Port mitnutzt. Deshalb müssen beide Befehle ausgeführt werden: 
+
+```
+# Initialisierung der BrowserLibrary (ohne Laden der Browser-Binaries)
+rfbrowser init --skip-browsers
+# Initialisierung von Playwright für Alumnium, Installieren von Chromium
+playwright install chromium
+```
+
+**Lade das Plugin** mit der Browser Library in einem .robot-File:
 
 ```
 *** Settings ***

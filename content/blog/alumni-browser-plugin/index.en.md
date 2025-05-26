@@ -171,7 +171,6 @@ Start the browser instance:
 
 ```
     New AI Browser browser=chromium headless=False
-    ...    ai_provider=${AI_PROVIDER}    
     ...    ai_model=${AI_MODEL}
     ...    api_key=${AI_API_KEY}
 ```
@@ -180,7 +179,7 @@ It is best not to store the three variables in the .robot file, but to pass them
 
 ✨ **Bonus tip**: 
 
-- Store `${AI_PROVIDER}` and `${AI_MODEL}` in **robot.toml**, 
+- Store`${AI_MODEL}` in **robot.toml**, e.g. `openai/gpt-4o`
 - `${AI_API_KEY}` in **.robot.toml** (this is included in **.gitignore** and not committed to Git)
 
 ### Large variety of LLMs

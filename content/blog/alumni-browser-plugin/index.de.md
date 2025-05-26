@@ -67,7 +67,7 @@ Also husch die Kinder ins Bett gebracht und an den Mac gesetzt, um die AlumniumL
 
 Das [Minimal-Beispiel](https://github.com/ameyanatu/alumnirobot?tab=readme-ov-file#quick-start) auf der Seite dr Library ließ sich sofort starten. 👍
 
-Hier wird die Alumnium-Library importiert und mit den Einstellungen für das verwendete backend (Playwright), sowie den AI-Provider (OpenAI) initialisiert:
+Hier wird die Alumnium-Library importiert und mit den Einstellungen für das verwendete backend (Playwright), sowie dem AI-Provider (OpenAI) initialisiert:
 
 ```
 *** Settings ***
@@ -166,7 +166,6 @@ Start der Browser-Instanz:
 
 ```
     New AI Browser  browser=chromium  headless=False
-    ...    ai_provider=${AI_PROVIDER}    
     ...    ai_model=${AI_MODEL}
     ...    api_key=${AI_API_KEY}
 ```
@@ -175,7 +174,7 @@ Die drei Variablen am besten nicht im .robot-File hinterlegen, sondern Robot Fra
 
 ✨ **Bonus-Tipp**: 
 
-- `${AI_PROVIDER}` und `${AI_MODEL}` in **robot.toml** ablegen, 
+- `${AI_MODEL}` in **robot.toml** ablegen (z.b. `openai/gpt-4o`)
 - `${AI_API_KEY}` in **.robot.toml** (diese wird in in **.gitignore** aufgenommen und nicht ins Git committed)
 
 ### Große Auswahl an LLMs

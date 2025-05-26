@@ -188,7 +188,7 @@ Alumnium supports a wide range of [cloud-based LLM models](https://alumnium.ai/d
 
 {{< figure src="img/aimodels.png" title="AI models supported by Alumnium" >}}
 
-In addition, it is also possible to specify the URL to a **local, self-hosted LLM**. 
+<!-- In addition, it is also possible to specify the URL to a **local, self-hosted LLM**.  -->
 
 
 ### What this really means

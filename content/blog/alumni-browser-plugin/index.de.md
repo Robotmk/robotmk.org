@@ -183,7 +183,7 @@ Alumnium unterstützt die ganze Bandbreite [cloudbasierter LLM-Modelle](https://
 
 {{< figure src="img/aimodels.png" title="Von Alumnium unterstützte AI-Modelle" >}}
 
-Darüber hinaus ist es auch möglich, die URL zu einem **lokalen, selbst gehosteten LLM** anzugeben. 
+<!-- Darüber hinaus ist es auch möglich, die URL zu einem **lokalen, selbst gehosteten LLM** anzugeben.  -->
 
 
 ### Was das wirklich bringt

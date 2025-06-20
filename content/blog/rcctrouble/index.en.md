@@ -35,6 +35,23 @@ This article summarizes the most common sources of errors when working with RCC 
 
 <!--more-->
 
+## General errors
+
+### User Profile with spaces
+
+**Error:** RCC returns an error with every call:
+
+{{< figure src="img/profile_with_space.png" title="General RCC error due to a space in the user profile" >}}
+
+**Description:** For unknown reasons, the user profile must not contain spaces.
+
+**Solution:** Change the path where RCC should store the environments:
+
+- Define a new environment variable `ROBOCORP_HOME` and assign it a directory of your choice (without spaces). Example: `C:\rcc`
+- Start a new CMD and try again.
+
+---
+
 ## Environment creation
 
 ### Environment creation fails (VCRUNTIME140_1.dll)

@@ -33,6 +33,22 @@ Dieser Artikel fasst die häufigsten Fehlerquellen bei der Arbeit mit RCC zusamm
 
 <!--more-->
 
+## Allgemeine Fehler
+
+### Benutzerprofil mit Leerzeichen
+
+**Fehler:** RCC gibt bei jedem Aufruf einen Fehler zurück:
+
+{{< figure src="img/profile_with_space.png" title="RCC-Fehlermeldung wegen Leerzeichen im Userprofil" >}}
+
+**Beschreibung:** Aus unbekannten Gründen darf das Benutzerprofil keine Leerzeichen enthalten.
+
+**Lösung:** Ändern Sie den Pfad, in dem RCC die Umgebungen speichern soll:
+
+- Definieren Sie eine neue Umgebungsvariable `ROBOCORP_HOME` und weisen Sie ihr ein Verzeichnis Ihrer Wahl (ohne Leerzeichen) zu. Beispiel: `C:\rcc`
+- Starten Sie eine neue CMD und versuchen Sie es erneut.
+
+
 ## Environment-Erstellung
 
 ### Erstellung der Umgebung schlägt fehl (VCRUNTIME140_1.dll)

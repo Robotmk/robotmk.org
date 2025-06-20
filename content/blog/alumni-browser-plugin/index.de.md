@@ -157,6 +157,8 @@ pip install robotframework==7.2 robotframework-browser==19.3
 pip install robotframework-alumniumbrowserplugin==0.1.4
 ```
 
+> Ersetze die Versionsnummer 0.1.4 ggf. durch eine aktuellere, die Du unter [diesem Link](https://pypi.org/project/robotframework-alumniumbrowserplugin/) findest. 
+
 Das von der BrowserLibrary her bekannte `rfbrowser init` würde nebst Playwright auch die Binaries der drei untersützten Browser laden.  
 Hier läuft das anders: Alumnium installiert sein "eigenes" Playwright, dessen Browser (Chromium) die BrowserLibrary über den CDP-Port mitnutzt. Deshalb müssen beide Befehle ausgeführt werden: 
 

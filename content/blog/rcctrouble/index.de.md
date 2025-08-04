@@ -51,7 +51,7 @@ Dieser Artikel fasst die häufigsten Fehlerquellen bei der Arbeit mit RCC zusamm
 
 ## Environment-Erstellung
 
-### Erstellung der Umgebung schlägt fehl (VCRUNTIME140_1.dll)
+### Erstellung der Umgebung schlägt fehl (VCRUNTIME140_1.dll / Fehlercode 0xc0000135)
 
 Auf einigen Windows-Systemen fehlt die DLL **VCRUNTIME140_1.dll** (der Grund dafür ist unbekannt).
 Das beim bau der Environments verwendete Tool **micromamba** bricht die Erstellung der Umgebung mit einer nichtssagenden Meldung ab:
@@ -62,6 +62,12 @@ Die Ursache kann verifiziert werden, wenn man das in der RCC-Ausgabe aufgeführt
 Fehlt die DLL tatsächlich, erzeugt micromamba diese Fehlermeldung:
 
 {{< figure src="img/vcr.png" title="Micromamba findet VCRUNTIME140_1.dll nicht" >}}
+
+Auf Windows 11-Systemen tritt der Fehler auch mit dem Fehlercode `0xc0000135` zu Tage: 
+
+```
+Fatal [Micromamba [3221225781/c0000135]]: exit status 0xc0000135
+```
 
 **Lösung:** Installiere das [Microsoft Visual C++ Redistributable](https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170#visual-studio-2015-2017-2019-and-2022) von Microsoft - es enthält exakt diese DLL.
 

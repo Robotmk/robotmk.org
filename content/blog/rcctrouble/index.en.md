@@ -66,6 +66,12 @@ If the DLL is actually missing, micromamba generates this error message:
 
 {{< figure src="img/vcr.png" title="Micromamba cannot find VCRUNTIME140_1.dll" >}}
 
+On Windows 11 systems, the error also appears with the error code `0xc0000135`:
+
+```
+Fatal [Micromamba [3221225781/c0000135]]: exit status 0xc0000135
+```
+
 **Solution**: Install the [Microsoft Visual C++ Redistributable](https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170#visual-studio-2015-2017-2019-and-2022) from Microsoft—it contains exactly this DLL.
 
 ---

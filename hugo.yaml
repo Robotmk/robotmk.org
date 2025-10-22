@@ -70,7 +70,8 @@ params:
   url:
     privacy_policy: ""
   # Googlt Tag Manager 
-  gtm_id: GTM-P95BJXKK
+  # gtm_id: GTM-P95BJXKK
+  gtm_id: GTM-MZR6FLQ
   # COMMENTS
   giscus:
     commentable:

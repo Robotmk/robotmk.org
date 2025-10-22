@@ -2,7 +2,7 @@
 <html lang="{{site.LanguageCode}}" class="js">
 <head>
   {{ partial "getresponse_webconnect.html" . }}
-  {{ partial "cookie_consent.html" . }}
+  {{/*  {{ partial "cookie_consent.html" . }}  */}}
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{site.Title}}</title>
@@ -53,6 +53,13 @@
 </head>
 
 <body class="home_body">
+	{{/*  Google Tag manager  */}}
+	{{ if .Site.Params.gtm_id}}
+		<noscript>
+			<iframe src="//www.googletagmanager.com/ns.html?id={{ .Site.Params.gtm_id }}" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+		</noscript>
+	{{ end }}	
+
   {{/* top navbar section  */}}
   <header class="header sticky-top">    
     <div class="header__container">

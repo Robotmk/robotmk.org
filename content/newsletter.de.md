@@ -15,10 +15,7 @@ toc: false
 - **Entwicklungen** im Robot Framework-Umfeld
 - **Tutorials** und **Best Practices** zu Synthetic Monitoring mit Robotmk und Checkmk
 - Hinweise auf **Veranstaltungen** und **Meetups**
-- Setze unbedingt auch die Checkbox, wenn Du über den Launch des **Online-Kurssystems Robotmk Academy** informiert bleiben willst.**
-
-
-![alt text](/rmka-rec.gif)
+- Neuigkeiten aus der Robotmk Academy
 
 ## Ja, ich möchte dabei sein: 
 

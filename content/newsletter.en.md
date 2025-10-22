@@ -17,11 +17,7 @@ toc: false
 - **Developments** in the Robot Framework environment
 - **Tutorials** and **best practices** on synthetic monitoring with Robotmk and Checkmk
 - Information on **events** and **meetups**
-- Be sure to tick the box if you want to stay informed about the launch of the **Robotmk Academy online course system.**  
-
-The **Robotmk Academy Online Course** will start its **closed beta phase** in the **mid of July 2024** with a lowered price. 
-
-![alt text](/rmka-rec.gif)
+- Newest updates from the **Robotmk Academy.**  
 
 ## Yes, keep me up to date:
 

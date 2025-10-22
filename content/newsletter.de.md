@@ -23,5 +23,3 @@ toc: false
 ## Ja, ich möchte dabei sein: 
 
 {{< newsletter_form >}}
-
-

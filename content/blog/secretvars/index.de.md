@@ -2,7 +2,7 @@
 draft: false
 title: "Game Changer: Secret Variables!"
 # --- Italic subheading
-lead: "Darauf hast Du sicher auch schon gewartet!"
+lead: "Security by Design"
 # -- giscus id to match comments
 commentid: "secretvars"
 # -- predefined URL

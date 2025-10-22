@@ -7,8 +7,8 @@ sidebar: true
 menu: main
 weight: 100
 toc: false
-aliases:
-- /academy
+# aliases:
+# - /academy
 ---
 
 
@@ -26,5 +26,3 @@ The **Robotmk Academy Online Course** will start its **closed beta phase** in th
 ## Yes, keep me up to date:
 
 {{< newsletter_form >}}
-
-

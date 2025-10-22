@@ -2,7 +2,7 @@
 <html class="no-js" lang="{{ .Site.Language.Lang }}">
 <head>	
 	{{ partial "getresponse_webconnect.html" . }}
-	{{/*  {{ partial "cookie_consent.html" . }}  */}}
+	{{ partial "cookie_consent.html" . }}
 	<meta charset="UTF-8">
 	<!-- Conditional Meta Tag for Posts with Titles -->
     {{ if and (or (eq .Type "blog") (eq .Type "news")) .Params.commentid }}

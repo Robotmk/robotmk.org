@@ -14,7 +14,7 @@ sidebar: true
 pager: false
 menu: main
 # weight: 10
-thumbnail: img/start-title.png
+thumbnail: img/start-title3.png
 slug: robotmk-v2-schnellstart
 vgwort: https://vg04.met.vgwort.de/na/4787e61336494b11bc3806b9c667f658
 ---

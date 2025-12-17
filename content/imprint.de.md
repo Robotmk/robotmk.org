@@ -16,4 +16,3 @@ weight: 1
 
 <h2>Dispute resolution proceedings in front of a consumer arbitration board</h2>
 <p>We are not willing or obliged to participate in dispute resolution proceedings in front of a consumer arbitration board.</p>
-

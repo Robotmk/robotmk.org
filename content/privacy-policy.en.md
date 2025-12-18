@@ -87,3 +87,6 @@ E-mail: mail@elabit.de</p>
 <h4>BigBlueButton</h4>
 <p>We are using BigBlueButton. When you communicate with us via BigBlueButton, all the data related to this communication activity will be processed exclusively on servers located in the European Union or in a third country deemed secure in terms of data protection laws.</p>
 <h5>Data processing</h5> <p>We have concluded a data processing agreement (DPA) for the use of the above-mentioned service. This is a contract mandated by data privacy laws that guarantees that they process personal data of our website visitors only based on our instructions and in compliance with the GDPR.</p>
+
+<h4>Thrivecart</h4>
+<p>We use the service provider ThriveCart, operated by WebActix Ltd., based in New Zealand, to process orders and payments. ThriveCart processes personal data (name, email address, payment details) on servers in the United States. This data is transferred on the basis of standard contractual clauses of the EU to ensure an adequate level of data protection. Further information on data processing by ThriveCart can be found in their privacy policy: https://thrivecart.com/legal/thrivecart/#Privacy_Policy</p>

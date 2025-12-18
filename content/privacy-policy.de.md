@@ -88,3 +88,6 @@ E-Mail: mail@elabit.de</p>
 <h4>BigBlueButton</h4>
 <p>Wir nutzen BigBlueButton. Wenn Sie &uuml;ber BigBlueButton mit uns kommunizieren, werden alle mit diesem Kommunikationsvorgang verbundenen Daten ausschlie&szlig;lich auf Servern innerhalb der Europ&auml;ischen Union bzw. einem datenschutzrechtlich sicheren Drittstaat verarbeitet.</p>
 <h5>Auftragsverarbeitung</h5> <p>Wir haben einen Vertrag &uuml;ber Auftragsverarbeitung (AVV) zur Nutzung des oben genannten Dienstes geschlossen. Hierbei handelt es sich um einen datenschutzrechtlich vorgeschriebenen Vertrag, der gew&auml;hrleistet, dass dieser die personenbezogenen Daten unserer Websitebesucher nur nach unseren Weisungen und unter Einhaltung der DSGVO verarbeitet.</p>
+
+<h4>Thrivecart</h4>
+<p>Für die Abwicklung von Bestellungen und Zahlungen nutzen wir den Dienstleister ThriveCart, betrieben von WebActix Ltd., mit Sitz in Neuseeland. ThriveCart verarbeitet personenbezogene Daten (Name, E-Mail-Adresse, Zahlungsdaten) auf Servern in den USA. Die Übertragung dieser Daten erfolgt auf Basis von Standardvertragsklauseln der EU, um ein angemessenes Datenschutzniveau zu gewährleisten. Weitere Informationen zur Datenverarbeitung durch ThriveCart finden Sie in deren Datenschutzerklärung: https://thrivecart.com/legal/thrivecart/#Privacy_Policy</p>

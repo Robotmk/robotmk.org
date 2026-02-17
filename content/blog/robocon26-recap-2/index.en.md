@@ -1,6 +1,6 @@
 ---
 draft: false
-title: "Robocon 2026 - Recap (Part 2)"
+title: "Robocon 2026 - Recap (Part 2 - Thursday)"
 # --- Italic subheading
 # lead: 
 # -- giscus id to match comments
@@ -28,7 +28,7 @@ This is **Part 2** of the six-part review of Robocon 2026 in Helsinki.
 ---
 
 ➛ Back to **[Part 1 (Tuesday/Wednesday, Workshop & Community Day)]({{< ref "/robocon26-recap-1/" >}})**  
-➛ Continue to **[Part 3]({{< ref "/robocon26-recap-3/" >}})**
+➛ Continue to **[Part 3 (Thursday: Conference Day 1)]({{< ref "/robocon26-recap-3/" >}})**
 
 ---
 
@@ -162,4 +162,4 @@ In the words of Wayne Dyer:
 ---
 
 ➛ Back to [Part 1 (Tuesday/Wednesday, Workshop & Community Day)]({{< ref "/robocon26-recap-1/" >}})  
-➛ Continue to [Part 3]({{< ref "/robocon26-recap-3/" >}})
+➛ Continue to [Part 3 (Thursday: Conference Day 1)]({{< ref "/robocon26-recap-3/" >}})

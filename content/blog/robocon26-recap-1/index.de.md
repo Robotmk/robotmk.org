@@ -31,10 +31,12 @@ Trotzdem hatte ich natürlich den Anspruch, auch den "daheimgebliebenen" möglic
 
 ---
 
-➛ Weiter zu [Teil 2]({{< ref "/robocon26-recap-2/" >}})  
-➛ Weiter zu [Teil 6]({{< ref "/robocon26-recap-6/" >}})
+➛ Weiter zu [Teil 2 (Donnerstag: Konferenz Tag 1)]({{< ref "/robocon26-recap-2/" >}})  
+➛ Weiter zu [Teil 6 (Freitag: Konferenz Tag 2)]({{< ref "/robocon26-recap-6/" >}})
 
 ---
+
+
 
 **Vier intensive Tage** in Helsinki liegen hinter mir – voller Gespräche, neuer Impulse, technischer Details und inspirierender Begegnungen.  
 Wie jedes Jahr habe ich versucht, so viel wie möglich im Handy mitzuschreiben: Neue Namen, Kerngedanken, prägnante Aussagen, spontane Ideen, offene Fragen.  
@@ -144,5 +146,5 @@ Schnell, kooperativ, pragmatisch. Danke Tatu!  🤗
 
 ---
 
-➛ Weiter zu [Teil 2]({{< ref "/robocon26-recap-2/" >}})  
-➛ Weiter zu [Teil 6]({{< ref "/robocon26-recap-6/" >}})
+➛ Weiter zu [Teil 2 (Donnerstag: Konferenz Tag 1)]({{< ref "/robocon26-recap-2/" >}})  
+➛ Weiter zu [Teil 6 (Freitag: Konferenz Tag 2)]({{< ref "/robocon26-recap-6/" >}})

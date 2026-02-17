@@ -1,6 +1,6 @@
 ---
 draft: false
-title: "Robocon 2026 - Recap (Teil 5)"
+title: "Robocon 2026 - Recap (Teil 5 - Freitag)"
 # --- Italic subheading
 # lead: 
 # -- giscus id to match comments
@@ -26,8 +26,8 @@ Dies ist **Teil 5** der sechsteiligen Review der Robocon 2026 in Helsinki.
 
 ---
 
-➛ Zurück zu **[Teil 4]({{< ref "/robocon26-recap-4/" >}})**  
-➛ Weiter zu **[Teil 6]({{< ref "/robocon26-recap-6/" >}})**
+➛ Zurück zu **[Teil 4 (Donnerstag: Konferenz Tag 1)]({{< ref "/robocon26-recap-4/" >}})**  
+➛ Weiter zu **[Teil 6 (Freitag: Konferenz Tag 2)]({{< ref "/robocon26-recap-6/" >}})**
 
 ---
 
@@ -158,5 +158,5 @@ Ach ja, übrigens:
 
 ---
 
-➛ Zurück zu [Teil 4]({{< ref "/robocon26-recap-4/" >}})  
-➛ Weiter zu [Teil 6]({{< ref "/robocon26-recap-6/" >}})
+➛ Zurück zu [Teil 4 (Donnerstag: Konferenz Tag 1)]({{< ref "/robocon26-recap-4/" >}})  
+➛ Weiter zu [Teil 6 (Freitag: Konferenz Tag 2)]({{< ref "/robocon26-recap-6/" >}})

@@ -1,6 +1,6 @@
 ---
 draft: false
-title: "Robocon 2026 - Recap (Teil 4)"
+title: "Robocon 2026 - Recap (Teil 4 - Donnerstag)"
 # --- Italic subheading
 # lead: 
 # -- giscus id to match comments
@@ -26,10 +26,12 @@ Dies ist **Teil 4** der sechsteiligen Review der Robocon 2026 in Helsinki.
 
 ---
 
-➛ Zurück zu **[Teil 3]({{< ref "/robocon26-recap-3/" >}})**  
-➛ Weiter zu **[Teil 5]({{< ref "/robocon26-recap-5/" >}})**
+➛ Zurück zu **[Teil 3 (Donnerstag: Konferenz Tag 1)]({{< ref "/robocon26-recap-3/" >}})**  
+➛ Weiter zu **[Teil 5 (Freitag: Konferenz Tag 2)]({{< ref "/robocon26-recap-5/" >}})**
 
 ---
+
+## Donnerstag: Konferenz Tag 1
 
 ### Automation with Image Recognition Libraries
 
@@ -232,5 +234,5 @@ Eine wunderbare Art, ernste Konzepte mit Leichtigkeit zu vermitteln.
 
 ---
 
-➛ Zurück zu [Teil 3]({{< ref "/robocon26-recap-3/" >}})  
-➛ Weiter zu [Teil 5]({{< ref "/robocon26-recap-5/" >}})
+➛ Zurück zu [Teil 3 (Donnerstag: Konferenz Tag 1)]({{< ref "/robocon26-recap-3/" >}})  
+➛ Weiter zu [Teil 5 (Freitag: Konferenz Tag 2)]({{< ref "/robocon26-recap-5/" >}})

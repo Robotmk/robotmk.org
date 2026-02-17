@@ -1,6 +1,6 @@
 ---
 draft: false
-title: "Robocon 2026 - Recap (Part 3)"
+title: "Robocon 2026 - Recap (Part 3 - Thursday)"
 # --- Italic subheading
 # lead: 
 # -- giscus id to match comments
@@ -26,10 +26,12 @@ This is **Part 3** of the six-part review of Robocon 2026 in Helsinki.
 
 ---
 
-➛ Back to **[Part 2]({{< ref "/robocon26-recap-2/" >}})**  
-➛ Continue to **[Part 4]({{< ref "/robocon26-recap-4/" >}})**
+➛ Back to **[Part 2 (Thursday: Conference Day 1)]({{< ref "/robocon26-recap-2/" >}})**  
+➛ Continue to **[Part 4 (Thursday: Conference Day 1)]({{< ref "/robocon26-recap-4/" >}})**
 
 ---
+
+## Thursday: Conference Day 1
 
 ### Can AI help us find bugs in Robot Framework faster?
 
@@ -116,5 +118,5 @@ All too easily, the issue is simply ticked off the list – and years later, har
 
 ---
 
-➛ Back to [Part 2]({{< ref "/robocon26-recap-2/" >}})  
-➛ Continue to [Part 4]({{< ref "/robocon26-recap-4/" >}})
+➛ Back to [Part 2 (Thursday: Conference Day 1)]({{< ref "/robocon26-recap-2/" >}})  
+➛ Continue to [Part 4 (Thursday: Conference Day 1)]({{< ref "/robocon26-recap-4/" >}})

@@ -31,10 +31,12 @@ Nevertheless, I naturally wanted to convey as much of the "Robocon feeling" as p
 
 ---
 
-➛ To [Part 2]({{< ref "/robocon26-recap-2/" >}})  
-➛ To [Part 6]({{< ref "/robocon26-recap-6/" >}})
+➛ To [Part 2 (Thursday: Conference Day 1)]({{< ref "/robocon26-recap-2/" >}})  
+➛ To [Part 6 (Friday: Conference Day 2)]({{< ref "/robocon26-recap-6/" >}})
 
 ---
+
+
 
 I have just spent **four intense days** in Helsinki – full of discussions, new ideas, technical details and inspiring encounters.  
 As I do every year, I tried to note down as much as possible on my mobile phone: new names, key ideas, concise statements, spontaneous ideas, open questions.  
@@ -147,5 +149,5 @@ Fast, cooperative, pragmatic. Thank you, Tatu!  🤗
 
 ---
 
-➛ Continue to [Part 2]({{< ref "/robocon26-recap-2/" >}})  
-➛ Continue to [Part 6]({{< ref "/robocon26-recap-6/" >}})
+➛ Continue to [Part 2 (Thursday: Conference Day 1)]({{< ref "/robocon26-recap-2/" >}})  
+➛ Continue to [Part 6 (Friday: Conference Day 2)]({{< ref "/robocon26-recap-6/" >}})

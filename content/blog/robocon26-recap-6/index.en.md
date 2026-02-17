@@ -1,6 +1,6 @@
 ---
 draft: false
-title: "Robocon 2026 - Recap (Part 6)"
+title: "Robocon 2026 - Recap (Part 6 - Friday)"
 # --- Italic subheading
 # lead: 
 # -- giscus id to match comments
@@ -28,9 +28,11 @@ This is **Part 6** of the six-part review of Robocon 2026 in Helsinki.
 
 ---
 
-➛ Back to **[Part 5]({{< ref "/robocon26-recap-5/" >}})**
+➛ Back to **[Part 5 (Friday: Conference Day 2)]({{< ref "/robocon26-recap-5/" >}})**
 
 ---
+
+## Friday: Conference Day 2
 
 ### How AI tools affect learning and the implications on open source tools
 
@@ -137,4 +139,4 @@ Feel free to write in the comments below how you liked it.
 ---
 
 ➛ Back to [Part 1 (Tuesday/Wednesday, Workshop & Community Day)]({{< ref "/robocon26-recap-1/" >}})  
-➛ Back to [Part 5]({{< ref "/robocon26-recap-5/" >}})
+➛ Back to [Part 5 (Friday: Conference Day 2)]({{< ref "/robocon26-recap-5/" >}})

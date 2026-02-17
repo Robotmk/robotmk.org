@@ -1,6 +1,6 @@
 ---
 draft: false
-title: "Robocon 2026 - Recap (Teil 2)"
+title: "Robocon 2026 - Recap (Teil 2 - Donnerstag)"
 # --- Italic subheading
 # lead: 
 # -- giscus id to match comments
@@ -29,7 +29,7 @@ Dies ist **Teil 2** der sechsteiligen Review der Robocon 2026 in Helsinki.
 ---
 
 ➛ Zurück zu **[Teil 1 (Dienstag/Mittwoch, Workshop & Community Day)]({{< ref "/robocon26-recap-1/" >}})**  
-➛ Weiter zu **[Teil 3]({{< ref "/robocon26-recap-3/" >}})**
+➛ Weiter zu **[Teil 3 (Donnerstag: Konferenz Tag 1)]({{< ref "/robocon26-recap-3/" >}})**
 
 ---
 
@@ -110,7 +110,7 @@ In einer Zuschauerfrage, als sie gefragt wurden, wie es sich anfühlte, das erst
 
 Diese Antwort traf den Kern dessen, worum es in diesem Vortrag ging: **Beitragen bedeutet Zugehörigkeit.**
 
-👉 **Mein Fazit:** Der Vortrag war ein kraftvolles Reminder: Die echte Stärke des Robot-Framework-Ökosystems liegt nicht in irgendeiner Company-Backing oder Corporate-Sponsorship – sie liegt in der **Zusammenarbeit**, dem gegenseitigen **Vertrauen** und der kollektiven Anstrengung der Community-Mitglieder.
+👉 **Mein Fazit:** Der Vortrag war ein kraftvoller Reminder: Die echte Stärke des Robot-Framework-Ökosystems liegt nicht in irgendeiner Company-Backing oder Corporate-Sponsorship – sie liegt in der **Zusammenarbeit**, dem gegenseitigen **Vertrauen** und der kollektiven Anstrengung der Community-Mitglieder.
 
 ---
 
@@ -165,4 +165,4 @@ Ganz einem Zitat von Wayne Dyer folgend:
 ---
 
 ➛ Zurück zu [Teil 1 (Dienstag/Mittwoch, Workshop & Community Day)]({{< ref "/robocon26-recap-1/" >}})  
-➛ Weiter zu [Teil 3]({{< ref "/robocon26-recap-3/" >}})
+➛ Weiter zu [Teil 3 (Donnerstag: Konferenz Tag 1)]({{< ref "/robocon26-recap-3/" >}})

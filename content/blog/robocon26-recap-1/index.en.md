@@ -23,7 +23,7 @@ thumbnail: "img/robocon.png"
 While waiting for my return flight at the airport, laptop on my knees and still filled with impressions from **Robocon 2026**, I began sorting through my notes.  
 The first draft of this article was written between gate announcements and boarding calls 😉
 
-So here is my *very personal* three-part **review** of RoboCon – shaped by my **impressions**, my **focus areas** and the **topics** that had a particular impact on me.  
+So here is my *very personal* six-part **review** of RoboCon – shaped by my **impressions**, my **focus areas** and the **topics** that had a particular impact on me.  
 Nevertheless, I naturally wanted to convey as much of the "Robocon feeling" as possible to those who had stayed at home.
 
 <!--more-->
@@ -31,8 +31,8 @@ Nevertheless, I naturally wanted to convey as much of the "Robocon feeling" as p
 
 ---
 
-➛ To [Part 2 (Thursday, Conference Day 1)]({{< ref "/robocon26-recap-2-thu/" >}})  
-➛ To [Part 3 (Friday, Conference Day 2)]({{< ref "/robocon26-recap-3-fri/" >}})
+➛ To [Part 2]({{< ref "/robocon26-recap-2/" >}})  
+➛ To [Part 6]({{< ref "/robocon26-recap-6/" >}})
 
 ---
 
@@ -147,5 +147,5 @@ Fast, cooperative, pragmatic. Thank you, Tatu!  🤗
 
 ---
 
-➛ Continue to [Part 2 (Thursday, Conference Day 1)]({{< ref "/robocon26-recap-2-thu/" >}})  
-➛ Continue to [Part 3 (Friday, conference day 2)]({{< ref "/robocon26-recap-3-fri/" >}})
+➛ Continue to [Part 2]({{< ref "/robocon26-recap-2/" >}})  
+➛ Continue to [Part 6]({{< ref "/robocon26-recap-6/" >}})

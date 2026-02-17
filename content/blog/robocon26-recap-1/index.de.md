@@ -23,7 +23,7 @@ thumbnail: "img/robocon.png"
 Während ich am Flughafen auf meinen Rückflug wartete, Laptop auf den Knien und noch ganz erfüllt von den Eindrücken der zurück liegenden **Robocon 2026**, begann ich damit, meine Aufzeichnungen zu sortieren.  
 Der erste Entwurf dieses Artikels entstand also quasi wwischen Gate-Ansagen und Boarding-Aufrufen 😉
 
-Hier also ist meine *ganz persönliche* dreiteilige **Rückschau** auf die RoboCon – geprägt von meinen **Eindrücken**, meinen **Schwerpunkten** und den **Themen**, die bei mir besonders nachgewirkt haben.  
+Hier also ist meine *ganz persönliche* sechsteilige **Rückschau** auf die RoboCon – geprägt von meinen **Eindrücken**, meinen **Schwerpunkten** und den **Themen**, die bei mir besonders nachgewirkt haben.  
 Trotzdem hatte ich natürlich den Anspruch, auch den "daheimgebliebenen" möglichst viel vom "Robocon-Feeling" mitgeben zu können.  
 
 
@@ -31,8 +31,8 @@ Trotzdem hatte ich natürlich den Anspruch, auch den "daheimgebliebenen" möglic
 
 ---
 
-➛ Weiter zu [Teil 2 (Donnerstag, Konferenztag 1)]({{< ref "/robocon26-recap-2-thu/" >}})  
-➛ Weiter zu [Teil 3 (Freitag, Konferenztag 2)]({{< ref "/robocon26-recap-3-fri/" >}})
+➛ Weiter zu [Teil 2]({{< ref "/robocon26-recap-2/" >}})  
+➛ Weiter zu [Teil 6]({{< ref "/robocon26-recap-6/" >}})
 
 ---
 
@@ -144,5 +144,5 @@ Schnell, kooperativ, pragmatisch. Danke Tatu!  🤗
 
 ---
 
-➛ Weiter zu [Teil 2 (Donnerstag, Konferenztag 1)]({{< ref "/robocon26-recap-2-thu/" >}})  
-➛ Weiter zu [Teil 3 (Freitag, Konferenztag 2)]({{< ref "/robocon26-recap-3-fri/" >}})
+➛ Weiter zu [Teil 2]({{< ref "/robocon26-recap-2/" >}})  
+➛ Weiter zu [Teil 6]({{< ref "/robocon26-recap-6/" >}})

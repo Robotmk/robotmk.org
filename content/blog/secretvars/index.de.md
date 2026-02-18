@@ -24,6 +24,7 @@ pager: false
 #weight: 10
 # --- must be in the leaf bundle folder or static
 thumbnail: "title.png"
+vgwort: https://vg04.met.vgwort.de/na/16bb3126002f47ceb831ba211cd9dcad
 ---
 
 Wer mit sensiblen Daten im Robot Framework arbeitet, kennt das **Dilemma**:

@@ -159,7 +159,6 @@ Oh, and by the way:
 
 ---
 
-## Friday: Conference Day 2
 
 ### How AI tools affect learning and the implications on open source tools
 
@@ -234,7 +233,7 @@ And as I wrote in my review of the **PlatynUI workshop** above: if companies suc
 
 👉 **Conclusion**  
 PlatynUI is not the solution to all problems: especially in synthetic monitoring, there will always be use cases where image comparison libraries are the only solution (e.g. RDP/Citrix).  
-But in all other cases, PLatynUI will be a real game changer with its "*Robot Framework First*" approach.  
+But in all other cases, PlatynUI will be a real game changer with its "*Robot Framework First*" approach.  
 (If you are interested in training, please contact me; I am currently working on the material.)
 
 

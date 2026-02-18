@@ -81,7 +81,7 @@ An opening that gave pause for thought and set the tone for the conference: tech
 
 The presentation told a story that is likely to resonate with the Robot Framework community: **two users become maintainers**.
 
-**Gabriela Simion** and **Christoph Singer** described their personal journey, how attending RoboCon inspired them to not only remain users of Robot Framework, but to become active contributors and ultimately maintainers of the [Appiumlibrary](https://github.com/serhatbolsu/robotframework-appiumlibrary) (see Community Day).  
+**Gabriela Simion** and **Christoph Singer** described their personal journey, how attending RoboCon inspired them to not only remain users of Robot Framework, but to become active contributors and ultimately maintainers of the [AppiumLibrary](https://github.com/serhatbolsu/robotframework-appiumlibrary) (see Community Day).  
 
 ![alt text](img/talk-robocon-effect.png)
 
@@ -162,8 +162,6 @@ In the words of Wayne Dyer:
 **Stay open-minded and curious!** 😉
 
 ---
-
-## Thursday: Conference Day 1
 
 ### Can AI help us find bugs in Robot Framework faster?
 
@@ -249,8 +247,6 @@ But the two also highlighted the downside: "*accessibility can backfire*" if it 
 All too easily, the issue is simply ticked off the list – and years later, hardly anyone can remember the framework conditions. 
 
 ---
-
-## Thursday: Conference Day 1
 
 ### Automation with Image Recognition Libraries
 

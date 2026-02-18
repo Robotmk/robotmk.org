@@ -159,8 +159,6 @@ Ach, und übrigens:
 
 ---
 
-## Freitag: Conference Day 2
-
 ### How AI tools affect learning and the implications on open source tools
 
 {{< portrait src="img/arttu.png" alt="Arttu Taipale" >}}

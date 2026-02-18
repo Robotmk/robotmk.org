@@ -81,10 +81,10 @@ However, PlatynUI differs fundamentally in several respects:
 
 The last point deserves special attention.  
 
-Anyone who automates graphical interfaces using image comparison must realise one thing: the test library has *no idea* what it is actually clicking on.  
+Anyone who automates graphical interfaces using image comparison must keep one thing in mind: the test library has *no idea* what it is actually clicking on.  
 It acts on the basis of pixel patterns.  
 The [ImageHorizonLibrary](https://github.com/eficode/robotframework-imagehorizonlibrary), for example, works as follows: During the test run, the keyword `Click Image  ok_button.png` compares the current screen content (in-memory screenshot) with a previously captured reference image.  
-If it is found, the library clicks on the centre of the screen in exactly this hit region.  
+If it is found, the library clicks on the center of the screen in exactly this hit region.  
 
 The principle is mathematically simple, but it has a small **weakness**: the click is based on the assumption that the element will accept the click – in 99% of cases this is the case, but it is not guaranteed.
 
@@ -110,10 +110,10 @@ I had a customer call just today – the customer definitely wants to implement 
 ![alt text](img/gofore-8.png)
 
 This year, the Unconference Day took place at the offices of **GOFORE** in Helsinki (GOFORE is an international consulting firm for digital transformation).  
-A big thank you to GOFORE for simply making its premises available so that working groups could organise themselves freely. That requires a great deal of trust.
+A big thank you to GOFORE for simply making its premises available so that working groups could organize themselves freely. That requires a great deal of trust.
 
 **Ed Manlove** welcomed everyone in the morning in the large meeting room on the 8th floor.  
-Unconference Day embodies exactly what its name promises: not a rigid, formal conference with pre-determined slots, but a lively, self-organising event.  
+Unconference Day embodies exactly what its name promises: not a rigid, formal conference with pre-determined slots, but a lively, self-organizing event.  
 The basic idea comes from Harrison Owen's concept of "[Open Space](https://de.wikipedia.org/wiki/Open_Space)": *"If you are not learning or contributing in a meeting or situation, you have the responsibility to use your own two feet (or wheels) to move to a more productive place."*  
 A principle that is reflected in the structure: flexibility, personal responsibility, courage to change.
 
@@ -124,7 +124,7 @@ The **diversity** was impressive: From highly strategic considerations (open sou
 
 ![alt text](img/cd-agenda.png)
 
-At the suggestion of **Ivo Brüssow** (who himself leads a [user group in Münsterland](https://www.meetup.com/robot-framework-usergroup-munsterland/)), I offered the session "*How to organise user group meetings*".  
+At the suggestion of **Ivo Brüssow** (who himself leads a [user group in Münsterland](https://www.meetup.com/robot-framework-usergroup-munsterland/)), I offered the session "*How to organize user group meetings*".  
 Our Munich group ([RFUGM](https://rfugm.robotmk.org)) is still young and small, but I was delighted that so many people took part.  
 It was valuable to see which **common challenges** arise everywhere:
 

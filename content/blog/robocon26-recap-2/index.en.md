@@ -55,7 +55,7 @@ There is a danger that people will no longer discuss problems with each other, b
 But working on a challenge is part of the learning process.  
 Dialogue with others, the joint struggle to find solutions – this shapes understanding in a way that an immediate AI response cannot.
 
-Miikka made it clear that he did not want to demonise AI.  
+Miikka made it clear that he did not want to demonize AI.  
 
 But he urged caution. If we do not use AI wisely, we risk the community as we know it today ceasing to exist. 
 **The community is our greatest treasure** – and it could suffer greatly from the unthinking use of AI.
@@ -117,7 +117,7 @@ This answer hit the nail on the head of what this talk was all about: **Contribu
 
 {{< portrait src="img/yuri.png" alt="Yuri Verweij" >}}
 
-Yuri's presentation introduced the interactive elements of the conference, which were organised via the **Gridaly Conference Companion App**.  
+Yuri's presentation introduced the interactive elements of the conference, which were organized via the **Gridaly Conference Companion App**.  
 The aim was to motivate conference participants to actively participate and network via a gamified system with badges, tasks and robot stickers.  
 Participants complete various tasks (e.g. visiting sponsor stands) to collect rewards. The main prize: a free ticket to RoboCon 2027.  
 
@@ -194,9 +194,9 @@ In a highly regulated environment where every mistake can have catastrophic cons
 
 Bruno and José showed how they established Robot Framework as a central element of their test automation, closely integrated with requirements management tools such as **IBM DOORS**.  
 
-The challenge was to create **bidirectional synchronisation** between requirement definitions, test procedures and their implementation. This allows each individual automated test case to be traced back directly to a specific requirement – a **consistent chain of traceability** that is absolutely essential in safety-critical systems such as space travel.
+The challenge was to create **bidirectional synchronization** between requirement definitions, test procedures and their implementation. This allows each individual automated test case to be traced back directly to a specific requirement – a **consistent chain of traceability** that is absolutely essential in safety-critical systems such as space travel.
 
-The presentation highlighted not only the technical integration, but also the organisational conventions that are naturally indispensable in such an environment.  
+The presentation highlighted not only the technical integration, but also the organizational conventions that are naturally indispensable in such an environment.  
 Fortunately, Robot Framework meets the regulatory standards and strict requirements of the aerospace industry for documentation, tagging and reporting.  
 
 The speakers also openly shared their **lessons learned** – from pitfalls to specific recommendations for others who want to introduce automation in regulated or safety-critical industries. It was clear that both speakers were drawing on years of experience. 
@@ -215,7 +215,7 @@ With the right discipline and a well-thought-out framework, Robot Framework can 
 The two speakers presented an innovative architecture that addresses an often overlooked problem: the separation between functional tests and performance tests. Their approach eliminates this gap by establishing Robot Framework as the **"source of truth"** for both test scenarios.
 
 The core idea: functional test scenarios that are already defined in Robot Framework are automatically translated into [Locust](https://locust.io) scripts – a powerful, Python-based load testing tool.  
-What normally requires manual scripting and specialised knowledge is replaced here by a keyword-based, intent-driven system.
+What normally requires manual scripting and specialized knowledge is replaced here by a keyword-based, intent-driven system.
 
 The presentation made it clear that the reusability of test definitions is an often underestimated lever.  
 When teams can use their functional tests as the basis for performance tests, it not only creates efficiency – it also creates a closer integration between quality assurance and performance engineering, which is indispensable in modern development cycles.
@@ -232,7 +232,7 @@ When teams can use their functional tests as the basis for performance tests, it
 **Over 90%** (!) of the million most visited websites have **accessibility issues**.  
 This is not only a technical problem, but also a business, legal and ethical one: users who rely on assistive technologies encounter barriers on a daily basis.   
 
-This is not because teams necessarily want to ignore the issue of accessibility. Rather, it is because they simply do not have the capacity, budget or, in some cases, the specialised knowledge to carry out comprehensive manual testing.
+This is not because teams necessarily want to ignore the issue of accessibility. Rather, it is because they simply do not have the capacity, budget or, in some cases, the specialized knowledge to carry out comprehensive manual testing.
 
 Affaf and Lalitkumar presented a **"shift left" strategy** (where "left" = "earlier") that anchors accessibility testing **at the very beginning** of the development cycle.  
 In their approach, this is divided into three levels:
@@ -282,7 +282,7 @@ Both libraries are **operating system independent**, but require consistent scre
 What has a much greater influence on test stability is how the application changes its **layout under different resolutions**, or rather, space conditions.  
 This is because certain navigation elements may be hidden for space reasons, for example.*
 
-Hélio emphasised that the choice of library depends on the specific use case: Do you need text recognition from screenshots? Then SikuliLibrary. Are you looking for lean, purely Python-based image comparisons? Then ImageHorizonLibrary.
+Hélio emphasized that the choice of library depends on the specific use case: Do you need text recognition from screenshots? Then SikuliLibrary. Are you looking for lean, purely Python-based image comparisons? Then ImageHorizonLibrary.
 
 One critical point Hélio addressed: The **future of SikuliLibrary** depends on the underlying SikuliX project, whose maintainer has paused development.  
 Unfortunately, the fully Python-integrated version **sikulix4python**, which author Raimund Hocke wanted to develop, has also come to nothing. 
@@ -331,7 +331,7 @@ Such projects are also ideal for promoting young talent – junior developers ga
 Companies can offer professional support for open source tools that they or their customers depend on.  
 Services can include tool mirroring and the provision of emergency fixes within the framework of SLAs.  
 These fixes should then be fed back into the original project as a contribution.  
-Markus emphasised that new regulations such as **DORA** and **CRA** should be taken into account here.
+Markus emphasized that new regulations such as **DORA** and **CRA** should be taken into account here.
 
 **Step 5: Be open about it**  
 
@@ -350,11 +350,11 @@ The message was clear: there are more options than just "sponsorship" or "sacrif
 
 **Edin Tarić**
 
-Edin's session addressed a problem familiar to many teams with extensive test suites: **How can tests be parallelised effectively when there is a risk of resource conflicts?**
+Edin's session addressed a problem familiar to many teams with extensive test suites: **How can tests be parallelized effectively when there is a risk of resource conflicts?**
 
 **INSYS** is a manufacturer of industrial routers whose software is tested on the devices every day – **1500 tests** that would take **up to 60 hours** to run sequentially!  
 This is an untenable situation with daily build increments.  
-Of course, parallelisation with [pabot](https://pabot.org/) immediately comes to mind. But the team quickly reached its limits here.
+Of course, parallelization with [pabot](https://pabot.org/) immediately comes to mind. But the team quickly reached its limits here.
 
 ![alt text](img/talk-medusa.png)
 
@@ -364,7 +364,7 @@ Attempts to automate the ordering file failed: dynamically avoiding resource con
 
 **Medusa** was explicitly developed around the idea of **resource dependencies**.  
 
-Each suite declares its resource dependencies as **metadata**, and Medusa automatically determines at runtime which suites can start in parallel – this maximises time efficiency and avoids conflicts.
+Each suite declares its resource dependencies as **metadata**, and Medusa automatically determines at runtime which suites can start in parallel – this maximizes time efficiency and avoids conflicts.
 
 In addition to the dependencies, each suite is assigned to a **stage**: Stages are **sequentially executed groups** within which the suites run in parallel as described.  
 This allows you to maintain the necessary control over the order where it matters.
@@ -374,7 +374,7 @@ This significantly reduces code duplication when you want to use a suite for mul
 
 Technically, Medusa functions as a **wrapper** around Robot Framework: Almost all Robot options are accepted and passed on to the processes that execute the individual suites.  
 This means that **listeners, pre-run modifiers** and other extensions all remain usable.  
-In the end, Medusa uses `rebot` to seamlessly merge the results of all suites – even with massive parallelisation.
+In the end, Medusa uses `rebot` to seamlessly merge the results of all suites – even with massive parallelization.
 
 👉 **Conclusion**:  
 
@@ -415,13 +415,13 @@ The **core idea** of the session: there are structural **analogies** between coo
 
 In both cooking and testing, **ingredients**, **environment**, **setup** and **cooking steps** are central.  
 
-Both emphasised: *"Make sure variables are OK. Otherwise it will break."* – a statement that naturally applies equally to dough and code.  
+Both emphasized: *"Make sure variables are OK. Otherwise, it will break."* – a statement that naturally applies equally to dough and code.  
 (Just today, I baked bread myself again and had to think about this while kneading the dough 😉).
 
 Another nice detail: **pancakes are available all over the world** – representing the international community.  
 There is no pancake recipe that is better than another – just as there is no automation solution that is best for all scenarios.  
 
-The **toolset** also varies: some rely on parallelisation – visualised by a large hotplate with many pans.  
+The **tool set** also varies: some rely on parallelisation – visualized by a large hotplate with many pans.  
 Others prefer sequential processes.  
 Both are legitimate, both have their place.
 

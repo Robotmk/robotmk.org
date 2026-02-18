@@ -88,18 +88,18 @@ Namik showed some illustrative examples in his presentation.
 Admittedly, these were not of a professional nature, but purely private – so far, this is a **purely private project** (double respect for that! 👏)  – but the use cases were still very exciting:
 
 Namik automated the **recharging of his mobile phone prepaid card** 📱 with 8n.  
-**Problem**: the provider does not provide an API for this.  
+**Problem**: The provider does not provide an API for this.  
 **Solution**: Using n8n-cron, he starts a Robot Framework script that logs in headlessly to the provider using Playwright ([BrowserLibrary](https://marketsquare.github.io/robotframework-browser/Browser.html)) and tops up the credit.
 
 ![alt text](img/talk-n8n.png)
 
 In the second example, Namik wanted to know whether there were any interesting cars for sale on Autoscout that he could potentially resell at a profit.  
 The **problem**: Autoscout notifications often arrive far too late (sometimes a day later), by which time the car is long gone.  
-**Solution**: He automated this using n8n. The system regularly checks for new cars (with a **randomised interval**, of course, to avoid bot detection).  
+**Solution**: He automated this using n8n. The system regularly checks for new cars (with a **randomized interval**, of course, to avoid bot detection).  
 If an interesting offer appears, he receives an email with a screenshot.  
 Thanks to n8n, he can also add an **AI evaluation** by OpenAI, which gives its assessment of the resale value.
 
-> *By the way, here's a great tip from him for anyone struggling with being recognised as a bot by the other party: it's worth trying to set the **"geolocation"** permission in the [New Context](https://marketsquare.github.io/robotframework-browser/Browser.html#New%20Context) keyword to `true`.  
+> *By the way, here's a great tip from him for anyone struggling with being recognized as a bot by the other party: it's worth trying to set the **"geolocation"** permission in the [New Context](https://marketsquare.github.io/robotframework-browser/Browser.html#New%20Context) keyword to `true`.  
 Bots usually do not have geolocation enabled.  
 Manually setting the **user agent** is also an effective strategy for getting past bot blocks.  
 (Of course, I've added everything to my [training material](https://lp.robotmk.org/robotmk-masterclass-4d-de) ☺️)*
@@ -134,7 +134,7 @@ The "steep slopes" of technical roadblocks ultimately required a search for broa
 
 Igor and Jerzy then described the phase of **critical transition**: from local users to active participants in the global ecosystem.  
 
-Their journey took them through several key phases = "camps": The **discovery phase**, in which the team realised that the previous methods were no longer sufficient.  
+Their journey took them through several key phases = "camps": The **discovery phase**, in which the team realized that the previous methods were no longer sufficient.  
 
 Then came **community integration** – international meetings such as RoboCon became a "mountain hut" for the team. A place of safety, knowledge exchange and regeneration.
 
@@ -145,7 +145,7 @@ This strategic step towards active contribution exemplifies how consumers of ope
 
 Of course, not everyone is a born community founder, and we don't need 100 RoboCons in this world. 😉  
 The central message of the session was different: **technical growth is rarely a solo project**.  
-The two emphasised how collaborative environments strengthen the resilience of entire teams.  
+The two emphasized how collaborative environments strengthen the resilience of entire teams.  
 Their journey – documented across the various "altitude levels" of mountain climbing 🏔️ – made it clear that real progress happens when organisations leave their isolated implementation behind and become an active part of the community.
 
 👉 **Conclusion**: A truly inspiring insight into a journey that shows **how users become creators** – and how valuable it is not only to use the community, but to give something back to it by actively shaping it.  
@@ -195,7 +195,7 @@ The open-source nature of Robot Framework is an advantage, but the skewed traini
 
 👉 **Conclusion**  
 One of the **most thought-provoking sessions of the conference**.  
-Arttu skilfully navigated between pragmatism and critical reflection.  
+Arttu skillfully navigated between pragmatism and critical reflection.  
 His message: AI is **no substitute for in-depth knowledge** – it is a tool for those who already know how to wield the hammer.  
 The community must actively work to ensure that Robot Framework remains relevant in the AI era – not by resisting AI, but through better integration and updated learning resources.
 
@@ -227,7 +227,7 @@ Each of these actions follows a clear pattern:
 
 This may sound familiar to some: Playwright, which works in the [BrowserLibrary](https://marketsquare.github.io/robotframework-browser/Browser.html), uses a similar approach with its [actionability checks](https://playwright.dev/docs/actionability). Here, too, a button can only be clicked if the actionability checks have determined that the element is visible/active and not covered by another element.
 
-**PlatynUI is still under development** – tooling, keywords and platform coverage are not yet finalised.  
+**PlatynUI is still under development** – tooling, keywords and platform coverage are not yet finalized.  
 However, the project already demonstrates a solid, principle-driven approach to a chronic problem in desktop automation.  
 And as I wrote in my review of the **PlatynUI workshop** above: if companies such as **German Air Traffic Control** are already using PlatynUI productively, this indicates that it is sufficiently mature. 
 

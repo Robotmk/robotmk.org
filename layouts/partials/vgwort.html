@@ -12,12 +12,16 @@
       Bitte Text verlängern oder Zählmarke entfernen.
     </div>
   {{ else }}
-    {{ if (eq hugo.Environment "development") }}
+    {{/*  {{ if (eq hugo.Environment "development") }}
       <img 
       style="border: 1px solid red; padding: 2px;"
       src="{{ $page.Params.vgwort }}" width="1" height="1" alt="">
-    {{ else }}
+    {{ else }}  */}}
+      <span 
+        style='display:inline-block; width:4px; height:4px; background:#28a745; border-radius:50%; margin-right:5px; vertical-align:middle; float:right;'
+        title='{{ substr ($page.Params.vgwort | replaceRE "^.*/" "") 0 6 }}'
+      ></span>
       <img src="{{ $page.Params.vgwort }}" width="1" height="1" alt="">
-    {{ end }}
+    {{/*  {{ end }}  */}}
   {{ end }}
 {{ end }}

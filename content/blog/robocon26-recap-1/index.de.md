@@ -1,6 +1,6 @@
 ---
 draft: false
-title: "RoboCon 2026 - Recap (Teil 1 - Workshop & Community day)"
+title: "RoboCon 2026 - Recap (Workshop & Community day)"
 # --- Italic subheading
 # lead: 
 # -- giscus id to match comments
@@ -12,19 +12,20 @@ description: null
 date: "2026-02-14T10:04:33+02:00"
 categories:
   - news
+  - events
 tags:
   - "robocon"
 authorbox: true
 sidebar: true
 pager: false
-thumbnail: "img/robocon.png"
-
+thumbnail: "img/gofore-8.png"
+vgwort: https://vg04.met.vgwort.de/na/33debf1e67e545deac06b4a01c008dc0
 ---
 
 Während ich am Flughafen auf meinen Rückflug wartete, Laptop auf den Knien und noch ganz erfüllt von den Eindrücken der zurück liegenden **RoboCon 2026**, begann ich damit, meine Aufzeichnungen zu sortieren.  
 Der erste Entwurf dieses Artikels entstand also quasi zwischen Gate-Ansagen und Boarding-Aufrufen 😉
 
-Hier also ist meine *ganz persönliche* sechsteilige **Rückschau** auf die RoboCon – geprägt von meinen **Eindrücken**, meinen **Schwerpunkten** und den **Themen**, die bei mir besonders nachgewirkt haben.  
+Hier also ist meine *ganz persönliche* dreiteilige **Rückschau** auf die RoboCon – geprägt von meinen **Eindrücken**, meinen **Schwerpunkten** und den **Themen**, die bei mir besonders nachgewirkt haben.  
 Trotzdem hatte ich natürlich den Anspruch, auch den "Daheimgebliebenen" möglichst viel vom "RoboCon-Feeling" mitgeben zu können.  
 
 
@@ -33,7 +34,7 @@ Trotzdem hatte ich natürlich den Anspruch, auch den "Daheimgebliebenen" möglic
 ---
 
 ➛ Weiter zu [Teil 2 (Donnerstag: Konferenz Tag 1)]({{< ref "/robocon26-recap-2/" >}})  
-➛ Weiter zu [Teil 6 (Freitag: Konferenz Tag 2)]({{< ref "/robocon26-recap-6/" >}})
+➛ Weiter zu [Teil 3 (Freitag: Konferenz Tag 2)]({{< ref "/robocon26-recap-3/" >}})
 
 ---
 
@@ -148,4 +149,4 @@ Schnell, kooperativ, pragmatisch. Danke Tatu!  🤗
 ---
 
 ➛ Weiter zu [Teil 2 (Donnerstag: Konferenz Tag 1)]({{< ref "/robocon26-recap-2/" >}})  
-➛ Weiter zu [Teil 6 (Freitag: Konferenz Tag 2)]({{< ref "/robocon26-recap-6/" >}})
+➛ Weiter zu [Teil 3 (Freitag: Konferenz Tag 2)]({{< ref "/robocon26-recap-3/" >}})

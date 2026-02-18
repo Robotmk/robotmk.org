@@ -1,6 +1,6 @@
 ---
 draft: false
-title: "RoboCon 2026 - Recap (Part 1 - Workshop & Community day)"
+title: "RoboCon 2026 - Recap (Workshop & Community day)"
 # --- Italic subheading
 # lead: 
 # -- giscus id to match comments
@@ -12,19 +12,20 @@ description: null
 date: "2026-02-14T10:04:33+02:00"
 categories:
   - news
+  - events
 tags:
   - "robocon"
 authorbox: true
 sidebar: true
 pager: false
-thumbnail: "img/robocon.png"
+thumbnail: "img/gofore-8.png"
 vgwort: https://vg04.met.vgwort.de/na/33debf1e67e545deac06b4a01c008dc0
 ---
 
 While waiting for my return flight at the airport, laptop on my knees and still filled with impressions from **RoboCon 2026**, I began sorting through my notes.  
 The first draft of this article was written between gate announcements and boarding calls 😉
 
-So here is my *very personal* six-part **review** of RoboCon – shaped by my **impressions**, my **focus areas** and the **topics** that had a particular impact on me.  
+So here is my *very personal* three-part **review** of RoboCon – shaped by my **impressions**, my **focus areas** and the **topics** that had a particular impact on me.  
 Nevertheless, I naturally wanted to convey as much of the "RoboCon feeling" as possible to those who had stayed at home.
 
 <!--more-->
@@ -33,7 +34,7 @@ Nevertheless, I naturally wanted to convey as much of the "RoboCon feeling" as p
 ---
 
 ➛ To [Part 2 (Thursday: Conference Day 1)]({{< ref "/robocon26-recap-2/" >}})  
-➛ To [Part 6 (Friday: Conference Day 2)]({{< ref "/robocon26-recap-6/" >}})
+➛ To [Part 3 (Friday: Conference Day 2)]({{< ref "/robocon26-recap-3/" >}})
 
 ---
 
@@ -151,4 +152,4 @@ Fast, cooperative, pragmatic. Thank you, Tatu!  🤗
 ---
 
 ➛ Continue to [Part 2 (Thursday: Conference Day 1)]({{< ref "/robocon26-recap-2/" >}})  
-➛ Continue to [Part 6 (Friday: Conference Day 2)]({{< ref "/robocon26-recap-6/" >}})
+➛ Continue to [Part 3 (Friday: Conference Day 2)]({{< ref "/robocon26-recap-3/" >}})

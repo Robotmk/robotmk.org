@@ -1,6 +1,6 @@
 ---
 draft: false
-title: "Robocon 2026 - Recap (Teil 5 - Freitag)"
+title: "RoboCon 2026 - Recap (Teil 5 - Freitag)"
 # --- Italic subheading
 # lead: 
 # -- giscus id to match comments
@@ -20,7 +20,7 @@ pager: false
 thumbnail: "img/robocon.png"
 ---
 
-Dies ist **Teil 5** der sechsteiligen Review der Robocon 2026 in Helsinki.
+Dies ist **Teil 5** der sechsteiligen Review der RoboCon 2026 in Helsinki.
 
 <!--more-->
 
@@ -42,7 +42,7 @@ Dies ist **Teil 5** der sechsteiligen Review der Robocon 2026 in Helsinki.
 
 **Pekka Klärck** ist bekanntermaßen der **Erfinder** und Lead Developer von Robot Framework.  
 Er startete das Projekt 2005 als Teil seiner Masterarbeit an der Helsinki University of Technology (heute Aalto University) und steuert seitdem die Entwicklung.  
-Pekka bietet traditoinell am zweiten Konferenztag einen **Überblick** über alle Entwicklungen und Aktivitäten rund um Robot Framework: welche neuen Libraries entstanden sind, welche großen Updates es gab, wer sich besonders hervorgetan hat – all das findet hier seinen Platz.
+Pekka bietet traditionell am zweiten Konferenztag einen **Überblick** über alle Entwicklungen und Aktivitäten rund um Robot Framework: welche neuen Libraries entstanden sind, welche großen Updates es gab, wer sich besonders hervorgetan hat – all das findet hier seinen Platz.
 
 Zwei Features im Core der Versionem **7.3** und **7.4** stechen besonders hervor:  
 
@@ -75,7 +75,7 @@ Wer etwas Bestimmtes sucht oder einfach nur stöbern möchte, sollte dort unbedi
 {{< portrait src="img/namik.png" alt="Namik Delilovic" >}}
 
 Automatisierungen entfalten ihren größten Wert, wenn sie mit anderen Tools und Services interagieren.  
-Genau hier setzt Namiks Projekt an: **n8n-nodes-robotframework** ermöglicht es, Robot-Framework-Tasks direkt in n8n's visuelle Workflows zu integrieren – und damit Zugriff auf das ganze Ökosystem der Integraitonen zu erhalten. 
+Genau hier setzt Namiks Projekt an: **n8n-nodes-robotframework** ermöglicht es, Robot-Framework-Tasks direkt in n8n's visuelle Workflows zu integrieren – und damit Zugriff auf das ganze Ökosystem der Integrationen zu erhalten. 
 
 Das bedeutet: Robot Framework Tests lassen sich nahtlos mit den Nodes für APIs, Datenbanken, Messaging-Systemen und KI-Services verbinden – alles visuell konfiguriert, ohne zusätzlichen Code schreiben zu müssen.
 
@@ -101,7 +101,7 @@ Dank n8n kann er auch gleich eine **KI-Bewertung** durch OpenAI reinhängen, die
 > *Nebenbei, ein toller Tipp von ihm für alle, die damit kämpfen, von der Gegenstelle als Bot erkannt zu werden: es ist einen Versuch wert, die Permission **"geolocation"** im [New Context](https://marketsquare.github.io/robotframework-browser/Browser.html#New%20Context)-Keyword auf `true` zu setzen.  
 Bots haben die Geolocation gewöhnlich nicht aktiviert.  
 Auch das manuelle Setzen des **User-Agents** ist eine wirkungsvolle Strategie, um an Bot-Sperren vorbeizukommen.  
-(Naütrlich gleich alles in mein [Trainingsmaterial](https://lp.robotmk.org/robotmk-masterclass-4d-de) aufgenommen ☺️)*
+(Natürlich gleich alles in mein [Trainingsmaterial](https://lp.robotmk.org/robotmk-masterclass-4d-de) aufgenommen ☺️)*
 
 Besonders clever: Mit dem Keyword [Save Storage State](https://marketsquare.github.io/robotframework-browser/Browser.html#Save%20Storage%20State) speicherte Namik die aktuelle Browser-Session (z.B. alle gesetzten Cookies), und übergab sie an den nächsten Node.  
 Damit kann der folgende Node direkt im **eingeloggten Zustand** weitermachen – ein eleganter Weg, der Teilschritte an separate Nodes delegiert.
@@ -139,10 +139,10 @@ Dann die **Community Integration** – internationale Treffen wie die RoboCon wu
 
 Der entscheidende Wendepunkt für sie war dann der **Shift von Climbers zu Guides**: NiceProject trat der Robot Framework Foundation bei und etablierte die [WRobocon](https://wrobocon.eu) – eine zweite große Robot-Framework-Konferenz.  
 
-Inzwischen zieht diese "*kleine Schwester der Robocon*" ebenso Speaker aus der ganzen Welt an und erfreut sich großer Beliebtheit.  
+Inzwischen zieht diese "*kleine Schwester der RoboCon*" ebenso Speaker aus der ganzen Welt an und erfreut sich großer Beliebtheit.  
 Dieser strategische Schritt hin zur aktiven Contribution zeigt exemplarisch, wie aus Konsumenten von Open Source echte **Enabler** und Multiplikatoren werden können.
 
-Natürlich ist nicht gleich jeder der geborene Community-Gründer und wir brauchen auch keine 100 Robocons auf dieser Welt. 😉  
+Natürlich ist nicht gleich jeder der geborene Community-Gründer und wir brauchen auch keine 100 RoboCons auf dieser Welt. 😉  
 Die zentrale Botschaft der Session war eine andere: **Technisches Wachstum ist selten ein Solo-Projekt**.  
 Die beiden betonten, wie kollaborative Umgebungen die Resilienz ganzer Teams stärken.  
 Ihr Weg – dokumentiert über die verschiedenen "Höhenstufen" der Bergbesteigung 🏔️ – machte deutlich, dass echter Fortschritt dann entsteht, wenn Organisationen ihre isolierte Implementierung hinter sich lassen und zum aktiven Teil der Community werden.

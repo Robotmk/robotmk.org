@@ -1,6 +1,6 @@
 ---
 draft: false
-title: "Robocon 2026 - Recap (Teil 3 - Donnerstag)"
+title: "RoboCon 2026 - Recap (Teil 3 - Donnerstag)"
 # --- Italic subheading
 # lead: 
 # -- giscus id to match comments
@@ -20,7 +20,7 @@ pager: false
 thumbnail: "img/robocon.png"
 ---
 
-Dies ist **Teil 3** der sechsteiligen Review der Robocon 2026 in Helsinki.
+Dies ist **Teil 3** der sechsteiligen Review der RoboCon 2026 in Helsinki.
 
 <!--more-->
 
@@ -39,7 +39,7 @@ Dies ist **Teil 3** der sechsteiligen Review der Robocon 2026 in Helsinki.
 
 **Fabian Streitel** berät seit über zehn Jahren seine Kunden im Bereich der Testautomatisierung. Er präsentierte einen faszinierenden Ansatz für ein Problem, das viele Teams mit großen Testsuites kennen: Wie kann man **möglichst schnelles Feedback** liefern, wenn die vollständige **Testausführung Stunden oder gar Tage** dauert?
 
-Die Kernidee seiner Präsentation: satt die gesamte Testsuite zu durchlaufen, clustert man Tests und wählt die zur Ausführung aus, die in einem vektorbasierten Raum möglichst weit voneinander entfernt sind - quasi ein "intelligenter Smoke-Test" 😉  
+Die Kernidee seiner Präsentation: statt die gesamte Testsuite zu durchlaufen, clustert man Tests und wählt die zur Ausführung aus, die in einem vektorbasierten Raum möglichst weit voneinander entfernt sind - quasi ein "intelligenter Smoke-Test" 😉  
 
 ![alt text](img/talk-3d.gif)
 
@@ -108,7 +108,7 @@ Affaf und Lalitkumar zeigten eine **"Shift-Left"-Strategie** auf (wobei "left" =
 In ihrem Ansatz gliedert sich das in drei Ebenen:
 
 - Auf **Entwicklungsebene** können Probleme bereits erkannt werden, bevor überhaupt automatisierte Tests geschrieben werden. Verstöße wie etwa fehlende "alt"-Texte oder inkorrekte ARIA-Attribute können die Entwickler direkt beim Coding erkennen und korrigieren. 
-- Auf **Testebene** integriert Robot Framework Tools wie [axe-core](https://github.com/dequelabs/axe-core) und  nahtlos in funktionale und Regressionstests. Accessibility-Checks sollen damit Teil des täglichen Testings werden. – ohne zusätzlichen manuellen Aufwand.
+- Auf **Testebene** integriert Robot Framework Tools wie [axe-core](https://github.com/dequelabs/axe-core) und  nahtlos in funktionale und Regressionstests. Accessibility-Checks sollen damit Teil des täglichen Testings werden – ohne zusätzlichen manuellen Aufwand.
 - Auf **Prozessebene** werden die Tests in CI/CD-Pipelines eingebunden. Erkannte Issues können automatisch getrackt und mit Development-Tasks verknüpft werden, sodass kontinuierliche Validierung stattfindet und Regressionen vor dem Deployment verhindert werden.
 
 Die zentrale Botschaft der Session war klar: Accessibility-Automatisierung ist nicht nur ein Werkzeug zum Aufspüren von Verstößen – sie verdient ein **nachhaltiges System**, in dem Technologie aktiv Diversität und Nutzbarkeit unterstützt.  

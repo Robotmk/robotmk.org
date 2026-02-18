@@ -1,6 +1,6 @@
 ---
 draft: false
-title: "Robocon 2026 - Recap (Part 1 - Workshop & Community day)"
+title: "RoboCon 2026 - Recap (Part 1 - Workshop & Community day)"
 # --- Italic subheading
 # lead: 
 # -- giscus id to match comments
@@ -18,13 +18,14 @@ authorbox: true
 sidebar: true
 pager: false
 thumbnail: "img/robocon.png"
+vgwort: https://vg04.met.vgwort.de/na/33debf1e67e545deac06b4a01c008dc0
 ---
 
-While waiting for my return flight at the airport, laptop on my knees and still filled with impressions from **Robocon 2026**, I began sorting through my notes.  
+While waiting for my return flight at the airport, laptop on my knees and still filled with impressions from **RoboCon 2026**, I began sorting through my notes.  
 The first draft of this article was written between gate announcements and boarding calls 😉
 
 So here is my *very personal* six-part **review** of RoboCon – shaped by my **impressions**, my **focus areas** and the **topics** that had a particular impact on me.  
-Nevertheless, I naturally wanted to convey as much of the "Robocon feeling" as possible to those who had stayed at home.
+Nevertheless, I naturally wanted to convey as much of the "RoboCon feeling" as possible to those who had stayed at home.
 
 <!--more-->
 
@@ -44,7 +45,7 @@ As I do every year, I tried to note down as much as possible on my mobile phone:
 Some aspects only become apparent in retrospect, while others seem more important at the time than they appear later.
 
 And yet, this year my collection feels even more complete. Not necessarily exhaustive (unfortunately not with all sessions) – but more structured, clearer, closer to the action than last year.  
-Perhaps because I listened more consciously. Perhaps also because I now know better how to get the most out of Robocon.
+Perhaps because I listened more consciously. Perhaps also because I now know better how to get the most out of RoboCon.
 
 **Enjoy reading!**
 

@@ -1,6 +1,6 @@
 ---
 draft: false
-title: "Robocon 2026 - Recap (Teil 2 - Donnerstag)"
+title: "RoboCon 2026 - Recap (Teil 2 - Donnerstag)"
 # --- Italic subheading
 # lead: 
 # -- giscus id to match comments
@@ -20,7 +20,7 @@ pager: false
 thumbnail: "img/robocon.png"
 ---
 
-Dies ist **Teil 2** der sechsteiligen Review der Robocon 2026 in Helsinki.
+Dies ist **Teil 2** der sechsteiligen Review der RoboCon 2026 in Helsinki.
 
 
 
@@ -82,7 +82,7 @@ Eine Eröffnung, die nachdenklich stimmte und den Ton für die Konferenz setzte:
 
 Die Präsentation der beiden erzählte eine Geschichte, die in der Robot-Framework-Community Resonanz gefunden haben dürfte: **zwei Anwender werden zu Maintainern**.
 
-**Gabriela Simion** und **Christoph Singer** beschrieben ihre persönliche Reise, wie der Besuch der RoboCon sie inspirierte, nicht nur Nutzer von Robot Framework zu bleiben, sondern aktive Contributor und schließlich Maintainer der [Appiumlibrary](https://github.com/serhatbolsu/robotframework-appiumlibrary) zu werden (siehe Community Day).  
+**Gabriela Simion** und **Christoph Singer** beschrieben ihre persönliche Reise, wie der Besuch der RoboCon sie inspirierte, nicht nur Nutzer von Robot Framework zu bleiben, sondern aktive Contributor und schließlich Maintainer der [AppiumLibrary](https://github.com/serhatbolsu/robotframework-appiumlibrary) zu werden (siehe Community Day).  
 
 ![alt text](img/talk-robocon-effect.png)
 
@@ -91,26 +91,26 @@ Im letzten Jahr haben sie das Ruder übernommen und gerade **Version 3.0** der *
 
 Die zentrale Botschaft war nicht neu. Aber sie ist immer noch dringend nötig: Die RoboCon ist mehr als eine Serie von Präsentationen.  
 Sie ist ein Raum, in dem Menschen zusammenkommen, Ideen austauschen, neue Perspektiven entdecken, und **einander ermutigen, größer zu denken**.  
-Das ist auch meine Erfahrung: Ich sehe die Robocon als **Katalysator** für persönliche und berufliche Entwicklung, die wiederum auf das Ökosystem von Robot Famework einzahlt.
+Das ist auch meine Erfahrung: Ich sehe die RoboCon als **Katalysator** für persönliche und berufliche Entwicklung, die wiederum auf das Ökosystem von Robot Famework einzahlt.
 
 Ein Kerngedanke der Präsentation war die **Wichtigkeit individueller Beteiligung** – die Idee, dass jeder, unabhängig von Erfahrung oder Hintergrund, etwas Wertvolles zum Ökosystem beitragen kann.  
-Das erinnerte mich an Ed Manloves **"Law of 2 Feet"**: Bewege dich einfch zu den Orten, wo du lernen und beitragen kannst.  
+Das erinnerte mich an Ed Manloves **"Law of 2 Feet"**: Bewege dich einfach zu den Orten, wo du lernen und beitragen kannst.  
 Gabriela und Christoph verkörpern dieses Prinzip perfekt.
 
 **Gabriela erzählte**, wie sie zu Beginn einen Library-Entwickler fragte: *"Wie viel Erfahrung als Python-Entwickler braucht es, Maintainer einer Library zu werden?"*  
 Seine Antwort war prägnant und ermutigend: *"Just start. Start small and learn by doing it."* 
 
-**Christophs Weg** reichte weiter zurück: Er begann 2019, als er die inzwischen **WhiteLibrary** wartete – schon damals ein Learning Experience, der "das Feeling" hinterließ, das ihn motivierte. Als er später vor der Aufgabe stand, die AppiumLibrary mit den vielen offenen Issues auf Vordermann zu bringen, war er unsicher, ob er die richtige Person dafür war.  
+**Christophs Weg** reichte weiter zurück: Er begann 2019, als er die inzwischen **WhiteLibrary** wartete – schon damals eine Learning Experience, die "das Feeling" hinterließ, das ihn motivierte. Als er später vor der Aufgabe stand, die AppiumLibrary mit den vielen offenen Issues auf Vordermann zu bringen, war er unsicher, ob er die richtige Person dafür war.  
 Doch als er sich an Ed Manlove wandte, erhielt er Guidance und Zuspruch. Ein subtiler, aber wichtiger Moment: Die Community unterstützt sich selbst.
 
-Durch ihre Geschichte zeigten Gabriela und Christoph die **greifbaren Vorteile von Community-Engagement**: ein erweitertes Netzwerk, gefestestigung des technischen Verständnisses, öffentliche Anerkennung, und nicht zuletzt das tiefe Gefühl, Teil von etwas zu sein, das größer ist als man selbst.
+Durch ihre Geschichte zeigten Gabriela und Christoph die **greifbaren Vorteile von Community-Engagement**: ein erweitertes Netzwerk, Verbesserung des technischen Verständnisses, öffentliche Anerkennung, und nicht zuletzt das tiefe Gefühl, Teil von etwas zu sein, das größer ist als man selbst.
 
-In einer Zuschauerfrage, als sie gefragt wurden, wie es sich anfühlte, das erste Release zu bauen, antworteten sie schlicht: 
+Als sie gefragt wurden, wie es sich anfühlte, das erste Release zu bauen, antworteten sie schlicht: 
 > *"Nervös, aber unbeschreiblich... Man ist stolz, dass man hier nun seinen Namen stehen sieht."*   
 
 Diese Antwort traf den Kern dessen, worum es in diesem Vortrag ging: **Beitragen bedeutet Zugehörigkeit.**
 
-👉 **Mein Fazit:** Der Vortrag war ein kraftvoller Reminder: Die echte Stärke des Robot-Framework-Ökosystems liegt nicht in irgendeiner Company-Backing oder Corporate-Sponsorship – sie liegt in der **Zusammenarbeit**, dem gegenseitigen **Vertrauen** und der kollektiven Anstrengung der Community-Mitglieder.
+👉 **Mein Fazit:** Der Vortrag war ein kraftvoller Reminder: Die echte Stärke des Robot-Framework-Ökosystems liegt nicht am Geldbeutel einzelner Firmen – sie liegt in der **Zusammenarbeit**, dem gegenseitigen **Vertrauen** und der kollektiven Anstrengung der Community-Mitglieder.
 
 ---
 
@@ -120,7 +120,7 @@ Diese Antwort traf den Kern dessen, worum es in diesem Vortrag ging: **Beitragen
 
 Yuris Präsentation stellte die interaktiven Elemente der Konferenz vor, die über die **Gridaly Conference Companion App** organisiert wurden.  
 Ziel war es, die Konferenz-Teilnehmer zur aktiven Beteiligung und zum Networking zu motivieren, über ein gamifiziertes System mit Badges, Aufgaben und Robot-Stickern.  
-Teilnehmer erledigen verschiedene Tasks (z.b. Besuch der Sponsor-Stände) um Belohnungen zu sammeln. Der Hauptpreis: ein Freiticket für die RoboCon 2027.  
+Teilnehmer erledigen verschiedene Tasks (z.b. Besuch der Sponsor-Stände), um Belohnungen zu sammeln. Der Hauptpreis: ein Freiticket für die RoboCon 2027.  
 
 Da ich dieses Jahr **Checkmk** als **Gold-Sponsor** vertreten durfte, kann ich bestätigen: Die Gamification ist wirklich nicht zu unterschätzen.  
 Sie bringt die Leute zueinander und lässt sie ins Gespräch kommen. Ich hatte viele sehr gute fachliche Gespräche am Checkmk-Stand.
@@ -137,7 +137,7 @@ Sie bringt die Leute zueinander und lässt sie ins Gespräch kommen. Ich hatte v
 
 **RF-MCP** ermöglicht es dem Benutzer, ein Testszenario in Prosa zu schreiben und am Ende Gegenzug ausführbare Robot Framework-Tests zu erhalten.  
 Dazwischen passiert etwas magisches: Jeder generierte Testschritt wird vom MCP-Server tatsächlich mit Robot Frameowrk ausgeführt und verifiziert, bevor der finale Code entsteht.  
-So wird sichergestellt, dass die KI ausschließlich **validierte Keywords** verwendet, die auch tatsächlich in den verfügbaren Libraries und Resources des Projekts existieren -  und dass am Ende tatsächlich lauffäihger Automatisierungscode entsteht.  
+So wird sichergestellt, dass die KI ausschließlich **validierte Keywords** verwendet, die auch tatsächlich in den verfügbaren Libraries und Resources des Projekts existieren -  und dass am Ende tatsächlich lauffähiger Automatisierungscode entsteht.  
 
 RF-MCP unterstützt inzwischen die Keywords von 
 

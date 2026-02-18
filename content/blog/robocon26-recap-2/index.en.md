@@ -1,6 +1,6 @@
 ---
 draft: false
-title: "Robocon 2026 - Recap (Part 2 - Thursday)"
+title: "RoboCon 2026 - Recap (Part 2 - Thursday)"
 # --- Italic subheading
 # lead: 
 # -- giscus id to match comments
@@ -18,9 +18,10 @@ authorbox: true
 sidebar: true
 pager: false
 thumbnail: "img/robocon.png"
+vgwort: https://vg04.met.vgwort.de/na/c01978edca3a4e5b8ef7fa7757eb717e
 ---
 
-This is **Part 2** of the six-part review of Robocon 2026 in Helsinki.
+This is **Part 2** of the six-part review of RoboCon 2026 in Helsinki.
 
 
 <!--more-->
@@ -88,7 +89,7 @@ Last year, they took the helm and just released **version 3.0** of the **AppiumL
 
 The central message was not new. But it is still urgently needed: RoboCon is more than a series of presentations.  
 It is a space where people come together, exchange ideas, discover new perspectives, and **encourage each other to think bigger**.  
-That is also my experience: I see Robocon as a **catalyst** for personal and professional development, which in turn contributes to the Robot Framework ecosystem.
+That is also my experience: I see RoboCon as a **catalyst** for personal and professional development, which in turn contributes to the Robot Framework ecosystem.
 
 A core idea of the presentation was the **importance of individual participation** – the idea that everyone, regardless of experience or background, can contribute something valuable to the ecosystem.  
 This reminded me of Ed Manlove's **"Law of 2 Feet"**: simply move to the places where you can learn and contribute.  

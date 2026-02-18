@@ -1,6 +1,6 @@
 ---
 draft: false
-title: "Robocon 2026 - Recap (Teil 1 - Workshop & Community day)"
+title: "RoboCon 2026 - Recap (Teil 1 - Workshop & Community day)"
 # --- Italic subheading
 # lead: 
 # -- giscus id to match comments
@@ -18,13 +18,14 @@ authorbox: true
 sidebar: true
 pager: false
 thumbnail: "img/robocon.png"
+
 ---
 
-Während ich am Flughafen auf meinen Rückflug wartete, Laptop auf den Knien und noch ganz erfüllt von den Eindrücken der zurück liegenden **Robocon 2026**, begann ich damit, meine Aufzeichnungen zu sortieren.  
-Der erste Entwurf dieses Artikels entstand also quasi wwischen Gate-Ansagen und Boarding-Aufrufen 😉
+Während ich am Flughafen auf meinen Rückflug wartete, Laptop auf den Knien und noch ganz erfüllt von den Eindrücken der zurück liegenden **RoboCon 2026**, begann ich damit, meine Aufzeichnungen zu sortieren.  
+Der erste Entwurf dieses Artikels entstand also quasi zwischen Gate-Ansagen und Boarding-Aufrufen 😉
 
 Hier also ist meine *ganz persönliche* sechsteilige **Rückschau** auf die RoboCon – geprägt von meinen **Eindrücken**, meinen **Schwerpunkten** und den **Themen**, die bei mir besonders nachgewirkt haben.  
-Trotzdem hatte ich natürlich den Anspruch, auch den "daheimgebliebenen" möglichst viel vom "Robocon-Feeling" mitgeben zu können.  
+Trotzdem hatte ich natürlich den Anspruch, auch den "Daheimgebliebenen" möglichst viel vom "RoboCon-Feeling" mitgeben zu können.  
 
 
 <!--more-->
@@ -44,7 +45,7 @@ Wie jedes Jahr habe ich versucht, so viel wie möglich im Handy mitzuschreiben: 
 Manche Aspekte erschließen sich erst im Nachklang, anderes wirkt im Moment bedeutender, als es später erscheint.
 
 Und doch: Dieses Jahr fühlt sich meine Sammlung noch runder an. Nicht unbedingt lückenlos (leider nicht mit allen Sessions) – aber strukturierter, klarer, näher am Geschehen als noch im vergangenen Jahr.  
-Vielleicht, weil ich bewusster zugehört habe. Vielleicht auch, weil ich inzwischen besser weiß, wie ich von der Robocon am besten profitieren kann.
+Vielleicht, weil ich bewusster zugehört habe. Vielleicht auch, weil ich inzwischen besser weiß, wie ich von der RoboCon am besten profitieren kann.
 
 **Viel Spaß beim Lesen!**
 
@@ -56,14 +57,14 @@ Vielleicht, weil ich bewusster zugehört habe. Vielleicht auch, weil ich inzwisc
 
 **Lisa Böttinger** + **Fabian Tsirogiannis** (Imbus AG)
 
-Die RoboCon folgt einer bewährten Tradition: Der erste Tag ist einem ganztägigen Workshop vorbehalten. Eine super Gelegenheit, direkt von Profis zu lernen und selbst Hand anzulegen. Für mich persönlcih ist das schon immer ein starker Grund, die RoboCon zu besuchen.
+Die RoboCon folgt einer bewährten Tradition: Der erste Tag ist einem ganztägigen Workshop vorbehalten. Eine super Gelegenheit, direkt von Profis zu lernen und selbst Hand anzulegen. Für mich persönlich ist das schon immer ein starker Grund, die RoboCon zu besuchen.
 
 Dieses Jahr nutzte die Foundation die Räumlichkeiten der **Haaga-Helia University of Applied Sciences** zur Durchführung der Workshops. 
 
 **Desktop-basierte Testautomation** war für mich schon lange vor Robot Framework ein Thema von Interesse.  
 Richtig Fahrt aufgenommen hat es jedoch erst durch die Integration von Robot Framework in Checkmk, die mit meiner Open-Source-Version von [Robotmk](https://robotmk.org) möglich wurde.  
 Plötzlich erkannten viele Checkmk-Kunden das Potenzial, nicht nur webbasierte Tests zu automatisieren, sondern auch Desktop- und End-to-End-Tests direkt ins Monitoring zu integrieren.  
-Ich wende lange schon die [ImageHorizonLibrary](https://github.com/eficode/robotframework-imagehorizonlibrary) an, um per Bildvergleich grafishce Benutzeroberflächen zu testen. Gerade bei älteren UIs, die keine Automation-IDs exportieren, oder auch **Citrix-Verbindungen** ist das immer noch der einzige gangbare Weg.
+Ich wende lange schon die [ImageHorizonLibrary](https://github.com/eficode/robotframework-imagehorizonlibrary) an, um per Bildvergleich grafische Benutzeroberflächen zu testen. Gerade bei älteren UIs, die keine Automation-IDs exportieren, oder auch **Citrix-Verbindungen** ist das immer noch der einzige gangbare Weg.
 
 Aber die neu entwickelte **PlatynUI Library** setzt hier neue Maßstäbe. Entwickelt von **Daniel Biehl** (Imbus AG) – mit bedeutsamen Beiträgen des restlichen Imbus-Teams – adressiert sie ein altes Problem mit einem ganz neuen Ansatz.
 
@@ -84,7 +85,7 @@ Wird es gefunden, klickt die Library auf die Bildschirmmitte genau dieser Treffe
 Das Prinzip ist mathematisch simpel, aber es hat eine kleine **Schwachstelle**: Der Klick beruht auf der Annahme, dass das Element den Klick auch akzeptiert – in 99% der Fälle ist das auch so, aber eben nicht garantiert.
 
 PlatynUI führt hier ein separates Keyword ein: **Activate**.  
-Der Name wirkte auf mich zunächst unintuativ (man "aktiviert" doch nicht einen Button, man "klickt" ihn...).  
+Der Name wirkte auf mich zunächst unintuitiv (man "aktiviert" doch nicht einen Button, man "klickt" ihn...).  
 Doch genau das ist die Pointe: Die Library klickt nur auf das, was auch wirklich sicht- und **anklickbar** ist.  
 Es ist eine elegante Sicherheitsstufe, die Fehlannahmen früh abfängt.
 
@@ -92,7 +93,7 @@ Lisa Böttinger und Fabian Tsirogiannis führten den Workshop mit souverän durc
 Ausreichend Zeit für eigene Experimente und praktisches Lernen machte den Tag komplett.
 
 **Kann man PlatynUI jetzt schon produktiv nutzen?**  
-Daniel beantwortet sie (nach wie vor) bewusst vorsichtig: *"It's still in a very, very early stage."* (unter IMBUS-Leuten inzwischen ein running Gag 😉)  
+Daniel beantwortet sie (nach wie vor) bewusst vorsichtig: *"It's still in a very, very early stage."* (unter Imbus-Leuten inzwischen ein running Gag 😉)  
 Während der Weiterentwicklung können sich grundlegende Dinge also vielleicht nochmal ändern.  
 Allerdings: Die **Deutsche Flugsicherung** nutzt PlatynUI bereits heute zur Überprüfung von Fluglotsen-Interfaces. Das deutet auf einen hinreichend reifen Stand hin. Probiert die Library einfach mal aus!
 
@@ -134,7 +135,7 @@ Ed besuchte uns dazwischen für ein Foto – aber es war perfekt getimed: Er nut
 Dann schaute ich in der **AppiumLibrary**-Session vorbei.  
 Mobile Testautomation mit iOS und Android war schon lange auf meiner Liste, doch ich war im letzten Jahr zu sehr mit meinem Robot-Framework-Trainingsmaterial beschäftigt.  
 Das Timing ist jetzt perfekt: **Gabriela Simion** und **Christoph Singer** sind inzwischen die neuen Maintainer und haben die Ärmel hochgekrempelt – [Version 3.0](https://github.com/serhatbolsu/robotframework-appiumlibrary) ist gerade released.  
-Ich möchte mit meinen eigenen Tests einen Beitrag leisten und ihnen Feedback geben, denn Maintainence von fremdem Code ist nicht trivial, Regressions-Bugs schleichen sich schnell ein.
+Ich möchte mit meinen eigenen Tests einen Beitrag leisten und ihnen Feedback geben, denn Maintainance von fremdem Code ist nicht trivial, Regressions-Bugs schleichen sich schnell ein.
 
 Vor dem Mittagessen schnappte ich mir die zweite Hälfte des Browser-Library-Anfänger-Workshops. **Igor Czyrski** von NiceProject machte das mit beeindruckender Ruhe und Struktur – inspirierend zu sehen, wie andere das Thema angehen.
 

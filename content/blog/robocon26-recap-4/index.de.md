@@ -1,6 +1,6 @@
 ---
 draft: false
-title: "Robocon 2026 - Recap (Teil 4 - Donnerstag)"
+title: "RoboCon 2026 - Recap (Teil 4 - Donnerstag)"
 # --- Italic subheading
 # lead: 
 # -- giscus id to match comments
@@ -20,7 +20,7 @@ pager: false
 thumbnail: "img/robocon.png"
 ---
 
-Dies ist **Teil 4** der sechsteiligen Review der Robocon 2026 in Helsinki.
+Dies ist **Teil 4** der sechsteiligen Review der RoboCon 2026 in Helsinki.
 
 <!--more-->
 
@@ -41,7 +41,7 @@ Dies ist **Teil 4** der sechsteiligen Review der Robocon 2026 in Helsinki.
 Mit einem Augenzwinkern beschreibt er sich selbst als jemanden, der nicht weiß, ob er "*ein Software Tester ist, der gerne Software Development macht, oder ein Software Developer, der gerne Software Testing macht*". 😉
 
 Seine Session bot eine fundierte **vergleichende Analyse** zweier prominenter Image-Recognition-Libraries für Robot Framework: **SikuliLibrary** und **ImageHorizonLibrary**.  
-Diese Libraries sind bei Desktop-Tests unverzichtbar, wenn API-Basierte Technologien nicht verfügbar sind – etwa bei Legacy-UIs oder RDP/Citrix-Verbindungen.
+Diese Libraries sind bei Desktop-Tests unverzichtbar, wenn API-basierte Technologien nicht verfügbar sind – etwa bei Legacy-UIs oder RDP/Citrix-Verbindungen.
 
 ![alt text](img/talk-helio.png)
 
@@ -55,7 +55,7 @@ Mit **78 Keywords** ist sie üppig ausgestattet. Der Haken: Man benötigt eine J
 
 #### ImageHorizonLibrary
 
-Die [ImageHorizonLibrary](https://github.com/eficode/robotframework-imagehorizonlibrary) hingegen setzt auf native Python-Module wie `pyautogui` und optional `opencv-python` für präzisere Bilderkennung (erlaubt dann auch einen prozuentalen "Similarity"-Wert).  
+Die [ImageHorizonLibrary](https://github.com/eficode/robotframework-imagehorizonlibrary) hingegen setzt auf native Python-Module wie `pyautogui` und optional `opencv-python` für präzisere Bilderkennung (erlaubt dann auch einen prozentualen "Similarity"-Wert).  
 Sie ist schlanker – **34 Keywords** – und verzichtet auf OCR-Funktionalität.  
 Der große Vorteil: Kein Java-Overhead, direkter Einsatz möglich. Der Workflow ähnelt dem der SikuliLibrary, nur ohne Server-Komponente.
 
@@ -95,7 +95,7 @@ Markus zeigte einen **fünfstufigen Plan**, der Unternehmen zeigt, wie sie Robot
 
 **Schritt 1: Das Projekt finanzieren (Fund it)**  
 
-Oft schon sehr fürh stellt sich die Frage: *Wer bezahlt eigentlich für die Wartung und Weiterentwicklung von Robot Framework?*  
+Oft schon sehr früh stellt sich die Frage: *Wer bezahlt eigentlich für die Wartung und Weiterentwicklung von Robot Framework?*  
 Markus erklärte, wie die [Robot Framework Foundation](https://robotframework.org/foundation/) arbeitet und wohin das Geld investiert wird – etwa zwei Drittel der Kosten für die Konferenz werden durch die Foundation getragen, der Rest durch die Tickets.  
 Die Herausforderung: Unternehmen von einer Mitgliedschaft zu überzeugen ist nicht trivial. Traditionelle Mehrwerte wie SLAs oder Premium-Support fehlen. Zudem wird die Roadmap von der Community und dem Projektzweck definiert, nicht von zahlenden Mitgliedern. Das verstehen nicht alle "Entscheider".
 
@@ -193,10 +193,10 @@ Und dann machten sie sich daran, die Teige dafür mit **zwei verschiedenen Rezep
 Die unterschiedlichen Zubereitungsweisen wurden parallel als **Robot-Framework-Pseudocode** auf der Leinwand dargestellt.  
 Ein brillanter visueller Einfall, der die Parallelen deutlich machte.
 
-> *Netherlands 🇳🇱 meets the US 🇺🇸 ... Ich persönlich war ja  mehr Fan von Elouts schlichtem Rezept – bis auf die ganze Hand voller Salz, die er theatralisch im Shceinwerferlicht staubend in den Teig schmiss 😅.  
+> *Netherlands 🇳🇱 meets the US 🇺🇸 ... Ich persönlich war ja  mehr Fan von Elouts schlichtem Rezept – bis auf die ganze Hand voller Salz, die er theatralisch im Scheinwerferlicht staubend in den Teig schmiss 😅.  
 Aber das war natürlich Teil der Show, denn auf der Bühne durfte aus Sicherheitsgründen ohnehin nicht tatsächlich gekocht werden, der Teig diente rein der Demonstration.*
 
-Die **Kernidee** der Session: Es gibt strukturelle **Analogien** zwischen Kochrezepten und dem Keyword-Driven Ansatz von Robot Framework. Die Keywords beschrieben abstrak, was zu tun ist, und kapseln die ganzen Details, um die man sich als Tester/Pfannkuchenkoch nicht explizit kümmert.  
+Die **Kernidee** der Session: Es gibt strukturelle **Analogien** zwischen Kochrezepten und dem Keyword-Driven Ansatz von Robot Framework. Die Keywords beschrieben abstrakt, was zu tun ist, und kapseln die ganzen Details, um die man sich als Tester/Pfannkuchenkoch nicht explizit kümmert.  
 
 Sowohl beim Kochen als auch beim Testen sind **Zutaten** (Ingredients), **Umgebung** (Environment), **Setup** und **Arbeitsschritte** (cooking steps) zentral.  
 
@@ -204,7 +204,7 @@ Beide betonten: *"Make sure variables are OK. Otherwise it will break."* – ein
 (Gerade erst heute habe ich wieder selbst Brot gebacken und musste beim Teig kneten daran denken 😉)
 
 Ein weiteres schönes Detail: **Pfannkuchen gibt es überall auf der Welt** – das repräsentiert die internationale Community.  
-Es gibt kein Pfannkuchen-Rezept, der besser ist als ein anderes – genau wie es in der Automatisierung keine Lösung gibt, die für alle Szenarien die beste ist.  
+Es gibt kein Pfannkuchen-Rezept, das besser ist als ein anderes – genau wie es in der Automatisierung keine Lösung gibt, die für alle Szenarien die beste ist.  
 
 Auch das **Toolset** variiert: Manche setzen auf Parallelisierung – visualisiert durch eine große Kochplatte mit vielen Pfannen.  
 Andere bevorzugen sequenzielle Abläufe.  

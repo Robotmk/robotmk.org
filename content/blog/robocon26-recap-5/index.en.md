@@ -1,6 +1,6 @@
 ---
 draft: false
-title: "Robocon 2026 - Recap (Part 5 - Friday)"
+title: "RoboCon 2026 - Recap (Part 5 - Friday)"
 # --- Italic subheading
 # lead: 
 # -- giscus id to match comments
@@ -20,7 +20,7 @@ pager: false
 thumbnail: "img/robocon.png"
 ---
 
-This is **Part 5** of the six-part review of Robocon 2026 in Helsinki.
+This is **Part 5** of the six-part review of RoboCon 2026 in Helsinki.
 
 <!--more-->
 
@@ -139,10 +139,10 @@ Then came **community integration** – international meetings such as RoboCon b
 
 The decisive turning point for them was the **shift from climbers to guides**: NiceProject joined the Robot Framework Foundation and established [WRobocon](https://wrobocon.eu) – a second major Robot Framework conference.  
 
-This "*little sister of Robocon*" now attracts speakers from all over the world and enjoys great popularity.  
+This "*little sister of RoboCon*" now attracts speakers from all over the world and enjoys great popularity.  
 This strategic step towards active contribution exemplifies how consumers of open source can become true **enablers** and multipliers.
 
-Of course, not everyone is a born community founder, and we don't need 100 Robocons in this world. 😉  
+Of course, not everyone is a born community founder, and we don't need 100 RoboCons in this world. 😉  
 The central message of the session was different: **technical growth is rarely a solo project**.  
 The two emphasised how collaborative environments strengthen the resilience of entire teams.  
 Their journey – documented across the various "altitude levels" of mountain climbing 🏔️ – made it clear that real progress happens when organisations leave their isolated implementation behind and become an active part of the community.

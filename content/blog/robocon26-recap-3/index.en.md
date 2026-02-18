@@ -1,6 +1,6 @@
 ---
 draft: false
-title: "Robocon 2026 - Recap (Part 3 - Thursday)"
+title: "RoboCon 2026 - Recap (Part 3 - Thursday)"
 # --- Italic subheading
 # lead: 
 # -- giscus id to match comments
@@ -18,9 +18,10 @@ authorbox: true
 sidebar: true
 pager: false
 thumbnail: "img/robocon.png"
+vgwort: https://vg04.met.vgwort.de/na/499f914e85244b9ab21dd3236d19db72
 ---
 
-This is **Part 3** of the six-part review of Robocon 2026 in Helsinki.
+This is **Part 3** of the six-part review of RoboCon 2026 in Helsinki.
 
 <!--more-->
 

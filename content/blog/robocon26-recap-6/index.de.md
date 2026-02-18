@@ -1,6 +1,6 @@
 ---
 draft: false
-title: "Robocon 2026 - Recap (Teil 6 - Freitag)"
+title: "RoboCon 2026 - Recap (Teil 6 - Freitag)"
 # --- Italic subheading
 # lead: 
 # -- giscus id to match comments
@@ -20,7 +20,7 @@ pager: false
 thumbnail: "img/robocon.png"
 ---
 
-Dies ist **Teil 6** der sechsteiligen Review der Robocon 2026 in Helsinki.
+Dies ist **Teil 6** der sechsteiligen Review der RoboCon 2026 in Helsinki.
 
 <!--more-->
 
@@ -55,7 +55,8 @@ Arttu zeigte (absichtlich etwas überzogene) Beispiele aus seinen Trainings, wo 
 Für Anfänger – die noch keine mentalen Modelle haben – bieten diese Fehler keine Lernbasis.
 
 Die zentrale Warnung: Eine **Divergenz zwischen Lernen und Tun** entsteht.  
-Junior-Entwickler könnten mit GenAI die einfachen Aufgaben meistern, die eigentlich ihre Trainingsgrund sein sollten – nur um dann bei komplexen Problemen, wo AI nicht hilft, in eine Wissenslücke zu fallen. "*Imagine Luke Skywalker telling C3PO to fight all his fights until the final movie*" – gegen Darth Vader hätte er keine Chance gehabt. 
+Junior-Entwickler könnten mit GenAI direkt die einfachen Aufgaben meistern, die doch eigentlich ihr Training sein sollten – nur um dann bei komplexen Problemen, wo AI nicht mehr "weiter weiß", in eine Wissenslücke zu fallen.  
+"*Imagine Luke Skywalker telling C3PO to fight all his fights until the final movie*" – gegen Darth Vader hätte er keine Chance gehabt! 
 
 Seine Empfehlung war klar, aber unbequem: **Wir müssen dasselbe lernen wie zuvor** – mit derselben Tiefe.  
 AI-Tools sind Produktivitätsmultiplikatoren für jene, die bereits verstehen, was sie da bauen.  
@@ -106,7 +107,7 @@ Und wie ich im Review des **PlatynUI-Workshops** oben schon schrieb: wenn schon 
 
 👉 **Fazit**  
 PlatynUI ist nicht die Lösung aller Probleme: gerade beim Synthetic Monitoring wird es immer Use Cases geben, wo bildvergleichende Libraries die einzige Lösung sind (z.b. RDP/Citrix).  
-Aber in allen anderen Fällen wird PLatynUI mit seinem "*Robot Framework First*" Ansatz ein echter Gamechanger werden.  
+Aber in allen anderen Fällen wird PlatynUI mit seinem "*Robot Framework First*" Ansatz ein echter Gamechanger werden.  
 (Wenn Du interessiert bist an einem Training, kontaktiere mich; ich arbeite aktuell schon am Material.)
 
 

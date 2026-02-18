@@ -90,7 +90,7 @@ Der Name wirkte auf mich zunächst unintuitiv (man "aktiviert" doch nicht einen 
 Doch genau das ist die Pointe: Die Library klickt nur auf das, was auch wirklich sicht- und **anklickbar** ist.  
 Es ist eine elegante Sicherheitsstufe, die Fehlannahmen früh abfängt.
 
-Lisa Böttinger und Fabian Tsirogiannis führten den Workshop mit souverän durch – von der `uv`-basierten Umgebungserzeugung bis zur Installation der Abhängigkeiten.  
+Lisa Böttinger und Fabian Tsirogiannis führten den Workshop souverän durch – von der `uv`-basierten Umgebungserzeugung bis zur Installation der Abhängigkeiten.  
 Ausreichend Zeit für eigene Experimente und praktisches Lernen machte den Tag komplett.
 
 **Kann man PlatynUI jetzt schon produktiv nutzen?**  

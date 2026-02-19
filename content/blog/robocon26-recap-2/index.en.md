@@ -99,9 +99,11 @@ Gabriela and Christoph embody this principle perfectly.
 **Gabriela recounted** how she asked a library developer at the beginning: *"How much experience as a Python developer do you need to become a library maintainer?"*  
 His answer was concise and encouraging: *"Just start. Start small and learn by doing it."* 
 
-**Christoph's journey** went back further: he started in 2019 when he maintained what is now **WhiteLibrary** – even then, it was a learning experience that left him with a feeling that motivated him. When he was later faced with the task of getting the AppiumLibrary up to speed with its many open issues, he was unsure whether he was the right person for the job.  
-But when he turned to Ed Manlove, he received guidance and encouragement. A subtle but important moment: the community supports itself.
-
+**Christoph's journey** went back further: In 2019, he gained his first experience in library development at the Robocon Community Day with the **WhiteLibrary**.  
+When he was later faced with the task of getting the AppiumLibrary maintained with its many open issues, he was unsure whether he was up to the job.  
+But Ed Manlove encouraged him and gave him new courage.  
+A subtle but important moment: **the community supports itself.**
+ 
 Through their story, Gabriela and Christoph demonstrated the **tangible benefits of community engagement**: an expanded network, consolidation of technical understanding, public recognition, and, last but not least, the deep feeling of being part of something bigger than oneself.
 
 In a question from the audience, when asked how it felt to build the first release, they simply replied: 

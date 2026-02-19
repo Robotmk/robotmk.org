@@ -102,8 +102,9 @@ Gabriela und Christoph verkörpern dieses Prinzip perfekt.
 **Gabriela erzählte**, wie sie zu Beginn einen Library-Entwickler fragte: *"Wie viel Erfahrung als Python-Entwickler braucht es, Maintainer einer Library zu werden?"*  
 Seine Antwort war prägnant und ermutigend: *"Just start. Start small and learn by doing it."* 
 
-**Christophs Weg** reichte weiter zurück: Er begann 2019, als er die inzwischen **WhiteLibrary** wartete – schon damals eine Learning Experience, die "das Feeling" hinterließ, das ihn motivierte. Als er später vor der Aufgabe stand, die AppiumLibrary mit den vielen offenen Issues auf Vordermann zu bringen, war er unsicher, ob er die richtige Person dafür war.  
-Doch als er sich an Ed Manlove wandte, erhielt er Guidance und Zuspruch. Ein subtiler, aber wichtiger Moment: Die Community unterstützt sich selbst.
+**Christophs Weg** reichte weiter zurück: 2019 sammelte er am Community Day der Robocon erste Erfahrungen in der Library-Entwicklung an der **WhiteLibrary** . Als er dann später vor der Aufgabe stand, die AppiumLibrary mit den vielen offenen Issues auf Vordermann zu bringen, war er unsicher, ob er geeignet dafür war. 
+Doch Ed Manlove sprach ihm gut zu und machte neuen Mut.  
+Ein subtiler, aber wichtiger Moment: **Die Community unterstützt sich selbst**.
 
 Durch ihre Geschichte zeigten Gabriela und Christoph die **greifbaren Vorteile von Community-Engagement**: ein erweitertes Netzwerk, Verbesserung des technischen Verständnisses, öffentliche Anerkennung, und nicht zuletzt das tiefe Gefühl, Teil von etwas zu sein, das größer ist als man selbst.
 

@@ -62,9 +62,9 @@ Der Test "web-images" öffnet die Seite einer Autoversicherung und prüft, ob di
 > Der Checkmk-Agent, den wir gleich zusammen mit dem Scheduler installieren, wird das `rcc.exe`-Binary mitbringen. Du kannst diesen Schritt hier also überspringen, wenn Du den Robot gar nicht mehr selbst ausführen, sondern direkt mit dem Scheduler beginnen willst.
 
 Für einen vorherigen Test oder aber die Einrichtung eines Entwicklungs-Hosts musst Du Dir das RCC-Binary selbst besorgen.  
-Lade es [hier](https://github.com/elabit/robotmk/releases) herunter und speichere es an einem Ort Deiner Wahl unter `rcc.exe` ab. Ich habe mir angewöhnt, ein Verzeichnis `bin` im User-Profil anzulegen: `c:\Users\simonmeggle\bin\rcc.exe`
+Lade es [hier](https://github.com/elabit/robotmk/releases/tag/v3.0.2) herunter und speichere es an einem Ort Deiner Wahl unter `rcc.exe` ab. Ich habe mir angewöhnt, ein Verzeichnis `bin` im User-Profil anzulegen: `c:\Users\simonmeggle\bin\rcc.exe`
 
-> **Hinweis:** In Checkmk 2.5 werden wir eine alternative Methode zu RCC bereitstellen, die auf Micromamba basiert und mit einem eigenen Kommandozeilentool `csm` (Checkmk Synthetic Monitoring) aufwartet.
+> **Hinweis:** In Checkmk 2.5 werden wir eine alternative Methode zu RCC bereitstellen, die auf Micromamba basiert und mit einem eigenen Kommandozeilentool `csm` (Checkmk Synthetic Monitoring) aufwartet. In Kürze werde ich diese Methode hier ebenfalls beschreiben. 
 
 Füge diesen Ordner nun der User-Umgebungsvariable `%PATH%` hinzu:
 
@@ -105,6 +105,11 @@ Nun folgen ein paar Kommandos, die Du in genau dieser Reihenfolge ausführen sol
 - `where robot`: Nicht nur Python, sondern auch Robot Framework ist installiert (ist das nicht cool...? 😎).
 - `robot tests.robot`: Mit dem `robot`-Befehl können wir nun den RobotFramework-Test starten. Lass Dich überraschen 😉
   
+> An dieser Stelle wirst Du unter Linux (Debian/Ubuntu) erst einmal Fehlermeldungen bekommen. Das liegt daran, dass bestimmte Pakete nachinstalliert werden müssen.  
+> Jetzt ist der richtige Zeitpunkt dafür denn: im aktivierten Environment kannst Du die Pakete direkt mit dem Befehl `npx playwright install-deps` installieren. Natürlich funktioniert das nur, wenn Du mit Deinem Benutzer **root-Rechte** hast.  
+> Andernfalls kannst Du `npx playwright install-deps --dry-run` ausführen und Dir die Kommandozeile für *apt install* einfach kopieren. Dann starte eine neue Shell mit root und füge sie dort ein. 
+> Starte danach den Robot erneut mit `robot tests.robot`. 
+
 {{< figure src="img/rcc-task-shell-run2.gif" title="Start des Robots mit RCC" loading="lazy">}}
 
 **Dieser Abschnitt hat den Beweis erbracht: der Robot kann über RCC gestartet werden.** ✓

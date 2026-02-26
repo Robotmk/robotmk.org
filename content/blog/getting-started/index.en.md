@@ -44,9 +44,9 @@ The "web-images" test opens the page of a car insurance company and checks wheth
 ## Prepare yourself
 
 - A Robotmk **test client**: here, the Robotmk scheduler will run the Robot Framework tests at regular intervals and report them to Checkmk via the Checkmk agent output.
-  - OS: Windows 11 or Server 2022/2025 or Ubuntu 22 or 24 (the limitation with Linux stems from the Playwright library)
+  - OS: Windows 11 or Server 2022/2025 or Ubuntu 22 or 24 (the limitation with Linux stems from the Playwright library; Additional apt packages required, see below)
   - Internet access (to download the installation packages via `rcc`)
-  - 8 GB RAM
+  - min 8 GB RAM
   - 4, preferably 8 CPUs (2 CPUs do not work – better not to try)
   - Basic monitoring of the host set up by Checkmk
 - **Checkmk** >= 2.3 (you can get it [here](https://checkmk.com/download) for free if you don't have more than 750 services – easily enough for testing)

@@ -107,9 +107,7 @@ You can immediately see in the browser whether it works – without losing focus
 
 In the video, I show you step by step, using the example of a **web shop test**, how you can replace the widely used method of "debugging" (which isn't actually debugging at all) with efficient evaluation in the debug console using Alt+D:
 
-(*english video is comming soon!*)
-
-<script src="https://fast.wistia.com/player.js" async></script><script src="https://fast.wistia.com/embed/kwbpu1kea3.js" async type="module"></script><style>wistia-player[media-id='kwbpu1kea3']:not(:defined) { background: centre / contain no-repeat url('https://fast.wistia.com/embed/medias/kwbpu1kea3/swatch'); display: block; filter: blur(5px); padding-top:56.25%; }</style> <wistia-player media-id="kwbpu1kea3" aspect="1.7777777777777777"></wistia-player>
+<script src="https://fast.wistia.com/player.js" async></script><script src="https://fast.wistia.com/embed/tovhsw8by4.js" async type="module"></script><style>wistia-player[media-id='tovhsw8by4']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/tovhsw8by4/swatch'); display: block; filter: blur(5px); padding-top:56.25%; }</style> <wistia-player media-id="tovhsw8by4" aspect="1.7777777777777777"></wistia-player>
 
 <br>
 <br>

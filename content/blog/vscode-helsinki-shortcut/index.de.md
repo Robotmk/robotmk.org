@@ -54,7 +54,7 @@ Aber das wahre Potenzial, das niemand kennt: die Live-Interaktion mit der Debug 
 
 ---
 
-## Wie der Trick funktioniert
+## Anwendung
 
 ### 1. Shortcut einrichten 
 

@@ -53,7 +53,7 @@ But the real potential that no one knows about: live interaction with the Debug 
 
 ---
 
-## How the trick works
+## Get started
 
 ### 1. Setting up the shortcut
 

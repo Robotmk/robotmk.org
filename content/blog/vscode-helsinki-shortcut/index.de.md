@@ -123,6 +123,8 @@ Aus einer spontanen Idee in Helsinki wurde etwas Großes - ich bin kurz vor dem 
 
 **Robot Framework Accelerator** 
 
+![alt text](img/ACCELERATOR.png)
+
 Ein Intensivtraining, das es so noch nicht gibt.  
 Das Tricks wie diese zu einem großen Ganzen zusammenfügt. 
 

@@ -122,6 +122,8 @@ A spontaneous idea in Helsinki turned into something big – I am about to launc
 
 **Robot Framework Accelerator** 
 
+![alt text](img/ACCELERATOR.png)
+
 An intensive training course that is unlike any other.  
 It brings together tricks like these to form a complete package. 
 

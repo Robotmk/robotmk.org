@@ -35,6 +35,21 @@ Dieser Artikel fasst die häufigsten Fehlerquellen bei der Arbeit mit RCC zusamm
 
 ## Allgemeine Fehler
 
+### Fehlerhafte Dateiendung
+
+**Fehler:** Du bekommst eine diese Meldungen: 
+
+
+{{< figure src="img/rcc-shellerror.png" >}}
+
+{{< figure src="img/rcc-roboterror.png" >}}
+
+**Lösung:**
+
+**conda.yaml** bzw. **robot.yaml** kann nicht gefunden werden - stimmen die Dateiendung? (Oft ist die Ursache "yml" statt "yaml".)
+
+
+
 ### Benutzerprofil mit Leerzeichen
 
 **Fehler:** RCC gibt bei jedem Aufruf einen Fehler zurück:
@@ -70,6 +85,9 @@ Fatal [Micromamba [3221225781/c0000135]]: exit status 0xc0000135
 ```
 
 **Lösung:** Installiere das [Microsoft Visual C++ Redistributable](https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170#visual-studio-2015-2017-2019-and-2022) von Microsoft - es enthält exakt diese DLL.
+
+
+{{< figure src="img/vcr2.png" title="Achte darauf, die **X64**-Variante zu installieren" >}}
 
 ---
 
@@ -153,3 +171,15 @@ github.com
 githubusercontent.com
 raw.githubusercontent.com
 ```
+
+## VS Code
+
+### Environment kann nicht in VS Code benutzt werden
+
+**Fehler:** Du hast VS Code korrekt aus dem aktivierten Environment heraus gestartet (`code .`), trotzdem fragt VS Code nach dem Interpreter. Robot Framework kann nicht gefunden werden. 
+
+**Beschreibung:** Seit kurzem installiert sich neben der Python-Erweiterung für VS Code automatisch noch eine weitere namens **Python Environments**. (Diese soll offensichtlich das Handling von virtuellen environments erleichtern - unterstützt aber nicht RCC-Environments, wie es scheint... ) 
+
+{{< figure src="img/msenv.png" title="Deinstalliere die Erweiterung 'Python Environments'" >}}
+
+**Lösung:** Deinstalliere (bzw. deaktiviere) diese Erweiterung und starte VS Code danach neu.

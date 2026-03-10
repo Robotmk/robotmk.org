@@ -37,6 +37,18 @@ This article summarizes the most common sources of errors when working with RCC 
 
 ## General errors
 
+### Incorrect file extension
+
+**Error:** You receive one of these messages:
+
+{{< figure src="img/rcc-shellerror.png" >}}
+
+{{< figure src="img/rcc-roboterror.png" >}}
+
+**Solution:**
+
+**conda.yaml** or **robot.yaml** cannot be found – is the file extension correct? (Often the cause is ‘yml’ instead of ‘yaml’.)
+
 ### User Profile with spaces
 
 **Error:** RCC returns an error with every call:
@@ -73,6 +85,8 @@ Fatal [Micromamba [3221225781/c0000135]]: exit status 0xc0000135
 ```
 
 **Solution**: Install the [Microsoft Visual C++ Redistributable](https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170#visual-studio-2015-2017-2019-and-2022) from Microsoft—it contains exactly this DLL.
+
+{{< figure src="img/vcr2.png" title="It's important to install the correct version (**X64**)" >}}
 
 ---
 
@@ -156,3 +170,15 @@ github.com
 githubusercontent.com
 raw.githubusercontent.com
 ```
+
+## VS Code
+
+### Environment cannot be used in VS Code
+
+**Error:** You have started VS Code correctly from the activated environment (`code .`), but VS Code still asks for the interpreter. Robot Framework cannot be found. 
+
+**Description:** Recently, in addition to the Python extension for VS Code, another extension called **Python Environments** has been automatically installed. (This is obviously intended to facilitate the handling of virtual environments – but it does not seem to support RCC environments...) 
+
+{{< figure src="img/msenv.png" title="Uninstall the 'Python Environments' extension" >}}
+
+**Solution:** Uninstall (or deactivate) this extension and then restart VS Code.

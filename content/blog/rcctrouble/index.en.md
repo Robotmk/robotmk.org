@@ -66,7 +66,7 @@ This article summarizes the most common sources of errors when working with RCC 
 
 ## Environment creation
 
-### Environment creation fails (VCRUNTIME140_1.dll)
+### Environment creation fails (Windows, VCRUNTIME140_1.dll)
 
 On some Windows systems, the DLL **VCRUNTIME140_1.dll** is missing (the reason for this is unknown).
 The tool **micromamba** used to build the environments aborts the environment creation with a meaningless message:
@@ -89,6 +89,51 @@ Fatal [Micromamba [3221225781/c0000135]]: exit status 0xc0000135
 {{< figure src="img/vcr2.png" title="It's important to install the correct version (**X64**)" >}}
 
 ---
+
+
+### Environment creation fails (Windows, 0x80092012 and 0x80092013)
+
+**Error:** RCC (micromamba) cannot create an environment on Windows and terminates with the following SSL error:
+
+```
+critical libmamba Several errors have occurred:
+    
+Download error (35) SSL connection error [https://conda.anaconda.org/conda-forge/noarch/repodata.json.zst]
+    schannel: next InitializeSecurityContext failed: Unknown error (0x80092012)
+```
+
+(Sometimes also with error code 0x80092013)
+
+**Description:**  On Windows, the **micromamba** used in RCC internally utilises libcurl with the Schannel backend (instead of OpenSSL).  
+This means: Certificate validation is performed via the Windows Certificate Store and the so-called Windows revocation mechanisms (CRL/OCSP).
+
+When establishing the HTTPS connection, Schannel automatically performs such a revocation check (i.e. verifying whether a certificate may have been revoked).  
+If this fails – e.g. because the revocation server is unreachable or blocked by network rules – the TLS handshake aborts.
+
+**Causes:**  
+
+- Corporate networks with a proxy / gateway (e.g. Cloudflare Gateway)
+- Access to CRL/OCSP servers blocked by the firewall
+- Internal or ‘intercepted’ certificates
+
+**Important to know**:
+
+- `rcc config diagnostics` may succeed, as it does not perform a strict revocation check
+- Other tools may work without issues because they use OpenSSL instead of Schannel or completely ignore revocation errors
+- **micromamba**, which runs within RCC, behaves strictly, however, as Schannel classifies the error as critical!
+
+
+
+**Solution:**  Disable the revocation check for micromamba via an environment variable:
+
+```
+MAMBA_SSL_NO_REVOKE=true
+```
+
+The variable must be set as a system variable (not a user variable). Then restart the host and try creating the environment again.
+
+---
+
 
 ### Long Path Support
 

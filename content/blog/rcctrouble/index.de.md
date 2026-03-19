@@ -66,7 +66,7 @@ Dieser Artikel fasst die häufigsten Fehlerquellen bei der Arbeit mit RCC zusamm
 
 ## Environment-Erstellung
 
-### Erstellung der Umgebung schlägt fehl (VCRUNTIME140_1.dll / Fehlercode 0xc0000135)
+### Erstellung der Umgebung schlägt fehl (Windows, VCRUNTIME140_1.dll / Fehlercode 0xc0000135)
 
 Auf einigen Windows-Systemen fehlt die DLL **VCRUNTIME140_1.dll** (der Grund dafür ist unbekannt).
 Das beim bau der Environments verwendete Tool **micromamba** bricht die Erstellung der Umgebung mit einer nichtssagenden Meldung ab:
@@ -88,6 +88,47 @@ Fatal [Micromamba [3221225781/c0000135]]: exit status 0xc0000135
 
 
 {{< figure src="img/vcr2.png" title="Achte darauf, die **X64**-Variante zu installieren" >}}
+
+---
+
+### Erstellung der Umgebung bricht ab (Windows, 0x80092012 und 0x80092013)
+
+**Fehler:** RCC (micromamba) kann unter Windows keine Umgebung erstellen und bricht mit folgendem SSL-Fehler ab:
+
+```
+critical libmamba Multiple errors occured:
+    Download error (35) SSL connect error [https://conda.anaconda.org/conda-forge/noarch/repodata.json.zst]
+    schannel: next InitializeSecurityContext failed: Unknown error (0x80092012)
+```
+
+(Manchmal auch mit Fehlercode 0x80092013)
+
+**Beschreibung:**  Auf Windows verwendet das in RCC eingesetzte **micromamba** intern libcurl mit dem Schannel-Backend (statt OpenSSL).  
+Das bedeutet: die Zertifikatsprüfung erfolgt über den Windows Certificate Store und die sogenannten Windows-Revocation-Mechanismen (CRL/OCSP).
+
+Beim Aufbau der HTTPS-Verbindung führt Schannel automatisch eine solche Revocation-Prüfung durch (also die Überprüfung, ob ein Zertifikat vielleicht widerrufen wurde).  
+Schlägt diese fehl – z. B. weil der Revocation-Server nicht erreichbar ist oder durch Netzwerkregeln blockiert wird – bricht der TLS-Handshake ab.
+
+**Ursachen:**  
+
+- Unternehmensnetzwerke mit Proxy / Gateway (z. B. Cloudflare Gateway)
+- von der Firewall blockierter Zugriff auf CRL/OCSP-Server
+- Interne oder "intercepted" Zertifikate
+
+**Wichtig zu wissen**:
+
+- `rcc config diagnostics` kann erfolgreich sein, da dort keine strikte Revocation-Prüfung erfolgt
+- Andere Tools funktionieren ggf. problemlos, weil sie OpenSSL statt Schannel verwenden oder Revocation-Fehler komplett ignorieren
+- Das in RCC arbeitende **micromamba** hingegen verhält sich strikt, da Schannel den Fehler als kritisch bewertet!
+
+**Lösung:**  Deaktiviere die Revocation-Prüfung für micromamba über eine Umgebungsvariable:
+
+```
+MAMBA_SSL_NO_REVOKE=true
+```
+
+Die Variable muss unbedingt als Systemvariable hinterlegt werden (nicht als User-Variable). Danach den Host neu starten und die Erstellung des Environments erneut versuchen.
+
 
 ---
 

@@ -33,9 +33,47 @@ Dieser Artikel fasst die häufigsten Fehlerquellen bei der Arbeit mit RCC zusamm
 
 <!--more-->
 
+---
+
 ## Allgemeine Fehler
 
-### Fehlerhafte Dateiendung
+### RCC kann nicht ausgeführt werden / Falsche Versionsnummer
+
+**Problem**: `rcc version` lässt sich überhaupt nicht ausführen oder zeigt eine andere Version als **17.29.1** an.  
+
+**Mögliche Ursachen**:
+
+- Die Datei ist nicht korrekt in `rcc` oder `rcc.exe` **umbenannt** worden.
+- Sie befindet sich am falschen **Speicherort** oder 
+- ist nicht **ausführbar** (Linux/Mac)
+  
+**Lösung:**  
+
+Mit den Befehlen `which` (Linux/Mac) und `where` (Windows) kannst Du überprüfen, wohin der Aufruf von `rcc` führt.  
+Überprüfe, ob das Verzeichnis **bin** tatsächlich im Pfad enthalten ist. Starte die Shell gegebenenfalls neu, damit die Änderungen wirksam werden.  
+Setz unter Linux/Mac die Ausführungsberechtigung (`chmod +x`).
+
+```powershell
+❯ C:\Users\simon_meggle>where rcc
+C:\Users\simon_meggle\bin\rcc.exe
+```
+
+```bash
+❯ which rcc
+/Users/simon/bin/rcc
+```
+
+---
+
+### Falsche Shell / Admin-CMD
+
+**Fehler:** Es wird die Meldung *"Cannot do shell for simple execution model"* angezeigt. 
+
+**Lösung:** Du hast den RCC-Befehl wahrscheinlich versehentlich in einer Admin-CMD/PowerShell ausgeführt. → Führe RCC unter deinem **eigenen Benutzerkonto** aus!
+
+---
+
+### Fehlerhafte Dateiendung (YAML vs. YML)
 
 **Fehler:** Du bekommst eine diese Meldungen: 
 
@@ -48,11 +86,31 @@ Dieser Artikel fasst die häufigsten Fehlerquellen bei der Arbeit mit RCC zusamm
 
 **conda.yaml** bzw. **robot.yaml** kann nicht gefunden werden - stimmen die Dateiendung? (Oft ist die Ursache "yml" statt "yaml".)
 
+---
+
+
+### cmd.exe wird nicht gefunden
+
+**Fehler:** Dieser Fehler tritt während der Erstellung der RCC-Umgebung auf:
+
+{{< figure src="img/cmdexenotfound.png" >}}
+
+**Beschreibung:** Internes Windows-Problem.
+
+**Lösung:** Versuche, das [Windows-Tool zur Überprüfung von Systemdateien](https://support.microsoft.com/en-us/topic/use-the-system-file-checker-tool-to-repair-missing-or-corrupted-system-files-79aa86cb-ca52-166a-92a3-966e85d4094e) `sfc` zu verwenden:
+
+Der Befehl `sfc /scannow` überprüft alle geschützten Systemdateien und **ersetzt beschädigte Dateien** durch eine zwischengespeicherte Kopie.  
+
+(Ohne Gewähr..., aber bei einem Trainingsteilnehmer hat es tatsächlich funktioniert... 🤷‍♂️ )
+
+---
+
+
 
 
 ### Benutzerprofil mit Leerzeichen
 
-**Fehler:** RCC gibt bei jedem Aufruf einen Fehler zurück:
+**Fehler:** 
 
 {{< figure src="img/profile_with_space.png" title="RCC-Fehlermeldung wegen Leerzeichen im Userprofil" >}}
 
@@ -63,6 +121,8 @@ Dieser Artikel fasst die häufigsten Fehlerquellen bei der Arbeit mit RCC zusamm
 - Definieren Sie eine neue Umgebungsvariable `ROBOCORP_HOME` und weisen Sie ihr ein Verzeichnis Ihrer Wahl (ohne Leerzeichen) zu. Beispiel: `C:\rcc`
 - Starten Sie eine neue CMD und versuchen Sie es erneut.
 
+
+---
 
 ## Environment-Erstellung
 
@@ -213,9 +273,14 @@ githubusercontent.com
 raw.githubusercontent.com
 ```
 
+---
+
+
 ## VS Code
 
 ### Environment kann nicht in VS Code benutzt werden
+
+Dieser Fehler tritt etwa seit Januar 2026 auf.
 
 **Fehler:** Du hast VS Code korrekt aus dem aktivierten Environment heraus gestartet (`code .`), trotzdem fragt VS Code nach dem Interpreter. Robot Framework kann nicht gefunden werden. 
 
@@ -224,3 +289,36 @@ raw.githubusercontent.com
 {{< figure src="img/msenv.png" title="Deinstalliere die Erweiterung 'Python Environments'" >}}
 
 **Lösung:** Deinstalliere (bzw. deaktiviere) diese Erweiterung und starte VS Code danach neu.
+
+---
+
+## Sonstiges
+
+### Verwendung eines internen Artifactory-Servers (Nexus, Artifactory usw.)
+
+**Fehler:** RCC kann keine Pakete installieren, da es keinen Zugriff auf öffentliche Repositorys hat. 
+
+**Beschreibung:** In einigen Organisationen ist der Zugriff auf öffentliche Repositorys wie PyPI oder Anaconda.org nicht möglich. Stattdessen müssen interne Artifactory-Server als Proxys verwendet werden.
+
+**Lösung:** In diesem Fall muss die Datei **conda.yaml** entsprechend geändert werden:
+
+
+```yaml
+dependencies:
+  - python=3.12.3
+  - pip=23.2.1
+  - nodejs=22.11.0
+  - pip:
+    - --index-url https://nexusrepo/path
+    - --trusted-host nexus_url
+    - robotframework==7.2
+    - robotframework-browser==19.12.5
+```
+
+> Danke an Erik Becker (Flughafen Berlin) für die Meldung dieses Problems und die Bereitstellung der Lösung!
+
+
+---
+
+Ich freue mich natürlich, wenn Du weitere Fehlerquellen oder Lösungen kennst, die hier noch nicht aufgeführt sind.  
+**Nutze gerne die Kommentarfunktion!**

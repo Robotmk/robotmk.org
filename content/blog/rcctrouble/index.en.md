@@ -35,9 +35,47 @@ This article summarizes the most common sources of errors when working with RCC 
 
 <!--more-->
 
+---
+
 ## General errors
 
-### Incorrect file extension
+
+### Cannot execute rcc / Wrong version number
+
+**Problem**: `rcc version` does not run at all or shows a different version than **17.29.1**.  
+
+**Possible causes**:
+
+- You have downloaded the binary, but have not **renamed** it correctly to `rcc` or `rcc.exe`.
+- The binary is in the wrong **location**.
+- The binary is not **executable** (Linux/Mac)
+  
+**Solution:**  
+Using the commands `which` (Linux/Mac) and `where` (Windows) you can check where the call of `rcc` resolves to.  
+Check whether the **bin** directory is actually contained in the path, restart the shell if necessary.  
+On Linux/Mac, set the executable permission (`chmod +x`).
+
+```powershell
+❯ C:\Users\simon_meggle>where rcc
+C:\Users\simon_meggle\bin\rcc.exe
+```
+
+```bash
+❯ which rcc
+/Users/simon/bin/rcc
+```
+
+---
+
+### Wrong Shell / Admin-CMD
+
+**Error:** You are getting *Cannot do shell for simple execution model.* 
+
+**Solution:** You have probably executed the RCC command in an Admin-CMD/Powershell by mistake. → Use your own user to execute RCC!
+
+---
+
+### Incorrect file extension (YAML vs. YML)
 
 **Error:** You receive one of these messages:
 
@@ -49,9 +87,29 @@ This article summarizes the most common sources of errors when working with RCC 
 
 **conda.yaml** or **robot.yaml** cannot be found – is the file extension correct? (Often the cause is ‘yml’ instead of ‘yaml’.)
 
+---
+
+
+### cmd.exe not found
+
+**Error:** You are getting this error during the RCC environment creation:
+
+{{< figure src="img/cmdexenotfound.png" >}}
+
+**Description:** There is an internal Windows problem.
+
+**Solution:** Try to run the [Windows System File Checker tool](https://support.microsoft.com/en-us/topic/use-the-system-file-checker-tool-to-repair-missing-or-corrupted-system-files-79aa86cb-ca52-166a-92a3-966e85d4094e) `sfc`.  
+The `sfc /scannow` command will scan all protected system files, and **replace corrupted files** with a cached copy. 
+ 
+(Without warranty..., but it worked on one student's machine... 🤷‍♂️ )
+
+
+---
+
+
 ### User Profile with spaces
 
-**Error:** RCC returns an error with every call:
+**Error:** 
 
 {{< figure src="img/profile_with_space.png" title="General RCC error due to a space in the user profile" >}}
 
@@ -88,7 +146,10 @@ Fatal [Micromamba [3221225781/c0000135]]: exit status 0xc0000135
 
 {{< figure src="img/vcr2.png" title="It's important to install the correct version (**X64**)" >}}
 
+
+
 ---
+
 
 
 ### Environment creation fails (Windows, 0x80092012 and 0x80092013)
@@ -216,9 +277,13 @@ githubusercontent.com
 raw.githubusercontent.com
 ```
 
+---
+
 ## VS Code
 
 ### Environment cannot be used in VS Code
+
+This error has been occurring since around January 2026.
 
 **Error:** You have started VS Code correctly from the activated environment (`code .`), but VS Code still asks for the interpreter. Robot Framework cannot be found. 
 
@@ -227,3 +292,36 @@ raw.githubusercontent.com
 {{< figure src="img/msenv.png" title="Uninstall the 'Python Environments' extension" >}}
 
 **Solution:** Uninstall (or deactivate) this extension and then restart VS Code.
+
+---
+
+## Miscellaneous
+
+### Using an internal Artifactory server (Nexus, Artifactory, etc.)
+
+
+**Error:** RCC cannot install packages because it does not have access to public repositories. 
+
+**Description:** In some organisations, access to public repositories such as PyPI or Anaconda.org is not possible. Instead, internal Artifactory servers must be used to act as proxies.
+
+**Solution:** In this case, the **conda.yaml** file must be modified accordingly:
+
+```yaml
+dependencies:
+  - python=3.12.3
+  - pip=23.2.1
+  - nodejs=22.11.0
+  - pip:
+    - --index-url https://nexusrepo/path
+    - --trusted-host nexus_url
+    - robotframework==7.2
+    - robotframework-browser==19.12.5
+```
+
+> (Thanks to Erik Becker, Berlin Airport for reporting this issue and providing the solution!)
+
+---
+
+I’d be delighted, of course, if you know of any other potential sources of error or solutions that aren’t listed here yet.  
+
+**Please feel free to use the comments section!**

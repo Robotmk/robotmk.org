@@ -1,5 +1,5 @@
 ---
-draft: false
+draft: true
 title: "Zwei Welten, ein Test: BrowserLibrary und Alumnium.ai"
 # --- Italic subheading
 # lead: 

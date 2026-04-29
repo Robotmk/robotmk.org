@@ -24,7 +24,7 @@ pager: false
 #weight: 10
 # --- must be in the leaf bundle folder or static
 thumbnail: img/title.png
-vgwort: https://vg04.met.vgwort.de/na/1360506dbdd3408db23ff8cf26aa26e4
+vgwort: https://vg04.met.vgwort.de/na/ed902983d9fa4e07b11b706e43e2da5b
 ---
 
 

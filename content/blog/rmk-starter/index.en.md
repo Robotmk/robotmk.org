@@ -152,7 +152,7 @@ Clicking on "*Open in GitHub Codespaces*" starts a complete development environm
 ### Way 2: VS Code locally
 
 ```bash
-git clone https://github.com/robotmk/robotmk-starter
+git clone https://github.com/elabit/robotmk-starter
 cd robotmk-starter/examples/web-webshop
 rcc task shell   # builds the isolated environment and opens a shell
 code .           # opens VS Code from the activated environment
@@ -192,6 +192,6 @@ With the Robotmk-Starter repository, you get examples that are guaranteed to wor
 
 The rest is up to you :-) - get started: 
 
-→ **[github.com/robotmk/robotmk-starter](https://github.com/robotmk/robotmk-starter)**
+→ [https://github.com/elabit/robotmk-starter](https://github.com/elabit/robotmk-starter)
 
 Which example do you think is missing? What would you like to see next? Feel free to write it in the comments!

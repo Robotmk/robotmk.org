@@ -181,13 +181,16 @@ Schlägt diese fehl – z. B. weil der Revocation-Server nicht erreichbar ist od
 - Andere Tools funktionieren ggf. problemlos, weil sie OpenSSL statt Schannel verwenden oder Revocation-Fehler komplett ignorieren
 - Das in RCC arbeitende **micromamba** hingegen verhält sich strikt, da Schannel den Fehler als kritisch bewertet!
 
-**Lösung:**  Deaktiviere die Revocation-Prüfung für micromamba über eine Umgebungsvariable:
+**Lösung:**  Deaktiviere die Revocation-Prüfung für micromamba/curl über eine System-Umgebungsvariable:
 
 ```
+CURL_SSL_NO_REVOKE=1
 MAMBA_SSL_NO_REVOKE=true
 ```
 
-Die Variable muss unbedingt als Systemvariable hinterlegt werden (nicht als User-Variable). Danach den Host neu starten und die Erstellung des Environments erneut versuchen.
+Danach den Host neu starten und die Erstellung des Environments erneut versuchen.
+(Alternativ: `psexec -i -s cmd.exe` und `setx /M CURL_SSL_NO_REVOKE=1` bzw. `setx /M MAMBA_SSL_NO_REVOKE=true` in der System-Shell ausführen, um die Variable systemweit zu setzen.)
+
 
 
 ---

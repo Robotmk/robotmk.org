@@ -184,14 +184,15 @@ If this fails – e.g. because the revocation server is unreachable or blocked b
 - **micromamba**, which runs within RCC, behaves strictly, however, as Schannel classifies the error as critical!
 
 
-
-**Solution:**  Disable the revocation check for micromamba via an environment variable:
+**Solution:**  Disable certificate revocation checking for micromamba/curl via a system environment variable:
 
 ```
+CURL_SSL_NO_REVOKE=1
 MAMBA_SSL_NO_REVOKE=true
 ```
 
-The variable must be set as a system variable (not a user variable). Then restart the host and try creating the environment again.
+Then restart the host and try creating the environment again.
+(Alternatively: run `psexec -i -s cmd.exe` and `setx /M CURL_SSL_NO_REVOKE=1` or `setx /M MAMBA_SSL_NO_REVOKE=true` in the system shell to set the variable system-wide.)
 
 ---
 

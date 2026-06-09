@@ -43,9 +43,9 @@
 	<script>if(document.cookie.includes('no_translation_dismissed=1')){document.getElementById('no-translation-banner').hidden=true;}</script>
 	{{- end -}}
 
-	{{- if not hugo.IsProduction -}}
+	{{/*  {{- if not hugo.IsProduction -}}
 		{{- partial "open-with-vscode" . -}}
-	{{- end -}}
+	{{- end -}}  */}}
 
 	<main id="main-content" role="main">
 		{{ block "main" . }}

@@ -1,416 +1,308 @@
-<!DOCTYPE html>
-<html lang="{{site.LanguageCode}}" class="js">
-<head>
-  {{ partial "getresponse_webconnect.html" . }}
-  {{/*  {{ partial "cookie_consent.html" . }}  */}}
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{site.Title}}</title>
-  {{ if eq .Site.LanguageCode "en-US" }}
-	<link rel="alternate" hreflang="x-default" href="{{site.BaseURL}}en/" />
-	<link rel="alternate" hreflang="de-DE" href="{{site.BaseURL}}de/"/>
-  {{else}}
-  <link rel="alternate" hreflang="x-default" href="{{site.BaseURL}}en/" />
-	<link rel="alternate" hreflang="en-US" href="{{site.BaseURL}}en/"/>
-  {{end}}
+{{ define "main" }}
 
-  <script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+{{/* ============================================================
+     Story 2.1: Homepage Layout & Section-Rahmen
+     Story 2.2: Hero Section
+     ============================================================ */}}
+<section class="hero" aria-label="Hero">
+  <div class="hero__container">
+    <div class="hero__split">
 
-  <meta name="description" content="{{ if .IsHome }}{{ .Site.Params.description }}{{ else }}{{ .Params.Description }}{{ end }}">
-	{{- if .Site.Params.opengraph }}
-		{{ template "_internal/opengraph.html" . }}
-	{{- end }}
-	{{- if .Site.Params.schema }}
-		{{ template "_internal/schema.html" . }}
-	{{- end }}
-	{{- if .Site.Params.twitter_cards }}
-		{{ template "_internal/twitter_cards.html" . }}
-	{{- end }}
-
-  <link rel="shortcut icon" href="{{ "favicon.ico" | relURL }}">
-	{{- if not .Site.IsServer }}
-		{{ template "_internal/google_analytics.html" . }}
-	{{- end }}
-
-  {{ $style := resources.Get "css/style.css" | resources.ExecuteAsTemplate "css/style.css" . -}}
-	<link rel="stylesheet" href="{{ $style.RelPermalink }}">
-	{{ range .Site.Params.customCSS -}}
-	<link rel="stylesheet" href="{{ . | relURL }}">
-	{{- end }}
-  
-  {{ $menuScript := resources.Get "themes/mainroad/static/js/menu.js" }}
-  <script defer src="/js/menu.js"></script>
-
-  <link rel="stylesheet" href="{{(resources.Get "css/home.css").RelPermalink}}">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-  
-  {{/*  scripts  */}}
-  {{ $jquery351 := resources.Get "js/jquery-3.5.1.min.js" }}
-  {{ $jqueryMigrate := resources.Get "js/jquery-migrate.js" }}
-
-  {{ $js := slice $jquery351 $jqueryMigrate | resources.Concat "js/home.js" }}
-  <script async src="{{$jquery351.RelPermalink}}"></script>  
-</head>
-
-<body class="home_body">
-	{{/*  Google Tag manager  */}}
-	{{ if .Site.Params.gtm_id}}
-		<noscript>
-			<iframe src="//www.googletagmanager.com/ns.html?id={{ .Site.Params.gtm_id }}" height="0" width="0" style="display:none;visibility:hidden"></iframe>
-		</noscript>
-	{{ end }}	
-
-  {{/* top navbar section  */}}
-  <header class="header sticky-top">    
-    <div class="header__container">
-      {{ partial "logo.html" . }}
-      {{ partial "menu.html" . }}
-    </div>
-  </header>
-
-  <main class="home" id="main-content" role="main">
-    <a id="cst-v2-section-b0e85d9649" style="opacity: 0; width: 0 !important; display: block;"></a>
-    {{/*  header section  */}}
-    <section
-      style="background:linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),url({{.Params.header.hero_img}});"
-      class="banneroverlay-opacity--45  section-background      section-background-overlay    section__content-alignment--left  section--has-additional-prices banner___42ec4"
-      data-preview-item="banner" data-section-uid="b0e85d9649">
-      <div class="banner__container banner__container--medium">
-        <div class="banner__wrapper">
-          <article class="section__content section__content___42ec4">
-            <header class="section__headings">
-              <h2 class="section__heading section__heading___42ec4">{{.Params.header.title | markdownify}}</h2>
-              <p class="section__subheading section__subheading___42ec4">
-                {{ index (split .Content "<hr>") 1 | markdownify }}
-              </p>
-            </header>
-            <div class="product-action-buttons section__button-group"> </div>
-          </article>
+      <div class="hero__text">
+        <span class="hero__eyebrow">Synthetic Monitoring</span>
+        <h1 class="hero__headline">
+          Your monitoring shows <span class="hero__green">green</span>.<br>
+          Your users are struggling.
+        </h1>
+        <p class="hero__tagline">"And the monitoring said: everything is green."</p>
+        <div class="hero__cta-row">
+          <a href="{{ "/services/" | relLangURL }}" class="btn btn--primary">Clarity Call buchen &rarr;</a>
+          <a href="#loesung" class="btn btn--ghost">Wie es funktioniert &darr;</a>
         </div>
       </div>
-    </section>
-    {{/*  introduction - What is RobotMK?  */}}
-    <a id="cst-v2-section-JG75YkNt_" style="opacity: 0; width: 0 !important; display: block;"></a>
-    <section class="    rich-text section-height__medium      section__heading-alignment--left   rich-text___dda72"
-      data-preview-item="rich_text" data-section-uid="JG75YkNt_">
-      <div class="rich-text__container">
-        <div class="rich-text__wrapper">
-          <header class="section__headings section__headings___dda72">
-            <h2 class="section__heading">{{.Params.introduction.heading | markdownify}}</h2>
-          </header>
-          <div class="section__content">
-            <div class="section__body">
-              <div class="custom-theme">
-                <div class="fr-view">
-                  {{ index (split .Content "<hr>") 2 | safeHTML }}
-                </div>
+
+      {{/* ============================================================
+           Story 2.3: Gap Visualization (HTML/CSS, IntersectionObserver)
+           ============================================================ */}}
+      <div class="hero__viz">
+        <div class="gap-viz"
+             role="img"
+             aria-label="Diagram showing the Monitoring Gap: infrastructure monitoring shows all green while user experience shows failures">
+
+          <div class="gap-viz__panel gap-viz__panel--infra" aria-hidden="true">
+            <div class="gap-viz__panel-label">Infrastructure Monitoring</div>
+            <div class="gap-viz__items">
+              <div class="gap-viz__item">
+                <span>Server</span>
+                <span class="gap-viz__item-status gap-viz__item-status--ok">✓</span>
+              </div>
+              <div class="gap-viz__item">
+                <span>Network</span>
+                <span class="gap-viz__item-status gap-viz__item-status--ok">✓</span>
+              </div>
+              <div class="gap-viz__item">
+                <span>Database</span>
+                <span class="gap-viz__item-status gap-viz__item-status--ok">✓</span>
+              </div>
+              <div class="gap-viz__item">
+                <span>Services</span>
+                <span class="gap-viz__item-status gap-viz__item-status--ok">✓</span>
               </div>
             </div>
+            <div class="gap-viz__panel-summary gap-viz__panel-summary--ok">Everything green ✓</div>
           </div>
+
+          <div class="gap-viz__gap" aria-hidden="true">&larr; Monitoring Gap &rarr;</div>
+
+          <div class="gap-viz__panel gap-viz__panel--ux" aria-hidden="true">
+            <div class="gap-viz__panel-label">User Experience</div>
+            <div class="gap-viz__items">
+              <div class="gap-viz__item">
+                <span>Login</span>
+                <span class="gap-viz__item-status gap-viz__item-status--fail">✗</span>
+              </div>
+              <div class="gap-viz__item">
+                <span>Checkout</span>
+                <span class="gap-viz__item-status gap-viz__item-status--fail">✗</span>
+              </div>
+              <div class="gap-viz__item">
+                <span>Search</span>
+                <span class="gap-viz__item-status gap-viz__item-status--fail">✗</span>
+              </div>
+              <div class="gap-viz__item">
+                <span>Payment</span>
+                <span class="gap-viz__item-status gap-viz__item-status--fail">✗</span>
+              </div>
+            </div>
+            <div class="gap-viz__panel-summary gap-viz__panel-summary--fail">$14,000 / min</div>
+          </div>
+
         </div>
       </div>
-    </section>
 
+    </div>
+  </div>
+</section>
 
+{{/* ============================================================
+     Story 2.4: Stats Bar
+     ============================================================ */}}
+<section class="stats-bar" aria-label="Key statistics" role="region">
+  <div class="stats-bar__container">
+    <div class="stats-bar__item">
+      <span class="stats-bar__number stats-bar__number--error">$14,000</span>
+      <span class="stats-bar__label">Durchschnittliche Kosten einer Minute Ausfall</span>
+    </div>
+    <div class="stats-bar__item">
+      <span class="stats-bar__number stats-bar__number--primary">2.5×</span>
+      <span class="stats-bar__label">Kostensteigerung in 10 Jahren (2014–2024)</span>
+    </div>
+    <div class="stats-bar__item">
+      <span class="stats-bar__number stats-bar__number--primary">#1</span>
+      <span class="stats-bar__label">Meistgenutztes Synthetic Monitoring Plugin für Checkmk</span>
+    </div>
+  </div>
+</section>
 
-    {{/*  LR Animation  */}}
-    {{ with .Params.lr_animation }}
-    <a id="cst-v2-section-vuTsybPfL" style="opacity: 0; width: 0 !important; display: block;"></a>
-    <section class="text-image section-height__mediumsection__content-alignment--lefttext-image___11aa9"
-      data-preview-item="text-image" data-section-uid="vuTsybPfL">
-      <div class="text-image__container text-image__container___11aa9">
-        <article class="section__content section__content___11aa9">
-          <div class="text-image__body has-image text-image__body___11aa9">
-            <header class="section__headings">
-              <h2 class="section__heading section__heading___11aa9">{{ (index .Params.lr_animation 0).title | markdownify}}</h2>
-              <p class="section__subheading section__subheading___11aa9">{{ (index .Params.lr_animation 0).subtitle | markdownify}}</p>
-            </header>
-            <div class="section__body"> {{ (index .Params.lr_animation 0).text | markdownify}} </div>
-          </div>
-          <div class="text-image__image text-image__image___11aa9"> <img
-              src="{{ (index .Params.lr_animation 0).img }}"
-              alt="{{ (index .Params.lr_animation 0).img_alt }}" class="img-responsive" loading="lazy"> </div>
-        </article>
+{{/* ============================================================
+     Story 2.5: Die Lösung Section
+     ============================================================ */}}
+<section class="loesung section section--surface" id="loesung" aria-label="Die Lösung">
+  <div class="loesung__container">
+
+    <header class="loesung__heading">
+      <span class="loesung__eyebrow">Die Lösung</span>
+      <h2>Von Robot Framework zu Checkmk — nahtlos.</h2>
+    </header>
+
+    <div class="loesung__flow" role="img" aria-label="Flow: Robot Framework → Robotmk → Checkmk Synthetic Monitoring">
+      <div class="loesung__node" aria-hidden="true">
+        <div class="loesung__node-icon">🤖</div>
+        <div class="loesung__node-name">Robot Framework</div>
       </div>
-    </section>
-    <br>
-    
-
-    <a id="cst-v2-section-0QszOUVt9" style="opacity: 0; width: 0 !important; display: block;"></a>
-    <section class="    text-image section-height__medium      section__content-alignment--left   text-image___0da68"
-      data-preview-item="text-image" data-section-uid="0QszOUVt9">
-      <div class="text-image__container text-image__container___0da68">
-        <article class="section__content section__content___0da68">
-          <div class="text-image__body has-image text-image__body___0da68">
-            <header class="section__headings">
-              <h2 class="section__heading section__heading___0da68"> {{ (index .Params.lr_animation 1).title | markdownify}} </h2>
-              <p class="section__subheading section__subheading___0da68"> {{ (index .Params.lr_animation 1).subtitle | markdownify}} </p>
-            </header>
-            <div class="section__body"> {{ (index .Params.lr_animation 1).text | markdownify}} </div>
-          </div>
-          <div class="text-image__image text-image__image___0da68"> <img
-              src="{{ (index .Params.lr_animation 1).img }}"
-              alt="{{ (index .Params.lr_animation 1).img_alt }}" class="img-responsive" loading="lazy"> </div>
-        </article>
+      <div class="loesung__arrow" aria-hidden="true">&rarr;</div>
+      <div class="loesung__node loesung__node--accent" aria-hidden="true">
+        <div class="loesung__node-icon">⚡</div>
+        <div class="loesung__node-name">Robotmk</div>
       </div>
-    </section>
-    <br>
-
-    <a id="cst-v2-section-vdzVM2jAv" style="opacity: 0; width: 0 !important; display: block;"></a>
-    <section class="    text-image section-height__medium      section__content-alignment--left   text-image___158b4"
-      data-preview-item="text-image" data-section-uid="vdzVM2jAv">
-      <div class="text-image__container text-image__container___158b4">
-        <article class="section__content section__content___158b4">
-          <div class="text-image__body has-image text-image__body___158b4">
-            <header class="section__headings">
-              <h2 class="section__heading section__heading___158b4">{{ (index .Params.lr_animation 2).title | markdownify}}</h2>
-              <p class="section__subheading section__subheading___158b4">{{ (index .Params.lr_animation 2).subtitle | markdownify}}</p>
-            </header>
-            <div class="section__body"> {{ (index .Params.lr_animation 2).text | markdownify}} </div>
-          </div>
-          <div class="text-image__image text-image__image___158b4"> <img
-              src="{{ (index .Params.lr_animation 2).img }}"
-              alt="{{ (index .Params.lr_animation 2).img_alt }}" class="img-responsive" loading="lazy"> </div>
-        </article>
-      </div>
-    </section>
-    {{ end }}
-    {{/*  end lr_animation  */}}
-
-
-    {{/*  feature listings  */}}
-    <a id="cst-v2-section-ycvadiUYk" style="opacity: 0; width: 0 !important; display: block;"></a>
-    <section
-      class="text-icon section-height__medium  section__background-decoration  section__heading-alignment--center text-icon___538a6"
-      data-preview-item="text-icon" data-section-uid="ycvadiUYk">
-      <div class="text-icon__container">
-        <header class="section__headings section__headings___538a6">
-          <h2 class="section__heading">{{.Params.features_title}}</h2>
-          <p class="section__subheading">{{.Params.features_description}}</p>
-        </header>
-        <article class="section__content">
-          <div class="text-icon__container">
-            <ul class="text-icon__list section__body">
-              {{range .Params.features}}
-              <li class="text-icon__list-item">
-                <i class="{{.icon}}" aria-hidden="true"></i>
-                <h3 class="section__heading--secondary">{{.heading | markdownify}}</h3>
-                {{.text | markdownify}}
-              </li>
-              {{end}}
-            </ul>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    {{ with .Params.intro_mk_program }}
-    {{/*  intro MK program certification - section 1 */}}
-    <a id="cst-v2-section-EmbrAcYht" style="opacity: 0; width: 0 !important; display: block;"></a>
-    <section
-    class="description section-height__medium section__column-layout__two-column section__heading-alignment--left description___97b96"
-    data-preview-item="description" data-section-uid="EmbrAcYht">
-    <div class="description__container description__container___97b96">
-      <div class="description__wrapper">
-        <header class="section__headings section__headings___97b96">
-          <h2 class="section__heading">
-            <a name="introducing-academy">{{.Params.intro_mk_program.heading | markdownify}}</a>
-          </h2>
-          <p class="section__subheading">{{.Params.intro_mk_program.subheading | markdownify}}</p>
-        </header>
-        <article class="section__content section__content___97b96">
-          <div class="section__body"> {{.Params.intro_mk_program.text | markdownify}} </div>
-          </article>
-        </div>
-      </div>
-    </section>
-    {{/*  intro MK program certification - section 2 */}}
-    <a id="cst-v2-section-tr6B52p_A" style="opacity: 0; width: 0 !important; display: block;"></a>
-    <section
-      class="description section-height__medium section__column-layout__one-column section__heading-alignment--left description___874eb"
-      data-preview-item="description" data-section-uid="tr6B52p_A">
-      <div class="description__container">
-        <div class="description__wrapper">
-          <header class="section__headings section__headings___874eb">
-            <p class="section__subheading"> {{.Params.intro_mk_program.lower_title | markdownify}} </p>
-          </header>
-          <article class="section__content section__content___874eb">
-            <div class="section__body"> {{ index (split .Content "<hr>") 3 | markdownify }} </div>
-          </article>
-        </div>
-      </div>
-    </section>
-    {{ end }}
-
-    {{/*  FAQ  */}}
-    <a id="cst-v2-section-lEHCo26W2" style="opacity: 0; width: 0 !important; display: block;"></a>
-    <section class="faq section-height__medium   section__heading-alignment--left faq___69d47" data-preview-item="faq"
-      data-section-uid="lEHCo26W2">
-      <div class="faq__container">
-        <div class="faq__wrapper">
-          <header class="section__headings section__headings___69d47">
-            <h2 class="section__heading">{{ .Params.faq.title}}</h2>
-          </header>
-          <article class="section__content">
-            <ul class="faq__list section__body">
-              {{ range .Params.faq.questions}}
-              <li class="faq__list-item">
-                <details>
-                  <summary> 
-                    <strong> 
-                      <i class="toga-icon toga-icon-caret-stroke-down" aria-hidden="true"></i> 
-                      {{.question}} 
-                    </strong> 
-                  </summary>
-                  <p>{{ .answer | markdownify }}</p>
-                </details>
-              </li>
-              {{ end }}
-            </ul>
-          </article>
-        </div>
-      </div>
-    </section>
-    {{/*  Quote  */}}
-    {{/*  <a id="cst-v2-section-KZDprlXs-" style="opacity: 0; width: 0 !important; display: block;"></a>
-    <section class="    rich-text section-height__medium      section__heading-alignment--left   rich-text___e9f23"
-      data-preview-item="rich_text" data-section-uid="KZDprlXs-">
-      <div class="rich-text__container">
-        <div class="rich-text__wrapper">
-          <header class="section__headings section__headings___e9f23">
-            <h2 class="section__heading">{{.Params.quote.text | markdownify}}</h2>
-            <p class="section__subheading"><i>{{.Params.quote.credit}}</i></p>
-          </header>
-        </div>
-      </div>
-    </section>  */}}
-  </main>
-  {{/*  pre footer  */}}
-  <a id="cst-v2-section-pknpze7RG" style="opacity: 0; width: 0 !important; display: block;"></a>
-  {{/*  <section
-  style="background:linear-gradient(rgba(0,0,0,0.52), rgba(0,0,0,0.52)),url({{.Params.prefooter.hero_img}});"
-    class="banneroverlay-opacity--52  section-background section-background-overlay section__content-alignment--left  section--has-additional-prices banner___f0c81"
-    data-preview-item="banner" data-section-uid="pknpze7RG">
-    <div class="banner__container banner__container--large">
-      <div class="banner__wrapper">
-        <article class="section__content section__content___f0c81">
-          <header class="section__headings">
-            <h2 class="section__heading section__heading___f0c81">{{ T "download_rmk" }}</h2>
-            <p class="section__subheading section__subheading___f0c81">{{ T "rmk_version" }}</p>
-          </header>
-          <div class="section__button-group"> <a class="button button-primary button--mobile-width-full"
-              href="{{.Params.prefooter.releases}}"> {{ T "latest_release_cta" }} </a> </div>
-        </article>
+      <div class="loesung__arrow" aria-hidden="true">&rarr;</div>
+      <div class="loesung__node" aria-hidden="true">
+        <div class="loesung__node-icon">📊</div>
+        <div class="loesung__node-name">Checkmk Synthetic Monitoring</div>
       </div>
     </div>
-  </section>  */}}
-  {{/*  footer section  */}}
-  {{ partial "footer.html" . }}
-  <script>
-		$(document).ready(function () {
-			var headerHeight = 0
 
-			function dynamicHeaderHeight() {
-				var $logo = $('.logo'),
-					$header = $logo.closest('.header');
+    <div class="loesung__cards">
+      <div class="card loesung__card">
+        <div class="loesung__card-label">Für Checkmk-Nutzer</div>
+        <h3 class="loesung__card-heading">Ich nutze Checkmk</h3>
+        <p class="loesung__card-text">
+          Dein Monitoring zeigt grün — aber deine User melden Probleme.
+          Robotmk ist das native Synthetic Monitoring Plugin für Checkmk.
+          Kein zweites Tool, keine API-Integration.
+        </p>
+        <a href="{{ "/learn/" | relLangURL }}" class="btn btn--ghost">Lernressourcen entdecken &rarr;</a>
+      </div>
+      <div class="card loesung__card">
+        <div class="loesung__card-label">Für Robot Framework-Nutzer</div>
+        <h3 class="loesung__card-heading">Ich nutze Robot Framework</h3>
+        <p class="loesung__card-text">
+          Deine .robot-Tests laufen on-demand. Mit Robotmk werden sie zu
+          kontinuierlichem Synthetic Monitoring — ohne Umschreiben.
+        </p>
+        <a href="https://github.com/elabit/robotmk-examples" target="_blank" rel="noopener noreferrer" class="btn btn--ghost">
+          Im Browser ausprobieren &rarr;
+        </a>
+        <p class="loesung__codespace-hint">Ohne Setup, sofort im Browser starten</p>
+      </div>
+    </div>
 
-				$logo.on('load', function () {
-					headerHeight = $header.outerHeight();
+  </div>
+</section>
 
-				}).each(function () {
-					if (this.complete) {
-						$(this).trigger('load');
-					}
-				});
-			}
+{{/* ============================================================
+     Story 2.6: Founder Section
+     ============================================================ */}}
+<section class="founder section" aria-label="Über den Gründer">
+  <div class="founder__container">
 
-			var $adminBar = $('.admin-notice__bar'),
-				$body = $('body.home-landing-page, body.course-landing-page, body.bundle-landing-page, body.page-template, body.coming-soon-page, body.student-certificate-page'),
-				$header = $('.header'),
-				$main = $('.home-landing-page main, .course-landing-page main, .bundle-landing-page main, .page-template main, .coming-soon-page main, .student-certificate-page main'),
-				$dropdownToggle = $('.dropdown__toggle-button'),
-				$mobileButton = $('.header__mobile-button'),
-				$navigation = $('.header__nav'),
-				$dropdownMenu = $('.dropdown__menu');
+    <div class="founder__photo">
+      <img src="/images/simon-meggle.jpg"
+           alt="Simon Meggle, Erfinder von Robotmk"
+           width="400" height="530"
+           loading="lazy"
+           onerror="this.style.display='none'">
+    </div>
 
-			dynamicHeaderHeight();
+    <div class="founder__text">
+      <h2 class="founder__headline">Erfunden. Perfektioniert. Nativ in Checkmk.</h2>
+      <p class="founder__bio">
+        Seit 2009 arbeite ich an der Frage, wie Monitoring wirklich funktioniert —
+        nicht nur auf Infrastruktur-Ebene, sondern aus Nutzersicht.
+        Robotmk ist meine Antwort: ein Plugin, das Robot Framework-Tests direkt in Checkmk integriert,
+        als wäre es von Anfang an dafür gebaut worden.
+        Heute ist Robotmk das meistgenutzte Synthetic Monitoring Plugin für Checkmk.
+      </p>
+      <div class="founder__badges">
+        <span class="badge">🔧 Erfinder von Robotmk</span>
+        <span class="badge">📋 Product Manager Synthetic Monitoring @ Checkmk</span>
+      </div>
+      <div>
+        <a href="{{ "/about/" | relLangURL }}" class="btn btn--ghost">Meine Geschichte &rarr;</a>
+      </div>
+    </div>
 
-			var adminBarHeight = $adminBar.outerHeight(),
-				headerTop = $header.offset().top,
-				isMobile = window.matchMedia("only screen and (max-width: 767px)");
+  </div>
+</section>
 
-			if (adminBarHeight != NaN) {
-				$body.css({
-					'margin-bottom': adminBarHeight
-				});
-			}
+{{/* ============================================================
+     Story 2.7: Testimonials Section
+     ============================================================ */}}
+<section class="testimonials section section--surface" aria-label="Kundenstimmen">
+  <div class="testimonials__container">
 
-			function toggleDropdownMenu() {
-				$('.dropdown').toggleClass('open');
-				$dropdownToggle.attr('aria-expanded', $dropdownToggle.attr('aria-expanded') == 'true' ? 'false' : 'true');
-			}
-			$dropdownToggle.on('click', toggleDropdownMenu);
-			$(document).on({
-				keydown: function (e) {
-					if (e.key == "Escape" && $('.dropdown').hasClass('open')) {
-						toggleDropdownMenu();
-					}
-				},
-				click: function (e) {
-					if (!$(e.target).closest('.open').length && $('.dropdown').hasClass('open')) {
-						toggleDropdownMenu();
-					}
-				}
-			});
-			$mobileButton.on('click', function (e) {
-				$header.attr('data-menu', $header.attr('data-menu') == 'open' ? 'closed' : 'open');
-				$mobileButton.attr('aria-expanded', $mobileButton.attr('aria-expanded') == 'true' ? 'false' : 'true');
-				$mobileButton.toggleClass('open');
-				$navigation.focus();
-			});
+    <header class="testimonials__heading">
+      <h2>Was Anwender sagen</h2>
+    </header>
 
-			$(window).on('scroll', function (e) {
-				if (!isMobile.matches) {
-					if ($(window).scrollTop() > headerTop) {
-						$adminBar.addClass('fixed');
-						$header.addClass('fixed');
-						if ($header.data('menu-style') != 'floating') {
-							$body.css({
-								'padding-top': headerHeight
-							});
-						}
-					}
-					if ($(window).scrollTop() <= headerTop) {
-						$adminBar.removeClass('fixed');
-						if ($header.data('menu-style') != 'floating') {
-							$body.css({
-								'padding-top': 0
-							});
-						}
-						$header.removeClass('fixed');
-					}
-				}
-				else {
-					$header.removeClass('fixed');
-				}
-			});
+    <div class="testimonials__grid">
+      <div class="card testimonial">
+        <div class="testimonial__stars" aria-label="5 von 5 Sternen">★★★★★</div>
+        <p class="testimonial__quote">
+          "Vor Robotmk haben wir jeden Morgen manuell unsere Webapplikation durchgeklickt.
+          Jetzt meldet Checkmk Probleme, bevor der erste User sie bemerkt.
+          Das ist der Unterschied."
+        </p>
+        <div class="testimonial__author">Max Mustermann</div>
+        <div class="testimonial__company">IT-Leiter, Beispiel GmbH</div>
+      </div>
+      <div class="card testimonial">
+        <div class="testimonial__stars" aria-label="5 von 5 Sternen">★★★★★</div>
+        <p class="testimonial__quote">
+          "Die Integration war an einem Nachmittag erledigt.
+          Unsere Robot Framework Tests laufen jetzt als kontinuierliche Checks in Checkmk —
+          ohne eine Zeile umzuschreiben."
+        </p>
+        <div class="testimonial__author">Erika Musterfrau</div>
+        <div class="testimonial__company">Senior QA Engineer, Tech Corp</div>
+      </div>
+      <div class="card testimonial">
+        <div class="testimonial__stars" aria-label="5 von 5 Sternen">★★★★★</div>
+        <p class="testimonial__quote">
+          "Der Clarity Call war entscheidend. Simon hat in 30 Minuten genau erklärt,
+          was wir falsch gemacht haben. Drei Wochen später hatten wir
+          Synthetic Monitoring in Produktion."
+        </p>
+        <div class="testimonial__author">Johannes Beispiel</div>
+        <div class="testimonial__company">DevOps Lead, Enterprise AG</div>
+      </div>
+    </div>
 
-			$(window).on('resize', function () {
-				dynamicHeaderHeight();
+  </div>
+</section>
 
+{{/* ============================================================
+     Story 2.8: Blog Preview Section
+     ============================================================ */}}
+{{- $pinnedPosts := where .Site.RegularPages "Params.pinned" true -}}
+{{- $recentPosts := first 3 (where .Site.RegularPages "Section" "blog") -}}
+{{- $posts := $pinnedPosts | append $recentPosts | uniq | first 3 -}}
+{{- if $posts }}
+<section class="blog-preview section" aria-label="Aktuelle Artikel">
+  <div class="blog-preview__container">
 
+    <header class="blog-preview__header">
+      <h2>Aus dem Blog</h2>
+      <a href="{{ "/blog/" | relLangURL }}" class="btn btn--ghost">Alle Artikel &rarr;</a>
+    </header>
 
+    <div class="blog-preview__grid">
+      {{- range $posts }}
+      <div class="card blog-post-card">
+        <time class="blog-post-card__date" datetime="{{ .Date.Format "2006-01-02" }}">
+          {{ .Date.Format "2 January 2006" }}
+        </time>
+        <a class="blog-post-card__title" href="{{ .RelPermalink }}">{{ .Title }}</a>
+        <p class="blog-post-card__desc">{{ .Description | default (.Summary | plainify | truncate 120) }}</p>
+        <a class="blog-post-card__link" href="{{ .RelPermalink }}">Weiterlesen &rarr;</a>
+      </div>
+      {{- end }}
+    </div>
 
-				if (isMobile.matches) {
-					$header.removeClass('fixed');
-					$body.css({
-						'padding-top': 0
-					});
-				}
+  </div>
+</section>
+{{- end }}
 
-			});
-		});
-	</script>
-</body>
+{{/* ============================================================
+     Story 2.9: Newsletter CTA Section
+     ============================================================ */}}
+<section class="newsletter-cta" aria-label="Newsletter">
+  <div class="newsletter-cta__container">
+    <h2>Synthetic Monitoring — praxisnah erklärt.</h2>
+    <p class="newsletter-cta__subtext">
+      Neue Artikel, Tutorials und Robotmk-Updates — direkt in dein Postfach.
+    </p>
+    <div class="newsletter-cta__wrapper">
+      {{ partial "getresponse_webconnect.html" . }}
+      <form class="form-row newsletter-form"
+            action="https://app.getresponse.com/add_subscriber.html"
+            method="post"
+            accept-charset="utf-8"
+            novalidate>
+        <input type="hidden" name="campaign_token" value="{{ .Site.Params.getresponse_token | default "" }}">
+        <input class="input"
+               type="email"
+               name="email"
+               placeholder="deine@email.de"
+               required
+               aria-label="E-Mail-Adresse">
+        <button type="submit" class="btn btn--dark">Abonnieren</button>
+      </form>
+      <p class="newsletter-cta__confirm" role="status" aria-live="polite">
+        Check your inbox! Bestätige deine Anmeldung per E-Mail.
+      </p>
+    </div>
+  </div>
+</section>
 
-</html>
+{{ end }}

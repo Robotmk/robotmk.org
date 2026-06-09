@@ -1,12 +1,14 @@
-{{- $tokens  := resources.Get "css/tokens.css" -}}
-{{- $reset   := resources.Get "css/reset.css" -}}
-{{- $base    := resources.Get "css/base.css" -}}
-{{- $buttons := resources.Get "css/components/buttons.css" -}}
-{{- $cards   := resources.Get "css/components/cards.css" -}}
-{{- $badges  := resources.Get "css/components/badges.css" -}}
-{{- $forms   := resources.Get "css/components/forms.css" -}}
-{{- $nav     := resources.Get "css/components/nav.css" -}}
-{{- $css := slice $tokens $reset $base $buttons $cards $badges $forms $nav
+{{- $tokens   := resources.Get "css/tokens.css" -}}
+{{- $reset    := resources.Get "css/reset.css" -}}
+{{- $base     := resources.Get "css/base.css" -}}
+{{- $buttons  := resources.Get "css/components/buttons.css" -}}
+{{- $cards    := resources.Get "css/components/cards.css" -}}
+{{- $badges   := resources.Get "css/components/badges.css" -}}
+{{- $forms    := resources.Get "css/components/forms.css" -}}
+{{- $nav      := resources.Get "css/components/nav.css" -}}
+{{- $hero     := resources.Get "css/sections/hero.css" -}}
+{{- $homepage := resources.Get "css/sections/homepage.css" -}}
+{{- $css := slice $tokens $reset $base $buttons $cards $badges $forms $nav $hero $homepage
     | resources.Concat "css/main.css"
     | fingerprint -}}
 <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">

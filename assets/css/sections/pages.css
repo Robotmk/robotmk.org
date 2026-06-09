@@ -1,0 +1,408 @@
+.page-hero {
+  padding: var(--space-xl) 0 var(--space-lg);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.page-hero__title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin: 0 0 var(--space-sm);
+}
+
+.page-hero__subtitle {
+  font-size: 1.125rem;
+  color: var(--color-text-secondary);
+  max-width: 60ch;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.learn-lead-magnets,
+.learn-courses,
+.services-booking,
+.services-partnerships {
+  padding: var(--space-xl) 0;
+}
+
+.learn-courses,
+.services-partnerships {
+  border-top: 1px solid var(--color-border);
+}
+
+/* Courses */
+.courses__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin: 0 0 var(--space-lg);
+}
+
+.courses__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: var(--space-md);
+  margin-bottom: var(--space-xl);
+}
+
+.course-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.course-card__header {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.course-card__icon {
+  font-size: 3rem;
+  line-height: 1;
+  margin-bottom: var(--space-xs);
+}
+
+.course-card__icon img {
+  width: 48px;
+  height: 48px;
+}
+
+.course-card__title {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.course-card__desc {
+  color: var(--color-text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin: 0;
+  flex: 1;
+}
+
+.course-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-sm);
+  margin-top: var(--space-sm);
+}
+
+.course-card__price {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.course-card__price--free {
+  color: var(--color-text-secondary);
+}
+
+/* Masterclass Block */
+.masterclass-block {
+  padding: var(--space-xl);
+  margin-bottom: var(--space-lg);
+  background: linear-gradient(135deg, var(--color-surface) 0%, color-mix(in srgb, var(--color-primary) 8%, var(--color-surface)) 100%);
+}
+
+.masterclass-block__eyebrow {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-primary);
+  margin: 0 0 var(--space-xs);
+}
+
+.masterclass-block__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin: 0 0 var(--space-sm);
+}
+
+.masterclass-block__desc {
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  margin: 0 0 var(--space-md);
+  max-width: 60ch;
+}
+
+/* Blueprints Teaser */
+.blueprints-teaser {
+  margin-bottom: var(--space-lg);
+}
+
+.blueprints-teaser__header {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: var(--space-xs);
+}
+
+.blueprints-teaser__title {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  margin: 0 0 var(--space-xs);
+}
+
+.blueprints-teaser__desc {
+  color: var(--color-text-secondary);
+  font-size: 0.9rem;
+  margin: 0;
+  opacity: 0.7;
+}
+
+/* Codespace CTA */
+.codespace-cta {
+  text-align: center;
+  padding: var(--space-md) 0;
+}
+
+/* Newsletter Page */
+.newsletter-page {
+  padding: var(--space-xl) 0;
+}
+
+.newsletter-page__content {
+  max-width: 640px;
+}
+
+.newsletter-page__content ul {
+  padding-left: var(--space-md);
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+}
+
+.newsletter-page__content h2 {
+  font-family: var(--font-display);
+  font-size: 1.375rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-top: var(--space-lg);
+}
+
+/* Booking Widget */
+.booking-widget {
+  max-width: 640px;
+}
+
+.booking-widget__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin: 0 0 var(--space-xs);
+}
+
+.booking-widget__desc {
+  color: var(--color-text-secondary);
+  margin: 0 0 var(--space-md);
+}
+
+.booking-widget__placeholder {
+  border: 1px dashed var(--color-border);
+  padding: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-md);
+}
+
+.booking-widget__notice {
+  color: var(--color-text-secondary);
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+/* Partnerships */
+.partnerships__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin: 0 0 var(--space-xs);
+}
+
+.partnerships__intro {
+  color: var(--color-text-secondary);
+  margin: 0 0 var(--space-lg);
+}
+
+.partnerships__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+}
+
+@media (max-width: 768px) {
+  .partnerships__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.partnership-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.partnership-card--recommended {
+  border-top: 2px solid var(--color-primary);
+}
+
+.partnership-card__header {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: var(--space-xs);
+}
+
+.partnership-card__type {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-secondary);
+}
+
+.partnership-card__name {
+  font-family: var(--font-display);
+  font-size: 1.375rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.partnership-card__price {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin: 0;
+}
+
+.partnership-card__features,
+.partnership-card__training-list {
+  list-style: none;
+  padding: 0;
+  margin: var(--space-xs) 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.partnership-card__features li::before {
+  content: "✓ ";
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+.partnership-card__training-list li {
+  padding-left: 1.5em;
+  color: var(--color-text-secondary);
+  font-size: 0.9rem;
+}
+
+.partnership-card__training-list li::before {
+  content: "→ ";
+  color: var(--color-primary);
+}
+
+.partnership-card__training-more {
+  font-style: italic;
+  opacity: 0.7;
+}
+
+.partnership-card__training-more::before {
+  content: "" !important;
+}
+
+.partnership-card__early-access-note {
+  background: color-mix(in srgb, var(--color-primary) 10%, var(--color-surface));
+  border-left: 3px solid var(--color-primary);
+  padding: var(--space-xs) var(--space-sm);
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  margin: var(--space-xs) 0;
+}
+
+.partnership-card > .btn {
+  margin-top: auto;
+  align-self: flex-start;
+}
+
+/* Lead Magnets */
+.lead-magnets__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin: 0 0 var(--space-xs);
+}
+
+.lead-magnets__intro {
+  color: var(--color-text-secondary);
+  margin: 0 0 var(--space-lg);
+}
+
+.lead-magnets__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--space-md);
+}
+
+.lead-magnet-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.lead-magnet-card__header {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.lead-magnet-card__icon {
+  font-size: 2rem;
+  line-height: 1;
+  margin-bottom: var(--space-xs);
+}
+
+.lead-magnet-card__title {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.lead-magnet-card__desc {
+  color: var(--color-text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin: 0;
+  flex: 1;
+}
+
+.lead-magnet-card__action {
+  margin-top: var(--space-sm);
+}
+
+.lead-magnet-form {
+  margin-top: var(--space-sm);
+}
+
+.lead-magnet-form__confirm {
+  color: var(--color-primary);
+  font-weight: 600;
+  padding: var(--space-xs) 0;
+  margin: 0;
+}

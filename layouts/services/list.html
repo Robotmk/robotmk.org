@@ -1,0 +1,22 @@
+{{ define "title" }}{{ .Title }} — {{ .Site.Title }}{{ end }}
+
+{{ define "main" }}
+<section class="page-hero">
+  <div class="container">
+    <h1 class="page-hero__title">{{ .Title }}</h1>
+    {{ with .Description }}<p class="page-hero__subtitle">{{ . }}</p>{{ end }}
+  </div>
+</section>
+
+<section class="services-booking">
+  <div class="container">
+    {{ partial "services/booking-widget.html" . }}
+  </div>
+</section>
+
+<section class="services-partnerships">
+  <div class="container">
+    {{ partial "services/partnerships.html" . }}
+  </div>
+</section>
+{{ end }}

@@ -23,6 +23,18 @@ languages:
         - name: "Home"
           url: "/en/"
           weight: 1
+        - name: "Learn"
+          url: "/en/learn/"
+          weight: 2
+        - name: "Services"
+          url: "/en/services/"
+          weight: 3
+        - name: "Blog"
+          url: "/en/blog/"
+          weight: 4
+        - name: "About"
+          url: "/en/about/"
+          weight: 5
   de:
     title: Robotmk
     languageCode: de-DE
@@ -36,6 +48,18 @@ languages:
         - name: "Home"
           url: "/de/"
           weight: 1
+        - name: "Lernen"
+          url: "/de/learn/"
+          weight: 2
+        - name: "Services"
+          url: "/de/services/"
+          weight: 3
+        - name: "Blog"
+          url: "/de/blog/"
+          weight: 4
+        - name: "Über mich"
+          url: "/de/about/"
+          weight: 5
 
 ### PARAMS
 

@@ -8,7 +8,8 @@
 {{- $nav      := resources.Get "css/components/nav.css" -}}
 {{- $hero     := resources.Get "css/sections/hero.css" -}}
 {{- $homepage := resources.Get "css/sections/homepage.css" -}}
-{{- $css := slice $tokens $reset $base $buttons $cards $badges $forms $nav $hero $homepage
+{{- $pages    := resources.Get "css/sections/pages.css" -}}
+{{- $css := slice $tokens $reset $base $buttons $cards $badges $forms $nav $hero $homepage $pages
     | resources.Concat "css/main.css"
     | fingerprint -}}
 <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">

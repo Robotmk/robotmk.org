@@ -22,6 +22,7 @@ pager: false
 #weight: 10
 # --- must be in the leaf bundle folder or static
 thumbnail: "wrobocon25.png"
+translationKey: "wrobocon25"
 ---
 
 On 23 October 2025, **WROBOCON** will take place again – online and free of charge!  

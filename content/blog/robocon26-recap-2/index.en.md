@@ -20,6 +20,7 @@ sidebar: true
 pager: false
 thumbnail: "img/robocon.png"
 vgwort: https://vg04.met.vgwort.de/na/c01978edca3a4e5b8ef7fa7757eb717e
+translationKey: "robocon26-recap-2"
 ---
 
 This is **Part 2** of the three-part review of RoboCon 2026 in Helsinki.

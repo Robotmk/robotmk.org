@@ -20,6 +20,7 @@ sidebar: true
 pager: false
 thumbnail: "img/pekka_1.png"
 vgwort: https://vg04.met.vgwort.de/na/2f84c9dc0fe344969d83545078238ce9
+translationKey: "robocon25-unconference"
 ---
 
 

@@ -25,6 +25,7 @@ pager: false
 # --- must be in the leaf bundle folder or static
 thumbnail: img/cmk_rmk.png
 vgwort: https://vg04.met.vgwort.de/na/2d95d237c15f446bb564e78199f946fe
+translationKey: "rmk-starter"
 ---
 
 

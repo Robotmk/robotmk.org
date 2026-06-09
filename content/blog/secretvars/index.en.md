@@ -25,6 +25,7 @@ pager: false
 # --- must be in the leaf bundle folder or static
 thumbnail: "title.png"
 vgwort: https://vg04.met.vgwort.de/na/16bb3126002f47ceb831ba211cd9dcad
+translationKey: "secretvars"
 ---
 
 If you work with sensitive data in Robot Framework, you know the **dilemma**:

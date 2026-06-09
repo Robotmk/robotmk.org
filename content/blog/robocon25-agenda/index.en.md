@@ -23,6 +23,7 @@ pager: false
 # --- must be in the leaf bundle folder or static
 thumbnail: "robocon_airport.png"
 vgwort: https://vg04.met.vgwort.de/na/390cba1dd4bd4570a5190555fe57fc00
+translationKey: "robocon25-agenda"
 ---
 
 

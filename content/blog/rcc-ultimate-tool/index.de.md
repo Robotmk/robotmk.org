@@ -24,6 +24,7 @@ pager: false
 # --- must be in the leaf bundle folder or static
 thumbnail: img/rcc-environments.png
 vgwort: https://vg04.met.vgwort.de/na/468b05b78f234036bc4ce4c1822010df
+translationKey: "rcc-ultimate-tool"
 ---
 
 In diesem Blogartikel beleuchten wir die Hintergründe der Entwicklung von RCC, die Probleme, die es löst, und den immensen Vorteil, den es im Robotmk-Projekt bringt.

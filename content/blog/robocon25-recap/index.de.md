@@ -20,6 +20,7 @@ sidebar: true
 pager: false
 thumbnail: "img/robocon.png"
 vgwort: https://vg04.met.vgwort.de/na/00db99fecd7c44269662d8d6fca0ea8a
+translationKey: "robocon25-recap"
 ---
 
 Die **RoboCon 2025** liegt hinter mir – vier Tage voller **spannender Vorträge, inspirierender Gespräche und neuer Impulse**.  

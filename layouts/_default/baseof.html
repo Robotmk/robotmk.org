@@ -31,6 +31,15 @@
 	{{- /* Navigation — implemented in Story 1.5 */ -}}
 	{{ block "nav" . }}{{ partial "nav.html" . }}{{ end }}
 
+	{{- /* Story 4.3: No-translation fallback banner */ -}}
+	{{- if and (not .IsHome) (not .Translations) (gt (len .Site.Languages) 1) -}}
+	<div class="no-translation-banner" id="no-translation-banner" role="status">
+		<span>{{ i18n "no_translation_notice" | default "This page is not yet available in your language." }}</span>
+		<button class="no-translation-banner__close" aria-label="Dismiss" onclick="this.closest('.no-translation-banner').hidden=true;document.cookie='no_translation_dismissed=1;path=/;max-age=86400'">×</button>
+	</div>
+	<script>if(document.cookie.includes('no_translation_dismissed=1')){document.getElementById('no-translation-banner').hidden=true;}</script>
+	{{- end -}}
+
 	{{- if not hugo.IsProduction -}}
 		{{- partial "open-with-vscode" . -}}
 	{{- end -}}

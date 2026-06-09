@@ -23,13 +23,26 @@
 
     {{- /* Right: Language Switcher + CTA */ -}}
     <div class="nav__right">
-      {{- /* Language Switcher — basic implementation (full fix in Epic 4) */ -}}
+      {{- /* Language Switcher — uses .Translations for page-level context (Story 4.3) */ -}}
       <div class="nav__lang" aria-label="Language switcher">
-        {{- range .Site.Languages }}
-        <a class="nav__lang-link{{ if eq . $.Site.Language }} nav__lang-link--active{{ end }}"
-           href="{{ "/" | relLangURL }}"
-           hreflang="{{ .Lang }}"
-           lang="{{ .Lang }}">{{ .Lang | upper }}</a>
+        {{- $currentLang := .Site.Language.Lang -}}
+        {{- range .Site.Languages -}}
+          {{- $lang := .Lang -}}
+          {{- if eq $lang $currentLang -}}
+          <a class="nav__lang-link nav__lang-link--active"
+             href="{{ $.RelPermalink }}"
+             hreflang="{{ $lang }}"
+             lang="{{ $lang }}"
+             aria-current="true">{{ $lang | upper }}</a>
+          {{- else -}}
+            {{- $translation := index (where $.Translations "Lang" $lang) 0 -}}
+            {{- $href := cond (ne $translation nil) $translation.RelPermalink (printf "/%s/" $lang) -}}
+            <a class="nav__lang-link"
+               href="{{ $href }}"
+               hreflang="{{ $lang }}"
+               lang="{{ $lang }}"
+               {{- if eq $translation nil }} data-no-translation="true"{{ end }}>{{ $lang | upper }}</a>
+          {{- end -}}
         {{- end }}
       </div>
 

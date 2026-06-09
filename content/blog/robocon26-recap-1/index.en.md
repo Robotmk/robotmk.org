@@ -20,6 +20,7 @@ sidebar: true
 pager: false
 thumbnail: "img/gofore-8.png"
 vgwort: https://vg04.met.vgwort.de/na/33debf1e67e545deac06b4a01c008dc0
+translationKey: "robocon26-recap-1"
 ---
 
 While waiting for my return flight at the airport, laptop on my knees and still filled with impressions from **RoboCon 2026**, I began sorting through my notes.  

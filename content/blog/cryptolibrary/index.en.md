@@ -24,6 +24,7 @@ pager: false
 # --- must be in the leaf bundle folder or static
 thumbnail: img/key.png
 vgwort: https://vg04.met.vgwort.de/na/9ca9c8f8c1b548e6aa7dee75f8408dfb
+translationKey: "cryptolibrary"
 ---
 
 If you're doing synthetic monitoring with Robotmk in the Checkmk environment, sooner or later you'll encounter this one question: *how do I prevent passwords from ever appearing in plain text?*

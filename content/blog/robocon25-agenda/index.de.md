@@ -23,6 +23,7 @@ pager: false
 # --- must be in the leaf bundle folder or static
 thumbnail: "robocon_airport.png"
 vgwort: https://vg04.met.vgwort.de/na/a0861cef6e754ee293afff3a1ae14a70
+translationKey: "robocon25-agenda"
 ---
 
 **Flughafen München, Terminal 2 Gate K10** - ich nutze die noch üppig vorhandene Wartezeit auf meinen Flieger, um die Agenda der Robocon 2025 genauer zu studieren.

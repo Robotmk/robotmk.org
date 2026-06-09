@@ -25,6 +25,7 @@ pager: false
 # --- must be in the leaf bundle folder or static
 thumbnail: img/title.png
 vgwort: https://vg04.met.vgwort.de/na/ed902983d9fa4e07b11b706e43e2da5b
+translationKey: "rcc-envoffline"
 ---
 
 

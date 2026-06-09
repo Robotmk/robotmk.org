@@ -27,6 +27,7 @@ pager: false
 # --- must be in the leaf bundle folder or static
 thumbnail: "img/alumnititle.png"
 vgwort: https://vg04.met.vgwort.de/na/b585b4ab358b4e68a5c5a7f7b592f804
+translationKey: "alumni-browser-plugin"
 ---
 
 **What happens when you combine the precision of the browser library with the power of AI?**

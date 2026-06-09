@@ -19,6 +19,7 @@ sidebar: true
 pager: false
 thumbnail: "img/video-thumbnail.png"
 vgwort: https://vg04.met.vgwort.de/na/32c4c8f232454fa9bc601454edbc46f2
+translationKey: "vscode-helsinki-shortcut"
 ---
 
 **Hand aufs Herz**: Wie oft drückst du am Tag auf den ⏵ -Button in VS Code? Wie viel Zeit hast Du schon mit Warten verbracht, bis der Browser endlich startet?  

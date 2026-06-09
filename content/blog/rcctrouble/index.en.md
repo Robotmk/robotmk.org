@@ -23,6 +23,7 @@ pager: false
 # --- must be in the leaf bundle folder or static
 #thumbnail: ""
 vgwort: https://vg04.met.vgwort.de/na/d7eed969920344a8bfe3efa404234b71
+translationKey: "rcctrouble"
 ---
 
 

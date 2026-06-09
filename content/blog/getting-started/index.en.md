@@ -17,6 +17,7 @@ menu: main
 thumbnail: img/start-title4.png
 slug: robotmk-v2-quickstart
 vgwort: https://vg04.met.vgwort.de/na/16f96186fe6643c1a9e5cfdcfd3898fc
+translationKey: "getting-started"
 ---
 
   

@@ -20,6 +20,7 @@ sidebar: true
 pager: false
 thumbnail: "img/pekka_1.png"
 vgwort: https://vg04.met.vgwort.de/na/d44a072ec3d24e499e2db183868a6c6d
+translationKey: "robocon25-unconference"
 ---
 
 Die RoboCon-Woche startet traditionell mit dem **"Unconference Day"** – einem Tag, an dem sich die Robot Framework-Community frei organisiert und ohne festes Programm über die Themen austauscht, die sie am meisten bewegen.  

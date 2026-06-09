@@ -20,6 +20,7 @@ sidebar: true
 pager: false
 thumbnail: "img/wrobocon25-title.png"
 # vgwort: https://vg04.met.vgwort.de/na/00db99fecd7c44269662d8d6fca0ea8a
+translationKey: "wrobocon25-recap"
 ---
 
 **WROBOCON** is the ‘*little sister*’ of the well-known annual [Robocon in Helsinki](www.robocon.io), but it certainly has nothing to hide.  

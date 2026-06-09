@@ -9,7 +9,7 @@
     <div class="hero__split">
 
       <div class="hero__text">
-        <span class="hero__eyebrow">Synthetic Monitoring</span>
+        <span class="hero__eyebrow">Checkmk Synthetic Monitoring</span>
         <h1 class="hero__headline">
           Your monitoring shows <span class="hero__green">green</span>.<br>
           Your users are struggling.
@@ -21,63 +21,8 @@
         </div>
       </div>
 
-      {{/* ============================================================
-           Story 2.3: Gap Visualization (HTML/CSS, IntersectionObserver)
-           ============================================================ */}}
       <div class="hero__viz">
-        <div class="gap-viz"
-             role="img"
-             aria-label="Diagram showing the Monitoring Gap: infrastructure monitoring shows all green while user experience shows failures">
-
-          <div class="gap-viz__panel gap-viz__panel--infra" aria-hidden="true">
-            <div class="gap-viz__panel-label">Infrastructure Monitoring</div>
-            <div class="gap-viz__items">
-              <div class="gap-viz__item">
-                <span>Server</span>
-                <span class="gap-viz__item-status gap-viz__item-status--ok">✓</span>
-              </div>
-              <div class="gap-viz__item">
-                <span>Network</span>
-                <span class="gap-viz__item-status gap-viz__item-status--ok">✓</span>
-              </div>
-              <div class="gap-viz__item">
-                <span>Database</span>
-                <span class="gap-viz__item-status gap-viz__item-status--ok">✓</span>
-              </div>
-              <div class="gap-viz__item">
-                <span>Services</span>
-                <span class="gap-viz__item-status gap-viz__item-status--ok">✓</span>
-              </div>
-            </div>
-            <div class="gap-viz__panel-summary gap-viz__panel-summary--ok">Everything green ✓</div>
-          </div>
-
-          <div class="gap-viz__gap" aria-hidden="true">&larr; Monitoring Gap &rarr;</div>
-
-          <div class="gap-viz__panel gap-viz__panel--ux" aria-hidden="true">
-            <div class="gap-viz__panel-label">User Experience</div>
-            <div class="gap-viz__items">
-              <div class="gap-viz__item">
-                <span>Login</span>
-                <span class="gap-viz__item-status gap-viz__item-status--fail">✗</span>
-              </div>
-              <div class="gap-viz__item">
-                <span>Checkout</span>
-                <span class="gap-viz__item-status gap-viz__item-status--fail">✗</span>
-              </div>
-              <div class="gap-viz__item">
-                <span>Search</span>
-                <span class="gap-viz__item-status gap-viz__item-status--fail">✗</span>
-              </div>
-              <div class="gap-viz__item">
-                <span>Payment</span>
-                <span class="gap-viz__item-status gap-viz__item-status--fail">✗</span>
-              </div>
-            </div>
-            <div class="gap-viz__panel-summary gap-viz__panel-summary--fail">$14,000 / min</div>
-          </div>
-
-        </div>
+        {{- partial "hero-viz.html" . -}}
       </div>
 
     </div>

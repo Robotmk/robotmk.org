@@ -20,9 +20,11 @@
       {{ end }}
     </header>
 
-    {{ with .Params.thumbnail }}
+    {{- $thumb := $.Resources.GetMatch $.Params.thumbnail -}}
+    {{- if not $thumb }}{{- $thumb = $.Resources.GetMatch (printf "**/%s" $.Params.thumbnail) -}}{{- end -}}
+    {{ if $thumb }}
     <div class="post__thumb">
-      <img src="{{ printf "%s%s" $.RelPermalink . }}" alt="{{ $.Title }}" loading="eager" itemprop="image">
+      <img src="{{ $thumb.RelPermalink }}" alt="{{ $.Title }}" loading="eager" itemprop="image">
     </div>
     {{ end }}
 

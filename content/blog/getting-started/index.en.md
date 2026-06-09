@@ -1,5 +1,6 @@
 ---
 draft: false
+pinned: true
 title: Robotmk v2 quick start
 lead: Integrate the first RobotFramework test with Robotmk v2 in Checkmk step by step.
 commentid: rmkv2-quickstart

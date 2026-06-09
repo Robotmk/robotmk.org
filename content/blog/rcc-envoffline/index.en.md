@@ -1,5 +1,6 @@
 ---
 draft: false
+pinned: true
 title: "Robotmk and RCC-Environments in air-gapped environments"
 # --- Italic subheading
 lead: "How to prepare RCC environments and transfer them to isolated test hosts via ZIP archive."

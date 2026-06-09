@@ -28,6 +28,7 @@
 
 <section class="stats-bar" role="region">
   <h2 class="stats-bar__heading">{{ $home.stats.heading }}</h2>
+  <p class="stats-bar__description">{{ $home.stats.description }}</p>
   <div class="stats-bar__container">
     {{- range $home.stats.items }}
     <div class="stats-bar__item">
@@ -160,20 +161,22 @@
   </div>
 </section>
 
-{{- $pinnedPosts := where .Site.RegularPages "Params.pinned" true -}}
-{{- $recentPosts := first 3 (where .Site.RegularPages "Section" "blog") -}}
-{{- $posts := $pinnedPosts | append $recentPosts | uniq | first 3 -}}
-{{- if $posts }}
+{{- $allBlogPosts := where .Site.RegularPages "Section" "blog" -}}
+{{- $featuredPosts := where $allBlogPosts "Params.pinned" true -}}
+{{- $latestPosts := first 3 (where $allBlogPosts "Params.pinned" "!=" true) -}}
+{{- if or $featuredPosts $latestPosts }}
 <section class="blog-preview section" aria-label="{{ $home.blog.heading }}">
   <div class="blog-preview__container">
-
     <header class="blog-preview__header">
       <h2>{{ $home.blog.heading }}</h2>
+    </header>
+    {{- if $latestPosts }}
+    <header class="blog-preview__header blog-preview__header--latest">
+      <h3>{{ $home.blog.latest_heading }}</h3>
       <a href="{{ "/blog/" | relLangURL }}" class="btn btn--ghost">{{ $home.blog.cta }}</a>
     </header>
-
     <div class="blog-preview__grid">
-      {{- range $posts }}
+      {{- range $latestPosts }}
       <div class="card blog-post-card">
         <time class="blog-post-card__date" datetime="{{ .Date.Format "2006-01-02" }}">
           {{ .Date.Format "January 2, 2006" }}
@@ -184,6 +187,25 @@
       </div>
       {{- end }}
     </div>
+    {{- end }}
+
+    {{- if $featuredPosts }}
+    <header class="blog-preview__header">
+      <h3>{{ $home.blog.featured_heading }}</h3>
+    </header>
+    <div class="blog-preview__grid">
+      {{- range $featuredPosts }}
+      <div class="card blog-post-card">
+        <time class="blog-post-card__date" datetime="{{ .Date.Format "2006-01-02" }}">
+          {{ .Date.Format "January 2, 2006" }}
+        </time>
+        <a class="blog-post-card__title" href="{{ .RelPermalink }}">{{ .Title }}</a>
+        <p class="blog-post-card__desc">{{ .Description | default (.Summary | plainify | truncate 120) }}</p>
+        <a class="blog-post-card__link" href="{{ .RelPermalink }}">{{ $home.blog.readmore }}</a>
+      </div>
+      {{- end }}
+    </div>
+    {{- end }}
 
   </div>
 </section>

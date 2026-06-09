@@ -71,7 +71,7 @@
   --text-body-sm-line-height: 1.5;
 
   /* --- Typography: Label (Eyebrows, Chips) --- */
-  --text-label-size:           12px;
+  --text-label-size:           16px;
   --text-label-weight:         600;
   --text-label-line-height:    1.4;
   --text-label-letter-spacing: 0.08em;

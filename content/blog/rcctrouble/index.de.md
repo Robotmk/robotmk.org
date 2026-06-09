@@ -1,5 +1,6 @@
 ---
 draft: false
+pinned: true
 title: "RCC Troubleshooting"
 # --- Italic subheading
 # lead: 

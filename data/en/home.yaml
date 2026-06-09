@@ -13,6 +13,7 @@ hero:
 stats:
   heading: "The truth behind green dashboards:"
   source: 'Source: <a href="https://thenetworkinstallers.com/blog/cost-of-it-downtime-statistics/" target="_blank" rel="noopener noreferrer">The Network Installers — Cost of IT Downtime Statistics</a>'
+  description: "Traditional monitoring watches what rarely fails: the hardware. What it doesn't see is what your users actually experience — a failed login, an endlessly loading page, a checkout that hangs. The very outages that happen most often and cost the most happen outside of its field of vision."
   items:
     - number: "7"
       label: "of 10 IT failures: human-made."
@@ -65,6 +66,8 @@ testimonials:
 # ── Blog Preview ──────────────────────────────────────────────────────────────
 blog:
   heading: "From the Blog"
+  featured_heading: "Featured"
+  latest_heading: "Latest"
   cta: "All Articles →"
   readmore: "Read more →"
 

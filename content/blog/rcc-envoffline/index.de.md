@@ -1,5 +1,6 @@
 ---
 draft: false
+pinned: true
 title: "Robotmk und RCC-Environments in isolierten Umgebungen"
 # --- Italic subheading
 lead: "Wie Du RCC-Environments per ZIP-Archiv auf air-gapped Test-Hosts bringst."

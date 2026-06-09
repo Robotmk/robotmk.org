@@ -13,6 +13,7 @@ hero:
 stats:
   heading: "Die Wahrheit hinter grünen Dashboards:"
   source: 'Quelle: <a href="https://thenetworkinstallers.com/blog/cost-of-it-downtime-statistics/" target="_blank" rel="noopener noreferrer">The Network Installers — Cost of IT Downtime Statistics</a>'
+  description: "Klassisches Monitoring überwacht das, was selten ausfällt: die Hardware. Was es nicht sieht, ist das, was deine User tatsächlich erleben – einen scheiternden Login, eine endlos ladende Seite, einen Checkout, der hängt. Genau die Ausfälle, die am häufigsten passieren und am meisten kosten, finden außerhalb seines Blickfelds statt."
   items:
     - number: "7"
       label: "von 10 IT-Ausfällen: menschengemacht."
@@ -65,6 +66,8 @@ testimonials:
 # ── Blog Preview ──────────────────────────────────────────────────────────────
 blog:
   heading: "Aus dem Blog"
+  featured_heading: "Featured"
+  latest_heading: "Aktuell"
   cta: "Alle Artikel →"
   readmore: "Weiterlesen →"
 

@@ -1,0 +1,68 @@
+<nav class="nav" aria-label="Main navigation">
+  <div class="nav__container">
+
+    {{- /* Logo */ -}}
+    <a class="nav__logo" href="{{ "/" | relLangURL }}" aria-label="{{ .Site.Title }} — Home">
+      <img src="/images/logo-robotmk-dark-bg.svg"
+           alt="{{ .Site.Title }}"
+           width="120" height="32"
+           onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+      <span class="nav__logo-text" style="display:none">{{ .Site.Title }}</span>
+    </a>
+
+    {{- /* Desktop Nav Links */ -}}
+    <ul class="nav__links" role="list">
+      {{- $currentPage := . -}}
+      {{- range .Site.Menus.main }}
+      <li class="nav__item">
+        <a class="nav__link{{ if $currentPage.IsMenuCurrent "main" . }} nav__link--active{{ end }}"
+           href="{{ .URL }}">{{ .Name }}</a>
+      </li>
+      {{- end }}
+    </ul>
+
+    {{- /* Right: Language Switcher + CTA */ -}}
+    <div class="nav__right">
+      {{- /* Language Switcher — basic implementation (full fix in Epic 4) */ -}}
+      <div class="nav__lang" aria-label="Language switcher">
+        {{- range .Site.Languages }}
+        <a class="nav__lang-link{{ if eq . $.Site.Language }} nav__lang-link--active{{ end }}"
+           href="{{ "/" | relLangURL }}"
+           hreflang="{{ .Lang }}"
+           lang="{{ .Lang }}">{{ .Lang | upper }}</a>
+        {{- end }}
+      </div>
+
+      {{- /* Primary CTA */ -}}
+      <a class="btn btn--primary nav__cta" href="{{ "/services/" | relLangURL }}">
+        Clarity Call buchen &rarr;
+      </a>
+
+      {{- /* Hamburger toggle (mobile only) */ -}}
+      <button class="nav__hamburger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="nav-overlay">
+        <span class="nav__hamburger-bar"></span>
+        <span class="nav__hamburger-bar"></span>
+        <span class="nav__hamburger-bar"></span>
+      </button>
+    </div>
+
+  </div>
+
+  {{- /* Mobile Full-Screen Overlay */ -}}
+  <div class="nav__overlay" id="nav-overlay" aria-hidden="true">
+    <ul class="nav__overlay-links" role="list">
+      {{- $currentPage := . -}}
+      {{- range .Site.Menus.main }}
+      <li>
+        <a class="nav__overlay-link{{ if $currentPage.IsMenuCurrent "main" . }} nav__link--active{{ end }}"
+           href="{{ .URL }}">{{ .Name }}</a>
+      </li>
+      {{- end }}
+      <li>
+        <a class="btn btn--primary nav__overlay-cta" href="{{ "/services/" | relLangURL }}">
+          Clarity Call buchen &rarr;
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>

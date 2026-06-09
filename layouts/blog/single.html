@@ -22,7 +22,7 @@
 
     {{ with .Params.thumbnail }}
     <div class="post__thumb">
-      <img src="{{ . | relURL }}" alt="{{ $.Title }}" loading="eager" itemprop="image">
+      <img src="{{ printf "%s%s" $.RelPermalink . }}" alt="{{ $.Title }}" loading="eager" itemprop="image">
     </div>
     {{ end }}
 

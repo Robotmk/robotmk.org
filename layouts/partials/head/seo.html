@@ -11,7 +11,7 @@
 
 {{- /* Open Graph */ -}}
 {{- $desc := .Params.description | default .Params.lead | default .Site.Params.description -}}
-{{- $ogImage := .Params.thumbnail | default "/img/rmk_og_default.png" -}}
+{{- $ogImage := cond (ne .Params.thumbnail "") (printf "%s%s" .Permalink .Params.thumbnail) "/img/rmk_og_default.png" -}}
 <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
 <meta property="og:title" content="{{ .Title }} — {{ .Site.Title }}">
 <meta property="og:description" content="{{ $desc }}">

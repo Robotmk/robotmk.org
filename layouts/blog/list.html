@@ -18,15 +18,16 @@
     {{ if $sorted }}
     <div class="blog-list__grid">
       {{ range $sorted }}
+      {{- $page := . -}}
       <article class="card blog-card{{ if .Params.pinned }} blog-card--pinned{{ end }}">
         {{ if .Params.pinned }}
         <div class="blog-card__pin">
           <span class="badge">{{ i18n "badge_pinned" | default "Pinned" }}</span>
         </div>
         {{ end }}
-        {{ with .Params.thumbnail }}
-        <a href="{{ $.RelPermalink }}" class="blog-card__thumb-link" tabindex="-1" aria-hidden="true">
-          <img src="{{ . | relURL }}" alt="" class="blog-card__thumb" loading="lazy">
+        {{ with $page.Params.thumbnail }}
+        <a href="{{ $page.RelPermalink }}" class="blog-card__thumb-link" tabindex="-1" aria-hidden="true">
+          <img src="{{ printf "%s%s" $page.RelPermalink . }}" alt="" class="blog-card__thumb" loading="lazy">
         </a>
         {{ end }}
         <div class="blog-card__body">

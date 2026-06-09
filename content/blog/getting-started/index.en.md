@@ -12,7 +12,6 @@ tags:
 authorbox: true
 sidebar: true
 pager: false
-menu: main
 # weight: 10
 thumbnail: img/start-title4.png
 slug: robotmk-v2-quickstart

@@ -25,8 +25,11 @@
   </div>
 </section>
 
+{{/*  STATS  */}}
+
 <section class="stats-bar" aria-label="{{ i18n "home_stats_aria" | default "Key statistics" }}" role="region">
   <div class="stats-bar__container">
+    <h2>FOO</h2>
     <div class="stats-bar__item">
       <span class="stats-bar__number stats-bar__number--error">$14,000</span>
       <span class="stats-bar__label">{{ i18n "home_stats_label_1" }}</span>
@@ -50,21 +53,11 @@
       <h2>{{ i18n "home_solution_heading" }}</h2>
     </header>
 
-    <div class="loesung__flow" role="img" aria-label="{{ i18n "home_solution_flow_aria" }}">
-      <div class="loesung__node" aria-hidden="true">
-        <div class="loesung__node-icon">🤖</div>
-        <div class="loesung__node-name">Robot Framework</div>
-      </div>
-      <div class="loesung__arrow" aria-hidden="true">&rarr;</div>
-      <div class="loesung__node loesung__node--accent" aria-hidden="true">
-        <div class="loesung__node-icon">⚡</div>
-        <div class="loesung__node-name">Robotmk</div>
-      </div>
-      <div class="loesung__arrow" aria-hidden="true">&rarr;</div>
-      <div class="loesung__node" aria-hidden="true">
-        <div class="loesung__node-icon">📊</div>
-        <div class="loesung__node-name">Checkmk Synthetic Monitoring</div>
-      </div>
+    <div class="loesung__flow">
+      <img src="/images/rf_rmk_cmk-on_black.png"
+           alt="{{ i18n "home_solution_flow_aria" }}"
+           class="loesung__flow-img"
+           loading="lazy">
     </div>
 
     <div class="loesung__cards">

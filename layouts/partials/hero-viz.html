@@ -1,7 +1,8 @@
 {{/*  
 Alle 8 s zuckt eine andere App-Kachel kurz (~0,9 s). Die 16 Kacheln sind in zufälliger Reihenfolge auf 8-s-Slots verteilt (Delays 0, 8, 16 … 120 s), der ganze Zyklus wiederholt sich erst nach 128 s – wirkt dadurch zufällig.
 Optik wie gestörtes Analog-TV: schnelles horizontales Zittern (±3–4 px), leichtes skewX-Reißen, kurzes vertikales Stauchen (scaleY) und Opacity-Flackern.
-Grün → Rot während der Störung: per hue-rotate(200°) saturate(1.7) brightness(.9) kippt das Teal auf ein klares Warn-Rot (~#E66358). Wirkt nur auf die eine gestörte Kachel; alle anderen bleiben grün. Die grauen Flächen tönen kurz mit – verstärkt den TV-Effekt.
+Grün → Rot während der Störung: per hue-rotate(200°) saturate(1.7) brightness(.9) kippt das Teal auf ein klares Warn-Rot (~#E66358). 
+Wirkt nur auf die eine gestörte Kachel; alle anderen bleiben grün. Die grauen Flächen tönen kurz mit – verstärkt den TV-Effekt.
 Das ruhige „Atmen" (vertikales Schweben) der Kacheln und die LED-Pulse laufen unabhängig weiter; die Bewegungen überlagern sich (äußere Gruppe = Schweben, innere = Glitch).
 prefers-reduced-motion schaltet auch den Glitch ab.
 
@@ -61,11 +62,11 @@ Falls der Effekt zu wuchtig ist: in den @keyframes tear einfach die Opacity-Peak
   .glitch{transform-box:fill-box;transform-origin:center;animation:glitch 128s linear infinite}
   @keyframes glitch{
     0%,0.05%{transform:none;filter:none;opacity:1}
-    0.16%{transform:translateX(-3px) skewX(-4deg) scaleY(1.05);filter:hue-rotate(200deg) saturate(1.7) brightness(.9);opacity:.9}
-    0.30%{transform:translateX(4px) skewX(3deg) scaleY(.97);filter:hue-rotate(200deg) saturate(1.7) brightness(1.05)}
-    0.42%{transform:translateX(-2px) skewX(-2deg);filter:hue-rotate(200deg) saturate(1.8) brightness(.9);opacity:.78}
-    0.52%{transform:translateX(3px) skewX(2deg) scaleY(1.03);filter:hue-rotate(200deg) saturate(1.8)}
-    0.62%{transform:translateX(-1px);filter:hue-rotate(200deg) saturate(1.5)}
+    0.16%{transform:translateX(-3px) skewX(-4deg) scaleY(1.05);filter: sepia(1) saturate(8) hue-rotate(-15deg) brightness(1.1);}
+    0.30%{transform:translateX(4px) skewX(3deg) scaleY(.97);filter: sepia(1) saturate(8) hue-rotate(-15deg) brightness(1.1);}
+    0.42%{transform:translateX(-2px) skewX(-2deg);filter: sepia(1) saturate(8) hue-rotate(-15deg) brightness(1.1);}
+    0.52%{transform:translateX(3px) skewX(2deg) scaleY(1.03);filter: sepia(1) saturate(8) hue-rotate(-15deg) brightness(1.1);}
+    0.62%{transform:translateX(-1px);filter: sepia(1) saturate(8) hue-rotate(-15deg) brightness(1.1);}
     0.70%,100%{transform:none;filter:none;opacity:1}
   }
   .tear{opacity:0;animation:tear 128s linear infinite}

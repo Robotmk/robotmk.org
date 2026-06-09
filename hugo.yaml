@@ -1,6 +1,7 @@
 baseURL: https://www.robotmk.org/
 languageCode: en-us
 enableEmoji: true
+enableRobotsTXT: true
 
 markup:
   goldmark:

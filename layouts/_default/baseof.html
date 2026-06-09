@@ -6,8 +6,8 @@
 	<title>{{ block "title" . }}{{ if not .IsHome }}{{ .Title }} - {{ end }}{{ .Site.Title }}{{ end }}</title>
 	<meta name="description" content="{{ if .IsHome }}{{ .Site.Params.description }}{{ else }}{{ .Params.Description }}{{ end }}">
 
-	{{- /* SEO: meta tags, hreflang, og tags — implemented in Story 5.1 */ -}}
 	{{ partial "head/seo.html" . }}
+	{{ partial "head/schema.html" . }}
 
 	{{ partial "head/css.html" . }}
 
@@ -21,6 +21,9 @@
 	<link rel="shortcut icon" href="{{ "favicon.ico" | relURL }}">
 </head>
 <body>
+	{{- /* Accessibility: skip-to-content link (Story 5.4) */ -}}
+	<a href="#main-content" class="skip-link">{{ i18n "skip_to_content" | default "Skip to content" }}</a>
+
 	{{- /* GTM noscript fallback — must be first element in body */ -}}
 	{{- if .Site.Params.gtm_id }}
 	<noscript>
@@ -44,7 +47,7 @@
 		{{- partial "open-with-vscode" . -}}
 	{{- end -}}
 
-	<main role="main">
+	<main id="main-content" role="main">
 		{{ block "main" . }}
 			{{ with .Content }}
 			<div class="content">{{ . }}</div>

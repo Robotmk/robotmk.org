@@ -1,19 +1,20 @@
 {{ define "main" }}
+{{- $home := index .Site.Data .Site.Language.Lang "home" -}}
 
 <section class="hero" aria-label="Hero">
   <div class="hero__container">
     <div class="hero__split">
 
       <div class="hero__text">
-        <span class="hero__eyebrow">{{ i18n "home_hero_eyebrow" }}</span>
+        <span class="hero__eyebrow">{{ $home.hero.eyebrow }}</span>
         <h1 class="hero__headline">
-          {{ i18n "home_hero_headline_pre" }} <span class="hero__green">{{ i18n "home_hero_headline_accent" }}</span>.<br>
-          {{ i18n "home_hero_headline_post" }}
+          {{ $home.hero.headline_pre }} <span class="hero__green">{{ $home.hero.headline_accent }}</span>.<br>
+          {{ $home.hero.headline_post_pre }} <span class="hero__red">{{ $home.hero.headline_post_red }}</span>.
         </h1>
-        <p class="hero__tagline">{{ i18n "home_hero_tagline" }}</p>
+        <p class="hero__tagline">{{ $home.hero.tagline }}</p>
         <div class="hero__cta-row">
-          <a href="{{ "/services/" | relLangURL }}" class="btn btn--primary">{{ i18n "home_hero_cta_primary" }}</a>
-          <a href="#solution" class="btn btn--ghost">{{ i18n "home_hero_cta_secondary" }}</a>
+          <a href="{{ "/services/" | relLangURL }}" class="btn btn--primary">{{ $home.hero.cta_primary }}</a>
+          <a href="#solution" class="btn btn--ghost">{{ $home.hero.cta_secondary }}</a>
         </div>
       </div>
 
@@ -25,114 +26,135 @@
   </div>
 </section>
 
-{{/*  STATS  */}}
-
-<section class="stats-bar" aria-label="{{ i18n "home_stats_aria" | default "Key statistics" }}" role="region">
+<section class="stats-bar" role="region">
+  <h2 class="stats-bar__heading">{{ $home.stats.heading }}</h2>
   <div class="stats-bar__container">
-    <h2>FOO</h2>
+    {{- range $home.stats.items }}
     <div class="stats-bar__item">
-      <span class="stats-bar__number stats-bar__number--error">$14,000</span>
-      <span class="stats-bar__label">{{ i18n "home_stats_label_1" }}</span>
+      <span class="stats-bar__number stats-bar__number--error">{{ .number }}</span>
+      <span class="stats-bar__label">{{ .label }}</span>
     </div>
-    <div class="stats-bar__item">
-      <span class="stats-bar__number stats-bar__number--primary">2.5×</span>
-      <span class="stats-bar__label">{{ i18n "home_stats_label_2" }}</span>
-    </div>
-    <div class="stats-bar__item">
-      <span class="stats-bar__number stats-bar__number--primary">#1</span>
-      <span class="stats-bar__label">{{ i18n "home_stats_label_3" }}</span>
-    </div>
+    {{- end }}
   </div>
+  <p class="stats-bar__source">{{ $home.stats.source | safeHTML }}</p>
 </section>
 
-<section class="loesung section section--surface" id="solution" aria-label="{{ i18n "home_solution_eyebrow" }}">
+<section class="loesung section section--surface" id="solution" aria-label="{{ $home.solution.eyebrow }}">
   <div class="loesung__container">
 
     <header class="loesung__heading">
-      <span class="loesung__eyebrow">{{ i18n "home_solution_eyebrow" }}</span>
-      <h2>{{ i18n "home_solution_heading" }}</h2>
+      <span class="loesung__eyebrow">{{ $home.solution.eyebrow }}</span>
+      <h2>{{ $home.solution.heading }}</h2>
     </header>
 
     <div class="loesung__flow">
       <img src="/images/rf_rmk_cmk-on_black.png"
-           alt="{{ i18n "home_solution_flow_aria" }}"
+           alt="{{ $home.solution.flow_aria }}"
            class="loesung__flow-img"
            loading="lazy">
     </div>
 
-    <div class="loesung__cards">
-      <div class="card loesung__card">
-        <div class="loesung__card-label">{{ i18n "home_solution_card1_label" }}</div>
-        <h3 class="loesung__card-heading">{{ i18n "home_solution_card1_heading" }}</h3>
-        <p class="loesung__card-text">{{ i18n "home_solution_card1_text" }}</p>
-        <a href="{{ "/learn/" | relLangURL }}" class="btn btn--ghost">{{ i18n "home_solution_card1_cta" }}</a>
+    <div class="loesung__switcher">
+      <div class="loesung__tab-bar" role="tablist">
+        <button class="loesung__tab loesung__tab--active"
+                role="tab" aria-selected="true" aria-controls="loesung-panel-1"
+                data-target="loesung-panel-1">
+          {{ $home.solution.card1.label }}
+        </button>
+        <button class="loesung__tab"
+                role="tab" aria-selected="false" aria-controls="loesung-panel-2"
+                data-target="loesung-panel-2">
+          {{ $home.solution.card2.label }}
+        </button>
       </div>
-      <div class="card loesung__card">
-        <div class="loesung__card-label">{{ i18n "home_solution_card2_label" }}</div>
-        <h3 class="loesung__card-heading">{{ i18n "home_solution_card2_heading" }}</h3>
-        <p class="loesung__card-text">{{ i18n "home_solution_card2_text" }}</p>
-        <a href="https://github.com/elabit/robotmk-examples" target="_blank" rel="noopener noreferrer" class="btn btn--ghost">
-          {{ i18n "home_solution_card2_cta" }}
-        </a>
-        <p class="loesung__codespace-hint">{{ i18n "home_solution_codespace_hint" }}</p>
+
+      <div class="loesung__tab-panel loesung__tab-panel--active"
+           id="loesung-panel-1" role="tabpanel">
+        <h3 class="loesung__card-heading">{{ $home.solution.card1.heading }}</h3>
+        <p class="loesung__card-text">{{ $home.solution.card1.text }}</p>
+        <div>
+          <a href="{{ "/learn/" | relLangURL }}" class="btn btn--ghost">{{ $home.solution.card1.cta }}</a>
+        </div>
+      </div>
+
+      <div class="loesung__tab-panel"
+           id="loesung-panel-2" role="tabpanel">
+        <h3 class="loesung__card-heading">{{ $home.solution.card2.heading }}</h3>
+        <p class="loesung__card-text">{{ $home.solution.card2.text }}</p>
+        <div>
+          <a href="https://github.com/elabit/robotmk-examples" target="_blank" rel="noopener noreferrer" class="btn btn--ghost">
+            {{ $home.solution.card2.cta }}
+          </a>
+        </div>
+        <p class="loesung__codespace-hint">{{ $home.solution.card2.codespace_hint }}</p>
       </div>
     </div>
+    <script>
+    (function () {
+      var tabs = document.querySelectorAll('.loesung__tab');
+      tabs.forEach(function (tab) {
+        tab.addEventListener('click', function () {
+          tabs.forEach(function (t) {
+            t.classList.remove('loesung__tab--active');
+            t.setAttribute('aria-selected', 'false');
+          });
+          document.querySelectorAll('.loesung__tab-panel').forEach(function (p) {
+            p.classList.remove('loesung__tab-panel--active');
+          });
+          tab.classList.add('loesung__tab--active');
+          tab.setAttribute('aria-selected', 'true');
+          document.getElementById(tab.dataset.target).classList.add('loesung__tab-panel--active');
+        });
+      });
+    })();
+    </script>
 
   </div>
 </section>
 
-<section class="founder section" aria-label="{{ i18n "home_founder_heading" }}">
+<section class="founder section" aria-label="{{ $home.founder.heading }}">
   <div class="founder__container">
 
     <div class="founder__photo">
-      <img src="/images/simon-meggle.jpg"
-           alt="{{ i18n "home_founder_img_alt" }}"
+      <img src="/images/portrait_büro_ich_sitze_RFCP_Logo.jpg"
+           alt="{{ $home.founder.img_alt }}"
            width="400" height="530"
            loading="lazy"
            onerror="this.style.display='none'">
     </div>
 
     <div class="founder__text">
-      <h2 class="founder__headline">{{ i18n "home_founder_heading" }}</h2>
-      <p class="founder__bio">{{ i18n "home_founder_bio" }}</p>
-      <div class="founder__badges">
-        <span class="badge">{{ i18n "home_founder_badge1" }}</span>
-        <span class="badge">{{ i18n "home_founder_badge2" }}</span>
-      </div>
+      <h2 class="founder__headline">{{ $home.founder.heading }}</h2>
+      <p class="founder__bio">{{ $home.founder.bio | safeHTML }}</p>
+      <ul class="founder__badge-list">
+        {{- range $home.founder.badges }}
+        <li>{{ . | safeHTML }}</li>
+        {{- end }}
+      </ul>
       <div>
-        <a href="{{ "/about/" | relLangURL }}" class="btn btn--ghost">{{ i18n "home_founder_cta" }}</a>
+        <a href="{{ "/about/" | relLangURL }}" class="btn btn--ghost">{{ $home.founder.cta }}</a>
       </div>
     </div>
 
   </div>
 </section>
 
-<section class="testimonials section section--surface" aria-label="{{ i18n "home_testimonials_heading" }}">
+<section class="testimonials section section--surface" aria-label="{{ $home.testimonials.heading }}">
   <div class="testimonials__container">
 
     <header class="testimonials__heading">
-      <h2>{{ i18n "home_testimonials_heading" }}</h2>
+      <h2>{{ $home.testimonials.heading }}</h2>
     </header>
 
     <div class="testimonials__grid">
+      {{- range $home.testimonials.items }}
       <div class="card testimonial">
         <div class="testimonial__stars" aria-label="5 / 5">★★★★★</div>
-        <p class="testimonial__quote">"{{ i18n "home_testimonial1_quote" }}"</p>
-        <div class="testimonial__author">{{ i18n "home_testimonial1_author" }}</div>
-        <div class="testimonial__company">{{ i18n "home_testimonial1_company" }}</div>
+        <p class="testimonial__quote">"{{ .quote }}"</p>
+        <div class="testimonial__author">{{ .author }}</div>
+        <div class="testimonial__company">{{ .company }}</div>
       </div>
-      <div class="card testimonial">
-        <div class="testimonial__stars" aria-label="5 / 5">★★★★★</div>
-        <p class="testimonial__quote">"{{ i18n "home_testimonial2_quote" }}"</p>
-        <div class="testimonial__author">{{ i18n "home_testimonial2_author" }}</div>
-        <div class="testimonial__company">{{ i18n "home_testimonial2_company" }}</div>
-      </div>
-      <div class="card testimonial">
-        <div class="testimonial__stars" aria-label="5 / 5">★★★★★</div>
-        <p class="testimonial__quote">"{{ i18n "home_testimonial3_quote" }}"</p>
-        <div class="testimonial__author">{{ i18n "home_testimonial3_author" }}</div>
-        <div class="testimonial__company">{{ i18n "home_testimonial3_company" }}</div>
-      </div>
+      {{- end }}
     </div>
 
   </div>
@@ -142,12 +164,12 @@
 {{- $recentPosts := first 3 (where .Site.RegularPages "Section" "blog") -}}
 {{- $posts := $pinnedPosts | append $recentPosts | uniq | first 3 -}}
 {{- if $posts }}
-<section class="blog-preview section" aria-label="{{ i18n "home_blog_heading" }}">
+<section class="blog-preview section" aria-label="{{ $home.blog.heading }}">
   <div class="blog-preview__container">
 
     <header class="blog-preview__header">
-      <h2>{{ i18n "home_blog_heading" }}</h2>
-      <a href="{{ "/blog/" | relLangURL }}" class="btn btn--ghost">{{ i18n "home_blog_cta" }}</a>
+      <h2>{{ $home.blog.heading }}</h2>
+      <a href="{{ "/blog/" | relLangURL }}" class="btn btn--ghost">{{ $home.blog.cta }}</a>
     </header>
 
     <div class="blog-preview__grid">
@@ -158,7 +180,7 @@
         </time>
         <a class="blog-post-card__title" href="{{ .RelPermalink }}">{{ .Title }}</a>
         <p class="blog-post-card__desc">{{ .Description | default (.Summary | plainify | truncate 120) }}</p>
-        <a class="blog-post-card__link" href="{{ .RelPermalink }}">{{ i18n "home_blog_readmore" }}</a>
+        <a class="blog-post-card__link" href="{{ .RelPermalink }}">{{ $home.blog.readmore }}</a>
       </div>
       {{- end }}
     </div>
@@ -167,10 +189,10 @@
 </section>
 {{- end }}
 
-<section class="newsletter-cta" aria-label="{{ i18n "home_newsletter_heading" }}">
+<section class="newsletter-cta" aria-label="{{ $home.newsletter.heading }}">
   <div class="newsletter-cta__container">
-    <h2>{{ i18n "home_newsletter_heading" }}</h2>
-    <p class="newsletter-cta__subtext">{{ i18n "home_newsletter_subtext" }}</p>
+    <h2>{{ $home.newsletter.heading }}</h2>
+    <p class="newsletter-cta__subtext">{{ $home.newsletter.subtext }}</p>
     <div class="newsletter-cta__wrapper">
       {{ partial "getresponse_webconnect.html" . }}
       <form class="form-row newsletter-form"
@@ -182,13 +204,13 @@
         <input class="input"
                type="email"
                name="email"
-               placeholder="{{ i18n "home_newsletter_placeholder" }}"
+               placeholder="{{ $home.newsletter.placeholder }}"
                required
-               aria-label="{{ i18n "home_newsletter_placeholder" }}">
-        <button type="submit" class="btn btn--dark">{{ i18n "home_newsletter_submit" }}</button>
+               aria-label="{{ $home.newsletter.placeholder }}">
+        <button type="submit" class="btn btn--dark">{{ $home.newsletter.submit }}</button>
       </form>
       <p class="newsletter-cta__confirm" role="status" aria-live="polite">
-        {{ i18n "home_newsletter_confirm" }}
+        {{ $home.newsletter.confirm }}
       </p>
     </div>
   </div>

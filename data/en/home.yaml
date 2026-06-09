@@ -1,0 +1,77 @@
+# ── Hero ──────────────────────────────────────────────────────────────────────
+hero:
+  eyebrow: "Checkmk Synthetic Monitoring"
+  headline_pre: "Your monitoring shows"
+  headline_accent: "green"
+  headline_post_pre: "Your users are"
+  headline_post_red: "struggling"
+  tagline: "Available is not the same as usable."
+  cta_primary: "Book a Clarity Call →"
+  cta_secondary: "How it works ↓"
+
+# ── Stats Bar ─────────────────────────────────────────────────────────────────
+stats:
+  heading: "The truth behind green dashboards:"
+  source: 'Source: <a href="https://thenetworkinstallers.com/blog/cost-of-it-downtime-statistics/" target="_blank" rel="noopener noreferrer">The Network Installers — Cost of IT Downtime Statistics</a>'
+  items:
+    - number: "7"
+      label: "of 10 IT failures: human-made."
+    - number: "2.5×"
+      label: "Cost increase over 10 years (Gartner/EMA)"
+    - number: "$14,000"
+      label: "Average cost of one minute of IT downtime"
+
+# ── Solution ──────────────────────────────────────────────────────────────────
+solution:
+  eyebrow: "The Solution"
+  heading: "From Robot Framework to Checkmk — seamlessly."
+  flow_aria: "Flow: Robot Framework → Robotmk → Checkmk Synthetic Monitoring"
+  card1:
+    label: "For Checkmk Users"
+    heading: "I use Checkmk"
+    text: "Your monitoring shows green — but your users report problems. Robotmk is the native Synthetic Monitoring plugin for Checkmk. No second tool, no API integration."
+    cta: "Discover learning resources →"
+  card2:
+    label: "For Robot Framework Users"
+    heading: "I use Robot Framework"
+    text: "Your .robot tests run on demand. With Robotmk they become continuous Synthetic Monitoring — without rewriting."
+    cta: "Try it in the browser →"
+    codespace_hint: "No setup required, start instantly in the browser"
+
+# ── Founder ───────────────────────────────────────────────────────────────────
+founder:
+  heading: "Invented. Perfected. Native in Checkmk."
+  bio: "I am <b>Simon Meggle</b>, the founder of the Robotmk project. <br>Since 2009, I have been exploring how monitoring works not just at the infrastructure level, but from the user's perspective. <br>Robotmk is my answer: a solution that integrates Robot Framework tests directly into Checkmk, as if it had been built for that purpose from the outset.<br><br>And today? Robotmk is an integral part of Checkmk. And I am lucky enough to work part-time at Checkmk as a product manager for my own invention."
+  badges:
+    - 'Robot Framework <a href="https://www.robotframework.org/ambassadors/" target="_blank" rel="noopener noreferrer">Ambassador</a>'
+    - 'Senior Product Manager Synthetic Monitoring @ <a href="https://www.checkmk.com" target="_blank" rel="noopener noreferrer">Checkmk</a>'
+  cta: "My Story →"
+  img_alt: "Simon Meggle, Inventor of Robotmk"
+
+# ── Testimonials ──────────────────────────────────────────────────────────────
+testimonials:
+  heading: "What Users Say"
+  items:
+    - quote: "Before Robotmk we clicked through our web application manually every morning. Now Checkmk reports problems before the first user notices. That is the difference."
+      author: "Max Mustermann"
+      company: "IT Manager, Example GmbH"
+    - quote: "The integration was done in one afternoon. Our Robot Framework tests now run as continuous checks in Checkmk — without rewriting a single line."
+      author: "Erika Musterfrau"
+      company: "Senior QA Engineer, Tech Corp"
+    - quote: "The Clarity Call was decisive. Simon explained in 30 minutes exactly what we were doing wrong. Three weeks later we had Synthetic Monitoring in production."
+      author: "Johannes Beispiel"
+      company: "DevOps Lead, Enterprise AG"
+
+# ── Blog Preview ──────────────────────────────────────────────────────────────
+blog:
+  heading: "From the Blog"
+  cta: "All Articles →"
+  readmore: "Read more →"
+
+# ── Newsletter CTA ────────────────────────────────────────────────────────────
+newsletter:
+  heading: "Synthetic Monitoring — explained in practice."
+  subtext: "New articles, tutorials, and Robotmk updates — delivered to your inbox."
+  placeholder: "your@email.com"
+  submit: "Subscribe"
+  confirm: "Check your inbox! Please confirm your subscription via email."

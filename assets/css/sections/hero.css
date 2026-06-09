@@ -57,6 +57,10 @@
   color: var(--color-primary);
 }
 
+.hero__headline .hero__red {
+  color: var(--color-error);
+}
+
 .hero__tagline {
   font-family: var(--font-body);
   font-size: var(--text-body-lg-size);

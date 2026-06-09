@@ -1,0 +1,77 @@
+# ── Hero ──────────────────────────────────────────────────────────────────────
+hero:
+  eyebrow: "Checkmk Synthetic Monitoring"
+  headline_pre: "Dein Monitoring zeigt"
+  headline_accent: "Grün"
+  headline_post_pre: "Deine User melden"
+  headline_post_red: "Probleme"
+  tagline: "Verfügbar ist nicht dasselbe wie benutzbar."
+  cta_primary: "Clarity Call buchen →"
+  cta_secondary: "Wie es funktioniert ↓"
+
+# ── Stats Bar ─────────────────────────────────────────────────────────────────
+stats:
+  heading: "Die Wahrheit hinter grünen Dashboards:"
+  source: 'Quelle: <a href="https://thenetworkinstallers.com/blog/cost-of-it-downtime-statistics/" target="_blank" rel="noopener noreferrer">The Network Installers — Cost of IT Downtime Statistics</a>'
+  items:
+    - number: "7"
+      label: "von 10 IT-Ausfällen: menschengemacht."
+    - number: "2.5×"
+      label: "Kostensteigerung von 2014–2024 (Gartner/EMA)"
+    - number: "$14,000"
+      label: "Durchschnittliche Kosten einer Minute IT Ausfall (2026)"
+
+# ── Solution ──────────────────────────────────────────────────────────────────
+solution:
+  eyebrow: "Die Lösung"
+  heading: "Von Robot Framework zu Checkmk — nahtlos."
+  flow_aria: "Flow: Robot Framework → Robotmk → Checkmk Synthetic Monitoring"
+  card1:
+    label: "Für Checkmk-Nutzer"
+    heading: "Ich nutze Checkmk"
+    text: "Dein Monitoring zeigt grün — aber deine User melden Probleme. Robotmk ist das native Synthetic Monitoring Plugin für Checkmk. Kein zweites Tool, keine API-Integration."
+    cta: "Lernressourcen entdecken →"
+  card2:
+    label: "Für Robot Framework-Nutzer"
+    heading: "Ich nutze Robot Framework"
+    text: "Deine .robot-Tests laufen on-demand. Mit Robotmk werden sie zu kontinuierlichem Synthetic Monitoring — ohne Umschreiben."
+    cta: "Im Browser ausprobieren →"
+    codespace_hint: "Ohne Setup, sofort im Browser starten"
+
+# ── Founder ───────────────────────────────────────────────────────────────────
+founder:
+  heading: "Erfunden. Perfektioniert. Nativ in Checkmk."
+  bio: "Ich bin <b>Simon Meggle</b>, der Gründer des Robotmk-Projektes. <br>Seit 2009 arbeite ich an der Frage, wie Monitoring nicht nur auf Infrastruktur-Ebene, sondern aus Nutzersicht.<br>Robotmk ist meine Antwort: eine Lösung, die Robot Framework-Tests direkt in Checkmk integriert, als wäre es von Anfang an dafür gebaut worden.<br><br>Und heute? Robotmk ist integraler Bestandteil von Checkmk. Und ich habe das Glück, in Teilzeit bei Checkmk als Produktmanager für meine eigene Erfindung zu arbeiten."
+  badges:
+    - 'Robot Framework <a href="https://www.robotframework.org/ambassadors/" target="_blank" rel="noopener noreferrer">Ambassador</a>'
+    - 'Senior Product Manager Synthetic Monitoring @ <a href="https://www.checkmk.com" target="_blank" rel="noopener noreferrer">Checkmk</a>'
+  cta: "Meine Geschichte →"
+  img_alt: "Simon Meggle, Erfinder von Robotmk"
+
+# ── Testimonials ──────────────────────────────────────────────────────────────
+testimonials:
+  heading: "Was Anwender sagen"
+  items:
+    - quote: "Vor Robotmk haben wir jeden Morgen manuell unsere Webapplikation durchgeklickt. Jetzt meldet Checkmk Probleme, bevor der erste User sie bemerkt. Das ist der Unterschied."
+      author: "Max Mustermann"
+      company: "IT-Leiter, Beispiel GmbH"
+    - quote: "Die Integration war an einem Nachmittag erledigt. Unsere Robot Framework Tests laufen jetzt als kontinuierliche Checks in Checkmk — ohne eine Zeile umzuschreiben."
+      author: "Erika Musterfrau"
+      company: "Senior QA Engineer, Tech Corp"
+    - quote: "Der Clarity Call war entscheidend. Simon hat in 30 Minuten genau erklärt, was wir falsch gemacht haben. Drei Wochen später hatten wir Synthetic Monitoring in Produktion."
+      author: "Johannes Beispiel"
+      company: "DevOps Lead, Enterprise AG"
+
+# ── Blog Preview ──────────────────────────────────────────────────────────────
+blog:
+  heading: "Aus dem Blog"
+  cta: "Alle Artikel →"
+  readmore: "Weiterlesen →"
+
+# ── Newsletter CTA ────────────────────────────────────────────────────────────
+newsletter:
+  heading: "Synthetic Monitoring — praxisnah erklärt."
+  subtext: "Neue Artikel, Tutorials und Robotmk-Updates — direkt in dein Postfach."
+  placeholder: "deine@email.de"
+  submit: "Abonnieren"
+  confirm: "Check your inbox! Bestätige deine Anmeldung per E-Mail."

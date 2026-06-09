@@ -29,6 +29,7 @@
 <section class="stats-bar" role="region">
   <h2 class="stats-bar__heading">{{ $home.stats.heading }}</h2>
   <p class="stats-bar__description">{{ $home.stats.description }}</p>
+  <p class="stats-bar__source">{{ $home.stats.source | safeHTML }}</p>
   <div class="stats-bar__container">
     {{- range $home.stats.items }}
     <div class="stats-bar__item">
@@ -37,7 +38,6 @@
     </div>
     {{- end }}
   </div>
-  <p class="stats-bar__source">{{ $home.stats.source | safeHTML }}</p>
 </section>
 
 <section class="loesung section section--surface" id="solution" aria-label="{{ $home.solution.eyebrow }}">

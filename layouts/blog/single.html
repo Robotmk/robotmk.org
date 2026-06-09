@@ -39,11 +39,12 @@
       {{ range . }}<a href="{{ (printf "/en/tags/%s/" (. | urlize)) | relURL }}" class="badge post__tag">{{ . }}</a>{{ end }}
     </div>
     {{ end }}
+    <br>
+    <hr>
 
+    {{ partial "authorbox.html" . }}
+    {{ partial "comments.html" . }}
   </div>
 </article>
-
-{{ partial "authorbox.html" . }}
 {{ partial "vgwort.html" . }}
-{{ partial "comments.html" . }}
 {{ end }}

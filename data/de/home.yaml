@@ -65,9 +65,9 @@ testimonials:
 
 # ── Blog Preview ──────────────────────────────────────────────────────────────
 blog:
-  heading: "Aus dem Blog"
-  featured_heading: "Featured"
-  latest_heading: "Aktuell"
+  heading: "Robotmk Blog"
+  featured_heading: "Empfohlene Artikel"
+  latest_heading: "Aktuelle Artikel"
   cta: "Alle Artikel →"
   readmore: "Weiterlesen →"
 

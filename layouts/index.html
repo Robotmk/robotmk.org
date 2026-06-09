@@ -1,23 +1,19 @@
 {{ define "main" }}
 
-{{/* ============================================================
-     Story 2.1: Homepage Layout & Section-Rahmen
-     Story 2.2: Hero Section
-     ============================================================ */}}
 <section class="hero" aria-label="Hero">
   <div class="hero__container">
     <div class="hero__split">
 
       <div class="hero__text">
-        <span class="hero__eyebrow">Checkmk Synthetic Monitoring</span>
+        <span class="hero__eyebrow">{{ i18n "home_hero_eyebrow" }}</span>
         <h1 class="hero__headline">
-          Your monitoring shows <span class="hero__green">green</span>.<br>
-          Your users are struggling.
+          {{ i18n "home_hero_headline_pre" }} <span class="hero__green">{{ i18n "home_hero_headline_accent" }}</span>.<br>
+          {{ i18n "home_hero_headline_post" }}
         </h1>
-        <p class="hero__tagline">"And the monitoring said: everything is green."</p>
+        <p class="hero__tagline">{{ i18n "home_hero_tagline" }}</p>
         <div class="hero__cta-row">
-          <a href="{{ "/services/" | relLangURL }}" class="btn btn--primary">Clarity Call buchen &rarr;</a>
-          <a href="#loesung" class="btn btn--ghost">Wie es funktioniert &darr;</a>
+          <a href="{{ "/services/" | relLangURL }}" class="btn btn--primary">{{ i18n "home_hero_cta_primary" }}</a>
+          <a href="#solution" class="btn btn--ghost">{{ i18n "home_hero_cta_secondary" }}</a>
         </div>
       </div>
 
@@ -29,38 +25,32 @@
   </div>
 </section>
 
-{{/* ============================================================
-     Story 2.4: Stats Bar
-     ============================================================ */}}
-<section class="stats-bar" aria-label="Key statistics" role="region">
+<section class="stats-bar" aria-label="{{ i18n "home_stats_aria" | default "Key statistics" }}" role="region">
   <div class="stats-bar__container">
     <div class="stats-bar__item">
       <span class="stats-bar__number stats-bar__number--error">$14,000</span>
-      <span class="stats-bar__label">Durchschnittliche Kosten einer Minute Ausfall</span>
+      <span class="stats-bar__label">{{ i18n "home_stats_label_1" }}</span>
     </div>
     <div class="stats-bar__item">
       <span class="stats-bar__number stats-bar__number--primary">2.5×</span>
-      <span class="stats-bar__label">Kostensteigerung in 10 Jahren (2014–2024)</span>
+      <span class="stats-bar__label">{{ i18n "home_stats_label_2" }}</span>
     </div>
     <div class="stats-bar__item">
       <span class="stats-bar__number stats-bar__number--primary">#1</span>
-      <span class="stats-bar__label">Meistgenutztes Synthetic Monitoring Plugin für Checkmk</span>
+      <span class="stats-bar__label">{{ i18n "home_stats_label_3" }}</span>
     </div>
   </div>
 </section>
 
-{{/* ============================================================
-     Story 2.5: Die Lösung Section
-     ============================================================ */}}
-<section class="loesung section section--surface" id="loesung" aria-label="Die Lösung">
+<section class="loesung section section--surface" id="solution" aria-label="{{ i18n "home_solution_eyebrow" }}">
   <div class="loesung__container">
 
     <header class="loesung__heading">
-      <span class="loesung__eyebrow">Die Lösung</span>
-      <h2>Von Robot Framework zu Checkmk — nahtlos.</h2>
+      <span class="loesung__eyebrow">{{ i18n "home_solution_eyebrow" }}</span>
+      <h2>{{ i18n "home_solution_heading" }}</h2>
     </header>
 
-    <div class="loesung__flow" role="img" aria-label="Flow: Robot Framework → Robotmk → Checkmk Synthetic Monitoring">
+    <div class="loesung__flow" role="img" aria-label="{{ i18n "home_solution_flow_aria" }}">
       <div class="loesung__node" aria-hidden="true">
         <div class="loesung__node-icon">🤖</div>
         <div class="loesung__node-name">Robot Framework</div>
@@ -79,137 +69,103 @@
 
     <div class="loesung__cards">
       <div class="card loesung__card">
-        <div class="loesung__card-label">Für Checkmk-Nutzer</div>
-        <h3 class="loesung__card-heading">Ich nutze Checkmk</h3>
-        <p class="loesung__card-text">
-          Dein Monitoring zeigt grün — aber deine User melden Probleme.
-          Robotmk ist das native Synthetic Monitoring Plugin für Checkmk.
-          Kein zweites Tool, keine API-Integration.
-        </p>
-        <a href="{{ "/learn/" | relLangURL }}" class="btn btn--ghost">Lernressourcen entdecken &rarr;</a>
+        <div class="loesung__card-label">{{ i18n "home_solution_card1_label" }}</div>
+        <h3 class="loesung__card-heading">{{ i18n "home_solution_card1_heading" }}</h3>
+        <p class="loesung__card-text">{{ i18n "home_solution_card1_text" }}</p>
+        <a href="{{ "/learn/" | relLangURL }}" class="btn btn--ghost">{{ i18n "home_solution_card1_cta" }}</a>
       </div>
       <div class="card loesung__card">
-        <div class="loesung__card-label">Für Robot Framework-Nutzer</div>
-        <h3 class="loesung__card-heading">Ich nutze Robot Framework</h3>
-        <p class="loesung__card-text">
-          Deine .robot-Tests laufen on-demand. Mit Robotmk werden sie zu
-          kontinuierlichem Synthetic Monitoring — ohne Umschreiben.
-        </p>
+        <div class="loesung__card-label">{{ i18n "home_solution_card2_label" }}</div>
+        <h3 class="loesung__card-heading">{{ i18n "home_solution_card2_heading" }}</h3>
+        <p class="loesung__card-text">{{ i18n "home_solution_card2_text" }}</p>
         <a href="https://github.com/elabit/robotmk-examples" target="_blank" rel="noopener noreferrer" class="btn btn--ghost">
-          Im Browser ausprobieren &rarr;
+          {{ i18n "home_solution_card2_cta" }}
         </a>
-        <p class="loesung__codespace-hint">Ohne Setup, sofort im Browser starten</p>
+        <p class="loesung__codespace-hint">{{ i18n "home_solution_codespace_hint" }}</p>
       </div>
     </div>
 
   </div>
 </section>
 
-{{/* ============================================================
-     Story 2.6: Founder Section
-     ============================================================ */}}
-<section class="founder section" aria-label="Über den Gründer">
+<section class="founder section" aria-label="{{ i18n "home_founder_heading" }}">
   <div class="founder__container">
 
     <div class="founder__photo">
       <img src="/images/simon-meggle.jpg"
-           alt="Simon Meggle, Erfinder von Robotmk"
+           alt="{{ i18n "home_founder_img_alt" }}"
            width="400" height="530"
            loading="lazy"
            onerror="this.style.display='none'">
     </div>
 
     <div class="founder__text">
-      <h2 class="founder__headline">Erfunden. Perfektioniert. Nativ in Checkmk.</h2>
-      <p class="founder__bio">
-        Seit 2009 arbeite ich an der Frage, wie Monitoring wirklich funktioniert —
-        nicht nur auf Infrastruktur-Ebene, sondern aus Nutzersicht.
-        Robotmk ist meine Antwort: ein Plugin, das Robot Framework-Tests direkt in Checkmk integriert,
-        als wäre es von Anfang an dafür gebaut worden.
-        Heute ist Robotmk das meistgenutzte Synthetic Monitoring Plugin für Checkmk.
-      </p>
+      <h2 class="founder__headline">{{ i18n "home_founder_heading" }}</h2>
+      <p class="founder__bio">{{ i18n "home_founder_bio" }}</p>
       <div class="founder__badges">
-        <span class="badge">🔧 Erfinder von Robotmk</span>
-        <span class="badge">📋 Product Manager Synthetic Monitoring @ Checkmk</span>
+        <span class="badge">{{ i18n "home_founder_badge1" }}</span>
+        <span class="badge">{{ i18n "home_founder_badge2" }}</span>
       </div>
       <div>
-        <a href="{{ "/about/" | relLangURL }}" class="btn btn--ghost">Meine Geschichte &rarr;</a>
+        <a href="{{ "/about/" | relLangURL }}" class="btn btn--ghost">{{ i18n "home_founder_cta" }}</a>
       </div>
     </div>
 
   </div>
 </section>
 
-{{/* ============================================================
-     Story 2.7: Testimonials Section
-     ============================================================ */}}
-<section class="testimonials section section--surface" aria-label="Kundenstimmen">
+<section class="testimonials section section--surface" aria-label="{{ i18n "home_testimonials_heading" }}">
   <div class="testimonials__container">
 
     <header class="testimonials__heading">
-      <h2>Was Anwender sagen</h2>
+      <h2>{{ i18n "home_testimonials_heading" }}</h2>
     </header>
 
     <div class="testimonials__grid">
       <div class="card testimonial">
-        <div class="testimonial__stars" aria-label="5 von 5 Sternen">★★★★★</div>
-        <p class="testimonial__quote">
-          "Vor Robotmk haben wir jeden Morgen manuell unsere Webapplikation durchgeklickt.
-          Jetzt meldet Checkmk Probleme, bevor der erste User sie bemerkt.
-          Das ist der Unterschied."
-        </p>
-        <div class="testimonial__author">Max Mustermann</div>
-        <div class="testimonial__company">IT-Leiter, Beispiel GmbH</div>
+        <div class="testimonial__stars" aria-label="5 / 5">★★★★★</div>
+        <p class="testimonial__quote">"{{ i18n "home_testimonial1_quote" }}"</p>
+        <div class="testimonial__author">{{ i18n "home_testimonial1_author" }}</div>
+        <div class="testimonial__company">{{ i18n "home_testimonial1_company" }}</div>
       </div>
       <div class="card testimonial">
-        <div class="testimonial__stars" aria-label="5 von 5 Sternen">★★★★★</div>
-        <p class="testimonial__quote">
-          "Die Integration war an einem Nachmittag erledigt.
-          Unsere Robot Framework Tests laufen jetzt als kontinuierliche Checks in Checkmk —
-          ohne eine Zeile umzuschreiben."
-        </p>
-        <div class="testimonial__author">Erika Musterfrau</div>
-        <div class="testimonial__company">Senior QA Engineer, Tech Corp</div>
+        <div class="testimonial__stars" aria-label="5 / 5">★★★★★</div>
+        <p class="testimonial__quote">"{{ i18n "home_testimonial2_quote" }}"</p>
+        <div class="testimonial__author">{{ i18n "home_testimonial2_author" }}</div>
+        <div class="testimonial__company">{{ i18n "home_testimonial2_company" }}</div>
       </div>
       <div class="card testimonial">
-        <div class="testimonial__stars" aria-label="5 von 5 Sternen">★★★★★</div>
-        <p class="testimonial__quote">
-          "Der Clarity Call war entscheidend. Simon hat in 30 Minuten genau erklärt,
-          was wir falsch gemacht haben. Drei Wochen später hatten wir
-          Synthetic Monitoring in Produktion."
-        </p>
-        <div class="testimonial__author">Johannes Beispiel</div>
-        <div class="testimonial__company">DevOps Lead, Enterprise AG</div>
+        <div class="testimonial__stars" aria-label="5 / 5">★★★★★</div>
+        <p class="testimonial__quote">"{{ i18n "home_testimonial3_quote" }}"</p>
+        <div class="testimonial__author">{{ i18n "home_testimonial3_author" }}</div>
+        <div class="testimonial__company">{{ i18n "home_testimonial3_company" }}</div>
       </div>
     </div>
 
   </div>
 </section>
 
-{{/* ============================================================
-     Story 2.8: Blog Preview Section
-     ============================================================ */}}
 {{- $pinnedPosts := where .Site.RegularPages "Params.pinned" true -}}
 {{- $recentPosts := first 3 (where .Site.RegularPages "Section" "blog") -}}
 {{- $posts := $pinnedPosts | append $recentPosts | uniq | first 3 -}}
 {{- if $posts }}
-<section class="blog-preview section" aria-label="Aktuelle Artikel">
+<section class="blog-preview section" aria-label="{{ i18n "home_blog_heading" }}">
   <div class="blog-preview__container">
 
     <header class="blog-preview__header">
-      <h2>Aus dem Blog</h2>
-      <a href="{{ "/blog/" | relLangURL }}" class="btn btn--ghost">Alle Artikel &rarr;</a>
+      <h2>{{ i18n "home_blog_heading" }}</h2>
+      <a href="{{ "/blog/" | relLangURL }}" class="btn btn--ghost">{{ i18n "home_blog_cta" }}</a>
     </header>
 
     <div class="blog-preview__grid">
       {{- range $posts }}
       <div class="card blog-post-card">
         <time class="blog-post-card__date" datetime="{{ .Date.Format "2006-01-02" }}">
-          {{ .Date.Format "2 January 2006" }}
+          {{ .Date.Format "January 2, 2006" }}
         </time>
         <a class="blog-post-card__title" href="{{ .RelPermalink }}">{{ .Title }}</a>
         <p class="blog-post-card__desc">{{ .Description | default (.Summary | plainify | truncate 120) }}</p>
-        <a class="blog-post-card__link" href="{{ .RelPermalink }}">Weiterlesen &rarr;</a>
+        <a class="blog-post-card__link" href="{{ .RelPermalink }}">{{ i18n "home_blog_readmore" }}</a>
       </div>
       {{- end }}
     </div>
@@ -218,15 +174,10 @@
 </section>
 {{- end }}
 
-{{/* ============================================================
-     Story 2.9: Newsletter CTA Section
-     ============================================================ */}}
-<section class="newsletter-cta" aria-label="Newsletter">
+<section class="newsletter-cta" aria-label="{{ i18n "home_newsletter_heading" }}">
   <div class="newsletter-cta__container">
-    <h2>Synthetic Monitoring — praxisnah erklärt.</h2>
-    <p class="newsletter-cta__subtext">
-      Neue Artikel, Tutorials und Robotmk-Updates — direkt in dein Postfach.
-    </p>
+    <h2>{{ i18n "home_newsletter_heading" }}</h2>
+    <p class="newsletter-cta__subtext">{{ i18n "home_newsletter_subtext" }}</p>
     <div class="newsletter-cta__wrapper">
       {{ partial "getresponse_webconnect.html" . }}
       <form class="form-row newsletter-form"
@@ -238,13 +189,13 @@
         <input class="input"
                type="email"
                name="email"
-               placeholder="deine@email.de"
+               placeholder="{{ i18n "home_newsletter_placeholder" }}"
                required
-               aria-label="E-Mail-Adresse">
-        <button type="submit" class="btn btn--dark">Abonnieren</button>
+               aria-label="{{ i18n "home_newsletter_placeholder" }}">
+        <button type="submit" class="btn btn--dark">{{ i18n "home_newsletter_submit" }}</button>
       </form>
       <p class="newsletter-cta__confirm" role="status" aria-live="polite">
-        Check your inbox! Bestätige deine Anmeldung per E-Mail.
+        {{ i18n "home_newsletter_confirm" }}
       </p>
     </div>
   </div>

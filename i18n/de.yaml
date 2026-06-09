@@ -1,3 +1,123 @@
+# ── Homepage ──────────────────────────────────────────────────────────────────
+# Hero
+- id: home_hero_eyebrow
+  translation: "Checkmk Synthetic Monitoring"
+- id: home_hero_headline_pre
+  translation: "Dein Monitoring zeigt"
+- id: home_hero_headline_accent
+  translation: "Grün"
+- id: home_hero_headline_post
+  translation: "Deine User haben Probleme."
+- id: home_hero_tagline
+  translation: '"Und das Monitoring sagte: alles ist grün."'
+- id: home_hero_cta_primary
+  translation: "Clarity Call buchen →"
+- id: home_hero_cta_secondary
+  translation: "Wie es funktioniert ↓"
+
+# Stats Bar
+- id: home_stats_label_1
+  translation: "Durchschnittliche Kosten einer Minute Ausfall"
+- id: home_stats_label_2
+  translation: "Kostensteigerung in 10 Jahren (2014–2024)"
+- id: home_stats_label_3
+  translation: "Meistgenutztes Synthetic Monitoring Plugin für Checkmk"
+
+# Lösung / Solution Section
+- id: home_solution_eyebrow
+  translation: "Die Lösung"
+- id: home_solution_heading
+  translation: "Von Robot Framework zu Checkmk — nahtlos."
+- id: home_solution_flow_aria
+  translation: "Flow: Robot Framework → Robotmk → Checkmk Synthetic Monitoring"
+- id: home_solution_card1_label
+  translation: "Für Checkmk-Nutzer"
+- id: home_solution_card1_heading
+  translation: "Ich nutze Checkmk"
+- id: home_solution_card1_text
+  translation: "Dein Monitoring zeigt grün — aber deine User melden Probleme. Robotmk ist das native Synthetic Monitoring Plugin für Checkmk. Kein zweites Tool, keine API-Integration."
+- id: home_solution_card1_cta
+  translation: "Lernressourcen entdecken →"
+- id: home_solution_card2_label
+  translation: "Für Robot Framework-Nutzer"
+- id: home_solution_card2_heading
+  translation: "Ich nutze Robot Framework"
+- id: home_solution_card2_text
+  translation: "Deine .robot-Tests laufen on-demand. Mit Robotmk werden sie zu kontinuierlichem Synthetic Monitoring — ohne Umschreiben."
+- id: home_solution_card2_cta
+  translation: "Im Browser ausprobieren →"
+- id: home_solution_codespace_hint
+  translation: "Ohne Setup, sofort im Browser starten"
+
+# Founder Section
+- id: home_founder_heading
+  translation: "Erfunden. Perfektioniert. Nativ in Checkmk."
+- id: home_founder_bio
+  translation: "Seit 2009 arbeite ich an der Frage, wie Monitoring wirklich funktioniert — nicht nur auf Infrastruktur-Ebene, sondern aus Nutzersicht. Robotmk ist meine Antwort: ein Plugin, das Robot Framework-Tests direkt in Checkmk integriert, als wäre es von Anfang an dafür gebaut worden. Heute ist Robotmk das meistgenutzte Synthetic Monitoring Plugin für Checkmk."
+- id: home_founder_badge1
+  translation: "🔧 Erfinder von Robotmk"
+- id: home_founder_badge2
+  translation: "📋 Product Manager Synthetic Monitoring @ Checkmk"
+- id: home_founder_cta
+  translation: "Meine Geschichte →"
+- id: home_founder_img_alt
+  translation: "Simon Meggle, Erfinder von Robotmk"
+
+# Testimonials
+- id: home_testimonials_heading
+  translation: "Was Anwender sagen"
+- id: home_testimonial1_quote
+  translation: "Vor Robotmk haben wir jeden Morgen manuell unsere Webapplikation durchgeklickt. Jetzt meldet Checkmk Probleme, bevor der erste User sie bemerkt. Das ist der Unterschied."
+- id: home_testimonial1_author
+  translation: "Max Mustermann"
+- id: home_testimonial1_company
+  translation: "IT-Leiter, Beispiel GmbH"
+- id: home_testimonial2_quote
+  translation: "Die Integration war an einem Nachmittag erledigt. Unsere Robot Framework Tests laufen jetzt als kontinuierliche Checks in Checkmk — ohne eine Zeile umzuschreiben."
+- id: home_testimonial2_author
+  translation: "Erika Musterfrau"
+- id: home_testimonial2_company
+  translation: "Senior QA Engineer, Tech Corp"
+- id: home_testimonial3_quote
+  translation: "Der Clarity Call war entscheidend. Simon hat in 30 Minuten genau erklärt, was wir falsch gemacht haben. Drei Wochen später hatten wir Synthetic Monitoring in Produktion."
+- id: home_testimonial3_author
+  translation: "Johannes Beispiel"
+- id: home_testimonial3_company
+  translation: "DevOps Lead, Enterprise AG"
+
+# Blog Preview
+- id: home_blog_heading
+  translation: "Aus dem Blog"
+- id: home_blog_cta
+  translation: "Alle Artikel →"
+- id: home_blog_readmore
+  translation: "Weiterlesen →"
+
+# Newsletter CTA
+- id: home_newsletter_heading
+  translation: "Synthetic Monitoring — praxisnah erklärt."
+- id: home_newsletter_subtext
+  translation: "Neue Artikel, Tutorials und Robotmk-Updates — direkt in dein Postfach."
+- id: home_newsletter_placeholder
+  translation: "deine@email.de"
+- id: home_newsletter_submit
+  translation: "Abonnieren"
+- id: home_newsletter_confirm
+  translation: "Check your inbox! Bestätige deine Anmeldung per E-Mail."
+
+# ── UI strings (shared across pages) ──────────────────────────────────────────
+- id: skip_to_content
+  translation: "Zum Inhalt springen"
+- id: no_translation_notice
+  translation: "Diese Seite ist noch nicht in deiner Sprache verfügbar."
+- id: badge_pinned
+  translation: "Gepinnt"
+- id: btn_read_more
+  translation: "Weiterlesen"
+- id: blog_empty
+  translation: "Noch keine Artikel."
+
+# ── General (legacy) ──────────────────────────────────────────────────────────
 # General
 - id: read_more
   translation: "Weiterlesen…"

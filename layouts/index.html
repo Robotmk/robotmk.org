@@ -153,26 +153,7 @@
   </div>
 </section>
 
-<section class="testimonials section section--surface" aria-label="{{ $home.testimonials.heading }}">
-  <div class="testimonials__container">
-
-    <header class="testimonials__heading">
-      <h2>{{ $home.testimonials.heading }}</h2>
-    </header>
-
-    <div class="testimonials__grid">
-      {{- range $home.testimonials.items }}
-      <div class="card testimonial">
-        <div class="testimonial__stars" aria-label="5 / 5">★★★★★</div>
-        <p class="testimonial__quote">"{{ .quote }}"</p>
-        <div class="testimonial__author">{{ .author }}</div>
-        <div class="testimonial__company">{{ .company }}</div>
-      </div>
-      {{- end }}
-    </div>
-
-  </div>
-</section>
+{{ partial "testimonials-carousel.html" . }}
 
 {{- $allBlogPosts := where .Site.RegularPages "Section" "blog" -}}
 {{- $featuredPosts := where $allBlogPosts "Params.pinned" true -}}

@@ -63,19 +63,7 @@ founder:
   cta: "Meine Geschichte →"
   img_alt: "Simon Meggle, Erfinder von Robotmk"
 
-# ── Testimonials ──────────────────────────────────────────────────────────────
-testimonials:
-  heading: "Was Anwender sagen"
-  items:
-    - quote: "Vor Robotmk haben wir jeden Morgen manuell unsere Webapplikation durchgeklickt. Jetzt meldet Checkmk Probleme, bevor der erste User sie bemerkt. Das ist der Unterschied."
-      author: "Max Mustermann"
-      company: "IT-Leiter, Beispiel GmbH"
-    - quote: "Die Integration war an einem Nachmittag erledigt. Unsere Robot Framework Tests laufen jetzt als kontinuierliche Checks in Checkmk — ohne eine Zeile umzuschreiben."
-      author: "Erika Musterfrau"
-      company: "Senior QA Engineer, Tech Corp"
-    - quote: "Der Clarity Call war entscheidend. Simon hat in 30 Minuten genau erklärt, was wir falsch gemacht haben. Drei Wochen später hatten wir Synthetic Monitoring in Produktion."
-      author: "Johannes Beispiel"
-      company: "DevOps Lead, Enterprise AG"
+
 
 # ── Blog Preview ──────────────────────────────────────────────────────────────
 blog:

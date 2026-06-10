@@ -1,2 +1,7 @@
-- Kein Vertriebsgespräch
 - 
+- AI Kurs 
+- Mailliste
+- enable learn again
+- Add Bridge
+- enable for MCK/RF users
+- About

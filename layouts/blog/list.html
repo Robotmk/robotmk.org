@@ -10,25 +10,21 @@
 
 <section class="blog-list">
   <div class="container">
-    {{- $pages := .Pages -}}
-    {{- $pinned   := where $pages "Params.pinned" true | default slice -}}
-    {{- $unpinned := where $pages "Params.pinned" "!=" true | default slice -}}
-    {{- $sorted   := $pinned | append $unpinned -}}
-
-    {{ if $sorted }}
+    {{ if .Pages }}
     <div class="blog-list__grid">
-      {{ range $sorted }}
-      {{- $page := . -}}
+      {{ range .Pages }}
       <article class="card blog-card{{ if .Params.pinned }} blog-card--pinned{{ end }}">
         {{ if .Params.pinned }}
-        <div class="blog-card__pin">
-          <span class="badge">{{ i18n "badge_pinned" | default "Pinned" }}</span>
-        </div>
+        <span class="blog-card__pin-icon" aria-label="{{ i18n "badge_pinned" | default "Pinned" }}">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M16 12V4h1V2H7v2h1v8l-2 2v2h5.2v6h1.6v-6H18v-2l-2-2z"/>
+          </svg>
+        </span>
         {{ end }}
-        {{- $thumb := $page.Resources.GetMatch $page.Params.thumbnail -}}
-        {{- if and (not $thumb) $page.Params.thumbnail }}{{- $thumb = $page.Resources.GetMatch (printf "**/%s" $page.Params.thumbnail) -}}{{- end -}}
+        {{- $thumb := .Resources.GetMatch .Params.thumbnail -}}
+        {{- if and (not $thumb) .Params.thumbnail }}{{- $thumb = .Resources.GetMatch (printf "**/%s" .Params.thumbnail) -}}{{- end -}}
         {{ if $thumb }}
-        <a href="{{ $page.RelPermalink }}" class="blog-card__thumb-link" tabindex="-1" aria-hidden="true">
+        <a href="{{ .RelPermalink }}" class="blog-card__thumb-link" tabindex="-1" aria-hidden="true">
           <img src="{{ $thumb.RelPermalink }}" alt="" class="blog-card__thumb" loading="lazy">
         </a>
         {{ end }}

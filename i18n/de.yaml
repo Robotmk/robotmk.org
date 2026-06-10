@@ -122,7 +122,7 @@
 
 # URLS
 - id: url_privacypolicy
-  translation: "https://www.robotmk.org/pages/privacypolicy"
+  translation: "https://www.robotmk.org/en/privacy-policy"
 
 - id: privacy_policy
   translation: "Datenschutzerklärung"
@@ -136,4 +136,5 @@
 # BREVO Meeting
 - id: brevo_meeting_iframe_src_professional_support
   translation: https://meet.brevo.com/simon-meggle/borderless?l=professional-support-anfrage
+
 

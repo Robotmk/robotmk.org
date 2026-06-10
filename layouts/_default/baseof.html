@@ -58,7 +58,7 @@
 	{{- /* Footer — implemented in Story 1.6 */ -}}
 	{{ block "footer" . }}{{ partial "footer.html" . }}{{ end }}
 
-	{{- $mainJS := resources.Get "js/main.js" | fingerprint -}}
-	<script type="module" src="{{ $mainJS.RelPermalink }}" integrity="{{ $mainJS.Data.Integrity }}"></script>
+	{{- $mainJS := resources.Get "js/main.js" | js.Build | fingerprint -}}
+	<script src="{{ $mainJS.RelPermalink }}" integrity="{{ $mainJS.Data.Integrity }}" defer></script>
 </body>
 </html>

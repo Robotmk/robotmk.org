@@ -25,10 +25,17 @@
   border-top: 2px solid var(--color-primary);
 }
 
-.blog-card__pin {
-  padding: var(--space-xs) var(--space-sm) 0;
-  display: flex;
-  justify-content: flex-end;
+.blog-card {
+  position: relative;
+}
+
+.blog-card__pin-icon {
+  position: absolute;
+  top: var(--space-sm);
+  right: var(--space-sm);
+  color: var(--color-primary);
+  line-height: 0;
+  pointer-events: none;
 }
 
 .blog-card__thumb-link {

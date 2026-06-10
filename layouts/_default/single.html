@@ -1,20 +1,22 @@
 {{ define "main" }}
 {{ partial "vgwort.html" . }}
 <main class="main" role="main">
-	<article class="post">
-		<header class="post__header">
-			<h1 class="post__title">{{ .Title }}</h1>
-			{{- with .Params.lead }}
-			<p class="post__lead">{{ . }}</p>
-			{{- end }}
-		</header>
-		{{ partial "post_thumbnail.html" (dict "class" "post" "page" .) }}
-		{{- partial "post_toc.html" . -}}
-		<div class="content post__content clearfix">
-			{{ .Content }}
-		</div>
-	</article>
+  <article class="post">
+    <div class="container post__container">
+      <header class="post__header">
+        <h1 class="post__title">{{ .Title }}</h1>
+        {{- with .Params.lead }}
+        <p class="post__lead">{{ . }}</p>
+        {{- end }}
+      </header>
+      {{ partial "post_thumbnail.html" (dict "class" "post" "page" .) }}
+      {{- partial "post_toc.html" . -}}
+      <div class="post__content">
+        {{ .Content }}
+      </div>
+      {{ partial "authorbox.html" . }}
+    </div>
+  </article>
 </main>
-{{ partial "authorbox.html" . }}
 {{ partial "comments.html" . }}
 {{ end }}

@@ -1,29 +1,47 @@
 export function init() {
-  document.querySelectorAll('.newsletter-form').forEach(form => {
-    const emailInput = form.querySelector('input[type="email"]');
-    const confirm = form.closest('.newsletter-cta__wrapper')?.querySelector('.newsletter-cta__confirm');
+  const form = document.getElementById('newsletter-form');
+  if (!form) return;
 
-    if (!emailInput) return;
+  const status = document.getElementById('newsletter-status');
+  const webhook = form.dataset.webhook;
+  if (!webhook) return;
 
-    // Client-side email validation on blur
-    emailInput.addEventListener('blur', () => {
-      const valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value);
-      emailInput.setCustomValidity(valid || emailInput.value === '' ? '' : 'Bitte eine gültige E-Mail-Adresse eingeben.');
-    });
+  const msgErrorRequired = form.dataset.msgErrorRequired;
+  const msgConfirm       = form.dataset.msgConfirm;
+  const msgErrorSubmit   = form.dataset.msgErrorSubmit;
 
-    form.addEventListener('submit', (e) => {
-      // GetResponse handles the actual submission via their widget
-      // This handles the UI feedback after successful submit
-      if (confirm) {
-        e.preventDefault();
-        // Attempt native form submit to GetResponse
-        const data = new FormData(form);
-        fetch(form.action, { method: 'POST', body: data, mode: 'no-cors' })
-          .finally(() => {
-            form.style.display = 'none';
-            confirm.classList.add('is-visible');
-          });
-      }
-    });
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const email = form.email.value.trim();
+    if (!email || !form.consent.checked) {
+      status.textContent = msgErrorRequired;
+      status.dataset.state = 'error';
+      return;
+    }
+    const btn = form.querySelector('button[type=submit]');
+    btn.disabled = true;
+    status.dataset.state = 'pending';
+    try {
+      const res = await fetch(webhook, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email,
+          consent: true,
+          consent_text: form.querySelector('.newsletter-form__consent span').innerText.trim(),
+          consent_timestamp: new Date().toISOString(),
+          source_url: window.location.href
+        })
+      });
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      form.reset();
+      status.textContent = msgConfirm;
+      status.dataset.state = 'success';
+      btn.disabled = false;
+    } catch {
+      status.textContent = msgErrorSubmit;
+      status.dataset.state = 'error';
+      btn.disabled = false;
+    }
   });
 }

@@ -125,7 +125,7 @@
 # URLS
 # TODO: Privacy policy URL i18n
 - id: url_privacypolicy
-  translation: "https://www.robotmk.org/pages/privacypolicy"
+  translation: "https://www.robotmk.org/en/privacy-policy"
 
 - id: privacy_policy
   translation: "Privacy Policy"

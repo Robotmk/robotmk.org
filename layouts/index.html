@@ -1,5 +1,6 @@
 {{ define "main" }}
 {{- $home := index .Site.Data .Site.Language.Lang "home" -}}
+{{- $nl := index .Site.Data .Site.Language.Lang "newsletter" -}}
 
 <section class="hero" aria-label="Hero">
   <div class="hero__container">
@@ -28,7 +29,7 @@
 
 <section class="stats-bar" role="region">
   <h2 class="stats-bar__heading">{{ $home.stats.heading }}</h2>
-  <p class="stats-bar__description">{{ $home.stats.description }}</p>
+  <p class="stats-bar__description">{{ $home.stats.description  | safeHTML }}</p>
   <p class="stats-bar__source">{{ $home.stats.source | safeHTML }}</p>
   <div class="stats-bar__container">
     {{- range $home.stats.items }}
@@ -45,8 +46,20 @@
 
     <header class="loesung__heading">
       <span class="loesung__eyebrow">{{ $home.solution.eyebrow }}</span>
-      <h2>{{ $home.solution.heading }}</h2>
+      <h2>{{ $home.solution.heading  | safeHTML}}</h2>
     </header>
+
+    <div class="loesung__logo">
+      <img src="/robotframework_white_transparent.png" alt="Robotmk" class="loesung__logo-img" loading="lazy">
+    </div>
+
+    <p class="loesung__rf-pitch-intro">{{ $home.solution.rf_pitch_intro  | safeHTML }}</p>
+    <ul class="loesung__rf-pitch">
+      {{- range $home.solution.rf_pitch }}
+      <li>{{ .  | safeHTML }}</li>
+      {{- end }}
+    </ul>
+    <p class="loesung__rf-pitch-outro">{{ $home.solution.rf_pitch_outro | safeHTML }}</p>
 
     <div class="loesung__flow">
       <img src="/images/rf_rmk_cmk-on_black.png"
@@ -54,7 +67,7 @@
            class="loesung__flow-img"
            loading="lazy">
     </div>
-
+{{/*  
     <div class="loesung__switcher">
       <div class="loesung__tab-bar" role="tablist">
         <button class="loesung__tab loesung__tab--active"
@@ -111,7 +124,7 @@
     </script>
 
   </div>
-</section>
+</section>  */}}
 
 <section class="founder section" aria-label="{{ $home.founder.heading }}">
   <div class="founder__container">
@@ -125,7 +138,7 @@
     </div>
 
     <div class="founder__text">
-      <h2 class="founder__headline">{{ $home.founder.heading }}</h2>
+      <h2 class="founder__headline">{{ $home.founder.heading  | safeHTML }}</h2>
       <p class="founder__bio">{{ $home.founder.bio | safeHTML }}</p>
       <ul class="founder__badge-list">
         {{- range $home.founder.badges }}
@@ -211,29 +224,41 @@
 </section>
 {{- end }}
 
-<section class="newsletter-cta" aria-label="{{ $home.newsletter.heading }}">
+<section class="newsletter-cta" aria-label="{{ $nl.heading }}">
   <div class="newsletter-cta__container">
-    <h2>{{ $home.newsletter.heading }}</h2>
-    <p class="newsletter-cta__subtext">{{ $home.newsletter.subtext }}</p>
+    <h2>{{ $nl.heading }}</h2>
+    <p class="newsletter-cta__subtext">{{ $nl.subtext }}</p>
+    
     <div class="newsletter-cta__wrapper">
-      {{ partial "getresponse_webconnect.html" . }}
-      <form class="form-row newsletter-form"
-            action="https://app.getresponse.com/add_subscriber.html"
-            method="post"
-            accept-charset="utf-8"
+      <form class="newsletter-form"
+            id="newsletter-form"
+            data-webhook="{{ .Site.Params.newsletter_webhook_url }}"
+            data-msg-error-required="{{ $nl.error_required }}"
+            data-msg-confirm="{{ $nl.confirm }}"
+            data-msg-error-submit="{{ $nl.error_submit }}"
             novalidate>
-        <input type="hidden" name="campaign_token" value="{{ .Site.Params.getresponse_token | default "" }}">
-        <input class="input"
-               type="email"
-               name="email"
-               placeholder="{{ $home.newsletter.placeholder }}"
-               required
-               aria-label="{{ $home.newsletter.placeholder }}">
-        <button type="submit" class="btn btn--dark">{{ $home.newsletter.submit }}</button>
+        <div class="form-row">
+          <input class="input"
+                 type="email"
+                 name="email"
+                 id="newsletter-email"
+                 placeholder="{{ $nl.placeholder }}"
+                 required
+                 aria-label="{{ $nl.placeholder }}">
+          <button type="submit" class="btn btn--dark">{{ $nl.submit }}</button>
+        </div>
+        <label class="newsletter-form__consent">
+          <input type="checkbox" name="consent" required>
+          <span>{{ $nl.consent_label | safeHTML }}</span>
+        </label>
       </form>
-      <p class="newsletter-cta__confirm" role="status" aria-live="polite">
-        {{ $home.newsletter.confirm }}
+      <p class="newsletter-cta__legal">
+        <a href="{{ i18n "url_privacypolicy" }}" target="_blank" rel="noopener noreferrer">{{ i18n "privacy_policy" }}</a>
       </p>
+      <p class="newsletter-cta__status"
+         id="newsletter-status"
+         role="status"
+         aria-live="polite"></p>
     </div>
   </div>
 </section>

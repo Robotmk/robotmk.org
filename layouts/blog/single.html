@@ -14,6 +14,7 @@
         {{ range . }}<span class="post__cat">{{ . }}</span>{{ end }}
         {{ end }}
       </div>
+      {{ partial "vgwort.html" . }}      
       <h1 class="post__title" itemprop="headline">{{ .Title }}</h1>
       {{ with .Params.lead }}
       <p class="post__lead">{{ . }}</p>
@@ -46,5 +47,4 @@
     {{ partial "comments.html" . }}
   </div>
 </article>
-{{ partial "vgwort.html" . }}
 {{ end }}

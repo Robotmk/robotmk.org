@@ -21,10 +21,19 @@
     </div>
 
     <div class="footer__legal">
-      <span class="footer__elabit">ELABIT GmbH</span>
+      {{/*  <span class="footer__elabit">ELABIT GmbH</span>  */}}
+      <nav class="footer__legal-links" aria-label="Legal">
+        {{- with .Site.GetPage "/imprint" }}
+        <a href="{{ .RelPermalink }}" class="footer__legal-link">{{ .Title }}</a>
+        {{- end }}
+        {{- with .Site.GetPage "/privacy-policy" }}
+        <a href="{{ .RelPermalink }}" class="footer__legal-link">{{ .Title }}</a>
+        {{- end }}
+      </nav>
       <span class="footer__copyright">
         &copy; {{ now.Format "2006" }} {{ .Site.Params.copyright | default .Site.Title }}
       </span>
+      
     </div>
 
   </div>

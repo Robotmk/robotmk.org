@@ -13,19 +13,29 @@ hero:
 stats:
   heading: "The truth behind green dashboards:"
   source: 'Source: <a href="https://thenetworkinstallers.com/blog/cost-of-it-downtime-statistics/" target="_blank" rel="noopener noreferrer">The Network Installers — Cost of IT Downtime Statistics</a>'
-  description: "Traditional monitoring watches what rarely fails: the hardware. What it doesn't see is what your users actually experience — a failed login, an endlessly loading page, a checkout that hangs. The very outages that happen most often and cost the most happen outside of its field of vision."
+  description: "Traditional monitoring watches what rarely fails: the hardware.<br>What it doesn't see is what your users actually experience — a failed login, an endlessly loading page, a checkout that hangs.<br><b>Fatal: user satisfaction and revenue are created exactly where monitoring systems are blind — at the application level.</b>"
   items:
     - number: "7"
       label: "of 10 IT failures: human-made."
     - number: "2.5×"
-      label: "Cost increase over 10 years (Gartner/EMA)"
+      label: "Cost increase from 2014–2024 (Gartner/EMA)"
     - number: "$14,000"
-      label: "Average cost of one minute of IT downtime"
+      label: "Average cost of one minute of IT downtime (2026)"
 
 # ── Solution ──────────────────────────────────────────────────────────────────
 solution:
   eyebrow: "The Solution"
-  heading: "From Robot Framework to Checkmk — seamlessly."
+  heading: "Application Tests with Robot Framework<br>— seamlessly integrated into Checkmk"
+  rf_pitch_intro: "<b>Robot Framework</b> is <i>the</i> proven and flexible open-source tool for automated testing:"
+  rf_pitch:
+    - "Established for over 20 years"
+    - "> 40,000 users worldwide"
+    - "Technology-agnostic by design: web, desktop, API, SAP, Citrix, mobile — everything is testable"
+    - "AI ready"
+    - "No vendor lock-in"
+    - "No licensing costs"
+    - "No dead ends"
+  rf_pitch_outro: "<b>Robotmk</b> integrates this Swiss Army knife into Checkmk — the best-in-class monitoring platform for full-stack observability:"
   flow_aria: "Flow: Robot Framework → Robotmk → Checkmk Synthetic Monitoring"
   card1:
     label: "For Checkmk Users"
@@ -41,11 +51,15 @@ solution:
 
 # ── Founder ───────────────────────────────────────────────────────────────────
 founder:
-  heading: "Invented. Perfected. Native in Checkmk."
-  bio: "I am <b>Simon Meggle</b>, the founder of the Robotmk project. <br>Since 2009, I have been exploring how monitoring works not just at the infrastructure level, but from the user's perspective. <br>Robotmk is my answer: a solution that integrates Robot Framework tests directly into Checkmk, as if it had been built for that purpose from the outset.<br><br>And today? Robotmk is an integral part of Checkmk. And I am lucky enough to work part-time at Checkmk as a product manager for my own invention."
+  heading: "Invented. Perfected.<br>And now built into Checkmk."
+  bio: "I am <b>Simon Meggle</b>, the founder of the Robotmk project. <br><br>Since 2009, I have been exploring the question of how monitoring can capture not only the infrastructure but also the user perspective — and I have found an answer. <br><br>Its name is <b>Robotmk</b>: a solution that integrates Robot Framework tests directly into Checkmk, as if it had been built for that purpose from the outset.<br><br>And today? Robotmk is an integral part of Checkmk. And I am lucky enough to work part-time at Checkmk as a product manager for my own invention."
   badges:
+    - "Synthetic Monitoring Expert"
     - 'Robot Framework <a href="https://www.robotframework.org/ambassadors/" target="_blank" rel="noopener noreferrer">Ambassador</a>'
+    - Member of the <a href="https://www.robotframework.org/foundation/" target="_blank" rel="noopener noreferrer">Robot Framework Foundation</a> through my company ELABIT 
+    - 'Accredited Trainer for the "Robot Framework Certified Professional" <a href="https://cert.robotframework.org" target="_blank" rel="noopener noreferrer">exam</a>'
     - 'Senior Product Manager Synthetic Monitoring @ <a href="https://www.checkmk.com" target="_blank" rel="noopener noreferrer">Checkmk</a>'
+    - 'Chilli-Nerd 🌶️'
   cta: "My Story →"
   img_alt: "Simon Meggle, Inventor of Robotmk"
 
@@ -70,11 +84,3 @@ blog:
   latest_heading: "Latest articles"
   cta: "All Articles →"
   readmore: "Read more →"
-
-# ── Newsletter CTA ────────────────────────────────────────────────────────────
-newsletter:
-  heading: "Synthetic Monitoring — explained in practice."
-  subtext: "New articles, tutorials, and Robotmk updates — delivered to your inbox."
-  placeholder: "your@email.com"
-  submit: "Subscribe"
-  confirm: "Check your inbox! Please confirm your subscription via email."

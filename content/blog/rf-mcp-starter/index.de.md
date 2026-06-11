@@ -1,6 +1,6 @@
 ---
 draft: false
-title: "RF-MCP Getting Started: Robot Framework MCP ohne Installation ausprobieren"
+title: "Den Robot Framework MCP-Server ohne Installation ausprobieren"
 # --- Italic subheading
 lead: "Wie du den MCP-Server für Robot Framework im Starter-Lab von Robotmk ausprobieren kannst."
 # -- giscus id to match comments

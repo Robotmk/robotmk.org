@@ -4,6 +4,9 @@ items:
     author: "Sebastian Böhm"
     company: "Landeshauptstadt München"
     active: true
+  - quote: "Synthetic Monitoring mit Robotmk ist eine wirklich hervorragende Lösung, um den Observability Stack komplett zu machen. Wir sind äußerst zufrieden damit!"
+    author: "(Gartner Review)"
+    active: true
   - quote: "Ich hatte das Vergnügen, am RobotMK-Kurs teilzunehmen, und bin absolut begeistert von den vermittelten Inhalten und der praxisnahen Umsetzung. Dank dieses Kurses fühle ich mich nun bestens gerüstet, eigene Testautomatisierungen mit RobotMK umzusetzen."
     author: "André Bolli"
     company: "WAGNER AG, CH"
@@ -28,6 +31,9 @@ items:
     author: "Andreas Knapp"
     company: "Deutsche Rentenversicherung Bund"
     active: true
+  - quote: "In der neuesten Version wurde der Bereich der End-to-End-Überwachung durch die Integration von Robot Framework mithilfe von RobotMK erheblich verbessert. Bis dahin war die End-to-End-Überwachung für mich einer der schwierigsten Aspekte im Bereich der Überwachung."
+    author: "(Gartner Review)"
+    active: true    
   - quote: "Der Kurs ermöglicht mir, weitere Anwendungsfelder für Testszenarien zu erschließen. Die intensive Schulung hat viele Fragen gelöst, die wir uns während unserer bisherigen eigenständigen Arbeit – ausschließlich mit Dokus – noch gestellt hatten."
     author: "Wolfram Wilhelm"
     company: "CH"
@@ -35,4 +41,7 @@ items:
   - quote: "Ich besuchte den Kurs bereits mit grundsätzlichem Wissen über Robot Framework und RobotMK. Oft fehlte mir jedoch das Detailverständnis – diese Lücken hat der Kurs sehr gut geschlossen. Simon konnte auch kompetent Detailfragen beantworten. Eine großartige Erfahrung, die unser Synthetic Monitoring auf ein neues Level hebt!"
     author: "Maxi Sachmann"
     company: "Landeshauptstadt München"
+    active: true
+  - quote: "Synthetic Monitoring mit Robotmk ist eine wirklich hervorragende Lösung, um den Observability Stack komplett zu machen. Wir sind äußerst zufrieden damit!"
+    author: "(Gartner Review)"
     active: true

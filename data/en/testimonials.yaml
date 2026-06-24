@@ -4,6 +4,9 @@ items:
     author: "Sebastian Böhm"
     company: "City of Munich, DE"
     active: true
+  - quote: "Synthetic Monitoring using Robotmk is an totally amazing capability covering the entire observability stack. We are extremely satisfied with the product!"
+    author: "(Gartner Review)"
+    active: true
   - quote: "This course gave me the confidence to start with Robot Framework and integrate it in Checkmk. Course documentation is very well structured and much better than PowerPoint slides."
     author: "Adrian Dietrich"
     company: "Swisscom, CH"
@@ -12,6 +15,9 @@ items:
     author: "Sedrik Franke"
     company: "Deutsche Rentenversicherung Bund"
     active: true
+  - quote: "In the latest version the End-2-End monitoring part was greatly improved with the integration of robotframework with the help of RobotMK. Until this End-2-End monitoring was for me one of the hardest parts in the monitoring business."
+    author: "(Gartner Review)"
+    active: true    
   - quote: "Simon explains, in his unique and pleasant way, what Synthetic Monitoring means and gives practical examples. I can recommend this workshop to anyone who wants to get acquainted with Synthetic Monitoring."
     author: "Johan Westerduin"
     company: "Axis into ICT, NL"
@@ -28,6 +34,9 @@ items:
     author: "Andreas Knapp"
     company: "Deutsche Rentenversicherung Bund"
     active: true
+  - quote: "Synthetic Monitoring using Robotmk is an totally amazing capability covering the entire observability stack. We are extremely satisfied with the product!"
+    author: "(Gartner Review)"
+    active: true
   - quote: "This course opened up new application areas for test scenarios for me. The intensive training resolved many questions we had during our previous independent work, relying solely on documentation."
     author: "Wolfram Wilhelm"
     company: "CH"
@@ -36,3 +45,4 @@ items:
     author: "Maxi Sachmann"
     company: "City of Munich, DE"
     active: true
+

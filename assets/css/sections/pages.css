@@ -531,3 +531,354 @@
   padding: var(--space-xs) 0;
   margin: 0;
 }
+
+/* ============================================================
+   Bridge Page
+   ============================================================ */
+
+/* Hero — larger title for the triple-rhythm headline */
+.bridge-hero__title1 {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 5vw, 3.25rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--color-on-surface);
+  margin: var(--space-sm) 0 var(--space-md);
+}
+.bridge-hero__title2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 5vw, 3.25rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--color-on-surface);
+  margin: var(--space-sm) 0 var(--space-md);
+}
+.bridge-hero__title3 {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 5vw, 3.25rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--color-primary);
+  margin: var(--space-sm) 0 var(--space-md);
+}
+
+/* Problem section */
+.bridge-problem__heading {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 4vw, var(--text-headline-lg-size));
+  font-weight: var(--text-headline-lg-weight);
+  letter-spacing: var(--text-headline-lg-letter-spacing);
+  color: var(--color-on-surface);
+  margin: var(--space-sm) 0 var(--space-xl);
+}
+
+.bridge-problem__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  max-width: 68ch;
+}
+
+.bridge-problem__body p {
+  font-size: var(--text-body-lg-size);
+  line-height: var(--text-body-lg-line-height);
+  color: var(--color-on-surface-variant);
+  margin: 0;
+}
+
+.bridge-problem__body p:first-child {
+  color: var(--color-on-surface);
+  font-weight: 500;
+}
+
+.bridge-problem__pivot {
+  margin-top: var(--space-2xl);
+  max-width: 68ch;
+  font-size: var(--text-body-lg-size);
+  line-height: var(--text-body-lg-line-height);
+  font-weight: 600;
+  color: var(--color-primary);
+  padding-left: var(--space-lg);
+  border-left: 3px solid var(--color-primary);
+}
+
+/* DIY Comparison */
+.bridge-diy__heading {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3vw, var(--text-headline-md-size));
+  font-weight: var(--text-headline-md-weight);
+  color: var(--color-on-surface);
+  margin: var(--space-sm) 0 var(--space-xl);
+}
+
+.bridge-diy__callout {
+  background: color-mix(in srgb, var(--color-primary) 6%, var(--color-surface));
+  border: 1px solid var(--color-surface-border);
+  border-left: 4px solid var(--color-primary);
+  padding: var(--space-2xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  max-width: 860px;
+}
+
+.bridge-diy__lead {
+  font-size: var(--text-body-lg-size);
+  line-height: var(--text-body-lg-line-height);
+  color: var(--color-on-surface-variant);
+  margin: 0;
+}
+
+.bridge-diy__pivot {
+  font-size: var(--text-body-md-size);
+  font-weight: 600;
+  color: var(--color-on-surface);
+  margin: 0;
+  /* text-transform: uppercase; */
+  letter-spacing: 0.04em;
+  /* font-size: 0.8rem; */
+}
+
+.bridge-diy__advantages {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.bridge-diy__advantage {
+  display: flex;
+  gap: var(--space-md);
+  align-items: flex-start;
+}
+
+.bridge-diy__icon {
+  font-size: 1.5rem;
+  line-height: 1;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.bridge-diy__advantage-text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.bridge-diy__advantage-title {
+  font-family: var(--font-display);
+  font-size: var(--text-headline-sm-size);
+  font-weight: var(--text-headline-sm-weight);
+  color: var(--color-on-surface);
+  line-height: 1.2;
+}
+
+.bridge-diy__advantage-body {
+  font-size: var(--text-body-md-size);
+  line-height: var(--text-body-md-line-height);
+  color: var(--color-on-surface-variant);
+}
+
+.bridge-diy__closing {
+  font-size: var(--text-body-md-size);
+  font-style: italic;
+  color: var(--color-on-surface);
+  margin: 0;
+  padding-top: var(--space-sm);
+  border-top: 1px solid var(--color-surface-border);
+}
+
+@media (max-width: 640px) {
+  .bridge-diy__callout {
+    padding: var(--space-lg);
+  }
+}
+
+.bridge-eyebrow {
+  display: block;
+  font-size: var(--text-label-size);
+  font-weight: var(--text-label-weight);
+  letter-spacing: var(--text-label-letter-spacing);
+  text-transform: uppercase;
+  color: var(--color-primary);
+  margin-bottom: var(--space-xs);
+}
+
+/* Lead paragraph */
+.bridge-intro {
+  padding-block: var(--space-2xl);
+}
+
+.bridge-intro__text {
+  max-width: 65ch;
+  margin-inline: auto;
+  font-size: var(--text-body-lg-size);
+  line-height: var(--text-body-lg-line-height);
+  color: var(--color-on-surface-variant);
+  text-align: center;
+}
+
+/* Section headers */
+.bridge-section-header {
+  text-align: center;
+  margin-bottom: var(--space-2xl);
+}
+
+.bridge-section-header h2 {
+  margin: var(--space-sm) 0 0;
+}
+
+/* How it works — 3 steps */
+.bridge-steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+}
+
+.bridge-step {
+  background: var(--color-surface-high);
+  border: 1px solid var(--color-surface-border);
+  padding: var(--space-xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.bridge-step__number {
+  font-family: var(--font-display);
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--color-primary);
+  opacity: 0.35;
+}
+
+.bridge-step__title {
+  font-family: var(--font-display);
+  font-size: var(--text-headline-sm-size);
+  font-weight: var(--text-headline-sm-weight);
+  color: var(--color-on-surface);
+  margin: 0;
+}
+
+.bridge-step__body {
+  font-size: var(--text-body-md-size);
+  line-height: var(--text-body-md-line-height);
+  color: var(--color-on-surface-variant);
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .bridge-steps {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Supported tools grid */
+.bridge-tools-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-md);
+}
+
+.bridge-tool-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.bridge-tool-card__icon {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.bridge-tool-card__tool {
+  font-family: var(--font-display);
+  font-size: var(--text-headline-sm-size);
+  font-weight: var(--text-headline-sm-weight);
+  color: var(--color-on-surface);
+  margin: 0;
+}
+
+.bridge-tool-card__format {
+  font-family: var(--font-code);
+  font-size: var(--text-body-sm-size);
+  color: var(--color-primary);
+  font-weight: 600;
+  margin: 0;
+}
+
+.bridge-tool-card__desc {
+  font-size: var(--text-body-sm-size);
+  line-height: var(--text-body-sm-line-height);
+  /* color: var(--color-on-surface-muted); */
+  margin: var(--space-xs) 0 0;
+}
+
+@media (max-width: 640px) {
+  .bridge-tools-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Missing handler callout */
+.bridge-extend__callout {
+  max-width: 720px;
+  margin-inline: auto;
+  padding: var(--space-xl) var(--space-2xl);
+  background: color-mix(in srgb, var(--color-primary) 8%, var(--color-surface));
+  border-left: 4px solid var(--color-primary);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.bridge-extend__heading {
+  font-family: var(--font-display);
+  font-size: var(--text-headline-md-size);
+  font-weight: var(--text-headline-md-weight);
+  color: var(--color-on-surface);
+  margin: 0;
+}
+
+.bridge-extend__body {
+  font-size: var(--text-body-md-size);
+  line-height: var(--text-body-md-line-height);
+  color: var(--color-on-surface-variant);
+  margin: 0;
+  max-width: 60ch;
+}
+
+@media (max-width: 640px) {
+  .bridge-extend__callout {
+    padding: var(--space-lg);
+  }
+}
+
+/* CTA grid */
+.bridge-cta-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+}
+
+.offering-card--muted {
+  opacity: 0.65;
+}
+
+.offering-card__soon {
+  cursor: default;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  .bridge-cta-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -65,6 +65,13 @@ founder:
 
 
 
+# ── Bridge Teaser ─────────────────────────────────────────────────────────────
+bridge_teaser:
+  eyebrow: "Robotmk Bridge"
+  heading: "Not using Robot Framework? No problem."
+  body: "The Robotmk Bridge connects any test framework to Checkmk. JUnit, pytest, Gatling, ZAP — keep the tools you already trust, and gain full monitoring visibility."
+  cta: "Learn about the Bridge →"
+
 # ── Blog Preview ──────────────────────────────────────────────────────────────
 blog:
   heading: "Robotmk Blog"

@@ -126,6 +126,15 @@
   </div>
 </section>  */}}
 
+<section class="bridge-teaser section" aria-label="{{ $home.bridge_teaser.eyebrow }}">
+  <div class="bridge-teaser__container">
+    <span class="bridge-teaser__eyebrow">{{ $home.bridge_teaser.eyebrow }}</span>
+    <h2 class="bridge-teaser__heading">{{ $home.bridge_teaser.heading }}</h2>
+    <p class="bridge-teaser__body">{{ $home.bridge_teaser.body }}</p>
+    <a href="{{ "/bridge/" | relLangURL }}" class="btn btn--ghost">{{ $home.bridge_teaser.cta }}</a>
+  </div>
+</section>
+
 <section class="founder section" aria-label="{{ $home.founder.heading }}">
   <div class="founder__container">
 

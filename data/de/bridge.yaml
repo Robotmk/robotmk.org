@@ -80,18 +80,27 @@ tools:
     format: JUnit XML
     desc: Das universelle Testergebnis-Format — wird von fast allen Test-Runnern und
       CI-Systemen direkt erzeugt.
-  - icon: ⚡
+  - icon: 🧪
     tool: Gatling
     format: simulation.log
     desc: Open-Source Last- und Performance-Test-Tool. Die Bridge liest native Gatling
       Simulation Logs direkt.
-  - icon: 🔒
+  - icon: 🧪
     tool: OWASP ZAP
     format: XML / JSON Reports
     desc: Der meistgenutzte Web-Application-Security-Scanner weltweit.
+  - icon: 🧪
+    tool: Locust
+    format: CSV
+    desc: Das Python-basierte Open-Source-Framework für Lasttests
+  - icon: 🧪
+    tool: Tricentis Tosca
+    format: ADO.Net DataSet
+    desc: Testautomatisierungs-Suite
+  
   - icon: ➕
     tool: '...Dein Tool?'
-    format: Anfrage stellen
+    
     desc: Ein Handler für dein Tool kann in wenigen Stunden gebaut werden. Einfach
       anfragen.
 extend:

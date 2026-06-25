@@ -131,6 +131,7 @@
     <span class="bridge-teaser__eyebrow">{{ $home.bridge_teaser.eyebrow }}</span>
     <h2 class="bridge-teaser__heading">{{ $home.bridge_teaser.heading }}</h2>
     <p class="bridge-teaser__body">{{ $home.bridge_teaser.body }}</p>
+    {{ partial "bridge/tools-ticker.html" (dict "page" . "tooltip" true) }}
     <a href="{{ "/bridge/" | relLangURL }}" class="btn btn--ghost">{{ $home.bridge_teaser.cta }}</a>
   </div>
 </section>

@@ -65,17 +65,25 @@ tools:
       tool: "pytest · JUnit · Maven · NUnit"
       format: "JUnit XML"
       desc: "The universal test result format — produced by most major test runners and CI systems out of the box."
-    - icon: "⚡"
+    - icon: "🧪"
       tool: "Gatling"
       format: "simulation.log"
       desc: "Open-source load and performance testing tool. The Bridge reads native Gatling simulation logs directly."
-    - icon: "🔒"
+    - icon: "🧪"
       tool: "OWASP ZAP"
       format: "XML / JSON reports"
       desc: "The world's most widely used web application security scanner."
-    - icon: "➕"
+    - icon: 🧪
+      tool: Locust
+      format: CSV
+      desc: The Python-based open-source framework for load testing
+    - icon: 🧪
+      tool: Tricentis Tosca
+      format: ADO.Net DataSet
+      desc: Test Automation Suite
+    - icon: "✨"
       tool: "...your tool?"
-      format: "Send a request"
+      
       desc: "A handler for your tool can be built in a few hours. Get in touch."
 
 # ── Extend ────────────────────────────────────────────────────────────────────

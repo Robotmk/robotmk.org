@@ -78,16 +78,20 @@
       <span class="bridge-eyebrow">{{ $b.tools.eyebrow }}</span>
       <h2>{{ $b.tools.heading }}</h2>
     </header>
-    <div class="bridge-tools-grid">
+    {{ partial "bridge/tools-ticker.html" (dict "page" . "tooltip" false) }}
+    <br>
+    <ul class="bridge-tools-list">
       {{ range $b.tools.items }}
-      <div class="card bridge-tool-card">
-        <span class="bridge-tool-card__icon">{{ .icon }}</span>
-        <h3 class="bridge-tool-card__tool">{{ .tool }}</h3>
-        <p class="bridge-tool-card__format">{{ .format }}</p>
-        <p class="bridge-tool-card__desc">{{ .desc }}</p>
-      </div>
+      <li class="bridge-tools-list__item">
+        <span class="bridge-tools-list__icon" aria-hidden="true">{{ .icon }}</span>
+        <div class="bridge-tools-list__body">
+          <span class="bridge-tools-list__tool">{{ .tool }}</span>
+          <code class="bridge-tools-list__format">{{ .format }}</code>
+          <span class="bridge-tools-list__desc">{{ .desc }}</span>
+        </div>
+      </li>
       {{ end }}
-    </div>
+    </ul>
   </div>
 </section>
 

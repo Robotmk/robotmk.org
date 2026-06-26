@@ -54,9 +54,11 @@ founder:
   heading: "Invented. Perfected.<br>And now built into Checkmk."
   bio: "I am <b>Simon Meggle</b>, the founder of the Robotmk project. <br><br>Since 2009, I have been exploring the question of how monitoring can capture not only the infrastructure but also the user perspective — and I have found an answer. <br><br>Its name is <b>Robotmk</b>: a solution that integrates Robot Framework tests directly into Checkmk, as if it had been built for that purpose from the outset.<br><br>And today? Robotmk is an integral part of Checkmk. And I am lucky enough to work part-time at Checkmk as a product manager for my own invention."
   badges:
+    - "Founder of ELABIT GmbH, Inventor of Robotmk"
     - "Synthetic Monitoring Expert"
     - 'Robot Framework <a href="https://www.robotframework.org/ambassadors/" target="_blank" rel="noopener noreferrer">Ambassador</a>'
-    - Member of the <a href="https://www.robotframework.org/foundation/" target="_blank" rel="noopener noreferrer">Robot Framework Foundation</a> through my company ELABIT 
+    - Member of the <a href="https://www.robotframework.org/foundation/" target="_blank" rel="noopener noreferrer">Robot Framework Foundation</a>
+    - Organizer of the <a href="https://luma.com/rfugm" target="_blank" rel="noopener noreferrer">Robot Framework User Group Munich</a>  
     - 'Accredited Trainer for the "Robot Framework Certified Professional" <a href="https://cert.robotframework.org" target="_blank" rel="noopener noreferrer">exam</a>'
     - 'Senior Product Manager Synthetic Monitoring @ <a href="https://www.checkmk.com" target="_blank" rel="noopener noreferrer">Checkmk</a>'
     - 'Chilli-Nerd 🌶️'

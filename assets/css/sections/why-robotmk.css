@@ -338,15 +338,44 @@
   gap: var(--space-md);
 }
 
+.why-pillar-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
 .why-pillar-card__icon {
-  font-size: 1.75rem;
-  margin-bottom: var(--space-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--color-surface-border);
+  color: var(--color-on-surface-variant);
+  transition: border-color var(--transition-fast), color var(--transition-fast);
+}
+
+.why-pillar-card:hover .why-pillar-card__icon {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.why-icon {
+  width: 22px;
+  height: 22px;
+}
+
+.why-pillar-card__body {
+  flex: 1;
+  min-width: 0;
 }
 
 .why-pillar-card__title {
   font-family: var(--font-display);
   font-size: var(--text-headline-sm-size);
   font-weight: 600;
+  letter-spacing: -0.01em;
   margin: 0 0 var(--space-xs);
 }
 
@@ -355,6 +384,409 @@
   color: var(--color-on-surface-variant);
   line-height: var(--text-body-sm-line-height);
   margin: 0;
+}
+
+/* The 7th pillar closes the list rather than sitting stranded alone in a
+   3-column grid's leftover row: full-width, horizontal, accent-bordered —
+   a deliberate "closing reassurance" rather than a 7th identical box. */
+.why-pillar-card--closing {
+  grid-column: 1 / -1;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--space-lg);
+  border-left: 3px solid var(--color-primary);
+  padding-left: calc(var(--space-xl) - 3px);
+}
+
+.why-pillar-card--closing .why-pillar-card__icon {
+  width: 56px;
+  height: 56px;
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.why-pillar-card--closing .why-icon {
+  width: 28px;
+  height: 28px;
+}
+
+@media (max-width: 768px) {
+  .why-pillars__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .why-pillar-card--closing {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* ============================================================
+   Explorer — interactive pricing-vs-test-cases chart
+
+   Same status-color logic as the cost chart above: --color-error for
+   the two interval-scaling vendors (Dynatrace solid, Datadog dashed —
+   texture distinguishes same-hue series per the dataviz skill, since
+   both lines are visible simultaneously here unlike the dumbbell's
+   separated rows), --color-primary for Checkmk's flat line. Text
+   labels stay in text tokens; identity comes from a small colored key
+   beside them, never from coloring the text itself.
+   ============================================================ */
+
+.why-explorer {
+  text-align: center;
+}
+
+.why-explorer__eyebrow {
+  display: block;
+  font-size: var(--text-label-size);
+  font-weight: var(--text-label-weight);
+  letter-spacing: var(--text-label-letter-spacing);
+  text-transform: uppercase;
+  color: var(--color-primary);
+  margin-bottom: var(--space-md);
+}
+
+.why-explorer__heading {
+  font-family: var(--font-display);
+  font-size: var(--text-headline-lg-size);
+  font-weight: var(--text-headline-lg-weight);
+  margin: 0 0 var(--space-md);
+}
+
+.why-explorer__intro {
+  max-width: 65ch;
+  margin: 0 auto var(--space-2xl);
+  color: var(--color-on-surface-variant);
+  line-height: var(--text-body-md-line-height);
+}
+
+.explorer {
+  max-width: var(--content-width);
+  margin-inline: auto;
+  text-align: left;
+}
+
+/* --- Slider --- */
+
+.explorer__controls {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+  margin-bottom: var(--space-2xl);
+  flex-wrap: wrap;
+}
+
+.explorer__slider-label {
+  font-size: var(--text-label-size);
+  font-weight: var(--text-label-weight);
+  letter-spacing: var(--text-label-letter-spacing);
+  text-transform: uppercase;
+  color: var(--color-on-surface-variant);
+  flex-shrink: 0;
+}
+
+.explorer__slider {
+  position: relative;
+  flex: 1;
+  min-width: 220px;
+  padding-block: var(--space-sm);
+}
+
+.explorer__slider-track {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 2px;
+  transform: translateY(-50%);
+  background: linear-gradient(
+    to right,
+    var(--color-primary) 0%,
+    var(--color-primary) var(--fill, 33%),
+    var(--color-surface-border) var(--fill, 33%),
+    var(--color-surface-border) 100%
+  );
+  pointer-events: none;
+}
+
+.explorer__range {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  margin: 0;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.explorer__range:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 4px;
+}
+
+.explorer__range::-webkit-slider-runnable-track {
+  height: 2px;
+  background: transparent;
+}
+
+.explorer__range::-moz-range-track {
+  height: 2px;
+  background: transparent;
+}
+
+.explorer__range::-webkit-slider-thumb {
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  margin-top: -6px;
+  background: var(--color-primary);
+  border: 2px solid var(--color-background);
+  transform: rotate(45deg);
+  transition: transform var(--transition-fast);
+}
+
+.explorer__range::-moz-range-thumb {
+  width: 14px;
+  height: 14px;
+  border-radius: 0;
+  background: var(--color-primary);
+  border: 2px solid var(--color-background);
+  transform: rotate(45deg);
+  transition: transform var(--transition-fast);
+}
+
+.explorer__range:active::-webkit-slider-thumb {
+  transform: rotate(45deg) scale(1.15);
+}
+
+.explorer__slider-ticks {
+  display: flex;
+  justify-content: space-between;
+  margin-top: var(--space-sm);
+  font-family: var(--font-code);
+  font-size: 11px;
+  color: var(--color-on-surface-muted);
+}
+
+.explorer__slider-current {
+  font-family: var(--font-code);
+  font-size: var(--text-body-sm-size);
+  font-weight: 600;
+  color: var(--color-primary);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .explorer__range::-webkit-slider-thumb,
+  .explorer__range::-moz-range-thumb {
+    transition: none;
+  }
+}
+
+/* --- Legend + Chart --- */
+
+.explorer__legend {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+  margin-bottom: var(--space-md);
+  flex-wrap: wrap;
+}
+
+.explorer__legend-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  font-size: var(--text-body-sm-size);
+  color: var(--color-on-surface-variant);
+}
+
+.explorer__legend-swatch {
+  display: inline-block;
+  width: 18px;
+  height: 0;
+  border-top: 2.5px solid var(--color-error);
+}
+
+.explorer__legend-swatch--datadog {
+  border-top-style: dashed;
+}
+
+.explorer__legend-swatch--checkmk {
+  border-top-color: var(--color-primary);
+  border-top-width: 3px;
+}
+
+.explorer__y-label {
+  margin-left: auto;
+  font-family: var(--font-code);
+  font-size: 11px;
+  color: var(--color-on-surface-muted);
+}
+
+.explorer__chart-wrap {
+  position: relative;
+  overflow: hidden;
+}
+
+.explorer__x-label {
+  text-align: center;
+  font-family: var(--font-code);
+  font-size: 11px;
+  color: var(--color-on-surface-muted);
+  margin: var(--space-xs) 0 0;
+}
+
+.explorer__svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.explorer__gridlines line {
+  stroke: var(--color-surface-border);
+  stroke-width: 1;
+}
+
+.explorer__axis-y text,
+.explorer__axis-x text {
+  font-family: var(--font-code);
+  font-size: 11px;
+  fill: var(--color-on-surface-muted);
+}
+
+.explorer__line {
+  fill: none;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.explorer__line--dynatrace {
+  stroke: var(--color-error);
+}
+
+.explorer__line--datadog {
+  stroke: var(--color-error);
+  stroke-dasharray: 2 6;
+}
+
+.explorer__line--checkmk {
+  stroke: var(--color-primary);
+  stroke-width: 3;
+}
+
+.explorer__endlabels text {
+  font-family: var(--font-code);
+  font-size: 12px;
+  font-weight: 600;
+  fill: var(--color-on-surface);
+}
+
+.explorer__endlabels circle {
+  r: 3.5;
+}
+
+.explorer__endlabels .explorer__endlabel--dynatrace circle { fill: var(--color-error); }
+.explorer__endlabels .explorer__endlabel--datadog circle   { fill: var(--color-error); }
+.explorer__endlabels .explorer__endlabel--checkmk circle   { fill: var(--color-primary); }
+
+/* The HTML `hidden` attribute doesn't reliably compute to display:none on
+   SVG-namespaced elements in every browser (confirmed via computed style —
+   an un-positioned circle defaulting to cx=0,cy=0 was visibly peeking
+   through at the chart's origin despite `hidden` being present). Use an
+   explicit class instead. */
+.explorer__crosshair,
+.explorer__hoverdots {
+  display: none;
+}
+
+.explorer__crosshair.is-active,
+.explorer__hoverdots.is-active {
+  display: inline;
+}
+
+.explorer__crosshair {
+  stroke: var(--color-on-surface-muted);
+  stroke-width: 1;
+  stroke-dasharray: 3 3;
+}
+
+.explorer__hoverdot--dynatrace { fill: var(--color-error); }
+.explorer__hoverdot--datadog   { fill: var(--color-error); }
+.explorer__hoverdot--checkmk   { fill: var(--color-primary); }
+
+.explorer__hoverdot {
+  stroke: var(--color-background);
+  stroke-width: 2;
+}
+
+.explorer__overlay {
+  cursor: crosshair;
+}
+
+.explorer__tooltip {
+  position: absolute;
+  top: 0;
+  pointer-events: none;
+  background: var(--color-surface-high);
+  border: 1px solid var(--color-surface-border);
+  padding: var(--space-sm) var(--space-md);
+  font-size: var(--text-body-sm-size);
+  white-space: nowrap;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+
+.explorer__tooltip-x {
+  display: block;
+  font-family: var(--font-code);
+  font-size: 11px;
+  color: var(--color-on-surface-muted);
+  margin-bottom: var(--space-xs);
+}
+
+.explorer__tooltip-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-family: var(--font-code);
+  color: var(--color-on-surface);
+}
+
+.explorer__tooltip-key {
+  width: 8px;
+  height: 8px;
+  flex-shrink: 0;
+}
+
+.explorer__hint {
+  text-align: center;
+  font-size: var(--text-body-sm-size);
+  color: var(--color-on-surface-muted);
+  margin: var(--space-lg) 0 0;
+}
+
+.explorer__noscript {
+  text-align: center;
+  color: var(--color-on-surface-muted);
+  font-size: var(--text-body-sm-size);
+}
+
+@media (max-width: 640px) {
+  .explorer__controls {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-sm);
+  }
+
+  .explorer__slider-current {
+    text-align: center;
+  }
 }
 
 .why-cta__container {

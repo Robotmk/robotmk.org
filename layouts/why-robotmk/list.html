@@ -93,14 +93,88 @@
   <div class="container">
     <h2 class="why-pillars__heading">{{ $why.pillars.heading }}</h2>
     <div class="why-pillars__grid">
-      {{- range $why.pillars.items }}
-      <div class="card why-pillar-card">
-        <div class="why-pillar-card__icon" aria-hidden="true">{{ .icon }}</div>
-        <h3 class="why-pillar-card__title">{{ .title }}</h3>
-        <p class="why-pillar-card__text">{{ .text }}</p>
+      {{- range $i, $item := $why.pillars.items }}
+      {{- $isLast := eq (add $i 1) (len $why.pillars.items) }}
+      <div class="card why-pillar-card{{ if $isLast }} why-pillar-card--closing{{ end }}">
+        <div class="why-pillar-card__icon">{{ partial "why-icon.html" $item.icon }}</div>
+        <div class="why-pillar-card__body">
+          <h3 class="why-pillar-card__title">{{ $item.title }}</h3>
+          <p class="why-pillar-card__text">{{ $item.text }}</p>
+        </div>
       </div>
       {{- end }}
     </div>
+  </div>
+</section>
+
+<section class="why-explorer section section--surface">
+  <div class="container">
+    <span class="why-explorer__eyebrow">{{ $why.explorer.eyebrow }}</span>
+    <h2 class="why-explorer__heading">{{ $why.explorer.heading }}</h2>
+    <p class="why-explorer__intro">{{ $why.explorer.intro }}</p>
+
+    <div class="explorer"
+         data-requests-per-test="{{ $why.explorer.requests_per_test }}"
+         data-usd-to-eur="{{ $why.explorer.usd_to_eur }}"
+         data-dynatrace-rate="{{ $why.explorer.dynatrace_rate_usd_per_1k_actions }}"
+         data-datadog-rate="{{ $why.explorer.datadog_rate_usd_per_1k_runs }}"
+         data-checkmk-rate="{{ $why.explorer.checkmk_rate_eur_per_test_case }}"
+         data-max-test-cases="{{ $why.explorer.max_test_cases }}"
+         data-x-axis-label="{{ $why.explorer.x_axis_label }}">
+
+      <div class="explorer__controls">
+        <label class="explorer__slider-label" for="interval-slider">{{ $why.explorer.interval_label }}</label>
+        <div class="explorer__slider">
+          <input type="range" id="interval-slider" class="explorer__range"
+                 min="0" max="3" step="1" value="1"
+                 aria-describedby="interval-slider-value">
+          <div class="explorer__slider-track" aria-hidden="true"></div>
+          <div class="explorer__slider-ticks">
+            {{- range $why.explorer.interval_steps }}
+            <span>{{ . }}</span>
+            {{- end }}
+          </div>
+        </div>
+        <span id="interval-slider-value" class="explorer__slider-current"></span>
+      </div>
+
+      <div class="explorer__legend">
+        <span class="explorer__legend-item"><span class="explorer__legend-swatch explorer__legend-swatch--dynatrace"></span>Dynatrace</span>
+        <span class="explorer__legend-item"><span class="explorer__legend-swatch explorer__legend-swatch--datadog"></span>Datadog</span>
+        <span class="explorer__legend-item"><span class="explorer__legend-swatch explorer__legend-swatch--checkmk"></span>Checkmk</span>
+        <span class="explorer__y-label">{{ $why.explorer.y_axis_label }}</span>
+      </div>
+
+      <div class="explorer__chart-wrap">
+        <svg class="explorer__svg" viewBox="0 0 760 380" preserveAspectRatio="xMidYMid meet"
+             role="img" aria-label="{{ $why.explorer.heading }}">
+          <g class="explorer__gridlines"></g>
+          <g class="explorer__axis-y"></g>
+          <g class="explorer__axis-x"></g>
+          <path class="explorer__line explorer__line--dynatrace"></path>
+          <path class="explorer__line explorer__line--datadog"></path>
+          <path class="explorer__line explorer__line--checkmk"></path>
+          <g class="explorer__endlabels"></g>
+          <line class="explorer__crosshair" x1="0" y1="0" x2="0" y2="0"></line>
+          <g class="explorer__hoverdots">
+            <circle class="explorer__hoverdot explorer__hoverdot--dynatrace" r="4"/>
+            <circle class="explorer__hoverdot explorer__hoverdot--datadog" r="4"/>
+            <circle class="explorer__hoverdot explorer__hoverdot--checkmk" r="4"/>
+          </g>
+          <rect class="explorer__overlay" x="0" y="0" width="760" height="380" fill="transparent"/>
+        </svg>
+        <div class="explorer__tooltip" hidden></div>
+      </div>
+      <p class="explorer__x-label">{{ $why.explorer.x_axis_label }}</p>
+
+      <p class="explorer__hint">{{ $why.explorer.readout_hint }}</p>
+
+      <noscript>
+        <p class="explorer__noscript">{{ $why.explorer.readout_hint }} (requires JavaScript)</p>
+      </noscript>
+    </div>
+
+    <p class="why-pricing__source">{{ $why.explorer.disclaimer }}</p>
   </div>
 </section>
 

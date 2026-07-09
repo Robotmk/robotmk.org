@@ -85,27 +85,48 @@ pricing:
 pillars:
   heading: "Seven reasons it holds up beyond price"
   items:
-    - icon: "🔓"
+    - icon: "open-source"
       title: "Open source"
       text: "Robot Framework and Robotmk are both open source. Nothing closed-box to trust blindly — you can read it, audit it, extend it."
-    - icon: "🚪"
+    - icon: "no-lockin"
       title: "No vendor trap"
       text: "Your tests are standard Robot Framework — portable, not hostage to one vendor's proprietary format."
-    - icon: "🔗"
+    - icon: "integration"
       title: "Deepest integration into Checkmk"
       text: "Robotmk is a native Checkmk plugin, not a bolted-on integration held together by an API and a prayer."
-    - icon: "🧩"
+    - icon: "one-framework"
       title: "One framework for every technology"
       text: "Web, desktop, API, SAP, Citrix, mobile — Robot Framework tests it all, so your team isn't juggling five tools for five technologies."
-    - icon: "🌉"
+    - icon: "bridge"
       title: "The Robotmk Bridge"
       text: "Already invested in JUnit, pytest, Gatling, or ZAP? The Bridge brings those results into Checkmk too — no rewrite required."
-    - icon: "🗣️"
+    - icon: "community"
       title: "The lingua franca of test automation"
       text: "Robot Framework has 40,000+ users worldwide. It's not a niche bet — it's the common language test automation engineers already speak."
-    - icon: "🛡️"
+    - icon: "no-risk"
       title: "No talent risk"
       text: "Robot Framework is readable, maintainable, and widely taught. You won't struggle to hire for it, or to hand it off."
+
+explorer:
+  eyebrow: "Try It Yourself"
+  heading: "Your test suite. Your interval. Same story."
+  intro: "Drag the interval control. Watch two lines swing and one stay put — at any number of test cases."
+  interval_label: "Execution interval"
+  interval_steps:
+    - "30 min"
+    - "15 min"
+    - "5 min"
+    - "1 min"
+  x_axis_label: "Test cases monitored"
+  y_axis_label: "Cost / year"
+  readout_hint: "Hover or tap the chart to read exact figures at any test case count."
+  disclaimer: "Illustrative model, not a live vendor quote — uses the same example rates as above (8 requests/test, fixed). Checkmk's rate is derived from its own pricing (flat per test case); Dynatrace and Datadog scale with interval × test cases × requests/test."
+  requests_per_test: 8
+  usd_to_eur: 0.88
+  dynatrace_rate_usd_per_1k_actions: 4.50
+  datadog_rate_usd_per_1k_runs: 12
+  checkmk_rate_eur_per_test_case: 108
+  max_test_cases: 30
 
 cta:
   text: "Ready to see it running in your environment?"

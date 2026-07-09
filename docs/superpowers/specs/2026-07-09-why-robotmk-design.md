@@ -63,9 +63,10 @@ page):
    Data in `data/en/home.yaml` and `data/de/home.yaml` under a new `why:`
    key, structured like the existing `bridge_teaser:` key.
 2. **Standalone page** `/why-robotmk/` (same slug both languages, per the
-   `/bridge/` precedent) — `content/why-robotmk.en.md` +
-   `content/why-robotmk.de.md`, dedicated layout
-   `layouts/why-robotmk/single.html` (can't reuse `_default/single.html`,
+   `/bridge/` precedent) — implemented as a Hugo *section*, exactly
+   matching how `/bridge/` resolves: `content/why-robotmk/_index.en.md` +
+   `content/why-robotmk/_index.de.md`, dedicated layout
+   `layouts/why-robotmk/list.html` (can't reuse `_default/single.html`,
    which is prose-only — this page needs a data-driven pricing table +
    pillar grid). Content data in new `data/en/why-robotmk.yaml` /
    `data/de/why-robotmk.yaml`, following the `data/en/services.yaml`

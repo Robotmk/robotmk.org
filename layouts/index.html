@@ -67,7 +67,10 @@
            class="loesung__flow-img"
            loading="lazy">
     </div>
-{{/*  
+    <div class="loesung__cta">
+      <a href="{{ "/why-robotmk/" | relLangURL }}" class="btn btn--ghost">{{ $home.solution.cta_why }}</a>
+    </div>
+{{/*
     <div class="loesung__switcher">
       <div class="loesung__tab-bar" role="tablist">
         <button class="loesung__tab loesung__tab--active"
@@ -125,6 +128,25 @@
 
   </div>
 </section>  */}}
+
+<section class="why section" id="why-robotmk-teaser" aria-label="{{ $home.why.eyebrow }}">
+  <div class="why__container">
+    <span class="why__eyebrow">{{ $home.why.eyebrow }}</span>
+    <h2 class="why__heading">{{ $home.why.heading }}</h2>
+    <p class="why__body">{{ $home.why.body }}</p>
+    <p class="why__stat-line">{{ $home.why.stat_line }}</p>
+    <ul class="why__pillars" role="list">
+      {{- range $home.why.pillars }}
+      <li class="why__pillar">
+        <span class="why__pillar-icon" aria-hidden="true">{{ .icon }}</span>
+        <span class="why__pillar-label">{{ .label }}</span>
+        <span class="why__pillar-text">{{ .text }}</span>
+      </li>
+      {{- end }}
+    </ul>
+    <a href="{{ "/why-robotmk/" | relLangURL }}" class="btn btn--ghost">{{ $home.why.cta }}</a>
+  </div>
+</section>
 
 <section class="bridge-teaser section" aria-label="{{ $home.bridge_teaser.eyebrow }}">
   <div class="bridge-teaser__container">

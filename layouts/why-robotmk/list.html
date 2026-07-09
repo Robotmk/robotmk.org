@@ -1,0 +1,78 @@
+{{ define "title" }}{{ .Title }} — {{ .Site.Title }}{{ end }}
+
+{{ define "main" }}
+{{- $why := index .Site.Data .Site.Language.Lang "why-robotmk" -}}
+
+<section class="why-hero section">
+  <div class="container">
+    <h1 class="why-hero__title">{{ $why.hero.title }}</h1>
+    <p class="why-hero__subtitle">{{ $why.hero.subtitle }}</p>
+  </div>
+</section>
+
+<section class="why-pricing section section--surface">
+  <div class="container">
+    <h2 class="why-pricing__heading">{{ $why.pricing.heading }}</h2>
+    <p class="why-pricing__intro">{{ $why.pricing.intro }}</p>
+
+    <div class="why-pricing__formulas">
+      <div class="why-pricing__formula">
+        <span class="why-pricing__formula-label">Dynatrace / Datadog</span>
+        <code class="why-pricing__formula-expr">{{ $why.pricing.formula_competitor }}</code>
+      </div>
+      <div class="why-pricing__formula why-pricing__formula--checkmk">
+        <span class="why-pricing__formula-label">Checkmk</span>
+        <code class="why-pricing__formula-expr">{{ $why.pricing.formula_checkmk }}</code>
+      </div>
+    </div>
+
+    <div class="why-pricing__table-wrapper">
+      <table class="why-pricing__table">
+        <caption>{{ $why.pricing.table.caption }}</caption>
+        <thead>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col">Dynatrace</th>
+            <th scope="col">Datadog</th>
+            <th scope="col">Checkmk Synthetic Monitoring</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{- range $why.pricing.table.rows }}
+          <tr>
+            <th scope="row">{{ .label }}</th>
+            <td>{{ .dynatrace }}</td>
+            <td>{{ .datadog }}</td>
+            <td class="why-pricing__table-checkmk">{{ .checkmk }}</td>
+          </tr>
+          {{- end }}
+        </tbody>
+      </table>
+    </div>
+    <p class="why-pricing__source">{{ $why.pricing.source_note }}</p>
+  </div>
+</section>
+
+<section class="why-pillars section">
+  <div class="container">
+    <h2 class="why-pillars__heading">{{ $why.pillars.heading }}</h2>
+    <div class="why-pillars__grid">
+      {{- range $why.pillars.items }}
+      <div class="card why-pillar-card">
+        <div class="why-pillar-card__icon" aria-hidden="true">{{ .icon }}</div>
+        <h3 class="why-pillar-card__title">{{ .title }}</h3>
+        <p class="why-pillar-card__text">{{ .text }}</p>
+      </div>
+      {{- end }}
+    </div>
+  </div>
+</section>
+
+<section class="why-cta section section--surface">
+  <div class="container why-cta__container">
+    <h2 class="why-cta__text">{{ $why.cta.text }}</h2>
+    <a href="{{ "/services/" | relLangURL }}" class="btn btn--primary">{{ $why.cta.button }}</a>
+  </div>
+</section>
+
+{{ end }}

@@ -5,6 +5,7 @@
 
 <section class="why-hero section">
   <div class="container">
+    <span class="why-hero__eyebrow">{{ $why.hero.eyebrow }}</span>
     <h1 class="why-hero__title">{{ $why.hero.title }}</h1>
     <p class="why-hero__subtitle">{{ $why.hero.subtitle }}</p>
   </div>
@@ -15,16 +16,51 @@
     <h2 class="why-pricing__heading">{{ $why.pricing.heading }}</h2>
     <p class="why-pricing__intro">{{ $why.pricing.intro }}</p>
 
-    <div class="why-pricing__formulas">
-      <div class="why-pricing__formula">
-        <span class="why-pricing__formula-label">Dynatrace / Datadog</span>
-        <code class="why-pricing__formula-expr">{{ $why.pricing.formula_competitor }}</code>
+    <div class="cost-chart">
+      <div class="cost-chart__grid" aria-hidden="true">
+        <span class="cost-chart__grid-spacer"></span>
+        <div class="cost-chart__ticks-track">
+          {{- range $why.pricing.chart.ticks }}
+          <div class="cost-chart__tick" style="--pos: {{ .pct }}%">
+            <span class="cost-chart__tick-label">{{ .value }}</span>
+          </div>
+          {{- end }}
+        </div>
       </div>
-      <div class="why-pricing__formula why-pricing__formula--checkmk">
-        <span class="why-pricing__formula-label">Checkmk</span>
-        <code class="why-pricing__formula-expr">{{ $why.pricing.formula_checkmk }}</code>
+
+      <div class="cost-chart__rows">
+        {{- range $why.pricing.chart.rows }}
+        <div class="cost-chart__row cost-chart__row--{{ .status }}">
+          <span class="cost-chart__row-label">
+            {{ .name }}
+            <code class="cost-chart__row-formula">{{ if .flat }}{{ $why.pricing.formula_checkmk }}{{ else }}{{ $why.pricing.formula_competitor }}{{ end }}</code>
+          </span>
+          <div class="cost-chart__track">
+            {{- if .flat }}
+            <span class="cost-chart__dot cost-chart__dot--flat" style="--pos: {{ .before_pct }}%" tabindex="0"
+                  aria-label="{{ .name }}, {{ .before_state }}: {{ .before_value }}, {{ .flat_label }}">
+              <span class="cost-chart__tooltip">{{ .before_value }} · {{ .flat_label }}</span>
+            </span>
+            {{- else }}
+            <span class="cost-chart__bar" style="--start: {{ .before_pct }}%; --width: {{ .width_pct }}%"></span>
+            <span class="cost-chart__dot cost-chart__dot--before" style="--pos: {{ .before_pct }}%" tabindex="0"
+                  aria-label="{{ .name }}, {{ .before_state }}: {{ .before_value }}">
+              <span class="cost-chart__tooltip">{{ .before_value }} · {{ .before_state }}</span>
+            </span>
+            <span class="cost-chart__dot cost-chart__dot--after" style="--pos: {{ .after_pct }}%" tabindex="0"
+                  aria-label="{{ .name }}, {{ .after_state }}: {{ .after_value }}">
+              <span class="cost-chart__tooltip">{{ .after_value }} · {{ .after_state }}</span>
+            </span>
+            {{- end }}
+          </div>
+          <span class="cost-chart__row-value">
+            {{- if .flat }}{{ .before_value }} <em>{{ .flat_label }}</em>{{ else }}{{ .before_value }} → {{ .after_value }}{{ end -}}
+          </span>
+        </div>
+        {{- end }}
       </div>
     </div>
+    <p class="cost-chart__caption">{{ $why.pricing.chart.caption }}</p>
 
     <div class="why-pricing__table-wrapper">
       <table class="why-pricing__table">

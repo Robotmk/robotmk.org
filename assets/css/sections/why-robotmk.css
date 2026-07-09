@@ -6,6 +6,16 @@
   text-align: center;
 }
 
+.why-hero__eyebrow {
+  display: block;
+  font-size: var(--text-label-size);
+  font-weight: var(--text-label-weight);
+  letter-spacing: var(--text-label-letter-spacing);
+  text-transform: uppercase;
+  color: var(--color-primary);
+  margin-bottom: var(--space-md);
+}
+
 .why-hero__title {
   font-family: var(--font-display);
   font-size: clamp(2rem, 5vw, var(--text-display-size));
@@ -40,43 +50,244 @@
   line-height: var(--text-body-md-line-height);
 }
 
-.why-pricing__formulas {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: var(--space-lg);
-  margin-bottom: var(--space-2xl);
+/* ============================================================
+   Cost Chart — dumbbell comparison (signature element)
+
+   Form: "before → after per item" (dumbbell), per the dataviz
+   skill's job→type table. Two known data points per vendor (15-min
+   and 5-min interval) — no interpolation, no invented values between
+   them, so a dumbbell/slope form is used instead of a continuous
+   line chart that would imply data we don't have.
+
+   Color is a status pair, not a categorical identity palette:
+   --color-error marks "cost grows with interval" (Dynatrace,
+   Datadog — differentiated from each other by row label + value,
+   never by hue), --color-primary marks "flat regardless of
+   interval" (Checkmk). Hollow vs. filled dots (not a second hue)
+   distinguish the 15-min vs. 5-min state within each row.
+   ============================================================ */
+
+.cost-chart {
+  margin: 0 auto var(--space-md);
+  max-width: var(--content-width);
+  /* A dot's tooltip is absolutely positioned and centered on the dot; near
+     a container edge (e.g. Dynatrace's 92.5% "after" dot) its nowrap text
+     can extend past the viewport even at opacity 0 (still laid out, just
+     invisible), inflating document scrollWidth. Clip it here instead of
+     letting it leak into page-level horizontal scroll. */
+  overflow-x: hidden;
 }
 
-.why-pricing__formula {
-  border: 1px solid var(--color-surface-border);
-  padding: var(--space-md) var(--space-lg);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: var(--space-xs);
+/* The tick overlay and each row share one grid template (180px label |
+   1fr track | 170px value) so tick positions land exactly on the track
+   column without hand-computed margins drifting out of sync. */
+.cost-chart__grid,
+.cost-chart__row {
+  display: grid;
+  grid-template-columns: 180px 1fr 170px;
+  gap: var(--space-md);
 }
 
-.why-pricing__formula--checkmk {
-  border-color: var(--color-primary);
+.cost-chart__grid {
+  height: var(--space-lg);
 }
 
-.why-pricing__formula-label {
-  font-size: var(--text-label-size);
-  font-weight: var(--text-label-weight);
-  letter-spacing: var(--text-label-letter-spacing);
-  text-transform: uppercase;
-  color: var(--color-on-surface-variant);
+.cost-chart__grid-spacer {
+  grid-column: 1;
 }
 
-.why-pricing__formula-expr {
+.cost-chart__ticks-track {
+  grid-column: 2;
+  position: relative;
+}
+
+@media (max-width: 640px) {
+  .cost-chart__grid,
+  .cost-chart__row {
+    grid-template-columns: 92px 1fr;
+    gap: var(--space-sm);
+  }
+
+  .cost-chart__row {
+    row-gap: 4px;
+  }
+
+  /* Value moves to its own full-width line below label+track — a fixed
+     third column at this width clips long strings like "€5,550 → €16,650". */
+  .cost-chart__row-value {
+    grid-column: 1 / -1;
+    white-space: normal;
+  }
+
+  /* Four tick labels collide in ~92px of chart-plus-margin width; the
+     hairlines stay for visual rhythm, but only the zero label is legible
+     at this width. Every value is still directly labeled per row. */
+  .cost-chart__tick:not(:first-child) .cost-chart__tick-label {
+    display: none;
+  }
+
+  .cost-chart__row-value {
+    font-size: 12px;
+  }
+}
+
+.cost-chart__tick {
+  position: absolute;
+  left: var(--pos);
+  top: 0;
+  bottom: -8px;
+  border-left: 1px solid var(--color-surface-border);
+}
+
+.cost-chart__tick-label {
+  position: absolute;
+  top: 0;
+  left: var(--space-xs);
   font-family: var(--font-code);
   font-size: var(--text-code-size);
+  color: var(--color-on-surface-muted);
+  white-space: nowrap;
+}
+
+.cost-chart__rows {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.cost-chart__row {
+  align-items: center;
+}
+
+.cost-chart__row--bad   { --status-color: var(--color-error); }
+.cost-chart__row--good  { --status-color: var(--color-primary); }
+
+.cost-chart__row-label {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: var(--text-body-sm-size);
+  font-weight: 600;
   color: var(--color-on-surface);
 }
 
-.why-pricing__formula--checkmk .why-pricing__formula-expr {
+.cost-chart__row-formula {
+  font-family: var(--font-code);
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--color-on-surface-muted);
+}
+
+.cost-chart__track {
+  position: relative;
+  height: 24px;
+  background: linear-gradient(to right, var(--color-surface-border) 0 100%) center / 100% 1px no-repeat;
+}
+
+.cost-chart__bar {
+  position: absolute;
+  left: var(--start);
+  width: var(--width);
+  top: 50%;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--status-color);
+  transform: translateY(-50%) scaleX(0);
+  transform-origin: left center;
+  animation: cost-chart-grow 700ms 150ms cubic-bezier(.16,.84,.44,1) forwards;
+}
+
+.cost-chart__dot {
+  position: absolute;
+  left: var(--pos);
+  top: 50%;
+  width: 12px;
+  height: 12px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  cursor: default;
+  box-shadow: 0 0 0 3px var(--color-surface);
+  opacity: 0;
+  animation: cost-chart-appear 400ms 500ms ease-out forwards;
+}
+
+.cost-chart__dot--before {
+  background: var(--color-surface);
+  border: 2px solid var(--status-color);
+}
+
+.cost-chart__dot--after,
+.cost-chart__dot--flat {
+  background: var(--status-color);
+}
+
+.cost-chart__dot--flat {
+  animation-delay: 150ms;
+}
+
+.cost-chart__dot:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+}
+
+.cost-chart__tooltip {
+  position: absolute;
+  bottom: calc(100% + var(--space-sm));
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--color-surface-high);
+  color: var(--color-on-surface);
+  font-size: var(--text-body-sm-size);
+  white-space: nowrap;
+  padding: var(--space-xs) var(--space-sm);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition-fast);
+}
+
+.cost-chart__dot:hover .cost-chart__tooltip,
+.cost-chart__dot:focus-visible .cost-chart__tooltip {
+  opacity: 1;
+}
+
+.cost-chart__row-value {
+  font-family: var(--font-code);
+  font-size: var(--text-code-size);
+  font-variant-numeric: tabular-nums;
+  color: var(--color-on-surface-variant);
+  white-space: nowrap;
+}
+
+.cost-chart__row--good .cost-chart__row-value em {
   color: var(--color-primary);
+  font-style: normal;
+}
+
+@keyframes cost-chart-grow {
+  to { transform: translateY(-50%) scaleX(1); }
+}
+
+@keyframes cost-chart-appear {
+  to { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cost-chart__bar,
+  .cost-chart__dot {
+    animation: none;
+    opacity: 1;
+    transform: translateY(-50%) scaleX(1);
+  }
+  .cost-chart__dot {
+    transform: translate(-50%, -50%);
+  }
+}
+
+.cost-chart__caption {
+  text-align: center;
+  font-size: var(--text-body-sm-size);
+  color: var(--color-on-surface-muted);
+  margin: 0 0 var(--space-2xl);
 }
 
 .why-pricing__table-wrapper {

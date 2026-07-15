@@ -109,24 +109,28 @@ pillars:
 
 explorer:
   eyebrow: "Try It Yourself"
-  heading: "Your test suite. Your interval. Same story."
-  intro: "Drag the interval control. Watch two lines swing and one stay put — at any number of test cases."
+  heading: "Two sliders. Four vendors. One story."
+  intro: "Set the execution interval and the number of test cases — the bars update instantly. Three vendors climb. One barely moves."
   interval_label: "Execution interval"
   interval_steps:
     - "30 min"
     - "15 min"
     - "5 min"
     - "1 min"
-  x_axis_label: "Test cases monitored"
+  test_case_slider_label: "Number of test cases"
   y_axis_label: "Cost / year"
-  readout_hint: "Hover or tap the chart to read exact figures at any test case count."
-  disclaimer: "Illustrative model, not a live vendor quote — uses the same example rates as above (8 requests/test, fixed). Checkmk's rate is derived from its own pricing (flat per test case); Dynatrace and Datadog scale with interval × test cases × requests/test."
+  readout_hint: "Values update instantly as you move either slider."
+  disclaimer: "Illustrative model, not a live vendor quote — uses the same example rate as above (8 requests/test, fixed, Dynatrace only). Grafana and Datadog bill by full test run, not by request. Checkmk's curve is interpolated between two real reference points on its own pricing (15 test cases = €1,620/year; 1,000 test cases = €28,000/year) — the exact discount formula between them isn't published, so this is a smooth estimate, not an official quote. The chart's scale is fixed on purpose: bars that exceed it are marked \"off the chart\" rather than silently rescaling the axis."
   requests_per_test: 8
   usd_to_eur: 0.88
   dynatrace_rate_usd_per_1k_actions: 4.50
   datadog_rate_usd_per_1k_runs: 12
-  checkmk_rate_eur_per_test_case: 108
-  max_test_cases: 30
+  grafana_rate_usd_per_1k_runs: 44
+  checkmk_min_price_eur: 1620
+  checkmk_max_price_eur: 28000
+  test_case_min: 15
+  test_case_max: 1000
+  y_axis_max: 50000
 
 cta:
   text: "Ready to see it running in your environment?"

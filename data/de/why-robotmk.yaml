@@ -1,11 +1,11 @@
 hero:
-  eyebrow: "Der ehrliche Vergleich"
-  title: "Warum Robotmk"
-  subtitle: "Der Preis von Checkmk Synthetic Monitoring hängt von genau einer Variable ab: der Anzahl überwachter Testfälle. Intervall und Testkomplexität sind immer kostenlos."
+  eyebrow: "Der Vergleich"
+  title: "Warum Robotmk einsetzen?"
+  subtitle: "Eine Variable für ein faires und transparentes Preismodell. </br>Intervall und Testkomplexität, wie es Dir beliebt."
 
 pricing:
   heading: "Eine Formel gegen eine Formel"
-  intro: "Aktionsbasierte Wettbewerber berechnen den Preis als Produkt mehrerer sich verstärkender Variablen. Ändert sich eine davon, bewegt sich die Rechnung — oft nicht-linear. Checkmk berechnet nur nach Testfällen."
+  intro: "In anderen Lösungen berechnet sich der Endpreis als Produkt <b>mehrerer sich verstärkender Variablen</b>:"
   formula_competitor: "Intervall × Tests × Requests/Test × Rate"
   formula_checkmk: "Tests × Rate"
   chart:
@@ -109,24 +109,28 @@ pillars:
 
 explorer:
   eyebrow: "Selbst ausprobieren"
-  heading: "Deine Testsuite. Dein Intervall. Gleiche Geschichte."
-  intro: "Bewege den Intervall-Regler. Zwei Linien schwanken, eine bleibt stehen — bei jeder beliebigen Anzahl an Testfällen."
+  heading: "Zwei Regler. Vier Anbieter. Eine Geschichte."
+  intro: "Stelle das Ausführungsintervall und die Anzahl der Testfälle ein — die Balken reagieren sofort. Drei Anbieter steigen. Einer bewegt sich kaum."
   interval_label: "Ausführungsintervall"
   interval_steps:
     - "30 Min"
     - "15 Min"
     - "5 Min"
     - "1 Min"
-  x_axis_label: "Überwachte Testfälle"
+  test_case_slider_label: "Anzahl Testfälle"
   y_axis_label: "Kosten / Jahr"
-  readout_hint: "Bewege die Maus über das Diagramm oder tippe darauf, um exakte Werte zu sehen."
-  disclaimer: "Illustratives Modell, kein aktuelles Angebot der Hersteller — nutzt dieselben Beispielraten wie oben (8 Requests/Test, fest). Checkmks Rate ist von der eigenen Preisliste abgeleitet (pauschal pro Testfall); Dynatrace und Datadog skalieren mit Intervall × Testfälle × Requests/Test."
+  readout_hint: "Werte aktualisieren sich sofort, wenn du einen Regler bewegst."
+  disclaimer: "Illustratives Modell, kein aktuelles Angebot der Hersteller — nutzt dieselbe Beispielrate wie oben (8 Requests/Test, fest, nur Dynatrace). Grafana und Datadog berechnen nach vollständigen Testläufen, nicht nach Requests. Checkmks Kurve ist zwischen zwei realen Referenzpunkten der eigenen Preisliste interpoliert (15 Testfälle = 1.620 €/Jahr; 1.000 Testfälle = 28.000 €/Jahr) — die genaue Rabattformel dazwischen ist nicht veröffentlicht, daher ist dies eine plausible Schätzung, kein offizielles Angebot. Die Skala ist bewusst fest: Balken, die sie überschreiten, werden als „außerhalb der Skala“ markiert, statt die Achse still neu zu skalieren."
   requests_per_test: 8
   usd_to_eur: 0.88
   dynatrace_rate_usd_per_1k_actions: 4.50
   datadog_rate_usd_per_1k_runs: 12
-  checkmk_rate_eur_per_test_case: 108
-  max_test_cases: 30
+  grafana_rate_usd_per_1k_runs: 44
+  checkmk_min_price_eur: 1620
+  checkmk_max_price_eur: 28000
+  test_case_min: 15
+  test_case_max: 1000
+  y_axis_max: 50000
 
 cta:
   text: "Bereit, es in deiner Umgebung laufen zu sehen?"

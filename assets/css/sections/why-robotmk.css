@@ -422,15 +422,14 @@
 }
 
 /* ============================================================
-   Explorer — interactive pricing-vs-test-cases chart
+   Explorer — interactive pricing bar chart
 
    Same status-color logic as the cost chart above: --color-error for
-   the two interval-scaling vendors (Dynatrace solid, Datadog dashed —
-   texture distinguishes same-hue series per the dataviz skill, since
-   both lines are visible simultaneously here unlike the dumbbell's
-   separated rows), --color-primary for Checkmk's flat line. Text
-   labels stay in text tokens; identity comes from a small colored key
-   beside them, never from coloring the text itself.
+   the three usage-based vendors, --color-primary for Checkmk. Unlike
+   the overlapping-lines version this replaced, bars are already
+   spatially separated and each carries its own vendor-name label
+   underneath, so sharing one hue across the three "bad" bars doesn't
+   hurt identification — no dash-pattern/legend trick needed here.
    ============================================================ */
 
 .why-explorer {
@@ -467,13 +466,19 @@
   text-align: left;
 }
 
-/* --- Slider --- */
+/* --- Sliders --- */
 
 .explorer__controls {
   display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  margin-bottom: var(--space-xl);
+}
+
+.explorer__control {
+  display: flex;
   align-items: center;
   gap: var(--space-lg);
-  margin-bottom: var(--space-2xl);
   flex-wrap: wrap;
 }
 
@@ -484,6 +489,7 @@
   text-transform: uppercase;
   color: var(--color-on-surface-variant);
   flex-shrink: 0;
+  width: 160px;
 }
 
 .explorer__slider {
@@ -498,13 +504,13 @@
   left: 0;
   right: 0;
   top: 50%;
-  height: 2px;
+  height: 4px;
   transform: translateY(-50%);
   background: linear-gradient(
     to right,
     var(--color-primary) 0%,
-    var(--color-primary) var(--fill, 33%),
-    var(--color-surface-border) var(--fill, 33%),
+    var(--color-primary) var(--fill, 0%),
+    var(--color-surface-border) var(--fill, 0%),
     var(--color-surface-border) 100%
   );
   pointer-events: none;
@@ -524,41 +530,56 @@
 .explorer__range:focus-visible {
   outline: 2px solid var(--color-primary);
   outline-offset: 4px;
+  border-radius: 50%;
 }
 
 .explorer__range::-webkit-slider-runnable-track {
-  height: 2px;
+  height: 4px;
   background: transparent;
 }
 
 .explorer__range::-moz-range-track {
-  height: 2px;
+  height: 4px;
   background: transparent;
 }
 
+/* A round knob is a deliberate, scoped exception to the site's sharp-corners
+   token rule — a literal square thumb reads as broken on a slider, and a
+   circular knob is the near-universal convention for this control. */
 .explorer__range::-webkit-slider-thumb {
   appearance: none;
-  width: 14px;
-  height: 14px;
-  margin-top: -6px;
+  width: 20px;
+  height: 20px;
+  margin-top: -8px;
+  border-radius: 50%;
   background: var(--color-primary);
-  border: 2px solid var(--color-background);
-  transform: rotate(45deg);
-  transition: transform var(--transition-fast);
+  border: 3px solid var(--color-background);
+  box-shadow: 0 0 0 1px var(--color-surface-border);
+  cursor: pointer;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
 }
 
 .explorer__range::-moz-range-thumb {
-  width: 14px;
-  height: 14px;
-  border-radius: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
   background: var(--color-primary);
-  border: 2px solid var(--color-background);
-  transform: rotate(45deg);
-  transition: transform var(--transition-fast);
+  border: 3px solid var(--color-background);
+  box-shadow: 0 0 0 1px var(--color-surface-border);
+  cursor: pointer;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
 }
 
+.explorer__range:hover::-webkit-slider-thumb,
 .explorer__range:active::-webkit-slider-thumb {
-  transform: rotate(45deg) scale(1.15);
+  transform: scale(1.15);
+  box-shadow: 0 0 0 1px var(--color-surface-border), 0 0 0 6px rgba(21, 209, 160, 0.18);
+}
+
+.explorer__range:hover::-moz-range-thumb,
+.explorer__range:active::-moz-range-thumb {
+  transform: scale(1.15);
+  box-shadow: 0 0 0 1px var(--color-surface-border), 0 0 0 6px rgba(21, 209, 160, 0.18);
 }
 
 .explorer__slider-ticks {
@@ -577,6 +598,8 @@
   color: var(--color-primary);
   white-space: nowrap;
   flex-shrink: 0;
+  min-width: 4ch;
+  text-align: right;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -586,58 +609,21 @@
   }
 }
 
-/* --- Legend + Chart --- */
-
-.explorer__legend {
-  display: flex;
-  align-items: center;
-  gap: var(--space-lg);
-  margin-bottom: var(--space-md);
-  flex-wrap: wrap;
-}
-
-.explorer__legend-item {
-  display: flex;
-  align-items: center;
-  gap: var(--space-xs);
-  font-size: var(--text-body-sm-size);
-  color: var(--color-on-surface-variant);
-}
-
-.explorer__legend-swatch {
-  display: inline-block;
-  width: 18px;
-  height: 0;
-  border-top: 2.5px solid var(--color-error);
-}
-
-.explorer__legend-swatch--datadog {
-  border-top-style: dashed;
-}
-
-.explorer__legend-swatch--checkmk {
-  border-top-color: var(--color-primary);
-  border-top-width: 3px;
-}
+/* --- Chart --- */
 
 .explorer__y-label {
-  margin-left: auto;
+  display: block;
   font-family: var(--font-code);
   font-size: 11px;
   color: var(--color-on-surface-muted);
+  margin-bottom: var(--space-xs);
 }
 
 .explorer__chart-wrap {
   position: relative;
+  max-width: 480px;
+  margin-inline: auto;
   overflow: hidden;
-}
-
-.explorer__x-label {
-  text-align: center;
-  font-family: var(--font-code);
-  font-size: 11px;
-  color: var(--color-on-surface-muted);
-  margin: var(--space-xs) 0 0;
 }
 
 .explorer__svg {
@@ -652,116 +638,52 @@
   stroke-width: 1;
 }
 
-.explorer__axis-y text,
-.explorer__axis-x text {
+.explorer__axis-y text {
   font-family: var(--font-code);
   font-size: 11px;
   fill: var(--color-on-surface-muted);
 }
 
-.explorer__line {
-  fill: none;
-  stroke-width: 2.5;
-  stroke-linecap: round;
-  stroke-linejoin: round;
+.explorer__bar {
+  transition: y 500ms cubic-bezier(.16, .84, .44, 1), height 500ms cubic-bezier(.16, .84, .44, 1);
 }
 
-.explorer__line--dynatrace {
-  stroke: var(--color-error);
-}
+.explorer__bar--bad  { fill: var(--color-error); }
+.explorer__bar--good { fill: var(--color-primary); }
 
-.explorer__line--datadog {
-  stroke: var(--color-error);
-  stroke-dasharray: 2 6;
-}
-
-.explorer__line--checkmk {
-  stroke: var(--color-primary);
-  stroke-width: 3;
-}
-
-.explorer__endlabels text {
-  font-family: var(--font-code);
-  font-size: 12px;
-  font-weight: 600;
-  fill: var(--color-on-surface);
-}
-
-.explorer__endlabels circle {
-  r: 3.5;
-}
-
-.explorer__endlabels .explorer__endlabel--dynatrace circle { fill: var(--color-error); }
-.explorer__endlabels .explorer__endlabel--datadog circle   { fill: var(--color-error); }
-.explorer__endlabels .explorer__endlabel--checkmk circle   { fill: var(--color-primary); }
-
-/* The HTML `hidden` attribute doesn't reliably compute to display:none on
-   SVG-namespaced elements in every browser (confirmed via computed style —
-   an un-positioned circle defaulting to cx=0,cy=0 was visibly peeking
-   through at the chart's origin despite `hidden` being present). Use an
-   explicit class instead. */
-.explorer__crosshair,
-.explorer__hoverdots {
-  display: none;
-}
-
-.explorer__crosshair.is-active,
-.explorer__hoverdots.is-active {
-  display: inline;
-}
-
-.explorer__crosshair {
-  stroke: var(--color-on-surface-muted);
-  stroke-width: 1;
-  stroke-dasharray: 3 3;
-}
-
-.explorer__hoverdot--dynatrace { fill: var(--color-error); }
-.explorer__hoverdot--datadog   { fill: var(--color-error); }
-.explorer__hoverdot--checkmk   { fill: var(--color-primary); }
-
-.explorer__hoverdot {
+.explorer__bar-break {
   stroke: var(--color-background);
   stroke-width: 2;
+  transition: y 500ms cubic-bezier(.16, .84, .44, 1);
 }
 
-.explorer__overlay {
-  cursor: crosshair;
-}
-
-.explorer__tooltip {
-  position: absolute;
-  top: 0;
-  pointer-events: none;
-  background: var(--color-surface-high);
-  border: 1px solid var(--color-surface-border);
-  padding: var(--space-sm) var(--space-md);
-  font-size: var(--text-body-sm-size);
-  white-space: nowrap;
-  transform: translateX(-50%);
-  z-index: 2;
-}
-
-.explorer__tooltip-x {
-  display: block;
+.explorer__bar-value {
   font-family: var(--font-code);
-  font-size: 11px;
-  color: var(--color-on-surface-muted);
-  margin-bottom: var(--space-xs);
+  font-size: 13px;
+  font-weight: 600;
+  fill: var(--color-on-surface);
+  text-anchor: middle;
+  transition: y 500ms cubic-bezier(.16, .84, .44, 1);
 }
 
-.explorer__tooltip-row {
-  display: flex;
-  align-items: center;
-  gap: var(--space-sm);
-  font-family: var(--font-code);
-  color: var(--color-on-surface);
+.explorer__bar-value--capped {
+  fill: var(--color-error);
+  font-weight: 700;
 }
 
-.explorer__tooltip-key {
-  width: 8px;
-  height: 8px;
-  flex-shrink: 0;
+.explorer__bar-label {
+  font-family: var(--font-body);
+  font-size: 12px;
+  fill: var(--color-on-surface-variant);
+  text-anchor: middle;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .explorer__bar,
+  .explorer__bar-break,
+  .explorer__bar-value {
+    transition: none;
+  }
 }
 
 .explorer__hint {
@@ -778,10 +700,14 @@
 }
 
 @media (max-width: 640px) {
-  .explorer__controls {
+  .explorer__control {
     flex-direction: column;
     align-items: stretch;
     gap: var(--space-sm);
+  }
+
+  .explorer__slider-label {
+    width: auto;
   }
 
   .explorer__slider-current {

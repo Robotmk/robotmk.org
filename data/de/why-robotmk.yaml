@@ -112,12 +112,14 @@ explorer:
   heading: "Zwei Regler. Vier Anbieter. Eine Geschichte."
   intro: "Stelle das Ausführungsintervall und die Anzahl der Testfälle ein — die Balken reagieren sofort. Drei Anbieter steigen. Einer bewegt sich kaum."
   interval_label: "Ausführungsintervall"
+  interval_tooltip: "Je kürzer das Intervall, desto höher die Informationsdichte — echte, nutzerspürbare Fehler werden schneller erkannt und gemeldet. Ein 1-Stunden-Intervall bringt praktisch nichts."
   interval_steps:
     - "30 Min"
     - "15 Min"
     - "5 Min"
     - "1 Min"
   test_case_slider_label: "Anzahl Testfälle"
+  test_case_tooltip: "Die häufigste Frage überhaupt: „Wie viele Testfälle brauche ich?“ Fasse jeden Test als einzelnen, isolierten und automatisierbaren User Journey — je gezielter das Monitoring, desto präziser der Alarm im Fehlerfall."
   y_axis_label: "Kosten / Jahr"
   readout_hint: "Werte aktualisieren sich sofort, wenn du einen Regler bewegst."
   disclaimer: "Illustratives Modell, kein aktuelles Angebot der Hersteller — nutzt dieselbe Beispielrate wie oben (8 Requests/Test, fest, nur Dynatrace). Grafana und Datadog berechnen nach vollständigen Testläufen, nicht nach Requests. Checkmks Kurve ist zwischen zwei realen Referenzpunkten der eigenen Preisliste interpoliert (15 Testfälle = 1.620 €/Jahr; 1.000 Testfälle = 28.000 €/Jahr) — die genaue Rabattformel dazwischen ist nicht veröffentlicht, daher ist dies eine plausible Schätzung, kein offizielles Angebot. Die Skala ist bewusst fest: Balken, die sie überschreiten, werden als „außerhalb der Skala“ markiert, statt die Achse still neu zu skalieren."
@@ -131,6 +133,19 @@ explorer:
   test_case_min: 15
   test_case_max: 1000
   y_axis_max: 50000
+  vendors:
+    - key: "dynatrace"
+      name: "Dynatrace"
+      tooltip: "Abgerechnet pro Netzwerk-Request: Intervall × Testfälle × Schritte pro Test — alles multipliziert."
+    - key: "datadog"
+      name: "Datadog"
+      tooltip: "Abgerechnet pro vollständigem Testlauf: Intervall × Testfälle. Schritte innerhalb eines Tests sind kostenlos."
+    - key: "grafana"
+      name: "Grafana"
+      tooltip: "Gleiches Modell wie Datadog — abgerechnet pro vollständigem Testlauf, zu einem höheren Satz."
+    - key: "checkmk"
+      name: "<b>Robotmk</b>"
+      tooltip: "Abgerechnet nur nach Anzahl der Testfälle. Intervall und Schritte sind immer kostenlos."
 
 cta:
   text: "Bereit, es in deiner Umgebung laufen zu sehen?"

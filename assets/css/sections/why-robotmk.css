@@ -464,6 +464,11 @@
   max-width: var(--content-width);
   margin-inline: auto;
   text-align: left;
+  /* Six absolutely-positioned tooltips (2 sliders + 4 vendors) can extend
+     past this box's edge even while invisible (opacity:0 doesn't remove
+     an element's geometry from the layout) — same class of bug as the
+     chart tooltip fixed earlier. Contain it here rather than per-tooltip. */
+  overflow-x: hidden;
 }
 
 .explorer__body {
@@ -475,9 +480,13 @@
   margin-bottom: var(--space-xl);
 }
 
+/* DOM order is controls-then-chart (so mobile, which needs sliders before
+   the graph, needs no override) — flex `order` flips the visual sequence
+   on wide viewports where the chart should lead. */
 .explorer__chart-col {
   flex: 1 1 420px;
   max-width: 480px;
+  order: 1;
 }
 
 /* --- Sliders --- */
@@ -489,6 +498,7 @@
   flex-direction: column;
   gap: var(--space-2xl);
   padding-top: var(--space-xl);
+  order: 2;
 }
 
 .explorer__control-header {
@@ -497,6 +507,12 @@
   justify-content: space-between;
   gap: var(--space-sm);
   margin-bottom: var(--space-md);
+}
+
+.explorer__slider-label-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
 }
 
 .explorer__slider-label {
@@ -641,6 +657,93 @@
   }
 }
 
+/* --- Info tooltips (shared: slider labels + vendor bar labels) ---
+
+   Anchored left rather than centered on the trigger button, because a
+   centered popup on an edge-adjacent trigger (the first/last vendor
+   label, or a slider label near the left of a narrow controls column)
+   would overflow its container. The last vendor label gets an explicit
+   right-anchor override instead. */
+
+.explorer__label-info {
+  position: relative;
+  display: inline-flex;
+}
+
+.explorer__info-btn {
+  all: unset;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 15px;
+  height: 15px;
+  border: 1px solid var(--color-on-surface-muted);
+  border-radius: 50%;
+  font-family: var(--font-code);
+  font-size: 10px;
+  font-style: italic;
+  color: var(--color-on-surface-muted);
+  cursor: help;
+  transition: border-color var(--transition-fast), color var(--transition-fast);
+}
+
+.explorer__info-btn:hover,
+.explorer__info-btn:focus-visible {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.explorer__info-btn:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.explorer__info-tooltip {
+  position: absolute;
+  bottom: calc(100% + var(--space-sm));
+  left: 0;
+  transform: translateY(4px);
+  width: max-content;
+  max-width: 240px;
+  background: var(--color-surface-high);
+  border: 1px solid var(--color-surface-border);
+  color: var(--color-on-surface);
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 400;
+  font-style: normal;
+  text-transform: none;
+  letter-spacing: normal;
+  line-height: 1.5;
+  padding: var(--space-sm) var(--space-md);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition-fast), transform var(--transition-fast);
+  z-index: 5;
+}
+
+.explorer__bar-label-item--last .explorer__info-tooltip {
+  left: auto;
+  right: 0;
+}
+
+/* Plain :focus (not :focus-visible) here — a tap on touch devices doesn't
+   reliably set the focus-visible flag in every mobile browser, but it
+   always fires a plain focus event. The visible ring above stays
+   keyboard-only via :focus-visible; reveal just needs any focus. */
+.explorer__info-btn:hover + .explorer__info-tooltip,
+.explorer__info-btn:focus + .explorer__info-tooltip {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .explorer__info-tooltip {
+    transition: none;
+  }
+}
+
 /* --- Chart --- */
 
 .explorer__y-label {
@@ -727,11 +830,39 @@
   font-weight: 700;
 }
 
-.explorer__bar-label {
-  font-family: var(--font-body);
+/* Vendor names live as an HTML row below the SVG (not SVG <text>) so they
+   can carry a real, CSS-styled tooltip — each item's left offset is set by
+   JS to match its bar's horizontal center exactly. Width is capped to
+   roughly one bar-slot and wrapping is allowed (not nowrap): the longest
+   name ("Checkmk with Robotmk") would otherwise overlap its neighbor at
+   these tight 4-across positions regardless of exact wording. */
+.explorer__bar-labels {
+  position: relative;
+  height: 40px;
+  margin-top: var(--space-sm);
+}
+
+.explorer__bar-label-item {
+  position: absolute;
+  top: 0;
+  transform: translateX(-50%);
+  /* Percentage, not a fixed px, so it shrinks in step with the responsive
+     SVG — a fixed width stayed constant while the chart narrowed, so
+     labels collided again at phone widths. ~19% comfortably clears the
+     ~21% slot pitch (chart width / 4 vendors) with a small gap either side. */
+  width: 19%;
+  text-align: center;
+}
+
+.explorer__bar-label-text {
   font-size: 12px;
-  fill: var(--color-on-surface-variant);
-  text-anchor: middle;
+  line-height: 1.3;
+  color: var(--color-on-surface-variant);
+}
+
+.explorer__bar-label-item .explorer__label-info {
+  vertical-align: middle;
+  margin-left: 2px;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -764,6 +895,7 @@
   .explorer__body {
     flex-direction: column;
     align-items: stretch;
+    gap: var(--space-lg);
   }
 
   /* flex-basis meant for width in row-mode becomes a *height* constraint
@@ -776,11 +908,18 @@
     max-width: none;
   }
 
+  /* Sliders before the graph on narrow viewports — DOM order already
+     puts controls first, so just cancel the desktop order flip. */
   .explorer__controls {
-    padding-top: var(--space-xl);
+    order: 1;
+    padding-top: 0;
     flex-direction: row;
     flex-wrap: wrap;
     gap: var(--space-xl);
+  }
+
+  .explorer__chart-col {
+    order: 2;
   }
 
   .explorer__control {
@@ -791,6 +930,19 @@
 @media (max-width: 480px) {
   .explorer__controls {
     flex-direction: column;
+  }
+
+  /* Narrower popup + right-anchor the last two vendor labels (not just the
+     literal last one) — at phone widths four evenly-spread items leave too
+     little room right of the third for a left-anchored tooltip to clear
+     the edge before it gets clipped by .explorer's overflow guard. */
+  .explorer__info-tooltip {
+    max-width: 170px;
+  }
+
+  .explorer__bar-label-item:nth-last-child(-n+2) .explorer__info-tooltip {
+    left: auto;
+    right: 0;
   }
 }
 

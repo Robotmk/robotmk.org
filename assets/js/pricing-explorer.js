@@ -1,14 +1,14 @@
 const VIEW_W = 480;
 const VIEW_H = 360;
-const MARGIN = { top: 44, right: 16, bottom: 30, left: 60 };
+const MARGIN = { top: 44, right: 16, bottom: 10, left: 60 };
 const INTERVALS = [30, 15, 5, 1]; // minutes, indexed by slider step 0-3
 const GRID_STEPS = 4;
 
 const SERIES = [
-  { key: 'dynatrace', label: 'Dynatrace', status: 'bad' },
-  { key: 'datadog',   label: 'Datadog',   status: 'bad' },
-  { key: 'grafana',   label: 'Grafana',   status: 'bad' },
-  { key: 'checkmk',   label: 'Checkmk',   status: 'good' },
+  { key: 'dynatrace', status: 'bad' },
+  { key: 'datadog',   status: 'bad' },
+  { key: 'grafana',   status: 'bad' },
+  { key: 'checkmk',   status: 'good' },
 ];
 
 function computeCosts(cfg, intervalMin, testCases) {
@@ -146,12 +146,8 @@ export function init() {
       valueText.setAttribute('x', centerX.toFixed(1));
       barsGroup.appendChild(valueText);
 
-      const label = document.createElementNS(NS, 'text');
-      label.setAttribute('class', 'explorer__bar-label');
-      label.setAttribute('x', centerX.toFixed(1));
-      label.setAttribute('y', MARGIN.top + plotH + 18);
-      label.textContent = s.label;
-      barsGroup.appendChild(label);
+      const labelItem = root.querySelector(`.explorer__bar-label-item[data-key="${s.key}"]`);
+      if (labelItem) labelItem.style.left = `${((centerX / VIEW_W) * 100).toFixed(2)}%`;
     });
   }
 

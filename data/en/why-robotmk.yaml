@@ -112,12 +112,14 @@ explorer:
   heading: "Two sliders. Four vendors. One story."
   intro: "Set the execution interval and the number of test cases — the bars update instantly. Three vendors climb. One barely moves."
   interval_label: "Execution interval"
+  interval_tooltip: "Shorter intervals mean higher information density — real, user-impacting errors get caught and flagged faster. A 1-hour interval is effectively pointless."
   interval_steps:
     - "30 min"
     - "15 min"
     - "5 min"
     - "1 min"
   test_case_slider_label: "Number of test cases"
+  test_case_tooltip: "The #1 question we hear: \"how many test cases do I need?\" Keep each one to a single, isolated, automatable user journey — the more targeted the monitoring, the sharper the alert when something breaks."
   y_axis_label: "Cost / year"
   readout_hint: "Values update instantly as you move either slider."
   disclaimer: "Illustrative model, not a live vendor quote — uses the same example rate as above (8 requests/test, fixed, Dynatrace only). Grafana and Datadog bill by full test run, not by request. Checkmk's curve is interpolated between two real reference points on its own pricing (15 test cases = €1,620/year; 1,000 test cases = €28,000/year) — the exact discount formula between them isn't published, so this is a smooth estimate, not an official quote. The chart's scale is fixed on purpose: bars that exceed it are marked \"off the chart\" rather than silently rescaling the axis."
@@ -131,6 +133,19 @@ explorer:
   test_case_min: 15
   test_case_max: 1000
   y_axis_max: 50000
+  vendors:
+    - key: "dynatrace"
+      name: "Dynatrace"
+      tooltip: "Priced per network request: interval × test cases × steps per test — all multiplied together."
+    - key: "datadog"
+      name: "Datadog"
+      tooltip: "Priced per full test run: interval × test cases. Steps within a test are free."
+    - key: "grafana"
+      name: "Grafana"
+      tooltip: "Same model as Datadog — priced per full test run, at a higher rate."
+    - key: "checkmk"
+      name: "<b>Robotmk</b>"
+      tooltip: "Priced by test case count only. Interval and steps are always free."
 
 cta:
   text: "Ready to see it running in your environment?"

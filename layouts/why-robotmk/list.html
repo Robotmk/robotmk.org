@@ -125,49 +125,54 @@
          data-test-case-max="{{ $why.explorer.test_case_max }}"
          data-y-axis-max="{{ $why.explorer.y_axis_max }}">
 
-      <div class="explorer__controls">
-        <div class="explorer__control">
-          <label class="explorer__slider-label" for="interval-slider">{{ $why.explorer.interval_label }}</label>
-          <div class="explorer__slider">
-            <input type="range" id="interval-slider" class="explorer__range"
-                   min="0" max="3" step="1" value="1"
-                   aria-describedby="interval-slider-value">
-            <div class="explorer__slider-track" aria-hidden="true"></div>
+      <div class="explorer__body">
+        <div class="explorer__chart-col">
+          <span class="explorer__y-label">{{ $why.explorer.y_axis_label }}</span>
+          <div class="explorer__chart-wrap">
+            <svg class="explorer__svg" viewBox="0 0 480 360" preserveAspectRatio="xMidYMid meet"
+                 role="img" aria-label="{{ $why.explorer.heading }}">
+              <g class="explorer__gridlines"></g>
+              <g class="explorer__axis-y"></g>
+              <g class="explorer__bars"></g>
+            </svg>
+          </div>
+        </div>
+
+        <div class="explorer__controls">
+          <div class="explorer__control">
+            <div class="explorer__control-header">
+              <label class="explorer__slider-label" for="interval-slider">{{ $why.explorer.interval_label }}</label>
+              <span id="interval-slider-value" class="explorer__slider-current"></span>
+            </div>
+            <div class="explorer__slider">
+              <input type="range" id="interval-slider" class="explorer__range"
+                     min="0" max="3" step="1" value="1"
+                     aria-describedby="interval-slider-value">
+            </div>
             <div class="explorer__slider-ticks">
               {{- range $why.explorer.interval_steps }}
               <span>{{ . }}</span>
               {{- end }}
             </div>
           </div>
-          <span id="interval-slider-value" class="explorer__slider-current"></span>
-        </div>
 
-        <div class="explorer__control">
-          <label class="explorer__slider-label" for="testcase-slider">{{ $why.explorer.test_case_slider_label }}</label>
-          <div class="explorer__slider">
-            <input type="range" id="testcase-slider" class="explorer__range"
-                   min="{{ $why.explorer.test_case_min }}" max="{{ $why.explorer.test_case_max }}" step="1"
-                   value="{{ $why.explorer.test_case_min }}"
-                   aria-describedby="testcase-slider-value">
-            <div class="explorer__slider-track" aria-hidden="true"></div>
+          <div class="explorer__control">
+            <div class="explorer__control-header">
+              <label class="explorer__slider-label" for="testcase-slider">{{ $why.explorer.test_case_slider_label }}</label>
+              <span id="testcase-slider-value" class="explorer__slider-current"></span>
+            </div>
+            <div class="explorer__slider">
+              <input type="range" id="testcase-slider" class="explorer__range"
+                     min="{{ $why.explorer.test_case_min }}" max="{{ $why.explorer.test_case_max }}" step="1"
+                     value="{{ $why.explorer.test_case_min }}"
+                     aria-describedby="testcase-slider-value">
+            </div>
             <div class="explorer__slider-ticks">
               <span>{{ $why.explorer.test_case_min }}</span>
               <span>{{ $why.explorer.test_case_max }}</span>
             </div>
           </div>
-          <span id="testcase-slider-value" class="explorer__slider-current"></span>
         </div>
-      </div>
-
-      <span class="explorer__y-label">{{ $why.explorer.y_axis_label }}</span>
-
-      <div class="explorer__chart-wrap">
-        <svg class="explorer__svg" viewBox="0 0 480 360" preserveAspectRatio="xMidYMid meet"
-             role="img" aria-label="{{ $why.explorer.heading }}">
-          <g class="explorer__gridlines"></g>
-          <g class="explorer__axis-y"></g>
-          <g class="explorer__bars"></g>
-        </svg>
       </div>
 
       <p class="explorer__hint">{{ $why.explorer.readout_hint }}</p>

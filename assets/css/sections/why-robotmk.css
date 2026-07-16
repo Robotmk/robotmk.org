@@ -466,54 +466,50 @@
   text-align: left;
 }
 
-/* --- Sliders --- */
-
-.explorer__controls {
+.explorer__body {
   display: flex;
-  flex-direction: column;
-  gap: var(--space-lg);
+  align-items: flex-start;
+  justify-content: center;
+  gap: var(--space-2xl);
+  flex-wrap: wrap;
   margin-bottom: var(--space-xl);
 }
 
-.explorer__control {
+.explorer__chart-col {
+  flex: 1 1 420px;
+  max-width: 480px;
+}
+
+/* --- Sliders --- */
+
+.explorer__controls {
+  flex: 1 1 260px;
+  max-width: 320px;
   display: flex;
-  align-items: center;
-  gap: var(--space-lg);
-  flex-wrap: wrap;
+  flex-direction: column;
+  gap: var(--space-2xl);
+  padding-top: var(--space-xl);
+}
+
+.explorer__control-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-md);
 }
 
 .explorer__slider-label {
-  font-size: var(--text-label-size);
+  font-size: 13px;
   font-weight: var(--text-label-weight);
   letter-spacing: var(--text-label-letter-spacing);
   text-transform: uppercase;
   color: var(--color-on-surface-variant);
-  flex-shrink: 0;
-  width: 160px;
 }
 
 .explorer__slider {
   position: relative;
-  flex: 1;
-  min-width: 220px;
   padding-block: var(--space-sm);
-}
-
-.explorer__slider-track {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  height: 4px;
-  transform: translateY(-50%);
-  background: linear-gradient(
-    to right,
-    var(--color-primary) 0%,
-    var(--color-primary) var(--fill, 0%),
-    var(--color-surface-border) var(--fill, 0%),
-    var(--color-surface-border) 100%
-  );
-  pointer-events: none;
 }
 
 .explorer__range {
@@ -521,6 +517,7 @@
   z-index: 1;
   display: block;
   width: 100%;
+  height: 24px;
   margin: 0;
   appearance: none;
   background: transparent;
@@ -533,14 +530,30 @@
   border-radius: 50%;
 }
 
+/* The fill-gradient is painted directly on the native track (not a separate
+   overlaid div) so the thumb — which the browser centers relative to this
+   same track — is always correctly seated on top of it, never floating
+   above it. */
 .explorer__range::-webkit-slider-runnable-track {
-  height: 4px;
-  background: transparent;
+  height: 5px;
+  background: linear-gradient(
+    to right,
+    var(--color-primary) 0%,
+    var(--color-primary) var(--fill, 0%),
+    var(--color-surface-border) var(--fill, 0%),
+    var(--color-surface-border) 100%
+  );
 }
 
 .explorer__range::-moz-range-track {
-  height: 4px;
-  background: transparent;
+  height: 5px;
+  background: linear-gradient(
+    to right,
+    var(--color-primary) 0%,
+    var(--color-primary) var(--fill, 0%),
+    var(--color-surface-border) var(--fill, 0%),
+    var(--color-surface-border) 100%
+  );
 }
 
 /* A round knob is a deliberate, scoped exception to the site's sharp-corners
@@ -548,26 +561,46 @@
    circular knob is the near-universal convention for this control. */
 .explorer__range::-webkit-slider-thumb {
   appearance: none;
-  width: 20px;
-  height: 20px;
-  margin-top: -8px;
+  width: 22px;
+  height: 22px;
+  margin-top: -8.5px;
   border-radius: 50%;
   background: var(--color-primary);
   border: 3px solid var(--color-background);
   box-shadow: 0 0 0 1px var(--color-surface-border);
   cursor: pointer;
   transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  animation: explorer-knob-pulse 2.6s ease-out infinite;
 }
 
 .explorer__range::-moz-range-thumb {
-  width: 20px;
-  height: 20px;
+  width: 22px;
+  height: 22px;
   border-radius: 50%;
   background: var(--color-primary);
   border: 3px solid var(--color-background);
   box-shadow: 0 0 0 1px var(--color-surface-border);
   cursor: pointer;
   transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  animation: explorer-knob-pulse 2.6s ease-out infinite;
+}
+
+@keyframes explorer-knob-pulse {
+  0%   { box-shadow: 0 0 0 1px var(--color-surface-border), 0 0 0 0 rgba(21, 209, 160, 0.35); }
+  70%  { box-shadow: 0 0 0 1px var(--color-surface-border), 0 0 0 11px rgba(21, 209, 160, 0); }
+  100% { box-shadow: 0 0 0 1px var(--color-surface-border), 0 0 0 0 rgba(21, 209, 160, 0); }
+}
+
+.explorer__range:hover::-webkit-slider-thumb,
+.explorer__range:active::-webkit-slider-thumb,
+.explorer__range--touched::-webkit-slider-thumb {
+  animation: none;
+}
+
+.explorer__range:hover::-moz-range-thumb,
+.explorer__range:active::-moz-range-thumb,
+.explorer__range--touched::-moz-range-thumb {
+  animation: none;
 }
 
 .explorer__range:hover::-webkit-slider-thumb,
@@ -585,27 +618,26 @@
 .explorer__slider-ticks {
   display: flex;
   justify-content: space-between;
-  margin-top: var(--space-sm);
+  margin-top: var(--space-md);
   font-family: var(--font-code);
-  font-size: 11px;
-  color: var(--color-on-surface-muted);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-on-surface-variant);
 }
 
 .explorer__slider-current {
   font-family: var(--font-code);
-  font-size: var(--text-body-sm-size);
-  font-weight: 600;
+  font-size: var(--text-headline-sm-size);
+  font-weight: 700;
   color: var(--color-primary);
   white-space: nowrap;
-  flex-shrink: 0;
-  min-width: 4ch;
-  text-align: right;
 }
 
 @media (prefers-reduced-motion: reduce) {
   .explorer__range::-webkit-slider-thumb,
   .explorer__range::-moz-range-thumb {
     transition: none;
+    animation: none;
   }
 }
 
@@ -621,8 +653,6 @@
 
 .explorer__chart-wrap {
   position: relative;
-  max-width: 480px;
-  margin-inline: auto;
   overflow: hidden;
 }
 
@@ -651,10 +681,36 @@
 .explorer__bar--bad  { fill: var(--color-error); }
 .explorer__bar--good { fill: var(--color-primary); }
 
-.explorer__bar-break {
-  stroke: var(--color-background);
-  stroke-width: 2;
-  transition: y 500ms cubic-bezier(.16, .84, .44, 1);
+/* Capped-bar indicator: two small chevrons drifting slowly upward and
+   fading, in a subtle lighter/translucent red — read as "more, above the
+   frame" rather than the harsher zigzag "break" mark this replaced. */
+.explorer__bar-cap {
+  display: none;
+}
+
+.explorer__bar-cap.is-capped {
+  display: block;
+}
+
+.explorer__bar-cap path {
+  fill: none;
+  stroke: var(--color-error);
+  opacity: 0.5;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  animation: explorer-cap-rise 2.2s ease-in-out infinite;
+}
+
+.explorer__bar-cap path:nth-child(2) {
+  animation-delay: 0.55s;
+}
+
+@keyframes explorer-cap-rise {
+  0%   { transform: translateY(7px); opacity: 0; }
+  35%  { opacity: 0.5; }
+  85%  { opacity: 0.08; }
+  100% { transform: translateY(-8px); opacity: 0; }
 }
 
 .explorer__bar-value {
@@ -680,9 +736,14 @@
 
 @media (prefers-reduced-motion: reduce) {
   .explorer__bar,
-  .explorer__bar-break,
   .explorer__bar-value {
     transition: none;
+  }
+
+  .explorer__bar-cap path {
+    animation: none;
+    opacity: 0.5;
+    transform: none;
   }
 }
 
@@ -699,19 +760,37 @@
   font-size: var(--text-body-sm-size);
 }
 
-@media (max-width: 640px) {
-  .explorer__control {
+@media (max-width: 860px) {
+  .explorer__body {
     flex-direction: column;
     align-items: stretch;
-    gap: var(--space-sm);
   }
 
-  .explorer__slider-label {
-    width: auto;
+  /* flex-basis meant for width in row-mode becomes a *height* constraint
+     once flex-direction switches to column — reset both to full-width,
+     content-sized blocks instead of inheriting the row-mode numbers. */
+  .explorer__chart-col,
+  .explorer__controls {
+    flex: 0 0 auto;
+    width: 100%;
+    max-width: none;
   }
 
-  .explorer__slider-current {
-    text-align: center;
+  .explorer__controls {
+    padding-top: var(--space-xl);
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: var(--space-xl);
+  }
+
+  .explorer__control {
+    flex: 1 1 220px;
+  }
+}
+
+@media (max-width: 480px) {
+  .explorer__controls {
+    flex-direction: column;
   }
 }
 

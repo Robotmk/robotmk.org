@@ -77,8 +77,6 @@ export function init() {
   const intervalCurrent = document.getElementById('interval-slider-value');
   const testCaseSlider = document.getElementById('testcase-slider');
   const testCaseCurrent = document.getElementById('testcase-slider-value');
-  const intervalTrack = intervalSlider.parentElement.querySelector('.explorer__slider-track');
-  const testCaseTrack = testCaseSlider.parentElement.querySelector('.explorer__slider-track');
 
   const gridlines = root.querySelector('.explorer__gridlines');
   const axisY = root.querySelector('.explorer__axis-y');
@@ -91,6 +89,10 @@ export function init() {
   const barW = slotW * 0.56;
 
   const yScale = (v) => MARGIN.top + plotH - (Math.min(v, cfg.yAxisMax) / cfg.yAxisMax) * plotH;
+
+  function chevronPath(barX, baseY, peakY) {
+    return `M${barX.toFixed(1)},${baseY.toFixed(1)} L${(barX + barW / 2).toFixed(1)},${peakY.toFixed(1)} L${(barX + barW).toFixed(1)},${baseY.toFixed(1)}`;
+  }
 
   function drawAxis() {
     gridlines.innerHTML = '';
@@ -130,22 +132,19 @@ export function init() {
       rect.setAttribute('height', 0);
       barsGroup.appendChild(rect);
 
-      const breakMark = document.createElementNS(NS, 'polyline');
-      breakMark.setAttribute('class', `explorer__bar-break explorer__bar-break--${s.key}`);
-      breakMark.setAttribute('fill', 'none');
-      breakMark.setAttribute('points', '');
-      barsGroup.appendChild(breakMark);
+      const capGroup = document.createElementNS(NS, 'g');
+      capGroup.setAttribute('class', `explorer__bar-cap explorer__bar-cap--${s.key}`);
+      [0, 1].forEach(i => {
+        const path = document.createElementNS(NS, 'path');
+        path.setAttribute('d', chevronPath(barX, MARGIN.top - 6 - i * 7, MARGIN.top - 12 - i * 7));
+        capGroup.appendChild(path);
+      });
+      barsGroup.appendChild(capGroup);
 
       const valueText = document.createElementNS(NS, 'text');
       valueText.setAttribute('class', `explorer__bar-value explorer__bar-value--${s.key}`);
       valueText.setAttribute('x', centerX.toFixed(1));
       barsGroup.appendChild(valueText);
-
-      const offText = document.createElementNS(NS, 'text');
-      offText.setAttribute('class', `explorer__bar-value explorer__bar-value--capped explorer__bar-off--${s.key}`);
-      offText.setAttribute('x', centerX.toFixed(1));
-      offText.style.fontSize = '10px';
-      barsGroup.appendChild(offText);
 
       const label = document.createElementNS(NS, 'text');
       label.setAttribute('class', 'explorer__bar-label');
@@ -162,52 +161,35 @@ export function init() {
     const costs = computeCosts(cfg, intervalMin, testCases);
 
     const intervalPct = (parseInt(intervalSlider.value, 10) / (INTERVALS.length - 1)) * 100;
-    intervalTrack.style.setProperty('--fill', `${intervalPct}%`);
+    intervalSlider.style.setProperty('--fill', `${intervalPct}%`);
     intervalCurrent.textContent = makeIntervalLabel(lang, intervalMin);
 
     const testCasePct = ((testCases - cfg.testCaseMin) / (cfg.testCaseMax - cfg.testCaseMin)) * 100;
-    testCaseTrack.style.setProperty('--fill', `${testCasePct}%`);
+    testCaseSlider.style.setProperty('--fill', `${testCasePct}%`);
     testCaseCurrent.textContent = numberFmt.format(testCases);
 
     SERIES.forEach(s => {
       const value = costs[s.key];
       const capped = value > cfg.yAxisMax;
       const barTop = yScale(value);
-      const barX = MARGIN.left + SERIES.indexOf(s) * slotW + (slotW - barW) / 2;
 
       const rect = barsGroup.querySelector(`.explorer__bar--${s.key}`);
       rect.setAttribute('y', barTop.toFixed(1));
       rect.setAttribute('height', ((MARGIN.top + plotH) - barTop).toFixed(1));
 
-      const breakMark = barsGroup.querySelector(`.explorer__bar-break--${s.key}`);
+      const capGroup = barsGroup.querySelector(`.explorer__bar-cap--${s.key}`);
       const valueText = barsGroup.querySelector(`.explorer__bar-value--${s.key}`);
-      const offText = barsGroup.querySelector(`.explorer__bar-off--${s.key}`);
+
+      capGroup.classList.toggle('is-capped', capped);
 
       if (capped) {
-        const zigY = MARGIN.top;
-        const points = [
-          [barX, zigY + 5],
-          [barX + barW * 0.25, zigY - 5],
-          [barX + barW * 0.5, zigY + 5],
-          [barX + barW * 0.75, zigY - 5],
-          [barX + barW, zigY + 5],
-        ].map(p => p.join(',')).join(' ');
-        breakMark.setAttribute('points', points);
-
-        valueText.setAttribute('y', MARGIN.top - 22);
+        valueText.setAttribute('y', MARGIN.top - 26);
         valueText.classList.add('explorer__bar-value--capped');
         valueText.textContent = fmtCompact.format(value);
-
-        offText.setAttribute('y', MARGIN.top - 10);
-        offText.textContent = lang === 'de' ? 'außerhalb der Skala' : 'off the chart';
       } else {
-        breakMark.setAttribute('points', '');
-
         valueText.setAttribute('y', (barTop - 10).toFixed(1));
         valueText.classList.remove('explorer__bar-value--capped');
         valueText.textContent = fmt.format(value);
-
-        offText.textContent = '';
       }
     });
   }
@@ -216,6 +198,12 @@ export function init() {
   ensureBarElements();
   render();
 
-  intervalSlider.addEventListener('input', render);
-  testCaseSlider.addEventListener('input', render);
+  intervalSlider.addEventListener('input', () => {
+    intervalSlider.classList.add('explorer__range--touched');
+    render();
+  });
+  testCaseSlider.addEventListener('input', () => {
+    testCaseSlider.classList.add('explorer__range--touched');
+    render();
+  });
 }

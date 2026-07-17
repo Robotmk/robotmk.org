@@ -20,12 +20,12 @@
     <div class="formula-callout">
       <div class="formula-callout__item formula-callout__item--bad">
         <span class="formula-callout__label">{{ $why.pricing.formula_competitor_label }}</span>
-        <code class="formula-callout__formula">{{ $why.pricing.formula_competitor }}</code>
+        <code class="formula-callout__formula">{{ $why.pricing.formula_competitor | safeHTML }}</code>
       </div>
       <span class="formula-callout__vs" aria-hidden="true">vs</span>
       <div class="formula-callout__item formula-callout__item--good">
         <span class="formula-callout__label">{{ $why.pricing.formula_checkmk_label }}</span>
-        <code class="formula-callout__formula">{{ $why.pricing.formula_checkmk }}</code>
+        <code class="formula-callout__formula">{{ $why.pricing.formula_checkmk | safeHTML }}</code>
       </div>
     </div>
 
@@ -131,7 +131,8 @@
             <th scope="col"></th>
             <th scope="col">Dynatrace</th>
             <th scope="col">Datadog</th>
-            <th scope="col">Checkmk Synthetic Monitoring</th>
+            <th scope="col">Grafana</th>
+            <th scope="col" class="why-pricing__table-checkmk">Robotmk</th>
           </tr>
         </thead>
         <tbody>
@@ -140,14 +141,15 @@
             <th scope="row">{{ .label }}</th>
             <td>{{ .dynatrace }}</td>
             <td>{{ .datadog }}</td>
+            <td>{{ .grafana }}</td>
             <td class="why-pricing__table-checkmk">{{ .checkmk }}</td>
           </tr>
           {{- end }}
         </tbody>
       </table>
     </div>
-    <p class="why-pricing__source">{{ $why.pricing.source_note }}</p>
-    <p class="why-pricing__source">{{ $why.explorer.disclaimer }}</p>
+    <p class="why-pricing__source why-pricing__source--note">{{ $why.pricing.source_note }}</p>
+    <p class="why-pricing__source why-pricing__source--note">{{ $why.explorer.disclaimer }}</p>
   </div>
 </section>
 

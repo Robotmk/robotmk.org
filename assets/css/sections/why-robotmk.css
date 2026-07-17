@@ -156,46 +156,99 @@
   .formula-callout__vs { display: none; }
 }
 
+/* Narrower than the full content width, centred — table + notes read as a
+   compact block under the wide chart rather than spanning the whole page. */
 .why-pricing__table-wrapper {
   overflow-x: auto;
-  margin-bottom: var(--space-md);
+  max-width: 680px;
+  margin: 0 auto var(--space-md);
 }
 
 .why-pricing__table {
   width: 100%;
   border-collapse: collapse;
-  min-width: 640px;
+  min-width: 480px;
 }
 
 .why-pricing__table caption {
   caption-side: top;
   text-align: left;
-  font-size: var(--text-body-sm-size);
+  font-size: 12px;
+  line-height: 1.5;
   color: var(--color-on-surface-muted);
   margin-bottom: var(--space-sm);
 }
 
+/* Only the essential rules: a firm line under the header and faint
+   separators between rows — no vertical grid, no boxed cells. */
 .why-pricing__table th,
 .why-pricing__table td {
-  border: 1px solid var(--color-surface-border);
+  border: 0;
   padding: var(--space-sm) var(--space-md);
-  text-align: left;
   font-size: var(--text-body-sm-size);
 }
 
 .why-pricing__table thead th {
   font-family: var(--font-display);
   color: var(--color-on-surface);
+  text-align: center;
+  border-bottom: 2px solid var(--color-surface-border);
+}
+.why-pricing__table thead th:first-child { text-align: left; }
+
+.why-pricing__table tbody th {
+  text-align: left;
+  font-weight: 600;
+  color: var(--color-on-surface);
 }
 
+.why-pricing__table tbody td {
+  text-align: center;
+  color: var(--color-on-surface-variant);
+  font-variant-numeric: tabular-nums;
+}
+
+.why-pricing__table tbody tr + tr th,
+.why-pricing__table tbody tr + tr td {
+  border-top: 1px solid var(--color-surface-border);
+}
+
+/* The Robotmk column is the whole point of the table — tint the full column
+   and accent its text so the eye lands there. */
 .why-pricing__table-checkmk {
   color: var(--color-primary);
   font-weight: 600;
+  background: rgba(21, 209, 160, 0.08);
+}
+.why-pricing__table thead .why-pricing__table-checkmk {
+  color: var(--color-primary);
+  border-bottom-color: var(--color-primary);
+}
+
+/* The slider-label info tooltips live at the top of the controls column, so
+   opening upward gets clipped by .explorer's overflow guard (overflow-x:
+   hidden makes overflow-y compute to auto). Open these downward instead. */
+.explorer__controls .explorer__info-tooltip {
+  top: calc(100% + var(--space-sm));
+  bottom: auto;
+  transform: translateY(-4px);
+}
+.explorer__controls .explorer__info-btn:hover + .explorer__info-tooltip,
+.explorer__controls .explorer__info-btn:focus + .explorer__info-tooltip {
+  transform: translateY(0);
 }
 
 .why-pricing__source {
+  max-width: 680px;
+  margin-inline: auto;
   font-size: var(--text-body-sm-size);
   color: var(--color-on-surface-muted);
+}
+
+/* The long calculation notes sit a touch smaller than body copy. */
+.why-pricing__source--note {
+  font-size: 11.5px;
+  line-height: 1.55;
 }
 
 .why-pillars__grid {

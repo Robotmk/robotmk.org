@@ -2,6 +2,26 @@
    Why Robotmk — Standalone Page
    ============================================================ */
 
+/* Page-scoped: tighten the vertical rhythm on this page only. The shared
+   .section padding (--space-section, 120px) stays intact for every other
+   page; here the sections sit closer together. */
+.why-hero.section,
+.why-pricing.section,
+.why-pillars.section,
+.why-cta.section {
+  /* padding-block: var(--space-3xl); */
+  padding-block: var(--space-2xl);
+}
+
+@media (max-width: 768px) {
+  .why-hero.section,
+  .why-pricing.section,
+  .why-pillars.section,
+  .why-cta.section {
+    padding-block: var(--space-2xl);
+  }
+}
+
 .why-hero {
   position: relative;
   text-align: center;

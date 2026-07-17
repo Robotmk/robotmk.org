@@ -1,7 +1,11 @@
 - 
 - AI Kurs 
-- Mailliste
-- enable learn again
-- Add Bridge
-- enable for MCK/RF users
-- About
+
+- Use case section: 
+  - Web Testing 
+  - Citrix 
+  - Desktop 
+  - API 
+- Add FAQ: 
+  - https://docs.google.com/document/d/14F4ICQFZdKX3msCPhW8OI75lX0sW94PvVxkztt2OzqM/edit?tab=t.0#heading=h.2d2wrc2n8haa
+  - https://docs.google.com/document/d/12JYeHwxf0jr6aDn0Qb7xjIpUqnviJIW6n066zK7OBT8/edit?tab=t.0#heading=h.j2xfxxj3653c

@@ -100,7 +100,7 @@ sitzt im Layout, nicht in der Disziplin des Autors.
 ├─────────────────────────────────────┤
 │ WARUM ES WEH TUT │ WIE RF ES LÖST   │
 ├─────────────────────────────────────┤
-│ *** Test Cases ***        [.robot]  │  ← Chroma, robotframework-Lexer
+│ *** Test Cases ***        [.robot]  │  ← ohne Syntax-Highlighting, s.u.
 ├─────────────────────────────────────┤
 │        [ Clarity Call buchen → ]    │
 └─────────────────────────────────────┘
@@ -201,6 +201,28 @@ beabsichtigt.
 
 CSS dafür in `assets/css/components/nav.css` (Dropdown gehört zur Nav-Komponente, nicht
 zur Use-Cases-Sektion).
+
+### Code-Blöcke: kein Syntax-Highlighting
+
+**Empirisch geprüft (Hugo 0.124.1):** Chroma hat **keinen RobotFramework-Lexer**.
+` ```robotframework `, ` ```robot ` und ` ```RobotFramework ` kommen alle als Klartext
+heraus; Kontrollgruppe ` ```bash ` und ` ```python ` highlightet einwandfrei. Das ist kein
+Konfigurationsfehler, der Lexer existiert nicht.
+
+Die `.robot`-Snippets werden deshalb **ohne Syntax-Coloring** gesetzt: Monospace, Rahmen,
+Token-Farben, gute Zeilenhöhe. Kein JS, keine Fremdbibliothek, kein selbstgebauter
+Highlighter. Bewusst gegen die ursprüngliche Anforderung „mit Syntax-Highlight"
+entschieden — der Preis (Prism.js oder ein handgeschriebener Render-Hook) steht in keinem
+Verhältnis zum Gewinn.
+
+Fence-Sprache bleibt ` ```robot ` wie im Blog. Sie färbt nichts, benennt aber die Sprache
+im `data-lang`-Attribut und hält die Konvention einheitlich.
+
+**Bestandsbefund, nicht Teil dieses Plans:** Die `robot`-Blöcke in
+`content/blog/ihl-skimage-pr/` sind aus demselben Grund seit jeher unformatiert. Und
+Chroma backt wegen `noClasses: true` (Default) Monokai als Inline-Style ein
+(`background-color:#272822`) — bestehende Code-Blöcke folgen deshalb keinem Theme-Token.
+Beides gehört in `TODO.md`, nicht in diesen Plan.
 
 ### CSS
 

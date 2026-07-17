@@ -23,16 +23,16 @@ pricing:
         datadog: "$12 / 1k Läufe"
         grafana: "$44 / 1k Läufe"
         checkmk: "pauschal"
-      - label: "Kosten / Jahr, 15-Min"
-        dynatrace: "5.550 €"
-        datadog: "1.849 €"
-        grafana: "6.784 €"
-        checkmk: "1.620 €"
-      - label: "Kosten / Jahr, 5-Min"
-        dynatrace: "16.650 €"
-        datadog: "5.550 €"
-        grafana: "20.351 €"
-        checkmk: "1.620 €"
+      - label: "Kosten / Monat, 15-Min"
+        dynatrace: "463 €"
+        datadog: "154 €"
+        grafana: "565 €"
+        checkmk: "135 €"
+      - label: "Kosten / Monat, 5-Min"
+        dynatrace: "1.388 €"
+        datadog: "463 €"
+        grafana: "1.696 €"
+        checkmk: "135 €"
   source_note: "Öffentlich gelistete Preise von Dynatrace, Datadog und Grafana für Synthetic Monitoring, berechnet für das obige Szenario. Checkmk-Wert: 15 Testfälle, unbegrenzte Request-Anzahl/Testlänge, beliebiges Intervall."
 
 pillars:
@@ -78,19 +78,19 @@ explorer:
     - "1 Min"
   test_case_slider_label: "Anzahl Testfälle"
   test_case_tooltip: "Test = einzelne, isolierte und automatisierbare User Journey — je gezielter das Monitoring, desto präziser der Alarm im Fehlerfall."
-  y_axis_label: "Kosten pro Jahr"
+  y_axis_label: "Kosten pro Monat"
   readout_hint: ""
-  disclaimer: "Illustratives Modell, kein aktuelles Angebot der Hersteller — nutzt dieselbe Beispielrate wie oben (8 Requests/Test, fest, nur Dynatrace). Grafana und Datadog berechnen nach vollständigen Testläufen, nicht nach Requests. Checkmks Kurve ist zwischen zwei realen Referenzpunkten der eigenen Preisliste interpoliert (15 Testfälle = 1.620 €/Jahr; 1.000 Testfälle = 28.000 €/Jahr) — die genaue Rabattformel dazwischen ist nicht veröffentlicht, daher ist dies eine plausible Schätzung, kein offizielles Angebot. Die Skala ist bewusst fest: Balken, die sie überschreiten, werden als „außerhalb der Skala“ markiert, statt die Achse still neu zu skalieren."
+  disclaimer: "Illustratives Modell, kein aktuelles Angebot der Hersteller — nutzt dieselbe Beispielrate wie oben (8 Requests/Test, fest, nur Dynatrace). Grafana und Datadog berechnen nach vollständigen Testläufen, nicht nach Requests. Checkmks Kurve ist zwischen zwei realen Referenzpunkten der eigenen Preisliste interpoliert (15 Testfälle = 135 €/Monat; 1.000 Testfälle = 2.333 €/Monat) — die genaue Rabattformel dazwischen ist nicht veröffentlicht, daher ist dies eine plausible Schätzung, kein offizielles Angebot. Die Skala ist bewusst fest: Balken, die sie überschreiten, werden als „außerhalb der Skala“ markiert, statt die Achse still neu zu skalieren."
   requests_per_test: 8
   usd_to_eur: 0.88
   dynatrace_rate_usd_per_1k_actions: 4.50
   datadog_rate_usd_per_1k_runs: 12
   grafana_rate_usd_per_1k_runs: 44
-  checkmk_min_price_eur: 1620
-  checkmk_max_price_eur: 28000
+  checkmk_min_price_eur: 135
+  checkmk_max_price_eur: 2333
   test_case_min: 15
   test_case_max: 1000
-  y_axis_max: 50000
+  y_axis_max: 4000
   vendors:
     - key: "dynatrace"
       name: "Dynatrace"

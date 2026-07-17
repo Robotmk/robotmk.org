@@ -12,15 +12,17 @@ const SERIES = [
 ];
 
 function computeCosts(cfg, intervalMin, testCases) {
-  const executionsPerYear = (60 / intervalMin) * 24 * 365;
+  // Monthly figures throughout: a twelfth of the annual execution count
+  // (365 days / 12) so the chart and the worked-example table agree.
+  const executionsPerMonth = ((60 / intervalMin) * 24 * 365) / 12;
 
-  const dynatraceActions = executionsPerYear * testCases * cfg.requestsPerTest;
+  const dynatraceActions = executionsPerMonth * testCases * cfg.requestsPerTest;
   const dynatrace = (dynatraceActions / 1000) * cfg.dynatraceRate * cfg.usdToEur;
 
-  const datadogRuns = executionsPerYear * testCases;
+  const datadogRuns = executionsPerMonth * testCases;
   const datadog = (datadogRuns / 1000) * cfg.datadogRate * cfg.usdToEur;
 
-  const grafanaRuns = executionsPerYear * testCases;
+  const grafanaRuns = executionsPerMonth * testCases;
   const grafana = (grafanaRuns / 1000) * cfg.grafanaRate * cfg.usdToEur;
 
   const checkmk = testCases <= cfg.testCaseMin

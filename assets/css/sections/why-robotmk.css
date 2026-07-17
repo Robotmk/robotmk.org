@@ -184,6 +184,13 @@
   height: 22px;
 }
 
+/* The single filled focal detail per icon — coloured independently of the
+   monoline stroke so it stays teal while the stroke follows currentColor. */
+.why-icon__accent {
+  fill: var(--color-primary);
+  stroke: none;
+}
+
 .why-pillar-card__body {
   flex: 1;
   min-width: 0;

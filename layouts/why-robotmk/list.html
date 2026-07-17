@@ -157,6 +157,12 @@
       {{- range $i, $item := $why.pillars.items }}
       {{- $isLast := eq (add $i 1) (len $why.pillars.items) }}
       <div class="card why-pillar-card{{ if $isLast }} why-pillar-card--closing{{ end }}">
+        <span class="why-pillar-card__rivets" aria-hidden="true">
+          <span class="why-pillar-card__rivet"></span>
+          <span class="why-pillar-card__rivet"></span>
+          <span class="why-pillar-card__rivet"></span>
+          <span class="why-pillar-card__rivet"></span>
+        </span>
         <div class="why-pillar-card__icon">{{ partial "why-icon.html" $item.icon }}</div>
         <div class="why-pillar-card__body">
           <h3 class="why-pillar-card__title">{{ $item.title }}</h3>

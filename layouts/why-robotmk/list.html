@@ -16,103 +16,19 @@
     <h2 class="why-pricing__heading">{{ $why.pricing.heading }}</h2>
     <p class="why-pricing__intro">{{ $why.pricing.intro  | safeHTML }}</p>
 
-    <div class="cost-chart">
-      <div class="cost-chart__grid" aria-hidden="true">
-        <span class="cost-chart__grid-spacer"></span>
-        <div class="cost-chart__ticks-track">
-          {{- range $why.pricing.chart.ticks }}
-          <div class="cost-chart__tick" style="--pos: {{ .pct }}%">
-            <span class="cost-chart__tick-label">{{ .value }}</span>
-          </div>
-          {{- end }}
-        </div>
+    <div class="formula-callout">
+      <div class="formula-callout__item formula-callout__item--bad">
+        <span class="formula-callout__label">{{ $why.pricing.formula_competitor_label }}</span>
+        <code class="formula-callout__formula">{{ $why.pricing.formula_competitor }}</code>
       </div>
-
-      <div class="cost-chart__rows">
-        {{- range $why.pricing.chart.rows }}
-        <div class="cost-chart__row cost-chart__row--{{ .status }}">
-          <span class="cost-chart__row-label">
-            {{ .name }}
-            <code class="cost-chart__row-formula">{{ if .flat }}{{ $why.pricing.formula_checkmk }}{{ else }}{{ $why.pricing.formula_competitor }}{{ end }}</code>
-          </span>
-          <div class="cost-chart__track">
-            {{- if .flat }}
-            <span class="cost-chart__dot cost-chart__dot--flat" style="--pos: {{ .before_pct }}%" tabindex="0"
-                  aria-label="{{ .name }}, {{ .before_state }}: {{ .before_value }}, {{ .flat_label }}">
-              <span class="cost-chart__tooltip">{{ .before_value }} · {{ .flat_label }}</span>
-            </span>
-            {{- else }}
-            <span class="cost-chart__bar" style="--start: {{ .before_pct }}%; --width: {{ .width_pct }}%"></span>
-            <span class="cost-chart__dot cost-chart__dot--before" style="--pos: {{ .before_pct }}%" tabindex="0"
-                  aria-label="{{ .name }}, {{ .before_state }}: {{ .before_value }}">
-              <span class="cost-chart__tooltip">{{ .before_value }} · {{ .before_state }}</span>
-            </span>
-            <span class="cost-chart__dot cost-chart__dot--after" style="--pos: {{ .after_pct }}%" tabindex="0"
-                  aria-label="{{ .name }}, {{ .after_state }}: {{ .after_value }}">
-              <span class="cost-chart__tooltip">{{ .after_value }} · {{ .after_state }}</span>
-            </span>
-            {{- end }}
-          </div>
-          <span class="cost-chart__row-value">
-            {{- if .flat }}{{ .before_value }} <em>{{ .flat_label }}</em>{{ else }}{{ .before_value }} → {{ .after_value }}{{ end -}}
-          </span>
-        </div>
-        {{- end }}
+      <span class="formula-callout__vs" aria-hidden="true">vs</span>
+      <div class="formula-callout__item formula-callout__item--good">
+        <span class="formula-callout__label">{{ $why.pricing.formula_checkmk_label }}</span>
+        <code class="formula-callout__formula">{{ $why.pricing.formula_checkmk }}</code>
       </div>
     </div>
-    <p class="cost-chart__caption">{{ $why.pricing.chart.caption }}</p>
 
-    <div class="why-pricing__table-wrapper">
-      <table class="why-pricing__table">
-        <caption>{{ $why.pricing.table.caption }}</caption>
-        <thead>
-          <tr>
-            <th scope="col"></th>
-            <th scope="col">Dynatrace</th>
-            <th scope="col">Datadog</th>
-            <th scope="col">Checkmk Synthetic Monitoring</th>
-          </tr>
-        </thead>
-        <tbody>
-          {{- range $why.pricing.table.rows }}
-          <tr>
-            <th scope="row">{{ .label }}</th>
-            <td>{{ .dynatrace }}</td>
-            <td>{{ .datadog }}</td>
-            <td class="why-pricing__table-checkmk">{{ .checkmk }}</td>
-          </tr>
-          {{- end }}
-        </tbody>
-      </table>
-    </div>
-    <p class="why-pricing__source">{{ $why.pricing.source_note }}</p>
-  </div>
-</section>
-
-<section class="why-pillars section">
-  <div class="container">
-    <h2 class="why-pillars__heading">{{ $why.pillars.heading }}</h2>
-    <div class="why-pillars__grid">
-      {{- range $i, $item := $why.pillars.items }}
-      {{- $isLast := eq (add $i 1) (len $why.pillars.items) }}
-      <div class="card why-pillar-card{{ if $isLast }} why-pillar-card--closing{{ end }}">
-        <div class="why-pillar-card__icon">{{ partial "why-icon.html" $item.icon }}</div>
-        <div class="why-pillar-card__body">
-          <h3 class="why-pillar-card__title">{{ $item.title }}</h3>
-          <p class="why-pillar-card__text">{{ $item.text }}</p>
-        </div>
-      </div>
-      {{- end }}
-    </div>
-  </div>
-</section>
-
-<section class="why-explorer section section--surface">
-  <div class="container">
-    <span class="why-explorer__eyebrow">{{ $why.explorer.eyebrow }}</span>
-    <h2 class="why-explorer__heading">{{ $why.explorer.heading }}</h2>
-    <p class="why-explorer__intro">{{ $why.explorer.intro }}</p>
-
+    {{/* Interactive explorer — the single pricing graph (formerly its own section). */}}
     <div class="explorer"
          data-requests-per-test="{{ $why.explorer.requests_per_test }}"
          data-usd-to-eur="{{ $why.explorer.usd_to_eur }}"
@@ -178,7 +94,7 @@
           <span class="explorer__y-label">{{ $why.explorer.y_axis_label }}</span>
           <div class="explorer__chart-wrap">
             <svg class="explorer__svg" viewBox="0 0 480 360" preserveAspectRatio="xMidYMid meet"
-                 role="img" aria-label="{{ $why.explorer.heading }}">
+                 role="img" aria-label="{{ $why.pricing.heading }}">
               <g class="explorer__gridlines"></g>
               <g class="explorer__axis-y"></g>
               <g class="explorer__bars"></g>
@@ -206,7 +122,49 @@
       </noscript>
     </div>
 
+    <div class="why-pricing__table-wrapper">
+      <table class="why-pricing__table">
+        <caption>{{ $why.pricing.table.caption }}</caption>
+        <thead>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col">Dynatrace</th>
+            <th scope="col">Datadog</th>
+            <th scope="col">Checkmk Synthetic Monitoring</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{- range $why.pricing.table.rows }}
+          <tr>
+            <th scope="row">{{ .label }}</th>
+            <td>{{ .dynatrace }}</td>
+            <td>{{ .datadog }}</td>
+            <td class="why-pricing__table-checkmk">{{ .checkmk }}</td>
+          </tr>
+          {{- end }}
+        </tbody>
+      </table>
+    </div>
+    <p class="why-pricing__source">{{ $why.pricing.source_note }}</p>
     <p class="why-pricing__source">{{ $why.explorer.disclaimer }}</p>
+  </div>
+</section>
+
+<section class="why-pillars section">
+  <div class="container">
+    <h2 class="why-pillars__heading">{{ $why.pillars.heading }}</h2>
+    <div class="why-pillars__grid">
+      {{- range $i, $item := $why.pillars.items }}
+      {{- $isLast := eq (add $i 1) (len $why.pillars.items) }}
+      <div class="card why-pillar-card{{ if $isLast }} why-pillar-card--closing{{ end }}">
+        <div class="why-pillar-card__icon">{{ partial "why-icon.html" $item.icon }}</div>
+        <div class="why-pillar-card__body">
+          <h3 class="why-pillar-card__title">{{ $item.title }}</h3>
+          <p class="why-pillar-card__text">{{ $item.text }}</p>
+        </div>
+      </div>
+      {{- end }}
+    </div>
   </div>
 </section>
 

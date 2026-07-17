@@ -4,51 +4,12 @@ hero:
   subtitle: "Eine Variable für ein faires und transparentes Preismodell. </br>Intervall und Testkomplexität, wie es Dir beliebt."
 
 pricing:
-  heading: "Eine Formel gegen eine Formel"
-  intro: "In anderen Lösungen berechnet sich der Endpreis als Produkt <b>mehrerer sich verstärkender Variablen</b>:"
+  heading: "Ein Preis, eine Variable"
+  intro: "Verbrauchsbasierte Tools berechnen den Preis als Produkt mehrerer sich verstärkender Variablen — ändere eine, und die Rechnung bewegt sich, oft nicht-linear. Checkmk rechnet allein nach Testfällen ab."
   formula_competitor: "Intervall × Tests × Requests/Test × Rate"
   formula_checkmk: "Tests × Rate"
-  chart:
-    caption: "Gleiches Szenario, engeres Intervall: zwei Linien bewegen sich. Eine nicht."
-    axis_max: 18000
-    ticks:
-      - value: "0 €"
-        pct: 0
-      - value: "5.000 €"
-        pct: 27.8
-      - value: "10.000 €"
-        pct: 55.6
-      - value: "15.000 €"
-        pct: 83.3
-    rows:
-      - name: "Dynatrace"
-        status: "bad"
-        before_state: "15-Min-Intervall"
-        after_state: "5-Min-Intervall"
-        before_value: "5.550 €"
-        after_value: "16.650 €"
-        before_pct: 30.8
-        after_pct: 92.5
-        width_pct: 61.7
-      - name: "Datadog"
-        status: "bad"
-        before_state: "15-Min-Intervall"
-        after_state: "5-Min-Intervall"
-        before_value: "1.849 €"
-        after_value: "5.550 €"
-        before_pct: 10.3
-        after_pct: 30.8
-        width_pct: 20.5
-      - name: "Checkmk Synthetic Monitoring"
-        status: "good"
-        before_state: "beliebiges Intervall"
-        after_state: "beliebiges Intervall"
-        before_value: "1.620 €"
-        after_value: "1.620 €"
-        before_pct: 9.0
-        after_pct: 9.0
-        flat: true
-        flat_label: "unverändert"
+  formula_competitor_label: "Verbrauchsbasierte Tools"
+  formula_checkmk_label: "Checkmk Synthetic Monitoring"
   table:
     caption: "Beispielrechnung — 15-Minuten-Intervall, 5 Testfälle, 8 Requests/Test (1.401.600 Aktionen/Jahr). Illustratives Beispiel, kein aktuelles Angebot der Hersteller."
     rows:
@@ -108,9 +69,6 @@ pillars:
       text: "Robot Framework ist lesbar, wartbar und weit verbreitet gelehrt. Du wirst weder Schwierigkeiten haben, dafür einzustellen, noch es zu übergeben."
 
 explorer:
-  eyebrow: "Selbst ausprobieren"
-  heading: "Zwei Regler. Vier Anbieter. Eine Geschichte."
-  intro: "Stelle das Ausführungsintervall und die Anzahl der Testfälle ein — die Balken reagieren sofort. Drei Anbieter steigen. Einer bewegt sich kaum."
   interval_label: "Ausführungsintervall"
   interval_tooltip: "Je kürzer das Intervall, desto höher die Informationsdichte — echte, nutzerspürbare Fehler werden schneller erkannt und gemeldet. Ein 1-Stunden-Intervall bringt praktisch nichts."
   interval_steps:

@@ -28,27 +28,6 @@
   overflow: hidden; /* the motif must never spill into page horizontal scroll */
 }
 
-/* Subtle isometric lattice + teal beams behind the hero text. currentColor
-   picks up the theme; the grid stays faint, the beams carry a little more
-   presence, and the text sits above it all on .container (z-index: 1). */
-.why-hero__motif {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-  pointer-events: none;
-  color: var(--color-on-surface-variant);
-}
-
-.why-hero__motif-grid {
-  stroke-opacity: 0.08;
-}
-
-.why-hero__motif-beams {
-  opacity: 0.5;
-}
-
 .why-hero .container {
   position: relative;
   z-index: 1;

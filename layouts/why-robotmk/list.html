@@ -167,6 +167,17 @@
         <div class="why-pillar-card__body">
           <h3 class="why-pillar-card__title">{{ $item.title }}</h3>
           <p class="why-pillar-card__text">{{ $item.text }}</p>
+          {{- with $item.more }}
+          <details class="why-more">
+            <summary class="why-more__toggle">
+              <span class="why-more__toggle-text">{{ $why.pillars.more_label }}</span>
+              <svg class="why-more__chevron" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l4 4 4-4"/></svg>
+            </summary>
+            <div class="why-more__panel">
+              <p>{{ . }}</p>
+            </div>
+          </details>
+          {{- end }}
         </div>
       </div>
       {{- end }}

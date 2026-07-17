@@ -233,6 +233,51 @@
   margin: 0;
 }
 
+/* "Learn more" expander — a native <details> (keyboard-operable and
+   readable with no JS); pillar-expand.js layers a height animation on top. */
+.why-more {
+  margin-top: var(--space-md);
+}
+
+.why-more__toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  cursor: pointer;
+  list-style: none;
+  font-size: var(--text-body-sm-size);
+  font-weight: 600;
+  color: var(--color-primary);
+}
+.why-more__toggle::-webkit-details-marker { display: none; }
+
+.why-more__toggle:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+}
+
+.why-more__chevron {
+  transition: transform var(--transition-fast);
+}
+.why-more[open] .why-more__chevron {
+  transform: rotate(180deg);
+}
+
+.why-more__panel {
+  overflow: hidden;
+}
+
+.why-more__panel p {
+  margin: var(--space-sm) 0 0;
+  font-size: var(--text-body-sm-size);
+  line-height: var(--text-body-sm-line-height);
+  color: var(--color-on-surface-variant);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .why-more__chevron { transition: none; }
+}
+
 /* The 7th pillar closes the list rather than sitting stranded alone in a
    3-column grid's leftover row: full-width, horizontal, accent-bordered —
    a deliberate "closing reassurance" rather than a 7th identical box. */

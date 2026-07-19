@@ -31,3 +31,34 @@
 - Add FAQ: 
   - https://docs.google.com/document/d/14F4ICQFZdKX3msCPhW8OI75lX0sW94PvVxkztt2OzqM/edit?tab=t.0#heading=h.2d2wrc2n8haa
   - https://docs.google.com/document/d/12JYeHwxf0jr6aDn0Qb7xjIpUqnviJIW6n066zK7OBT8/edit?tab=t.0#heading=h.j2xfxxj3653c
+
+### Nav / dead code observation
+- The old "responsive menubar crappy" concern was about `layouts/partials/menu.html`.
+  The site now uses `layouts/partials/nav.html`, which has a clean hamburger + overlay —
+  that concern is moot. `layouts/partials/menu.html` and `layouts/partials/header.html`
+  are no longer rendered anywhere and could be deleted as dead code.
+
+### Use Cases follow-ups
+- Record the real GIFs/contrast views for web, citrix, sap-gui, windows-desktop,
+  rest-api, and saas — see the placeholder-asset notes above for exactly which files
+  and which real recordings/screens are needed.
+- Phase 2: Mainframe/3270 use case — needs screenshots with cleared usage rights
+  before it can be built.
+- Simon needs to review the prose and Robot Framework API details on the six
+  use-case pages — especially the `rest-api` page's `check_httpv2` reference and the
+  `windows-desktop` page's PlatynUI keyword names, which were written without
+  verified API knowledge.
+
+### Code blocks (pre-existing, not Use Cases)
+- Chroma has no RobotFramework lexer, so ```robot fences in the blog render as plain
+  text instead of being highlighted.
+- `noClasses:true` bakes Monokai (`#272822`) into every code block as inline style,
+  so code blocks don't follow theme tokens.
+- Decide whether to set `markup.highlight.noClasses:false` and generate Chroma CSS
+  bound to the site's theme tokens.
+
+### Nav (pre-existing, all menu items)
+- `nav.html`'s `IsMenuCurrent`/`HasMenuCurrent` check does not set
+  `nav__link--active` for config-defined menu entries, so "Use Cases" (and every
+  other top-level nav item) never shows an active state on its own page. Broader nav
+  fix if desired.

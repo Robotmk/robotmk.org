@@ -144,4 +144,8 @@
   translation: "Sie wollen das in Ihrer Umgebung laufen sehen?"
 - id: use_case_cta_button
   translation: "Clarity Call buchen →"
+- id: use_cases_overview_title
+  translation: "Eine Sprache. Jede Technologie."
+- id: use_cases_overview_teaser
+  translation: "Web, Citrix, SAP, Desktop, REST, SaaS — Robot Framework testet sie alle. Ihr Team lernt eine Sprache statt fünf Werkzeuge."
 

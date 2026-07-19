@@ -131,3 +131,74 @@
     max-width: none;
   }
 }
+
+/* --- Overview --- */
+.use-cases__hero {
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+.use-cases__hero .container {
+  position: relative;
+  z-index: 1;
+}
+
+.use-cases__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-lg);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.use-cases__card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  height: 100%;
+  padding: var(--space-lg);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-surface-border);
+  border-radius: var(--radius);
+  text-decoration: none;
+  transition: border-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.use-cases__card:hover {
+  border-color: var(--color-primary);
+  transform: translateY(-2px);
+}
+
+.use-cases__card-title {
+  font-family: var(--font-display);
+  font-size: var(--text-label-size);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+
+.use-cases__card-problem {
+  font-family: var(--font-display);
+  font-size: var(--text-headline-md-size);
+  line-height: 1.3;
+  color: var(--color-on-surface);
+}
+
+.use-cases__card-libs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+  margin-top: auto;   /* badges sit at the card foot regardless of text length */
+  padding-top: var(--space-md);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .use-cases__card {
+    transition: none;
+  }
+  .use-cases__card:hover {
+    transform: none;
+  }
+}

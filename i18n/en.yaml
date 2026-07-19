@@ -146,3 +146,7 @@
   translation: "Want to see this running in your environment?"
 - id: use_case_cta_button
   translation: "Book a Clarity Call →"
+- id: use_cases_overview_title
+  translation: "One language. Every technology."
+- id: use_cases_overview_teaser
+  translation: "Web, Citrix, SAP, desktop, REST, SaaS — Robot Framework tests them all. Your team learns one language instead of five tools."

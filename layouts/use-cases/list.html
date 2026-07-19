@@ -1,19 +1,32 @@
 {{ define "title" }}{{ .Title }} — {{ .Site.Title }}{{ end }}
 
 {{ define "main" }}
-{{- /* Placeholder list layout — Task 4 replaces this with the card grid overview. */ -}}
-<section class="page-hero">
+<section class="use-cases__hero section">
+  {{ partial "hero-motif.html" . }}
   <div class="container">
-    <h1 class="page-hero__title">{{ .Title }}</h1>
-    {{ with .Description }}<p class="page-hero__subtitle">{{ . }}</p>{{ end }}
+    <span class="use-case__eyebrow">{{ T "use_case_eyebrow" }}</span>
+    <h1 class="use-case__title">{{ T "use_cases_overview_title" }}</h1>
+    <p class="use-case__teaser">{{ T "use_cases_overview_teaser" }}</p>
   </div>
 </section>
 
-<section class="use-cases-list section">
+<section class="use-cases__list section section--surface">
   <div class="container">
-    <ul role="list">
-      {{- range .Pages }}
-      <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+    <ul class="use-cases__grid" role="list">
+      {{- range .Pages.ByWeight }}
+      <li>
+        <a class="use-cases__card" href="{{ .RelPermalink }}">
+          <span class="use-cases__card-title">{{ .Title }}</span>
+          {{- /* The problem sentence is pulled from the page itself, never copied,
+                 so the overview cannot drift from the subpage. */ -}}
+          <span class="use-cases__card-problem">{{ .Params.problem }}</span>
+          {{- with .Params.libraries }}
+          <span class="use-cases__card-libs">
+            {{- range . }}<span class="use-case__lib">{{ . }}</span>{{ end -}}
+          </span>
+          {{- end }}
+        </a>
+      </li>
       {{- end }}
     </ul>
   </div>

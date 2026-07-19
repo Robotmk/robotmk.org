@@ -150,9 +150,10 @@
   background-color: var(--color-background);
   z-index: calc(var(--nav-z-index) - 1);
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   padding: var(--space-2xl);
+  overflow-y: auto;
 }
 
 .nav__overlay[aria-hidden="false"] {
@@ -301,4 +302,49 @@ body {
   .nav__hamburger-bar {
     transition: none;
   }
+}
+
+/* --- Mobile accordion inside the overlay --- */
+.nav__overlay-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-family: var(--font-display);
+  font-size: var(--text-headline-lg-size);
+  font-weight: 600;
+  color: var(--color-on-surface-variant);
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.nav__overlay-toggle[aria-expanded="true"] {
+  color: var(--color-on-surface);
+}
+
+.nav__overlay-sublinks {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+  list-style: none;
+  margin: var(--space-md) 0 0;
+  padding: 0;
+}
+
+.nav__overlay-toggle[aria-expanded="true"] + .nav__overlay-sublinks {
+  display: flex;
+}
+
+.nav__overlay-sublink {
+  font-family: var(--font-body);
+  font-size: var(--text-body-lg-size);
+  color: var(--color-on-surface-variant);
+  text-decoration: none;
+}
+
+.nav__overlay-sublink:hover,
+.nav__overlay-sublink.nav__link--active {
+  color: var(--color-primary);
 }

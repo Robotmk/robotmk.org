@@ -87,14 +87,34 @@
     <ul class="nav__overlay-links" role="list">
       {{- $currentPage := . -}}
       {{- range .Site.Menus.main }}
+      {{- if .HasChildren }}
+      <li>
+        {{- /* Must be a button: nav.js closes the overlay on every <a> click,
+               so a link here would collapse the menu instead of expanding it. */ -}}
+        <button class="nav__overlay-toggle" aria-expanded="false"
+                aria-controls="overlay-{{ .Identifier }}">
+          {{ .Name }}
+          <span class="nav__dropdown-caret" aria-hidden="true"></span>
+        </button>
+        <ul class="nav__overlay-sublinks" id="overlay-{{ .Identifier }}" role="list">
+          {{- range .Children }}
+          <li>
+            <a class="nav__overlay-sublink{{ if $currentPage.IsMenuCurrent "main" . }} nav__link--active{{ end }}"
+               href="{{ .URL }}">{{ .Name }}</a>
+          </li>
+          {{- end }}
+        </ul>
+      </li>
+      {{- else }}
       <li>
         <a class="nav__overlay-link{{ if $currentPage.IsMenuCurrent "main" . }} nav__link--active{{ end }}"
            href="{{ .URL }}">{{ .Name }}</a>
       </li>
       {{- end }}
+      {{- end }}
       <li>
         <a class="btn btn--primary nav__overlay-cta" href="{{ "/services/" | relLangURL }}">
-          Clarity Call buchen &rarr;
+          {{ T "nav_cta_mobile" | default "Clarity Call buchen &rarr;" | safeHTML }}
         </a>
       </li>
     </ul>

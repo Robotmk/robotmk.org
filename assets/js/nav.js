@@ -62,4 +62,12 @@ export function init() {
       open.focus();
     }
   });
+
+  // --- Mobile accordion: independent of the desktop dropdown. ---
+  document.querySelectorAll('.nav__overlay-toggle').forEach(toggle => {
+    toggle.addEventListener('click', () => {
+      const isOpen = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!isOpen));
+    });
+  });
 }

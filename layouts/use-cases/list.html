@@ -1,0 +1,21 @@
+{{ define "title" }}{{ .Title }} — {{ .Site.Title }}{{ end }}
+
+{{ define "main" }}
+{{- /* Placeholder list layout — Task 4 replaces this with the card grid overview. */ -}}
+<section class="page-hero">
+  <div class="container">
+    <h1 class="page-hero__title">{{ .Title }}</h1>
+    {{ with .Description }}<p class="page-hero__subtitle">{{ . }}</p>{{ end }}
+  </div>
+</section>
+
+<section class="use-cases-list section">
+  <div class="container">
+    <ul role="list">
+      {{- range .Pages }}
+      <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+      {{- end }}
+    </ul>
+  </div>
+</section>
+{{ end }}

@@ -12,8 +12,9 @@
 {{- $homepage := resources.Get "css/sections/homepage.css" -}}
 {{- $pages    := resources.Get "css/sections/pages.css" -}}
 {{- $whyRobotmk := resources.Get "css/sections/why-robotmk.css" -}}
+{{- $usecases := resources.Get "css/sections/use-cases.css" -}}
 {{- $blog     := resources.Get "css/sections/blog.css" -}}
-{{- $css := slice $tokens $reset $base $buttons $cards $badges $forms $nav $toolsticker $heromotif $hero $homepage $pages $whyRobotmk $blog
+{{- $css := slice $tokens $reset $base $buttons $cards $badges $forms $nav $toolsticker $heromotif $hero $homepage $pages $whyRobotmk $usecases $blog
     | resources.Concat "css/main.css"
     | fingerprint -}}
 <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">

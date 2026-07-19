@@ -138,3 +138,11 @@
 # BREVO Meeting
 - id: brevo_meeting_iframe_src_professional_support
   translation: https://meet.brevo.com/simon-meggle/borderless?l=professional-support-request
+
+# Use Cases
+- id: use_case_eyebrow
+  translation: "Use Case"
+- id: use_case_cta_text
+  translation: "Want to see this running in your environment?"
+- id: use_case_cta_button
+  translation: "Book a Clarity Call →"

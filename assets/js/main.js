@@ -5,6 +5,7 @@ import { init as initLeadMagnets }     from './lead-magnets.js';
 import { init as initTestimonials }    from './testimonials.js';
 import { init as initPricingExplorer } from './pricing-explorer.js';
 import { init as initPillarExpand }    from './pillar-expand.js';
+import { init as initFaq }            from './faq.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   initNav();
@@ -14,4 +15,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initTestimonials();
   initPricingExplorer();
   initPillarExpand();
+  initFaq();
 });

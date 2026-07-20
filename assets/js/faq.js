@@ -22,10 +22,15 @@ export function init() {
     s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')
 
   // Question and answer text are searched together, indexed once up front.
-  const items = Array.from(list.querySelectorAll('.faq__item')).map((el) => ({
-    el,
-    haystack: normalise(el.textContent),
-  }));
+  // The micro-CTA boilerplate is identical on every item, so it is excluded
+  // here — otherwise it would pollute the index and make queries like
+  // "kostenlos" or "free" match all 22 questions.
+  const items = Array.from(list.querySelectorAll('.faq__item')).map((el) => {
+    const clone = el.cloneNode(true);
+    const cta = clone.querySelector('.faq__micro-cta');
+    if (cta) cta.remove();
+    return { el, haystack: normalise(clone.textContent) };
+  });
 
   let category = 'all';
   let query = '';
@@ -55,10 +60,20 @@ export function init() {
     noResults.hidden = totalVisible > 0;
   }
 
+  // Keep aria-pressed in lockstep with the visual active state, so the
+  // current category filter is announced to assistive technology too.
+  pills.forEach((pill) => {
+    pill.setAttribute('aria-pressed', pill.classList.contains('faq__pill--active') ? 'true' : 'false');
+  });
+
   pills.forEach((pill) => {
     pill.addEventListener('click', () => {
-      pills.forEach((p) => p.classList.remove('faq__pill--active'));
+      pills.forEach((p) => {
+        p.classList.remove('faq__pill--active');
+        p.setAttribute('aria-pressed', 'false');
+      });
       pill.classList.add('faq__pill--active');
+      pill.setAttribute('aria-pressed', 'true');
       category = pill.dataset.category;
       apply();
     });

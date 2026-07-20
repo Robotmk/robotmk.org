@@ -1,0 +1,205 @@
+/* ============================================================
+   FAQ page — categorised, collapsible questions
+   Native <details> accordions; the search/pill controls are
+   revealed by assets/js/faq.js (progressive enhancement).
+   ============================================================ */
+
+.faq__container {
+  max-width: 860px;
+}
+
+/* --- Controls (search + category pills) ---------------------------------- */
+
+.faq__controls {
+  margin-bottom: var(--space-2xl);
+}
+
+.faq__search {
+  width: 100%;
+  padding: var(--space-md);
+  margin-bottom: var(--space-md);
+  font-family: var(--font-body);
+  font-size: var(--text-body-md-size);
+  color: var(--color-on-surface);
+  background: var(--color-surface-low);
+  border: 1px solid var(--color-surface-border);
+  border-radius: var(--radius);
+  transition: border-color var(--transition-fast);
+}
+
+.faq__search::placeholder { color: var(--color-on-surface-muted); }
+
+.faq__search:focus {
+  outline: none;
+  border-color: var(--color-primary);
+}
+
+.faq__pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+
+.faq__pill {
+  padding: var(--space-sm) var(--space-md);
+  font-family: var(--font-body);
+  font-size: var(--text-body-sm-size);
+  font-weight: 600;
+  color: var(--color-on-surface-variant);
+  background: transparent;
+  border: 1px solid var(--color-surface-border);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: color var(--transition-fast),
+              border-color var(--transition-fast),
+              background-color var(--transition-fast);
+}
+
+.faq__pill:hover {
+  color: var(--color-on-surface);
+  border-color: var(--color-on-surface-variant);
+}
+
+.faq__pill--active,
+.faq__pill--active:hover {
+  color: var(--color-on-primary);
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+/* --- Empty search state --------------------------------------------------- */
+
+.faq__no-results {
+  padding: var(--space-lg) 0;
+  color: var(--color-on-surface-variant);
+  font-size: var(--text-body-md-size);
+}
+
+.faq__no-results a { color: var(--color-primary); }
+
+/* --- Categories ----------------------------------------------------------- */
+
+.faq__category {
+  margin-bottom: var(--space-2xl);
+  /* The sticky nav must not cover the heading on #anchor jumps. */
+  scroll-margin-top: calc(var(--nav-height) + var(--space-lg));
+}
+
+.faq__category-title {
+  font-family: var(--font-display);
+  font-size: var(--text-headline-sm-size);
+  font-weight: var(--text-headline-sm-weight);
+  line-height: var(--text-headline-sm-line-height);
+  letter-spacing: var(--text-label-letter-spacing);
+  text-transform: uppercase;
+  color: var(--color-on-surface-muted);
+  padding-bottom: var(--space-sm);
+  margin-bottom: var(--space-md);
+  border-bottom: 1px solid var(--color-surface-border);
+}
+
+/* --- Question / answer ---------------------------------------------------- */
+
+.faq__item {
+  border-bottom: 1px solid var(--color-surface-border);
+}
+
+/* Filtering in faq.js sets the hidden attribute; <details> would otherwise
+   keep its display:block and stay visible. */
+.faq__item[hidden],
+.faq__category[hidden],
+.faq__controls[hidden],
+.faq__no-results[hidden] {
+  display: none;
+}
+
+.faq__question {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-md);
+  padding: var(--space-md) 0;
+  cursor: pointer;
+  list-style: none;
+  font-family: var(--font-body);
+  font-size: var(--text-body-lg-size);
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--color-on-surface);
+  transition: color var(--transition-fast);
+}
+
+/* Suppress the native disclosure triangle — we draw our own chevron. */
+.faq__question::-webkit-details-marker { display: none; }
+.faq__question::marker { content: ""; }
+
+.faq__question:hover { color: var(--color-primary); }
+
+.faq__question:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.faq__chevron {
+  flex: 0 0 auto;
+  width: 10px;
+  height: 10px;
+  margin-top: 4px;
+  border-right: 2px solid var(--color-on-surface-muted);
+  border-bottom: 2px solid var(--color-on-surface-muted);
+  transform: rotate(45deg);
+  transition: transform var(--transition-fast), border-color var(--transition-fast);
+}
+
+.faq__item[open] .faq__chevron {
+  transform: rotate(225deg);
+  border-color: var(--color-primary);
+}
+
+.faq__answer {
+  padding: 0 0 var(--space-lg);
+  max-width: 68ch;
+  color: var(--color-on-surface-variant);
+  font-size: var(--text-body-md-size);
+  line-height: var(--text-body-lg-line-height);
+}
+
+.faq__answer p { margin: 0 0 var(--space-md); }
+.faq__answer ul,
+.faq__answer ol { margin: 0 0 var(--space-md) var(--space-lg); }
+.faq__answer li { margin-bottom: var(--space-xs); }
+.faq__answer strong { color: var(--color-on-surface); }
+.faq__answer a { color: var(--color-primary); }
+
+/* --- Micro-CTA ------------------------------------------------------------ */
+/* Deliberately quiet: present after every answer, but never competing with it. */
+
+.faq__micro-cta {
+  margin: var(--space-md) 0 0;
+  font-size: var(--text-body-sm-size);
+  color: var(--color-on-surface-muted);
+}
+
+.faq__micro-cta a {
+  color: var(--color-on-surface-muted);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color var(--transition-fast);
+}
+
+.faq__micro-cta a:hover { color: var(--color-primary); }
+
+/* --- Mobile --------------------------------------------------------------- */
+
+@media (max-width: 640px) {
+  .faq__question { font-size: var(--text-body-md-size); }
+  .faq__pills {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    /* Let the pill row bleed to the viewport edges so it reads as scrollable. */
+    margin: 0 calc(var(--space-md) * -1);
+    padding: 0 var(--space-md) var(--space-sm);
+    -webkit-overflow-scrolling: touch;
+  }
+  .faq__pill { white-space: nowrap; }
+}

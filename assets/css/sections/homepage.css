@@ -265,6 +265,12 @@
   margin-top: var(--space-xs);
 }
 
+.loesung__cta {
+  display: flex;
+  justify-content: center;
+  margin-top: var(--space-xl);
+}
+
 
 /* ============================================================
    Founder Section
@@ -856,4 +862,96 @@
   color: var(--color-on-surface-variant);
   max-width: 60ch;
   margin: 0;
+}
+
+/* ============================================================
+   Why Robotmk Teaser — Homepage Section
+   ============================================================ */
+
+.why {
+  text-align: center;
+  padding-block: var(--space-2xl);
+}
+
+.why__container {
+  max-width: var(--content-width);
+  margin-inline: auto;
+  padding-inline: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.why__eyebrow {
+  font-size: var(--text-label-size);
+  font-weight: var(--text-label-weight);
+  letter-spacing: var(--text-label-letter-spacing);
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+
+.why__heading {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 4vw, var(--text-headline-lg-size));
+  font-weight: var(--text-headline-lg-weight);
+  letter-spacing: var(--text-headline-lg-letter-spacing);
+  color: var(--color-on-surface);
+  margin: 0;
+}
+
+.why__body {
+  font-size: var(--text-body-lg-size);
+  line-height: var(--text-body-lg-line-height);
+  color: var(--color-on-surface-variant);
+  max-width: 60ch;
+  margin: 0;
+}
+
+.why__stat-line {
+  font-size: var(--text-body-md-size);
+  font-weight: 600;
+  color: var(--color-primary);
+  max-width: 60ch;
+  margin: 0;
+}
+
+.why__pillars {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg);
+  max-width: var(--content-width);
+  margin: var(--space-md) 0 0;
+  padding: 0;
+  width: 100%;
+}
+
+.why__pillar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-xs);
+  text-align: center;
+}
+
+.why__pillar-icon {
+  font-size: 1.5rem;
+}
+
+.why__pillar-label {
+  font-weight: 600;
+  color: var(--color-on-surface);
+}
+
+.why__pillar-text {
+  font-size: var(--text-body-sm-size);
+  color: var(--color-on-surface-variant);
+  line-height: var(--text-body-sm-line-height);
+}
+
+@media (max-width: 768px) {
+  .why__pillars {
+    grid-template-columns: 1fr;
+  }
 }

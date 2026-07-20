@@ -5,7 +5,7 @@ hero:
   headline_accent: "Grün"
   headline_post_pre: "Deine User melden"
   headline_post_red: "Probleme"
-  tagline: "Verfügbar ist nicht dasselbe wie benutzbar."
+  tagline: "Denn 'verfügbar' ist nicht dasselbe wie 'benutzbar'."
   cta_primary: "Clarity Call buchen →"
   cta_secondary: "Wie es funktioniert ↓"
 
@@ -37,6 +37,7 @@ solution:
     - "Keine Sackgassen"
   rf_pitch_outro: "<b>Robotmk</b> integriert dieses Schweizer Taschenmesser in Checkmk — die Best-in-Class Monitoring-Plattform für Full-Stack Observability:"
   flow_aria: "Flow: Robot Framework → Robotmk → Checkmk Synthetic Monitoring"
+  cta_why: "Warum Robotmk statt der Alternativen →"
   card1:
     label: "Für Checkmk-Nutzer"
     heading: "Ich nutze Checkmk"
@@ -48,6 +49,24 @@ solution:
     text: "Deine .robot-Tests laufen on-demand. Mit Robotmk werden sie zu kontinuierlichem Synthetic Monitoring — ohne Umschreiben."
     cta: "Im Browser ausprobieren →"
     codespace_hint: "Ohne Setup, sofort im Browser starten"
+
+# ── Why Robotmk ───────────────────────────────────────────────────────────────
+why:
+  eyebrow: "Warum Robotmk"
+  heading: "Zahl für das, was zählt. Nicht dafür, mehr zu testen vorzugaukeln."
+  body: "Manche Tools berechnen pro Netzwerk-Request, pro Check-Intervall, pro Minute. Checkmk Synthetic Monitoring berechnet genau eine Sache: die Anzahl der überwachten Testfälle. Teste so oft du willst, so gründlich du willst — der Preis bleibt gleich."
+  stat_line: "Aktionsbasierte Wettbewerber können bis zu 10× teurer sein — und der Abstand wächst mit jedem kürzeren Testintervall."
+  pillars:
+    - icon: "🔓"
+      label: "Open Source"
+      text: "Robot Framework — kein Vendor Lock-in von Anfang an."
+    - icon: "🔗"
+      label: "Tiefste Integration"
+      text: "Nativ in Checkmk integriert, nicht angeflanscht."
+    - icon: "🧑‍💻"
+      label: "Kein Personalrisiko"
+      text: "Lesbar, wartbar — und > 40.000 Engineers kennen es bereits."
+  cta: "Zum vollständigen Vergleich →"
 
 # ── Founder ───────────────────────────────────────────────────────────────────
 founder:

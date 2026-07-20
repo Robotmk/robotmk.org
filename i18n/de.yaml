@@ -137,4 +137,17 @@
 - id: brevo_meeting_iframe_src_professional_support
   translation: https://meet.brevo.com/simon-meggle/borderless?l=professional-support-anfrage
 
+# Use Cases
+- id: use_case_eyebrow
+  translation: "Use Case"
+- id: use_case_cta_text
+  translation: "Sie wollen das in Ihrer Umgebung laufen sehen?"
+- id: use_case_cta_button
+  translation: "Clarity Call buchen →"
+- id: use_cases_overview_title
+  translation: "Eine Sprache. Jede Technologie."
+- id: use_cases_overview_teaser
+  translation: "Web, Citrix, SAP, Desktop, REST, SaaS — Robot Framework testet sie alle. Ihr Team lernt eine Sprache statt fünf Werkzeuge."
+- id: nav_cta_mobile
+  translation: "Clarity Call buchen &rarr;"
 

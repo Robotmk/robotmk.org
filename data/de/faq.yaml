@@ -1,7 +1,7 @@
 # ── Seiten-Meta & wiederverwendete Strings ───────────────────────────────────
 meta:
   title: "Häufige Fragen"
-  intro: "Viele dieser Fragen erreichen mich per Mail, im Robot-Framework-Slack oder nach Vorträgen. Da sie regelmäßig wiederkehren, sind sie hier gesammelt — mit ehrlichen Antworten, auch dort, wo die Antwort nicht die bequemste ist.<br>Fehlt eine Frage? Eine kurze Nachricht genügt, dann wird sie hier ergänzt."
+  intro: "Fehlt eine Frage? Eine kurze Nachricht genügt, dann wird sie hier ergänzt."
   search_placeholder: "Frage suchen …"
   filter_label: "Nach Kategorie filtern"
   filter_all: "Alle"
@@ -107,18 +107,11 @@ categories:
 
           Suites dienen in erster Linie der Gruppierung von Tests.
 
-      - q: "Was ist ein „Test“?"
+      - q: "Was ist ein „Test Case“?"
         a: |
-          Ein Test ist ein einzelnes **Szenario**, das einen bestimmten Aspekt einer Anwendung prüft.
+          Ein Test Case ist ein einzelnes **Szenario**, das einen bestimmten Aspekt einer Anwendung prüft. Eine <b>Suite</b> kann mehrere Test Cases enthalten, die nacheinander ausgeführt werden.
 
-          Der Zuschnitt ist frei wählbar: 5 Szenarien in einem einzigen Test — oder 5 Tests mit je einem Szenario.
-
-          Die erste Variante spart Lizenzkosten, fasst aber sehr Unterschiedliches in einem einzigen Service zusammen. Nur die zweite Variante erlaubt es,
-
-          - einzelne Szenario-Zustände in NagVis darzustellen und
-          - für einzelne Tests gezielt bestimmte Teams zu benachrichtigen.
-
-          In der Praxis ist die feinere Aufteilung nahezu immer die tragfähigere.
+          Test Cases sollten so granular wie möglich gehalten werden: Ein Test Case = ein Szenario. Das erleichtert die Wartung, macht die Ergebnisse aussagekräftiger und erlaubt eine gezieltere Alarmierung.
 
       - q: "Was sind Keywords?"
         a: |
@@ -130,7 +123,7 @@ categories:
         a: |
           Der Robotmk-Check auf dem Checkmk-Server wertet die Rohdaten der Robot-Framework-Ausführungen aus und legt für **jeden Test** einen eigenen Service an — den Test-Service.
 
-          Dieser Service zeigt den Zustand des Tests (erfolgreich / fehlgeschlagen) und alarmiert auch bei Laufzeitüberschreitungen.
+          Dieser Service zeigt den Zustand des Tests (erfolgreich / fehlgeschlagen), beinhaltet dessen menschenlesbares HTML-Logfile und alarmiert auch bei Laufzeitüberschreitungen.
 
           Die Summe aller Test-Services innerhalb einer Checkmk-Subscription bestimmt den Umfang für Synthetic Monitoring — sie ist die einzige Größe, die für die Lizenzierung zählt.
 
@@ -193,16 +186,18 @@ categories:
 
           Die Tragweite dieses Unterschieds ist unter [Warum Robotmk](/de/why-robotmk/) im Detail vorgerechnet.
 
-      - q: "Ich will eine bestehende SM-Lösung ablösen. Wie schätze ich die Kosten ab?"
+      - q: "Ich will eine bestehende Synthetic-Monitoring Lösung ablösen. Wie schätze ich die Kosten ab?"
         a: |
           Dafür genügen zwei Kennzahlen des Bestandssystems:
 
-          1. die Anzahl der KPIs bzw. Zustände, die es heute liefert, und
+          1. die Anzahl der Metriken bzw. Zustände, die es heute liefert, und
           2. die durchschnittliche Laufzeit der zugrunde liegenden Tests.
 
           Die erste Zahl entspricht näherungsweise der Anzahl der in Checkmk benötigten Test-Services — und damit dem Umfang der Subscription. Für eine erste belastbare Abschätzung ist mehr nicht erforderlich.
 
-      - q: "Wie entwickelt sich der Preis, wenn ich weitere Standorte hinzunehme?"
+          Gerne bin ich behilflich, die Zahlen im Rahmen eines [Clarity Calls](https://www.robotmk.org/de/services/)in eine konkrete Checkmk-Subscription zu übersetzen. 
+
+      - q: "Wie entwickelt sich der Preis, wenn ich RobotFramework-Tests an weiteren Standorte hinzunehme?"
         a: |
           Standorte sind für die Lizenzierung keine eigene Größe — ebenso wenig wie die Anzahl der Robotmk-Hosts in Checkmk. Es wird weder pro Standort noch pro Host abgerechnet.
 
@@ -219,3 +214,8 @@ categories:
           Ja, vollständig. Robot Framework und seine Libraries sind Open Source und frei verfügbar — Browser-Automatisierung, SAP, Citrix, REST, Datenbanken und vieles mehr. Der Einstieg ist unmittelbar möglich, ohne vorherigen Erwerb.
 
           Eine Subscription ist erst für **Robotmk** erforderlich — die Integrationsschicht, die Robot-Framework-Tests mit Checkmk verbindet. Bis zu drei Test-Services lassen sich zur Erprobung ohne Subscription betreiben.
+
+      - q: "Worin unterscheiden sich Synthetic Monitoring und Real User Monitoring (RUM)?"
+        a: |
+          RUM misst passiv Ihre echten Nutzer und liefert damit nur dort Daten, wo und wann tatsächlich jemand die Anwendung benutzt. Nachts, am Wochenende oder auf selten genutzten, aber kritischen Pfaden bleibt es still. Und Sie erfahren von einem Problem erst, wenn ein echter Kunde bereits darüber gestolpert ist.
+          Bei Robotmk spielt ein Roboter (Robot Framework) die kritischen Journeys (z.B. Login, Angebot, Checkout) nach einem festem Zeitplan durch. Rund um die Uhr, reproduzierbar, egal ob die Anwendung gerade jemand nutzt.

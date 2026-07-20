@@ -1,7 +1,7 @@
 # ── Page meta & reused strings ───────────────────────────────────────────────
 meta:
   title: "Frequently Asked Questions"
-  intro: "Many of these questions reach me by mail, in the Robot Framework Slack, or after a talk. Because they recur regularly, they are collected here — with honest answers, including where the honest answer is not the convenient one.<br>A question missing? A short message is enough, and it will be added here."
+  intro: "A question missing? A short message is enough, and it will be added here."
   search_placeholder: "Search questions …"
   filter_label: "Filter by category"
   filter_all: "All"
@@ -107,18 +107,11 @@ categories:
 
           Suites serve primarily to group test cases.
 
-      - q: "What is a \"test\"?"
+      - q: "What is a \"test case\"?"
         a: |
-          A test is a single **scenario** that checks one specific aspect of an application.
+          A test is a single **scenario** that checks one specific aspect of an application. A <b>suite</b> can contain multiple test cases, which are executed one after the other.
 
-          The scope is freely chosen: 5 scenarios in a single test — or 5 tests with one scenario each.
-
-          The first variant saves licence cost but combines very different things in one service. Only the second variant allows
-
-          - individual scenario states to be displayed in NagVis, and
-          - specific teams to be notified about individual tests.
-
-          In practice, the finer split is almost always the more sustainable one.
+          Test cases should be kept as granular as possible: one test case = one scenario. This facilitates maintenance, makes the results more meaningful, and allows for more targeted alerting.
 
       - q: "What are keywords?"
         a: |
@@ -130,7 +123,7 @@ categories:
         a: |
           The Robotmk check on the Checkmk server evaluates the raw data from the Robot Framework executions and discovers a dedicated service for **each test** — the test service.
 
-          This service reflects the state of the test (successful / failed) and can also alert on runtime overruns.
+          This service reflects the state of the test (successful / failed), contains its human-readable HTML logfile, and can also alert on runtime exceedances.
 
           The sum of all test services within a Checkmk subscription determines the scope for Synthetic Monitoring — it is the only figure that matters for licensing.
 
@@ -193,16 +186,18 @@ categories:
 
           The significance of that difference is worked through in detail on [Why Robotmk](/en/why-robotmk/).
 
-      - q: "I want to replace an existing SM solution. How do I estimate the cost?"
+      - q: "I want to replace an existing Synthetic Monitoring solution. How do I estimate the cost?"
         a: |
           Two figures from the existing system are sufficient:
 
-          1. the number of KPIs or states it delivers today, and
+          1. the number of Metriken or states it delivers today, and
           2. the average runtime of the underlying tests.
 
           The first figure corresponds approximately to the number of test services required in Checkmk — and therefore to the scope of the subscription. Nothing further is needed for a sound initial estimate.
 
-      - q: "How does the price develop if I add more locations?"
+          I’d be happy to help translate the figures into a specific Checkmk subscription during a [Clarity Call](https://www.robotmk.org/de/services/).
+
+      - q: "How does the price develop if I deploy RobotFramework-Tests at more locations?"
         a: |
           Locations are not a licensing dimension — no more than the number of Robotmk hosts in Checkmk. Billing is neither per location nor per host.
 
@@ -219,3 +214,8 @@ categories:
           Yes, entirely. Robot Framework and its libraries are open source and freely available — browser automation, SAP, Citrix, REST, databases and much more. Getting started is possible immediately, without any prior purchase.
 
           A subscription is required only for **Robotmk** — the integration layer that connects Robot Framework tests to Checkmk. Up to three test services can be run without a subscription for evaluation.
+
+      - q: "What is the difference between Synthetic Monitoring and Real User Monitoring (RUM)?"
+        a: |
+          RUM passively monitors your real users and therefore only provides data where and when someone is actually using the application. At night, at the weekend, or on rarely used but critical paths, there is no activity. And you only find out about a problem once a real customer has already encountered it.
+          With Robotmk, a robot (Robot Framework) runs through the critical journeys (e.g. login, product page, checkout) according to a fixed schedule. Round the clock, reproducibly, regardless of whether anyone is currently using the application.

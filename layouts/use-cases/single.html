@@ -53,10 +53,5 @@
   </div>
 </section>
 
-<section class="use-case__cta section section--surface">
-  <div class="container">
-    <p class="use-case__cta-text">{{ T "use_case_cta_text" }}</p>
-    <a class="btn btn--primary" href="{{ "/services/" | relLangURL }}">{{ T "use_case_cta_button" }}</a>
-  </div>
-</section>
+{{ partial "cta-clarity.html" . }}
 {{ end }}

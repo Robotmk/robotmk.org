@@ -7,8 +7,7 @@
    page; here the sections sit closer together. */
 .why-hero.section,
 .why-pricing.section,
-.why-pillars.section,
-.why-cta.section {
+.why-pillars.section {
   /* padding-block: var(--space-3xl); */
   padding-block: var(--space-2xl);
 }
@@ -16,8 +15,7 @@
 @media (max-width: 768px) {
   .why-hero.section,
   .why-pricing.section,
-  .why-pillars.section,
-  .why-cta.section {
+  .why-pillars.section {
     padding-block: var(--space-2xl);
   }
 }
@@ -230,11 +228,113 @@
   line-height: 1.55;
 }
 
+/* ============================================================
+   Fairness note — sits between the pricing table and the pillars.
+   A balance: what the cloud vendors include on the left, what you
+   take on with Robotmk on the right, and the payoff underneath.
+   Same flat-panel + status-colour language as .formula-callout.
+   ============================================================ */
+
+.fairness {
+  position: relative;
+  max-width: 680px;
+  margin: var(--space-2xl) auto 0;
+  padding: var(--space-lg);
+  background: var(--color-surface-low);
+  border: 1px solid var(--color-surface-border);
+}
+
+/* The two-tone rule reads as the beam of a scale: usage-based red on the
+   vendors' side, teal on ours. */
+.fairness::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-error) 0 50%, var(--color-primary) 50% 100%);
+}
+
+.fairness__label {
+  display: block;
+  font-size: var(--text-label-size);
+  font-weight: var(--text-label-weight);
+  letter-spacing: var(--text-label-letter-spacing);
+  text-transform: uppercase;
+  color: var(--color-on-surface-muted);
+  margin-bottom: var(--space-xs);
+}
+
+.fairness__heading {
+  font-family: var(--font-display);
+  font-size: var(--text-body-lg-size);
+  color: var(--color-on-surface);
+  margin: 0 0 var(--space-lg);
+}
+
+.fairness__columns {
+  display: grid;
+  grid-template-columns: 1fr 1px 1fr;
+  gap: var(--space-lg);
+  align-items: start;
+}
+
+.fairness__pivot {
+  align-self: stretch;
+  background: var(--color-surface-border);
+}
+
+.fairness__col {
+  --status-color: var(--color-surface-border);
+  border-left: 2px solid var(--status-color);
+  padding-left: var(--space-md);
+}
+
+.fairness__col--cloud   { --status-color: var(--color-error); }
+.fairness__col--robotmk { --status-color: var(--color-primary); }
+
+.fairness__col-label {
+  display: block;
+  font-family: var(--font-code);
+  font-size: var(--text-body-sm-size);
+  color: var(--status-color);
+  margin-bottom: var(--space-xs);
+}
+
+.fairness__col-text {
+  margin: 0;
+  font-size: var(--text-body-sm-size);
+  line-height: var(--text-body-md-line-height);
+  color: var(--color-on-surface-variant);
+}
+
+.fairness__col-text b { color: var(--color-on-surface); font-weight: 600; }
+
+.fairness__conclusion {
+  margin: var(--space-lg) 0 0;
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--color-surface-border);
+  font-size: var(--text-body-md-size);
+  line-height: var(--text-body-md-line-height);
+  color: var(--color-on-surface);
+}
+
+@media (max-width: 640px) {
+  .fairness__columns {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+  .fairness__pivot { display: none; }
+}
+
+/* Six columns so cards can sit 3-up (span 2) or 2-up (span 3) in the same
+   grid — the closing row needs halves, the rest needs thirds. */
 .why-pillars__grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   gap: var(--space-md);
 }
+
+.why-pillar-card { grid-column: span 2; }
 
 .why-pillar-card {
   position: relative;
@@ -248,8 +348,8 @@
    component already supplies the border + hover-border transition. */
 .why-pillar-card__rivet {
   position: absolute;
-  width: 4px;
-  height: 4px;
+  width: 7px;
+  height: 7px;
   border-radius: 50%;
   background: var(--color-primary);
   opacity: 0.3;
@@ -358,11 +458,11 @@
   .why-more__chevron { transition: none; }
 }
 
-/* The 7th pillar closes the list rather than sitting stranded alone in a
-   3-column grid's leftover row: full-width, horizontal, accent-bordered —
-   a deliberate "closing reassurance" rather than a 7th identical box. */
+/* The last two pillars close the list rather than sitting stranded in a
+   3-column grid's leftover row: a half-width, horizontal, accent-bordered
+   pair — a deliberate "closing reassurance" rather than two more boxes. */
 .why-pillar-card--closing {
-  grid-column: 1 / -1;
+  grid-column: span 3;
   flex-direction: row;
   align-items: center;
   gap: var(--space-lg);
@@ -385,6 +485,11 @@
 @media (max-width: 768px) {
   .why-pillars__grid {
     grid-template-columns: 1fr;
+  }
+
+  .why-pillar-card,
+  .why-pillar-card--closing {
+    grid-column: auto;
   }
 
   .why-pillar-card--closing {
@@ -888,21 +993,6 @@
     left: auto;
     right: 0;
   }
-}
-
-.why-cta__container {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: var(--space-lg);
-}
-
-.why-cta__text {
-  font-family: var(--font-display);
-  font-size: var(--text-headline-md-size);
-  font-weight: var(--text-headline-md-weight);
-  margin: 0;
 }
 
 @media (max-width: 768px) {

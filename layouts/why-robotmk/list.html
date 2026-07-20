@@ -138,11 +138,11 @@
         <tbody>
           {{- range $why.pricing.table.rows }}
           <tr>
-            <th scope="row">{{ .label }}</th>
+            <th scope="row">{{ .label  | safeHTML }}</th>
             <td>{{ .dynatrace }}</td>
             <td>{{ .datadog }}</td>
             <td>{{ .grafana }}</td>
-            <td class="why-pricing__table-checkmk">{{ .checkmk }}</td>
+            <td class="why-pricing__table-checkmk">{{ .checkmk  | safeHTML }}</td>
           </tr>
           {{- end }}
         </tbody>
@@ -150,6 +150,25 @@
     </div>
     <p class="why-pricing__source why-pricing__source--note">{{ $why.pricing.source_note }}</p>
     <p class="why-pricing__source why-pricing__source--note">{{ $why.explorer.disclaimer }}</p>
+
+    {{/* Fairness note — the honest counterweight to the table above: what the
+         cloud vendors include, and what you take on with Robotmk instead. */}}
+    {{- with $why.fairness }}
+    <aside class="fairness">
+      <span class="fairness__label">{{ .label }}</span>
+      <h3 class="fairness__heading">{{ .heading }}</h3>
+      <div class="fairness__columns">
+        {{- range $i, $col := .columns }}
+        {{- if gt $i 0 }}<span class="fairness__pivot" aria-hidden="true"></span>{{ end }}
+        <div class="fairness__col fairness__col--{{ $col.side }}">
+          <span class="fairness__col-label">{{ $col.label }}</span>
+          <p class="fairness__col-text">{{ $col.text | safeHTML }}</p>
+        </div>
+        {{- end }}
+      </div>
+      <p class="fairness__conclusion">{{ .conclusion | safeHTML }}</p>
+    </aside>
+    {{- end }}
   </div>
 </section>
 
@@ -158,8 +177,10 @@
     <h2 class="why-pillars__heading">{{ $why.pillars.heading }}</h2>
     <div class="why-pillars__grid">
       {{- range $i, $item := $why.pillars.items }}
-      {{- $isLast := eq (add $i 1) (len $why.pillars.items) }}
-      <div class="card why-pillar-card{{ if $isLast }} why-pillar-card--closing{{ end }}">
+      {{/* The final two cards close the list as a wider bottom row — six
+           cards divide evenly into the 3-up grid, the remainder does not. */}}
+      {{- $isClosing := ge (add $i 2) (len $why.pillars.items) }}
+      <div class="card why-pillar-card{{ if $isClosing }} why-pillar-card--closing{{ end }}">
         <span class="why-pillar-card__rivets" aria-hidden="true">
           <span class="why-pillar-card__rivet"></span>
           <span class="why-pillar-card__rivet"></span>
@@ -169,15 +190,15 @@
         <div class="why-pillar-card__icon">{{ partial "why-icon.html" $item.icon }}</div>
         <div class="why-pillar-card__body">
           <h3 class="why-pillar-card__title">{{ $item.title }}</h3>
-          <p class="why-pillar-card__text">{{ $item.text }}</p>
+          <p class="why-pillar-card__text">{{ $item.text  | safeHTML}}</p>
           {{- with $item.more }}
           <details class="why-more">
             <summary class="why-more__toggle">
-              <span class="why-more__toggle-text">{{ $why.pillars.more_label }}</span>
+              <span class="why-more__toggle-text">{{ $why.pillars.more_label  | safeHTML }}</span>
               <svg class="why-more__chevron" viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6l4 4 4-4"/></svg>
             </summary>
             <div class="why-more__panel">
-              <p>{{ . }}</p>
+              <p>{{ .  | safeHTML}}</p>
             </div>
           </details>
           {{- end }}
@@ -188,11 +209,6 @@
   </div>
 </section>
 
-<section class="why-cta section section--surface">
-  <div class="container why-cta__container">
-    <h2 class="why-cta__text">{{ $why.cta.text }}</h2>
-    <a href="{{ "/services/" | relLangURL }}" class="btn btn--primary">{{ $why.cta.button }}</a>
-  </div>
-</section>
+{{ partial "cta-clarity.html" . }}
 
 {{ end }}

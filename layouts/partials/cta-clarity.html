@@ -1,0 +1,34 @@
+{{- /*
+  Closing call-to-action: copy on the left, portrait on the right — the
+  Clarity Call is a conversation with a person, so the block shows one.
+
+  Content comes from data/<lang>/cta.yaml (key "clarity"), so every page that
+  closes on the Clarity Call says the same thing. Pass the page as context:
+
+    {{ partial "cta-clarity.html" . }}
+*/ -}}
+{{- $cta := index (index .Site.Data .Site.Language.Lang) "cta" -}}
+{{- with $cta.clarity }}
+<section class="cta-clarity section section--surface">
+  <div class="container cta-clarity__container">
+    <div class="cta-clarity__body">
+      {{- with .eyebrow }}<span class="cta-clarity__eyebrow">{{ . }}</span>{{ end }}
+      <h2 class="cta-clarity__text">{{ .text }}</h2>
+      {{- with .subtext }}<p class="cta-clarity__subtext">{{ . | safeHTML }}</p>{{ end }}
+      {{/* Straight to the booking calendar — no detour via /services/. */}}
+      <a href="{{ $.Site.Params.booking_url | default (relLangURL "/services/") }}"
+         class="btn btn--primary"
+         target="_blank" rel="noopener">{{ .button }}</a>
+    </div>
+    {{- with .image }}
+    <div class="cta-clarity__photo">
+      <img src="{{ . | relURL }}"
+           alt="{{ $cta.clarity.image_alt }}"
+           width="653" height="854"
+           loading="lazy"
+           onerror="this.closest('.cta-clarity__photo').style.display='none'">
+    </div>
+    {{- end }}
+  </div>
+</section>
+{{- end }}

@@ -1,0 +1,10 @@
+# Shared closing call-to-action, rendered by partials/cta-clarity.html.
+# One source for every page that ends on the Clarity Call — why-robotmk and
+# each use-case page — so the wording can never drift apart between them.
+clarity:
+  eyebrow: "Next step"
+  text: "Let's talk about your test cases."
+  subtext: "In the Clarity Call, we’ll explore together the added value that Synthetic Monitoring with Robotmk and Checkmk can bring you.<br>30 minutes. No sales pitch."
+  button: "Book a Clarity Call →"
+  image: "/images/portrait_büro_ich_sitze_RFCP_Logo.jpg"
+  image_alt: "Simon Meggle, founder of elabit and developer of Robotmk"

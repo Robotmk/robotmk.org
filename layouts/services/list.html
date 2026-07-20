@@ -20,7 +20,7 @@
         <div class="offering-card__meta">{{ $svc.clarity_call.meta }}</div>
         <h3 class="offering-card__title">{{ $svc.clarity_call.title }}</h3>
         <p class="offering-card__tagline">{{ $svc.clarity_call.tagline }}</p>
-        <a href="mailto:simon.meggle@elabit.de?subject=Clarity+Call" class="btn btn--primary">
+        <a href="{{ .Site.Params.booking_url }}" class="btn btn--primary" target="_blank" rel="noopener">
           {{ $svc.clarity_call.btn_email }}
         </a>
       </div>
@@ -31,7 +31,7 @@
         <div class="offering-card__meta">{{ $svc.demo.meta }}</div>
         <h3 class="offering-card__title">{{ $svc.demo.title }}</h3>
         <p class="offering-card__tagline">{{ $svc.demo.tagline }}</p>
-        <a href="mailto:simon.meggle@elabit.de?subject=Live+Demo" class="btn btn--ghost">
+        <a href="{{ .Site.Params.booking_url }}" class="btn btn--ghost" target="_blank" rel="noopener">
           {{ $svc.demo.btn_email }}
         </a>
       </div>

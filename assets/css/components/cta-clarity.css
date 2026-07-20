@@ -1,0 +1,84 @@
+/* ============================================================
+   Clarity Call CTA — shared closing block (partials/cta-clarity.html)
+
+   Copy left, portrait right. Both are content-sized and the pair is
+   centred as a unit: on a wide monitor a 1fr/auto grid would anchor the
+   photo to the far edge and open a canyon between it and the text.
+   ============================================================ */
+
+/* Tighter than the site's default 120px section rhythm — this is a closing
+   note, not a full section, and it now ends several different page types. */
+.cta-clarity.section {
+  padding-block: var(--space-2xl);
+}
+
+.cta-clarity__container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xl);
+}
+
+.cta-clarity__body {
+  flex: 0 1 560px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-md);
+}
+
+.cta-clarity__eyebrow {
+  font-size: var(--text-label-size);
+  font-weight: var(--text-label-weight);
+  letter-spacing: var(--text-label-letter-spacing);
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+
+.cta-clarity__text {
+  font-family: var(--font-display);
+  font-size: var(--text-headline-md-size);
+  font-weight: var(--text-headline-md-weight);
+  margin: 0;
+  max-width: 20ch;
+}
+
+.cta-clarity__subtext {
+  margin: 0;
+  max-width: 48ch;
+  color: var(--color-on-surface-variant);
+  line-height: var(--text-body-md-line-height);
+}
+
+/* Fixed width so the portrait never dominates the copy; the teal edge ties
+   it to the accent language used across the site. */
+.cta-clarity__photo {
+  flex: 0 0 auto;
+  width: 240px;
+  border-bottom: 3px solid var(--color-primary);
+}
+
+.cta-clarity__photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  .cta-clarity__container {
+    flex-direction: column;
+    gap: var(--space-lg);
+    text-align: center;
+  }
+
+  .cta-clarity__body {
+    flex-basis: auto;
+    align-items: center;
+  }
+
+  .cta-clarity__photo {
+    width: 180px;
+    order: -1;
+  }
+}

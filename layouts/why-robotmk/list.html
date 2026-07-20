@@ -35,7 +35,10 @@
          data-usd-to-eur="{{ $why.explorer.usd_to_eur }}"
          data-dynatrace-rate="{{ $why.explorer.dynatrace_rate_usd_per_1k_actions }}"
          data-datadog-rate="{{ $why.explorer.datadog_rate_usd_per_1k_runs }}"
-         data-grafana-rate="{{ $why.explorer.grafana_rate_usd_per_1k_runs }}"
+         data-grafana-free-executions="{{ $why.explorer.grafana_free_executions }}"
+         data-grafana-tiers="{{ $why.explorer.grafana_tiers | jsonify }}"
+         data-grafana-probes="{{ $why.explorer.grafana_probes }}"
+         data-grafana-duration-min="{{ $why.explorer.grafana_test_duration_min }}"
          data-checkmk-min-price="{{ $why.explorer.checkmk_min_price_eur }}"
          data-checkmk-max-price="{{ $why.explorer.checkmk_max_price_eur }}"
          data-test-case-min="{{ $why.explorer.test_case_min }}"
@@ -125,7 +128,7 @@
 
     <div class="why-pricing__table-wrapper">
       <table class="why-pricing__table">
-        <caption>{{ $why.pricing.table.caption }}</caption>
+        <caption>{{ $why.pricing.table.caption  | safeHTML }}</caption>
         <thead>
           <tr>
             <th scope="col"></th>
@@ -139,9 +142,9 @@
           {{- range $why.pricing.table.rows }}
           <tr>
             <th scope="row">{{ .label  | safeHTML }}</th>
-            <td>{{ .grafana }}</td>
-            <td>{{ .datadog }}</td>
-            <td>{{ .dynatrace }}</td>
+            <td>{{ .grafana  | safeHTML  }}</td>
+            <td>{{ .datadog  | safeHTML }}</td>
+            <td>{{ .dynatrace  | safeHTML }}</td>
             <td class="why-pricing__table-checkmk">{{ .checkmk  | safeHTML }}</td>
           </tr>
           {{- end }}

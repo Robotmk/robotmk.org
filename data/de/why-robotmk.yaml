@@ -6,12 +6,12 @@ hero:
 pricing:
   heading: "Die Kostenfalle"
   intro: "Die meisten großen Plattformen berechnen Synthetic Monitoring als <b>Produkt mehrerer sich gegenseitig verstärkender Variablen</b>.<br><br>Der leichte und günstige Einstieg wird später teuer bezahlt mit einer Rechnung, die nicht linear, sondern exponentiell 📈 wächst. <br><br><b>Robotmk</b> kennt nur eine Stellschraube: den Testfall.<br>Ein Test mehr, ein kalkulierbarer Betrag mehr. <br>Denn Synthetic Monitoring muss mit den Anforderungen mitwachsen können."
-  formula_competitor: "Anzahl Tests <br>× Intervall <br>× Requests/Test <br>× Rate"
+  formula_competitor: "Anzahl Tests <br>× Intervall <br>× Requests/Test <br>× Länge <br>× Rate"
   formula_checkmk: "Anzahl Tests <br>× Rate"
   formula_competitor_label: "Mitbewerber"
   formula_checkmk_label: "Robotmk"
   table:
-    caption: "Beispielrechnung: Monatliche Kosten bei 15 Testfällen mit 8 Requests/Test, ausgeführt im 15-Minuten-Intervall. (Illustratives Beispiel, kein aktuelles Angebot der Hersteller.)"
+    caption: "Beispielrechnung: 15 Testfälle, 8 Requests je Test, <b>90 Sekunden Laufzeit</b> je Testfall, von einem Standort aus geprüft. Die Laufzeit ist bei Grafana preisrelevant: abgerechnet wird je angefangener Minute, 90 Sekunden zählen also als zwei Executions. (Illustratives Beispiel, kein aktuelles Angebot der Hersteller.)"
     rows:
       - label: "Abgerechnet nach"
         dynatrace: "Aktionen (Requests)"
@@ -21,18 +21,23 @@ pricing:
       - label: "Rate"
         dynatrace: "$4,50 / 1k Aktionen"
         datadog: "$12 / 1k Ausführungen"
-        grafana: "$44 / 1k Ausführungen"
+        grafana: "$50 / 10k Executions<br>(gestaffelt)"
         checkmk: "🟢<br>pauschal"
       - label: "Kosten / Monat<br>(15 Min Intervall)"
         dynatrace: "1.388 €"
         datadog: "463 €"
-        grafana: "1.696 €"
+        grafana: "341 €"
         checkmk: "🟢<br>135 €"
       - label: "Kosten / Monat<br>(5 Min Intervall)"
         dynatrace: "4.162 €"
         datadog: "1.388 €"
-        grafana: "5.088 €"
+        grafana: "1.030 €"
         checkmk: "🟢<br>135 €"
+      - label: "Testbare Technologien"
+        dynatrace: "Web & HTTP"
+        datadog: "Web, Mobile, Netzwerk"
+        grafana: "Web & Netzwerkprotokolle"
+        checkmk: "🟢<br>Beliebig: Web, Windows Desktop, SAP, Citrix, API …"
   source_note: ""
 
 fairness:
@@ -100,9 +105,89 @@ explorer:
   disclaimer: ""
   requests_per_test: 8
   usd_to_eur: 0.88
+
+  # =====================================================================
+  # PREISMODELLE DER MITBEWERBER
+  # Alle Angaben Stand 2026-07-20. Nur öffentlich publizierte Listenpreise;
+  # Enterprise-Verträge werden individuell verhandelt und sind nicht modelliert.
+  # =====================================================================
+  #
+  # ---------------------------------------------------------------------
+  # DYNATRACE — abgerechnet pro Aktion (Netzwerk-Request)
+  # ---------------------------------------------------------------------
+  # Die feinste Abrechnungseinheit im Vergleich: nicht der Testlauf zählt,
+  # sondern jeder einzelne Request innerhalb des Tests. Ein Testfall mit
+  # 8 Requests kostet also das Achtfache eines einzelnen Requests.
+  #
+  #   Kosten = Testfälle × Requests/Test × Ausführungen/Monat × Rate
+  #
+  # Damit multiplizieren sich DREI Variablen: mehr Testfälle, kürzeres
+  # Intervall UND komplexere Tests treiben den Preis jeweils eigenständig.
   dynatrace_rate_usd_per_1k_actions: 4.50
+  #
+  # ---------------------------------------------------------------------
+  # DATADOG — abgerechnet pro vollständigem Testlauf
+  # ---------------------------------------------------------------------
+  # Gutmütigeres Modell: Schritte innerhalb eines Tests sind kostenlos,
+  # ein Testlauf zählt als eine Einheit — egal wie viele Requests er auslöst.
+  #
+  #   Kosten = Testfälle × Ausführungen/Monat × Rate
+  #
+  # Bleiben ZWEI Variablen: Anzahl Testfälle und Intervall.
   datadog_rate_usd_per_1k_runs: 12
-  grafana_rate_usd_per_1k_runs: 44
+  #
+  # ---------------------------------------------------------------------
+  # GRAFANA CLOUD — "Synthetics Browser Testing", gestaffelt nach Volumen
+  # ---------------------------------------------------------------------
+  # Quelle: https://grafana.com/pricing/ (Preisrechner, geprüft 2026-07-20).
+  #
+  # Eine "Test Execution" ist NICHT ein Testlauf, sondern:
+  #
+  #   Executions = Probes × Testfälle × Laufzeit(Min, aufgerundet)
+  #                × (43.200 / Intervall_Min)
+  #
+  # Entscheidend ist der Faktor Laufzeit: gemessen wird je ANGEFANGENER
+  # Minute. Ein Test von 90 Sekunden zählt daher als 2 Executions, ein Test
+  # von 61 Sekunden ebenfalls. Der Preisrechner auf grafana.com fragt diesen
+  # Faktor nicht ab — er nimmt die fertige Execution-Zahl als Eingabe
+  # entgegen. Die Laufzeit steckt also bereits davor in der Rechnung.
+  #
+  # Staffelung (marginal — jedes Band berechnet nur seinen eigenen Anteil),
+  # Angaben je 10.000 Test Executions:
+  #   1–10.000        frei      (Freikontingent, gilt auch im Pro-Tarif)
+  #   10.001–100.000  $50,00
+  #   100.001–250.000 $44,50
+  #   250.001+        $41,50
+  # Verifiziert gegen den Rechner: 65.000 Executions = $275,00 (55.000
+  # billable, effektiv $50,00/10k, 0 % Volumenrabatt).
+  #
+  # Die Pro-Plattformgebühr von $19/Monat ist NICHT enthalten — der
+  # Preisrechner schlägt sie ebenfalls nicht auf ($275, nicht $294), da sie
+  # einmalig pro Account und nicht pro Produkt anfällt.
+  grafana_free_executions: 10000
+  grafana_tiers:
+    - up_to: 100000
+      usd_per_10k: 50
+    - up_to: 250000
+      usd_per_10k: 44.5
+    - up_to: 0  # 0 = nach oben offen
+      usd_per_10k: 41.5
+  grafana_probes: 1
+  # Annahme: 90 Sekunden Laufzeit je Testfall → aufgerundet 2 Executions.
+  grafana_test_duration_min: 1.5
+  #
+  # ---------------------------------------------------------------------
+  # ROBOTMK / CHECKMK — abgerechnet nach Anzahl discoverter Testfälle
+  # ---------------------------------------------------------------------
+  # Eine einzige Stellschraube. Intervall, Laufzeit, Requests pro Test und
+  # Anzahl der Standorte sind sämtlich kostenlos — sie tauchen in der
+  # Formel schlicht nicht auf.
+  #
+  #   Kosten = f(Testfälle)
+  #
+  # Die Kurve ist zwischen zwei realen Referenzpunkten der Checkmk-Preis-
+  # liste interpoliert (15 Testfälle = 135 €/Monat, 1.000 = 2.333 €/Monat).
+  # Die exakte Rabattformel dazwischen ist nicht veröffentlicht.
   checkmk_min_price_eur: 135
   checkmk_max_price_eur: 2333
   test_case_min: 15
@@ -114,12 +199,12 @@ explorer:
     - key: "grafana"
       name: "Grafana"
       tooltip: "Gleiches Modell wie Datadog — abgerechnet pro vollständigem Testlauf, zu einem höheren Satz."
-    - key: "dynatrace"
-      name: "Dynatrace"
-      tooltip: "Abgerechnet pro Netzwerk-Request: Intervall × Testfälle × Schritte pro Test — alles multipliziert."
     - key: "datadog"
       name: "Datadog"
       tooltip: "Abgerechnet pro vollständigem Testlauf: Intervall × Testfälle. Schritte innerhalb eines Tests sind kostenlos."
+    - key: "dynatrace"
+      name: "Dynatrace"
+      tooltip: "Abgerechnet pro Netzwerk-Request: Intervall × Testfälle × Schritte pro Test — alles multipliziert."
     - key: "checkmk"
       name: "<b>Robotmk</b>"
       tooltip: "Abgerechnet nur nach Anzahl der Testfälle. Intervall und Schritte sind immer kostenlos."

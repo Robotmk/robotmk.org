@@ -4,12 +4,33 @@ const MARGIN = { top: 44, right: 16, bottom: 10, left: 60 };
 const INTERVALS = [30, 15, 5, 1]; // minutes, indexed by slider step 0-3
 const GRID_STEPS = 4;
 
+// Order matches the worked-example table above the chart.
 const SERIES = [
-  { key: 'dynatrace', status: 'bad' },
-  { key: 'datadog',   status: 'bad' },
   { key: 'grafana',   status: 'bad' },
+  { key: 'datadog',   status: 'bad' },
+  { key: 'dynatrace', status: 'bad' },
   { key: 'checkmk',   status: 'good' },
 ];
+
+// Grafana bills browser test executions in marginal volume bands: the free
+// allowance comes off the top, then each band charges only the portion of
+// usage that falls inside it. A tier with up_to = 0 is the unbounded top band.
+function grafanaUsd(cfg, executions) {
+  let remaining = Math.max(0, executions - cfg.grafanaFreeExecutions);
+  let lower = cfg.grafanaFreeExecutions;
+  let usd = 0;
+
+  for (const tier of cfg.grafanaTiers) {
+    if (remaining <= 0) break;
+    const band = tier.up_to === 0 ? Infinity : tier.up_to - lower;
+    const inBand = Math.min(remaining, band);
+    usd += (inBand / 10000) * tier.usd_per_10k;
+    remaining -= inBand;
+    lower = tier.up_to;
+  }
+
+  return usd;
+}
 
 function computeCosts(cfg, intervalMin, testCases) {
   // Monthly figures throughout: a twelfth of the annual execution count
@@ -22,8 +43,11 @@ function computeCosts(cfg, intervalMin, testCases) {
   const datadogRuns = executionsPerMonth * testCases;
   const datadog = (datadogRuns / 1000) * cfg.datadogRate * cfg.usdToEur;
 
-  const grafanaRuns = executionsPerMonth * testCases;
-  const grafana = (grafanaRuns / 1000) * cfg.grafanaRate * cfg.usdToEur;
+  // A Grafana "execution" is one test, at one probe, per started minute of
+  // run time — so probes and duration multiply the raw run count.
+  const grafanaExecutions = executionsPerMonth * testCases
+    * cfg.grafanaProbes * Math.ceil(cfg.grafanaDurationMin);
+  const grafana = grafanaUsd(cfg, grafanaExecutions) * cfg.usdToEur;
 
   const checkmk = testCases <= cfg.testCaseMin
     ? cfg.checkmkMinPrice
@@ -56,7 +80,10 @@ export function init() {
     usdToEur: parseFloat(root.dataset.usdToEur),
     dynatraceRate: parseFloat(root.dataset.dynatraceRate),
     datadogRate: parseFloat(root.dataset.datadogRate),
-    grafanaRate: parseFloat(root.dataset.grafanaRate),
+    grafanaFreeExecutions: parseFloat(root.dataset.grafanaFreeExecutions),
+    grafanaTiers: JSON.parse(root.dataset.grafanaTiers),
+    grafanaProbes: parseFloat(root.dataset.grafanaProbes),
+    grafanaDurationMin: parseFloat(root.dataset.grafanaDurationMin),
     checkmkMinPrice: parseFloat(root.dataset.checkmkMinPrice),
     checkmkMaxPrice: parseFloat(root.dataset.checkmkMaxPrice),
     testCaseMin: parseInt(root.dataset.testCaseMin, 10),

@@ -1,0 +1,64 @@
+{{ define "title" }}{{ .Title }} — {{ .Site.Title }}{{ end }}
+
+{{ define "main" }}
+{{- $faq := index .Site.Data .Site.Language.Lang "faq" -}}
+
+<section class="page-hero">
+  {{ partial "hero-motif.html" . }}
+  <div class="container">
+    <h1 class="page-hero__title">{{ $faq.meta.title }}</h1>
+    <p class="page-hero__subtitle">{{ $faq.meta.intro | safeHTML }}</p>
+  </div>
+</section>
+
+<section class="faq section">
+  <div class="container faq__container">
+
+    {{/* Hidden until faq.js takes over — without JS the controls do nothing,
+         so they must not be visible. The grouped list below stands on its own. */}}
+    <div class="faq__controls" data-faq-controls hidden>
+      <input type="search" id="faq-search" class="faq__search"
+             placeholder="{{ $faq.meta.search_placeholder }}"
+             aria-label="{{ $faq.meta.search_placeholder }}"
+             autocomplete="off">
+      <div class="faq__pills" aria-label="{{ $faq.meta.filter_label }}">
+        <button type="button" class="faq__pill faq__pill--active" data-category="all">{{ $faq.meta.filter_all }}</button>
+        {{- range $faq.categories }}
+        <button type="button" class="faq__pill" data-category="{{ .id }}">{{ .name }}</button>
+        {{- end }}
+      </div>
+    </div>
+
+    <p class="faq__no-results" data-faq-no-results hidden>
+      {{ $faq.meta.no_results }}
+      <a href="{{ .Site.Params.booking_url }}" target="_blank" rel="noopener">{{ $faq.meta.cta_link }}</a>
+    </p>
+
+    <div class="faq__list">
+      {{- range $faq.categories }}
+      <section class="faq__category" id="{{ .id }}" data-category="{{ .id }}">
+        <h2 class="faq__category-title">{{ .name }}</h2>
+        {{- range .questions }}
+        <details class="faq__item">
+          <summary class="faq__question">
+            <span class="faq__question-text">{{ .q }}</span>
+            <span class="faq__chevron" aria-hidden="true"></span>
+          </summary>
+          <div class="faq__answer">
+            {{ .a | markdownify }}
+            <p class="faq__micro-cta">
+              {{ $faq.meta.cta_text }}
+              <a href="{{ $.Site.Params.booking_url }}" target="_blank" rel="noopener">{{ $faq.meta.cta_link }} →</a>
+            </p>
+          </div>
+        </details>
+        {{- end }}
+      </section>
+      {{- end }}
+    </div>
+
+  </div>
+</section>
+
+{{ partial "cta-clarity.html" . }}
+{{ end }}

@@ -96,6 +96,9 @@ languages:
         - name: "Warum Robotmk"
           url: "/de/why-robotmk/"
           weight: 3
+        - name: "FAQ"
+          url: "/de/faq/"
+          weight: 4
         # - identifier: usecases
         #   name: "Use Cases"
         #   url: "/de/use-cases/"

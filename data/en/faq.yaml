@@ -1,13 +1,13 @@
 # ── Page meta & reused strings ───────────────────────────────────────────────
 meta:
   title: "Frequently Asked Questions"
-  intro: "Many of these questions reach me by mail, in the Robot Framework Slack, or right after a talk. Because they keep coming back, I collect them here — with honest answers, including where the honest answer isn't the convenient one.<br>Your question isn't here? Just ask me, and it will be next."
+  intro: "Many of these questions reach me by mail, in the Robot Framework Slack, or after a talk. Because they recur regularly, they are collected here — with honest answers, including where the honest answer is not the convenient one.<br>A question missing? A short message is enough, and it will be added here."
   search_placeholder: "Search questions …"
   filter_label: "Filter by category"
   filter_all: "All"
-  cta_text: "Still not clear? Submit your question via the chat widget."
+  cta_text: "Still open? Submit the question via the chat widget."
   cta_link: "Or book a free clarity call"
-  no_results: "I haven't covered that one yet — just ask me directly:"
+  no_results: "There is no entry on that yet — a direct enquiry will help:"
 
 categories:
   # ── 1 ───────────────────────────────────────────────────────────────────────
@@ -16,45 +16,45 @@ categories:
     questions:
       - q: "Why should I use Robotmk when I already have Checkmk?"
         a: |
-          Because the two answer different questions.
+          The two answer different questions.
 
-          Checkmk monitors your **systems**: Is the server up? Is the database reachable? How full is the disk? Every light is green — and the business still calls, because checkout in the shop has been stuck for two hours.
+          Checkmk monitors **systems**: Is the server up? Is the database reachable? How full is the disk? Every light can be green while the business reports that checkout in the shop has been stuck for two hours.
 
-          Robotmk closes exactly that gap. It brings **synthetic monitoring** to Checkmk: automated tests that drive your applications the way a real user would — log in, click, submit the form, verify the result. You stop monitoring only the infrastructure and start monitoring the **user experience**.
+          Robotmk closes exactly that gap. It brings **synthetic monitoring** to Checkmk: automated tests that drive applications the way a real user would — log in, click, submit the form, verify the result. What is monitored is then no longer only the infrastructure, but the **user experience**.
 
-          Best of all, you don't need a second tool. Test results land as ordinary services in Checkmk — with the same rules, notifications and dashboards your team already knows.
+          No second tool is required for this: test results appear as regular services in Checkmk — with the same rules, notifications and dashboards as every other service.
 
       - q: "How are robotmk.org and checkmk.com related?"
         a: |
           They are two separate projects that work together closely.
 
-          **Checkmk** is developed and sold by Checkmk GmbH. Synthetic Monitoring is a built-in part of the product there — including support and documentation.
+          **Checkmk** is developed and sold by Checkmk GmbH. Synthetic Monitoring is an integral part of the product there — including support and documentation.
 
-          **robotmk.org** is this site: an independent project run by ELABIT GmbH. I invented Robotmk and work part-time as a product manager at Checkmk on the integration. At the same time I use Robotmk as a consultant in real customer projects.
+          **robotmk.org** is this site: an independent project run by ELABIT GmbH. I invented Robotmk and work part-time as a product manager at Checkmk on the integration. In parallel, I use Robotmk as a consultant in customer projects.
 
-          That dual role is the whole point: what I learn in projects flows back into product development — and what I know about the product, I share here.
+          That dual role is the essential point: field experience from projects flows back into product development — and the resulting product knowledge is passed on here.
 
       - q: "Can I buy Robotmk on this site?"
         a: |
-          No. Robotmk is part of Checkmk and is licensed exclusively through [checkmk.com](https://checkmk.com) — Synthetic Monitoring is a subscription extension to your Checkmk installation.
+          No. Robotmk is part of Checkmk and is licensed exclusively through [checkmk.com](https://checkmk.com) — Synthetic Monitoring is a subscription extension to the Checkmk installation.
 
-          What you get here is everything around it: knowledge, field experience and — if you want it — help with the rollout.
+          This site provides the surrounding context: knowledge, field experience and, on request, support with the rollout.
 
       - q: "Is Robotmk open source?"
         a: |
           Not any more. Robotmk started as an open source project on GitHub and was for years one of the most installed Checkmk extensions.
 
-          With the integration into Checkmk it became a commercial product, developed, maintained and supported by Checkmk GmbH. The old open source version (v1) is no longer being developed.
+          With the integration into Checkmk it became a commercial product, developed, maintained and supported by Checkmk GmbH. The earlier open source version (v1) is no longer being developed.
 
           The Robot Framework world itself — the framework and its entire library ecosystem — is untouched by this and remains fully open source.
 
       - q: "It's a shame that Robotmk is no longer open source."
         a: |
-          I understand that — and the decision wasn't an easy one for me.
+          That is understandable — the decision was not an easy one.
 
-          The honest background: a project of this size needs dependable development, tested releases and real support. That cannot be done on the side. A substantial part of what Robotmk does today — the deep Checkmk integration, automatic environment management, robust result processing — would simply never have come into existence as a spare-time open source package.
+          The background: a project of this size requires dependable development, tested releases and reliable support. That cannot be done on the side. A substantial part of today's feature set — the deep Checkmk integration, automatic environment management, robust result processing — would not have come into existence as a spare-time open source package.
 
-          So the commercial basis isn't the price paid for less openness; it's the precondition for the product existing at this quality at all.
+          The commercial basis is therefore not the price paid for less openness, but the precondition for the current level of functionality and quality.
 
   # ── 2 ───────────────────────────────────────────────────────────────────────
   - id: learning
@@ -62,40 +62,40 @@ categories:
     questions:
       - q: "How many ready-made tests does Synthetic Monitoring come with?"
         a: |
-          **None.** This expectation is common, so let me be blunt about it:
+          **None.** This expectation is common, so to be explicit:
 
-          Robotmk / Synthetic Monitoring is the solution for integrating Robot Framework test results into Checkmk. *Writing* those tests remains the customer's responsibility — and rightly so, because nobody but you knows your business processes.
+          Robotmk, or Synthetic Monitoring, is the solution for integrating Robot Framework test results into Checkmk. *Writing* those tests remains the customer's responsibility — and appropriately so, since knowledge of the relevant business processes sits within the organisation.
 
-          You are not starting from a blank page, though: the Robot Framework ecosystem provides ready-made libraries for practically every technology, and [robotmk-starter](https://github.com/elabit/robotmk-starter) contains CI-tested example test cases to build on.
+          That does not mean starting from a blank page: the Robot Framework ecosystem provides ready-made libraries for practically every technology, and [robotmk-starter](https://github.com/elabit/robotmk-starter) contains CI-tested example test cases as a starting point.
 
       - q: "How do I learn Robot Framework and Robotmk?"
         a: |
-          There are a number of good entry points by now:
+          A number of suitable entry points are now available:
 
           - **Checkmk documentation** — the authoritative reference for Synthetic Monitoring.
-          - **Checkmk YouTube channel** — including "Getting Started with Synthetic Monitoring" (set up a test client, write your first test) and "Integrating Robot Framework tests in Checkmk" (configure Robotmk, discover services, set up monitoring).
-          - **Robot Framework Slack** — a very helpful community.
+          - **Checkmk YouTube channel** — including "Getting Started with Synthetic Monitoring" (set up a test client, write a first test) and "Integrating Robot Framework tests in Checkmk" (configure Robotmk, discover services, set up monitoring).
+          - **Robot Framework Slack** — a notably helpful community.
           - **This blog** — tutorials, best practices and news from the field.
-          - **[robotmk-starter](https://github.com/elabit/robotmk-starter)** — CI-tested boilerplate test cases to learn from.
-          - **Robotmk Academy** — my online course tailored to Synthetic Monitoring with Robot Framework and Checkmk. It also prepares you for the RFCP exam (Robot Framework Certified Professional). Details under [Services](/en/services/).
+          - **[robotmk-starter](https://github.com/elabit/robotmk-starter)** — CI-tested boilerplate test cases for reference.
+          - **Robotmk Academy** — my online course, tailored to Synthetic Monitoring with Robot Framework and Checkmk. It also prepares for the RFCP exam (Robot Framework Certified Professional). Details under [Services](/en/services/).
 
       - q: "Does Synthetic Monitoring offer test recording (\"click and point\")?"
         a: |
-          No — and that is a deliberate decision, not a missing feature.
+          No. This is a deliberate decision, not a missing feature.
 
-          The question usually comes from a certain fear of "programming". To be clear: Robot Framework has no graphical test UI; here you really do write test code. Thanks to the keyword syntax, however, that code is exceptionally readable — which is one of the main reasons Robot Framework was invented in the first place.
+          The question usually stems from reservations about "programming". Robot Framework has no graphical test interface; tests are written as code. Thanks to the keyword syntax, however, that code is exceptionally readable — one of the reasons Robot Framework came about in the first place.
 
-          Why no recorder? Every test consists of three things:
+          The argument against a recorder lies in how a test is structured. It consists of three layers:
 
           - the **test logic** (what needs to be done),
-          - the **test technique** (how it is done),
+          - the **test technique** (how it is implemented),
           - the **test data** (what inputs are used).
 
-          A recorder throws all three into one pot. That looks fine at first glance but does not scale: for every similar test you have to record again, and as soon as the application, the logic, the technique or the data changes, you re-record every affected test from scratch. The amount of code quickly becomes unmanageable.
+          A recorder conflates all three. The result looks serviceable at first but does not scale: every similar test has to be recorded again, and any change to the application, the logic, the technique or the data requires re-recording all affected tests. The codebase grows unmaintainable quickly.
 
-          Robot Framework code can instead be written in layers: the top keyword layer describes only the logic ("WHAT is being tested?"), the layer below it the sub-steps with the test data, the bottom layer only the technical implementation. When something changes, you touch exactly one layer.
+          Robot Framework code can instead be layered: the top keyword layer describes only the logic ("WHAT is being tested?"), the layer below it the sub-steps with the test data, the bottom layer the technical implementation. Changes then affect exactly one layer.
 
-          An analogy from hi-fi: Robot Framework is a system made of separate components, each doing one job — source, amplifier, speakers. Each can be repaired, replaced and modernised; such systems last practically forever. Test recorders are all-in-one units: handy at first glance, but virtually impossible to repair, because everything is built into one box.
+          An analogy from hi-fi illustrates the principle: a system built from separate components — source, amplifier, speakers — assigns one job to each component. Each can be repaired, replaced and modernised, and such systems last accordingly. Test recorders correspond to all-in-one units: convenient at first, but barely repairable once something fails, because everything is built into one box.
 
   # ── 3 ───────────────────────────────────────────────────────────────────────
   - id: concepts
@@ -105,26 +105,26 @@ categories:
         a: |
           A suite is a text file containing Robot Framework code describing one or more tests (also called test cases). Robotmk executes these suites on the monitored hosts — on Windows as well as Linux.
 
-          Suites are mainly used to group test cases.
+          Suites serve primarily to group test cases.
 
       - q: "What is a \"test\"?"
         a: |
           A test is a single **scenario** that checks one specific aspect of an application.
 
-          What goes into a test is entirely up to you. You can cover 5 scenarios in a single test — or write 5 tests with one scenario each.
+          The scope is freely chosen: 5 scenarios in a single test — or 5 tests with one scenario each.
 
-          The first approach saves licence cost but packs very different things into one service. Only the second approach lets you
+          The first variant saves licence cost but combines very different things in one service. Only the second variant allows
 
-          - display individual scenario states in NagVis, and
-          - notify specific teams about individual tests.
+          - individual scenario states to be displayed in NagVis, and
+          - specific teams to be notified about individual tests.
 
-          In practice, the finer split is almost always worth it.
+          In practice, the finer split is almost always the more sustainable one.
 
       - q: "What are keywords?"
         a: |
           Keywords are the building blocks that make up tests. They behave like functions in a programming language: they take parameters, can return values, and can be nested to any depth.
 
-          That nesting is exactly what makes Robot Framework tests readable and maintainable over time.
+          That nesting is precisely what makes Robot Framework tests readable and maintainable over time.
 
       - q: "What are \"test services\"?"
         a: |
@@ -148,18 +148,18 @@ categories:
 
       - q: "Which tests require an unlocked Windows desktop session?"
         a: |
-          All tests that drive the **graphical interface of a locally installed application** — SAP GUI, Citrix clients or classic Windows software, for example. Without a logged-in, unlocked user session there is simply nothing there to click. That is not a Robotmk limitation but a hard technical requirement.
+          All tests that drive the **graphical interface of a locally installed application** — SAP GUI, Citrix clients or classic Windows software, for example. Without a logged-in, unlocked user session there is no operable interface there. That is not a Robotmk limitation but a basic technical condition.
 
-          Anything that does not need a GUI runs **headless** — entirely without a desktop session. That includes web tests: Firefox, Chromium and WebKit can all run in headless mode.
+          Anything that does not require a GUI runs **headless** — that is, without a desktop session. This includes web tests: Firefox, Chromium and WebKit can all run in headless mode.
 
       - q: "What is the difference between Robotmk v1 (MKP) and v2 (Synthetic Monitoring)?"
         a: |
-          **v1** was the community extension: an MKP you installed and maintained yourself. Python environments on the test clients had to be set up and kept current by hand.
+          **v1** was the community extension: an MKP installed and maintained independently. Python environments on the test clients had to be set up and kept current by hand.
 
-          **v2** is Synthetic Monitoring as a built-in part of Checkmk. The key differences:
+          **v2** is Synthetic Monitoring as an integral part of Checkmk. The key differences:
 
-          - **Built in, not bolted on** — configured through the normal Checkmk rule management, no separate MKP.
-          - **Automatic environment management** via RCC: you describe per suite in a YAML file what the test needs; the matching environment is created on the client automatically and reproducibly.
+          - **Built in, not bolted on** — configured through the regular Checkmk rule management, no separate MKP.
+          - **Automatic environment management** via RCC: each suite declares in a YAML file what the test requires; the matching environment is created on the client automatically and reproducibly.
           - **Official support and documentation** from Checkmk GmbH.
           - Considerably more robust execution control and result processing.
 
@@ -167,11 +167,11 @@ categories:
 
       - q: "How do I migrate from Robotmk v1 to v2?"
         a: |
-          Gradually — there is no cut-over date you have to hit.
+          Incrementally — no cut-over date is required.
 
-          The v1 MKP can be installed on Checkmk 2.3+ in parallel and does not interfere with the integrated v2. So you can move suite by suite while everything else keeps running unchanged.
+          The v1 MKP can be installed on Checkmk 2.3+ in parallel and does not interfere with the integrated v2. Migration can therefore proceed suite by suite while the remaining estate continues unchanged.
 
-          The Robot Framework suites themselves need **no changes**. The only new step: for each suite you write an environment specification (YAML) so the matching environment can be created automatically.
+          The Robot Framework suites themselves need **no changes**. The only additional step: an environment specification (YAML) has to be created per suite so the matching environment can be generated automatically.
 
   # ── 5 ───────────────────────────────────────────────────────────────────────
   - id: licensing
@@ -179,43 +179,43 @@ categories:
     questions:
       - q: "Can I try out Synthetic Monitoring?"
         a: |
-          Yes. Up to three test services can run in Checkmk without a subscription — enough to evaluate Synthetic Monitoring in the "free tier" with real tests in your own environment.
+          Yes. Up to three test services can run in Checkmk without a subscription — in the so-called "free tier" that is enough to evaluate Synthetic Monitoring with real tests in one's own environment at no cost.
 
-          One thing to be clear about: this allowance is a **trial offer, not a permanent discount**. As soon as you take out a Synthetic Monitoring subscription, the three free test services fall away. From that point the usage counts as productive — and every productively monitored test service represents real value delivered, which is why each one then counts towards the scope of your subscription.
+          One point to note: this allowance is a **trial offer, not a permanent discount**. Once a Synthetic Monitoring subscription is taken out, the three free test services no longer apply. From that point the usage counts as productive — and since every productively monitored test service represents delivered value, each one then counts towards the scope of the subscription.
 
-          The currently valid terms are on [checkmk.com](https://checkmk.com).
+          The terms currently in force are documented on [checkmk.com](https://checkmk.com).
 
       - q: "What happens if I shorten a suite's execution interval?"
         a: |
-          Nothing at all — except that you get higher resolution in your test data.
+          Nothing — apart from a higher resolution in the test data.
 
-          This is precisely where costs explode with action-based competitors: there you pay per test run or per action. With Checkmk the cost stays constant, because only the number of test services counts.
+          This is precisely where costs rise with action-based competitors: there, billing is per test run or per action. With Checkmk the cost stays constant, because only the number of test services counts.
 
-          I work through why that difference matters so much on [Why Robotmk](/en/why-robotmk/).
+          The significance of that difference is worked through in detail on [Why Robotmk](/en/why-robotmk/).
 
       - q: "I want to replace an existing SM solution. How do I estimate the cost?"
         a: |
-          You only need two numbers from your existing system:
+          Two figures from the existing system are sufficient:
 
           1. the number of KPIs or states it delivers today, and
           2. the average runtime of the underlying tests.
 
-          The first number roughly equals the number of test services you will need in Checkmk — and therefore the scope of the subscription. Nothing more is needed for a solid first estimate.
+          The first figure corresponds approximately to the number of test services required in Checkmk — and therefore to the scope of the subscription. Nothing further is needed for a sound initial estimate.
 
       - q: "How does the price develop if I add more locations?"
         a: |
-          Locations are not a licensing dimension at all — no more than the number of Robotmk hosts in Checkmk. You pay neither per location nor per host.
+          Locations are not a licensing dimension — no more than the number of Robotmk hosts in Checkmk. Billing is neither per location nor per host.
 
-          What counts is exclusively the total number of test services within a subscription. If you run the same suite at several locations, each will of course produce its own test services — but the price still follows this one, easily predictable figure.
+          What counts is exclusively the total number of test services within a subscription. If the same suite runs at several locations, each will produce its own test services — but the price still follows this one, readily predictable figure.
 
       - q: "Does the Checkmk agent's check interval affect pricing?"
         a: |
-          No, not at all.
+          No.
 
-          The execution interval of the Robot Framework suites is completely independent of the Checkmk agent's check interval. The agent merely picks up whichever results were last available; how often it does so has no bearing on licensing.
+          The execution interval of the Robot Framework suites is completely independent of the Checkmk agent's check interval. The agent merely collects whichever results were last available; how often it does so has no bearing on licensing.
 
       - q: "Is Robot Framework accessible before buying a licence?"
         a: |
-          Yes, completely. Robot Framework and its libraries are open source and freely available — browser automation, SAP, Citrix, REST, databases and much more. You can start writing tests right away without buying anything.
+          Yes, entirely. Robot Framework and its libraries are open source and freely available — browser automation, SAP, Citrix, REST, databases and much more. Getting started is possible immediately, without any prior purchase.
 
-          A subscription is only required for **Robotmk** — the integration layer that connects your Robot Framework tests to Checkmk. Up to three test services can be run without a subscription for evaluation.
+          A subscription is required only for **Robotmk** — the integration layer that connects Robot Framework tests to Checkmk. Up to three test services can be run without a subscription for evaluation.

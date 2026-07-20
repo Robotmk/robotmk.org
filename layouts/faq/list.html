@@ -3,16 +3,21 @@
 {{ define "main" }}
 {{- $faq := index .Site.Data .Site.Language.Lang "faq" -}}
 
-<section class="page-hero">
+{{/* Same shape as the Why Robotmk hero: the motif needs a positioned,
+     overflow-hidden parent or it escapes and tiles the whole page. */}}
+<section class="faq-hero section">
   {{ partial "hero-motif.html" . }}
   <div class="container">
-    <h1 class="page-hero__title">{{ $faq.meta.title }}</h1>
-    <p class="page-hero__subtitle">{{ $faq.meta.intro | safeHTML }}</p>
+    <h1 class="faq-hero__title">{{ $faq.meta.title }}</h1>
   </div>
 </section>
 
 <section class="faq section">
   <div class="container faq__container">
+
+    {{/* The intro sits with the search box, not in the hero — it explains
+         what this collection is right where the visitor starts using it. */}}
+    <p class="faq__intro">{{ $faq.meta.intro | safeHTML }}</p>
 
     {{/* Hidden until faq.js takes over — without JS the controls do nothing,
          so they must not be visible. The grouped list below stands on its own. */}}

@@ -111,15 +111,15 @@ explorer:
   # 15 x 4 x 24 x (365/12) = 43800 Ausführungen / Monat
   # x 8 = 350.400 Requests / Monat  
   vendors:
+    - key: "grafana"
+      name: "Grafana"
+      tooltip: "Gleiches Modell wie Datadog — abgerechnet pro vollständigem Testlauf, zu einem höheren Satz."
     - key: "dynatrace"
       name: "Dynatrace"
       tooltip: "Abgerechnet pro Netzwerk-Request: Intervall × Testfälle × Schritte pro Test — alles multipliziert."
     - key: "datadog"
       name: "Datadog"
       tooltip: "Abgerechnet pro vollständigem Testlauf: Intervall × Testfälle. Schritte innerhalb eines Tests sind kostenlos."
-    - key: "grafana"
-      name: "Grafana"
-      tooltip: "Gleiches Modell wie Datadog — abgerechnet pro vollständigem Testlauf, zu einem höheren Satz."
     - key: "checkmk"
       name: "<b>Robotmk</b>"
       tooltip: "Abgerechnet nur nach Anzahl der Testfälle. Intervall und Schritte sind immer kostenlos."

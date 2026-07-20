@@ -1,6 +1,6 @@
 hero:
   eyebrow: "The Comparison"
-  title: "Good Reasons to Choose Robotmk"
+  title: "Reasons to Choose Robotmk"
   subtitle: "A single control – for a fair and transparent pricing model."
 
 pricing:
@@ -21,7 +21,7 @@ pricing:
       - label: "Rate"
         dynatrace: "$4.50 / 1k actions"
         datadog: "$12 / 1k runs"
-        grafana: "$44 / 1k runs"
+        grafana: "$50 / 10k runs"
         checkmk: "🟢<br>flat rate"
       - label: "Cost / month<br>(15-minute interval)"
         dynatrace: "€1,388"
@@ -102,7 +102,7 @@ explorer:
   usd_to_eur: 0.88
   dynatrace_rate_usd_per_1k_actions: 4.50
   datadog_rate_usd_per_1k_runs: 12
-  grafana_rate_usd_per_1k_runs: 44
+  grafana_rate_usd_per_1k_runs: 5
   checkmk_min_price_eur: 135
   checkmk_max_price_eur: 2333
   test_case_min: 15
@@ -111,15 +111,15 @@ explorer:
   # 15 × 4 × 24 × (365/12) = 43,800 runs per month
   # × 8 = 350,400 requests per month  
   vendors:
+    - key: "grafana"
+      name: "Grafana"
+      tooltip: "Same model as Datadog — billed per complete test run, at a higher rate."
     - key: "dynatrace"
       name: "Dynatrace"
       tooltip: "Billed per network request: interval × test cases × steps per test — all multiplied together."
     - key: "datadog"
       name: "Datadog"
       tooltip: "Billed per complete test run: interval × test cases. Steps within a test are free of charge."
-    - key: "grafana"
-      name: "Grafana"
-      tooltip: "Same model as Datadog — billed per complete test run, at a higher rate."
     - key: "checkmk"
       name: "<b>Robotmk</b>"
       tooltip: "Billed solely on the number of test cases. Interval and steps are always free of charge."

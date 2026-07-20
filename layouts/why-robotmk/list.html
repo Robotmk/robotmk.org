@@ -129,9 +129,9 @@
         <thead>
           <tr>
             <th scope="col"></th>
-            <th scope="col">Dynatrace</th>
-            <th scope="col">Datadog</th>
             <th scope="col">Grafana</th>
+            <th scope="col">Datadog</th>
+            <th scope="col">Dynatrace</th>
             <th scope="col" class="why-pricing__table-checkmk">Robotmk</th>
           </tr>
         </thead>
@@ -139,9 +139,9 @@
           {{- range $why.pricing.table.rows }}
           <tr>
             <th scope="row">{{ .label  | safeHTML }}</th>
-            <td>{{ .dynatrace }}</td>
-            <td>{{ .datadog }}</td>
             <td>{{ .grafana }}</td>
+            <td>{{ .datadog }}</td>
+            <td>{{ .dynatrace }}</td>
             <td class="why-pricing__table-checkmk">{{ .checkmk  | safeHTML }}</td>
           </tr>
           {{- end }}

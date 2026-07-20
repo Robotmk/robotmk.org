@@ -150,3 +150,5 @@
   translation: "One language. Every technology."
 - id: use_cases_overview_teaser
   translation: "Web, Citrix, SAP, desktop, REST, SaaS — Robot Framework tests them all. Your team learns one language instead of five tools."
+- id: nav_cta_mobile
+  translation: "Book a Clarity Call &rarr;"

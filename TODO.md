@@ -62,3 +62,9 @@
   `nav__link--active` for config-defined menu entries, so "Use Cases" (and every
   other top-level nav item) never shows an active state on its own page. Broader nav
   fix if desired.
+- The Use Cases overview grid (`layouts/use-cases/list.html`) auto-derives its cards
+  from `.Pages` front matter, but the nav dropdown children are hand-listed in
+  `hugo.yaml` (both `en` and `de` language blocks). They're in sync today, but adding,
+  removing, or renaming a use case updates one surface and not the other. Either keep
+  both in sync by hand when a use case changes, or generate the menu children from the
+  section instead of hard-coding them in `hugo.yaml`.

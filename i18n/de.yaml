@@ -148,4 +148,6 @@
   translation: "Eine Sprache. Jede Technologie."
 - id: use_cases_overview_teaser
   translation: "Web, Citrix, SAP, Desktop, REST, SaaS — Robot Framework testet sie alle. Ihr Team lernt eine Sprache statt fünf Werkzeuge."
+- id: nav_cta_mobile
+  translation: "Clarity Call buchen &rarr;"
 

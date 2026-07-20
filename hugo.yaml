@@ -37,12 +37,40 @@ languages:
         - name: "Why Robotmk"
           url: "/en/why-robotmk/"
           weight: 3
+        - identifier: usecases
+          name: "Use Cases"
+          url: "/en/use-cases/"
+          weight: 4
+        - name: "Web"
+          parent: usecases
+          url: "/en/use-cases/web/"
+          weight: 10
+        - name: "Citrix"
+          parent: usecases
+          url: "/en/use-cases/citrix/"
+          weight: 20
+        - name: "SAP GUI"
+          parent: usecases
+          url: "/en/use-cases/sap-gui/"
+          weight: 30
+        - name: "Windows Desktop"
+          parent: usecases
+          url: "/en/use-cases/windows-desktop/"
+          weight: 40
+        - name: "REST API"
+          parent: usecases
+          url: "/en/use-cases/rest-api/"
+          weight: 50
+        - name: "SaaS"
+          parent: usecases
+          url: "/en/use-cases/saas/"
+          weight: 60
         - name: "Services"
           url: "/en/services/"
-          weight: 4
+          weight: 5
         - name: "Blog"
           url: "/en/blog/"
-          weight: 5
+          weight: 6
         # - name: "About"
         #   url: "/en/about/"
         #   weight: 5
@@ -68,12 +96,40 @@ languages:
         - name: "Warum Robotmk"
           url: "/de/why-robotmk/"
           weight: 3
+        - identifier: usecases
+          name: "Use Cases"
+          url: "/de/use-cases/"
+          weight: 4
+        - name: "Web"
+          parent: usecases
+          url: "/de/use-cases/web/"
+          weight: 10
+        - name: "Citrix"
+          parent: usecases
+          url: "/de/use-cases/citrix/"
+          weight: 20
+        - name: "SAP GUI"
+          parent: usecases
+          url: "/de/use-cases/sap-gui/"
+          weight: 30
+        - name: "Windows Desktop"
+          parent: usecases
+          url: "/de/use-cases/windows-desktop/"
+          weight: 40
+        - name: "REST API"
+          parent: usecases
+          url: "/de/use-cases/rest-api/"
+          weight: 50
+        - name: "SaaS"
+          parent: usecases
+          url: "/de/use-cases/saas/"
+          weight: 60
         - name: "Services"
           url: "/de/services/"
-          weight: 4
+          weight: 5
         - name: "Blog"
           url: "/de/blog/"
-          weight: 5
+          weight: 6
         # - name: "Über mich"
         #   url: "/de/about/"
         #   weight: 5

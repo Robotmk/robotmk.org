@@ -68,3 +68,5 @@
   removing, or renaming a use case updates one surface and not the other. Either keep
   both in sync by hand when a use case changes, or generate the menu children from the
   section instead of hard-coding them in `hugo.yaml`.
+=======
+- Improve Price Table, add grafana 

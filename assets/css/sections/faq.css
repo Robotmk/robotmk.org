@@ -189,6 +189,11 @@
 
 .faq__micro-cta a:hover { color: var(--color-primary); }
 
+@media (prefers-reduced-motion: reduce) {
+  .faq__chevron,
+  .faq__pill { transition: none; }
+}
+
 /* --- Mobile --------------------------------------------------------------- */
 
 @media (max-width: 640px) {
@@ -197,8 +202,8 @@
     flex-wrap: nowrap;
     overflow-x: auto;
     /* Let the pill row bleed to the viewport edges so it reads as scrollable. */
-    margin: 0 calc(var(--space-md) * -1);
-    padding: 0 var(--space-md) var(--space-sm);
+    margin: 0 calc(var(--space-lg) * -1);
+    padding: 0 var(--space-lg) var(--space-sm);
     -webkit-overflow-scrolling: touch;
   }
   .faq__pill { white-space: nowrap; }

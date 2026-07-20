@@ -17,9 +17,11 @@ export function init() {
   const pills = Array.from(controls.querySelectorAll('.faq__pill'));
   const groups = Array.from(list.querySelectorAll('.faq__category'));
 
-  // Fold case and strip diacritics, so "Ausfuhrung" finds "Ausführung".
+  // Fold case, strip diacritics, and collapse hyphens/whitespace to single
+  // spaces, so "Ausfuhrung" finds "Ausführung" and "Test Services" finds
+  // "Test-Services".
   const normalise = (s) =>
-    s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+    s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[-\s]+/g, ' ').trim()
 
   // Question and answer text are searched together, indexed once up front.
   // The micro-CTA boilerplate is identical on every item, so it is excluded

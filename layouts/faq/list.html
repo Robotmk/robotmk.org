@@ -21,7 +21,7 @@
              placeholder="{{ $faq.meta.search_placeholder }}"
              aria-label="{{ $faq.meta.search_placeholder }}"
              autocomplete="off">
-      <div class="faq__pills" aria-label="{{ $faq.meta.filter_label }}">
+      <div class="faq__pills" role="group" aria-label="{{ $faq.meta.filter_label }}">
         <button type="button" class="faq__pill faq__pill--active" data-category="all">{{ $faq.meta.filter_all }}</button>
         {{- range $faq.categories }}
         <button type="button" class="faq__pill" data-category="{{ .id }}">{{ .name }}</button>
@@ -29,16 +29,18 @@
       </div>
     </div>
 
-    <p class="faq__no-results" data-faq-no-results hidden>
+    <p class="faq__no-results" data-faq-no-results aria-live="polite" hidden>
       {{ $faq.meta.no_results }}
       <a href="{{ .Site.Params.booking_url }}" target="_blank" rel="noopener">{{ $faq.meta.cta_link }}</a>
     </p>
 
     <div class="faq__list">
       {{- range $faq.categories }}
-      <section class="faq__category" id="{{ .id }}" data-category="{{ .id }}">
-        <h2 class="faq__category-title">{{ .name }}</h2>
-        {{- range .questions }}
+      {{- $cat := . }}
+      {{- with .questions }}
+      <section class="faq__category" id="{{ $cat.id }}" data-category="{{ $cat.id }}">
+        <h2 class="faq__category-title">{{ $cat.name }}</h2>
+        {{- range . }}
         <details class="faq__item">
           <summary class="faq__question">
             <span class="faq__question-text">{{ .q }}</span>
@@ -54,6 +56,7 @@
         </details>
         {{- end }}
       </section>
+      {{- end }}
       {{- end }}
     </div>
 

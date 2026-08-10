@@ -287,19 +287,41 @@ Der `role`-Locator ist viel robuster. (Sagte ich das bereits? 😊)
 
 Natürlich ist auch der **Accessible Name** kein Allheilmittel. 
 
-Ich möchte diesen Artikel mit einer klaren Empfehlung (fast) abschließen: nutze Selektor-Typen in dieser Reihenfolge (sortiert von stabil nach fragil):
+Ich möchte diesen Artikel mit einer klaren Empfehlung (fast) abschließen: nutze Selektor-Typen am besten in dieser Reihenfolge.
 
-**1) Automation IDs**: `id`, `data-testid` & Co.  
+**Wichtig zu wissen**: Ganz oben steht bewusst das, was am nächsten an der *Nutzersicht* liegt und **ohne fremde Hilfe** auskommt - nicht zwingend das technisch Allerstabilste.
 
-Vorteile: 
+**1) Rolle + Accessible Name**: `role=...[name="..."]`
 
-- ...unschlagbar! Speziell für die **Automatisierung** geschaffen
+- der **Sweet Spot** 😊
+- semantisch statt strukturell, denn er **spiegelt die Nutzerintention**
+- funktioniert auch **ohne** Mithilfe der Entwickler - solange die Seite halbwegs barrierefrei ist
+- **Bonus**: bricht auch genau dann, wenn auch ein Screenreader-Nutzer scheitern würde (dazu gleich eine kleine Pointe)
+
+```robotframework
+Click    role=button[name="Speichern"]
+```
+
+**2) Automation IDs**: `data-testid` & Co.
+
+Vorteile:
+
+- ...unschlagbar stabil! Speziell für die **Automatisierung** geschaffen
 - sprach-unabhängig
 - hängen an keiner sichtbaren oder strukturellen Eigenschaft - ändern sich also nie "versehentlich"
-- das Standard-Attribut in Playwright/Browser Library ist `data-testid` (bei Bedarf konfigurierbar)  
+- das Standard-Attribut in Playwright/Browser Library ist `data-testid` (bei Bedarf konfigurierbar)
 
-Einziger Haken: muss von den Entwicklern gesetzt werden.  
-Ohne deren Mitarbeit existiert ID schlicht nicht. 
+Ebenfalls anzutreffen sind diese gleichwertigen Alternativen: 
+
+- `data-test`
+- `data-testid`
+- `data-test-id`
+
+
+Einziger Haken: dieses Attribut muss von den Entwicklern gesetzt werden. Ohne deren Mitarbeit existiert diese Möglichkeit schlicht nicht.
+
+⚠️ Bitte nicht verwechseln mit dem blanken `id`-Attribut (dazu gleich mehr in Punkt 4): Eine `id` ist im DOM per Definition ein *global eindeutiger* Bezeichner - ein `data-testid` dagegen ist fürs automatisierte Testen und **muss nicht eindeutig sein**.  
+Das gibt Dir **Spielraum**: Du kannst im Test mit einem einzigen Selektor alle Kandidaten durchprüfen, bevor Du aufgibst.
 
 **Beispiel:**
 
@@ -307,30 +329,21 @@ Ohne deren Mitarbeit existiert ID schlicht nicht.
 <button data-testid="save-form">Speichern</button>
 ```
 
-**Browser Library:** 
+**Browser Library:**
+
 ```robotframework
 Click    data-testid=save-form
 ```
 
 Quelle: [Browser Library: Finding Elements with Automation IDs](https://marketsquare.github.io/robotframework-browser/Browser.html#Finding%20elements)
 
-**2) Rolle + Accessible Name**: `role=...[name="..."]`
-
-- der **Sweet Spot** 😊
-- semantisch statt strukturell, er **spiegelt die Nutzerintention**
-- funktioniert auch **ohne** Mithilfe der Entwickler - solange die Seite halbwegs barrierefrei ist
-- **Bonus**: bricht genau dann, wenn auch ein Screenreader-Nutzer scheitern würde (dazu gleich eine kleine Pointe)
-
-```robotframework
-Click    role=button[name="Speichern"]
-```
-
 **3) Text-Selektoren**
 
 - exakt das, was der Benutzer **sieht**
 - **sprachabhängig**
-- ⚠️ **Achtung**: Playwrights Text-Strategie ist per Default **Teilstring-Matching und case-insensitive**. `text=Speichern` matcht damit auch "**Speichern** und schließen" - ein klassischer Stolperstein.  
-Mit Anführungszeichen erzwingst Du **exaktes Matching**:
+- ⚠️ **Achtung**: Playwrights Text-Strategie arbeitet per Default (d.h. ohne Quotes) **Teilstring-Matching und case-insensitive**.
+
+**Beispiele:**
 
 ```robotframework
 Click    text=Speichern      # Teilstring, case-insensitive - Vorsicht!
@@ -339,15 +352,38 @@ Click    text="Speichern"    # exakt
 
 Quelle: [Browser Library: Finding Elements](https://marketsquare.github.io/robotframework-browser/Browser.html#Finding%20elements)
 
-**4) CSS/XPath auf sonstige Attribute**
+**4) CSS/XPath auf sonstige Attribute - und die blanke `id`**
 
 Achtung, auch CSS-Klassen sind ganz normale Attribute, die sich ohne Vorwarnung ändern können, ohne dass sich die Seite ändert.  
-Benutze sie nur, wenn wirklich kein anderer stabiler Anker existiert. 
+
+> Und hier gehört auch die **`id`** (siehe Punkt 2 in der Liste) hin: Sie *fühlt* sich eindeutig an - aber sie "gehört" den Entwicklern, wird oft vom Framework generiert und kann bei einem Refactoring ohne weiteres neu vergeben werden.  
+> Anders als ein `data-testid` ist sie **kein** Automatisierungs-Attribut, sondern ein *x-beliebiges* Attribut.  
+> 👉 Verlass Dich also nur darauf, wenn Du mit den Entwicklern abgestimmt hast, dass genau diese IDs verbindlich bleiben.
+
+Benutze sonstige Attribute also nur, wenn wirklich kein anderer stabiler Anker existiert. 
 
 ```robotframework
 Click    input[name='email']      # CSS: input mit Attribut name="email"
 Click    div[data-state='open']   # CSS: div mit Attribut data-state="open"
+Click    id=submit-button         # id: nur, wenn verbindlich zugesichert
 ```
+
+---
+
+## Kurz am Rande: Selektoren verketten
+
+Fast alle Beispiele oben waren einzelne Selektoren.  
+In BrowserLibrary kannst du aber auch mehrere davon in einem String mit `>>` **verketten** - jeder Schritt sucht dann innerhalb des Treffers vom vorherigen:
+
+```robotframework
+# In der Zeile mit "Ada Lovelace" den Bearbeiten-Button klicken
+Click    text="Ada Lovelace" >> role=button[name="Bearbeiten"]
+```
+
+Das nimmt Dir den Druck, *den einen* perfekten CSS/XPath/Playwright-Selektor finden zu müssen: oft kommst Du mit zwei simplen, verketteten Selektoren weiter als mit einem einzigen komplizierten.  
+Sehr praktisch auch, um ein absichtlich mehrfach vergebenes `data-testid` vom Eltern-Element her gezielt einzugrenzen.
+
+Lies hier mehr dazu: [Browser Library: Cascaded selector syntax](https://marketsquare.github.io/robotframework-browser/Browser.html#Finding%20elements)
 
 ---
 
@@ -426,6 +462,8 @@ Fassen wir also zusammen: mir geht es hier nicht um Selektor-Judotricks, sondern
 Wenn Du künftig also vor der Wahl stehst, einen Selektor schnell zu *kopieren* oder ihn kurz in den DevTools *abzulesen*: Der zweite Klick auf den **Accessible Name** kostet Dich keine Sekunde mehr – liefert Dir aber einen Anker, der sicher länger hält.  
 
 Und im besten Fall findest Du damit sogar Bugs, die echten Menschen das Leben schwer machen können. 💪
+
+Danke speziell an **René Rohner** (Robot Framework Foundation & Entwickler der BrowserLibrary) für das Feedback zu diesem Artikel!
 
 ---
 

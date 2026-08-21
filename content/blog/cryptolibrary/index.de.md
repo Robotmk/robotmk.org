@@ -231,7 +231,7 @@ Erst mit dem *Passwort* wird der private Schlüssel nutzbar – und das Passwort
 Das geht mit einem sogenannten [Systemd-Override](https://dev.to/redrum_yot/understanding-drop-in-overrides-in-systemd-when-parameters-accumulate-vs-override-3noi):
 
 ```bash
-> systemctl edit check-mk-agent-async.service
+> systemctl edit robotmk-scheduler-daemon.service
 ```
 
 Dort dann eintragen:
@@ -245,12 +245,19 @@ Anschließend Systemd reloaden und den Agenten neu starten:
 
 ```bash
 sudo systemctl daemon-reload
-sudo systemctl restart check-mk-agent-async.service
+sudo systemctl restart robotmk-scheduler-daemon.service
 ```
 
 > Windows-User setzen hierfür eine System-Umgebungsvariable. 
 
-Nun ist die Umgebungsvariable `RMKCRYPTPW` also im Kontext des Checkmk-Agenten bzw. Robotmk-Schedulers verfügbar. Die CryptoLibrary im Robot kann damit den privaten Schlüssel verwenden, um die verschlüsselten Werte in den Tests zu entschlüsseln.
+Nun ist die Umgebungsvariable `RMKCRYPTPW` also im Kontext des Robotmk-Schedulers verfügbar.  
+Die CryptoLibrary im Robot kann damit den privaten Schlüssel verwenden, um die verschlüsselten Werte in den Tests zu entschlüsseln.
+
+💡 **Pro-Tipp**: Wenn Du schnell überprüfen möchtest, ob die Umgebungsvariable für die Unit korrekt gesetzt ist, kannst Du folgenden Befehl ausführen:
+
+```
+systemctl show robotmk-scheduler-daemon.service -p Environment
+```
 
 ---
 

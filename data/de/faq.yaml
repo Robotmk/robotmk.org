@@ -24,15 +24,17 @@ categories:
 
           Ein zweites Werkzeug ist dafür nicht erforderlich: Die Testergebnisse erscheinen als reguläre Services in Checkmk — mit denselben Regeln, Benachrichtigungen und Dashboards wie alle übrigen Services.
 
-      - q: "Wie hängen robotmk.org und checkmk.com zusammen?"
+      - q: "Wie hängen Robotmk, diese Seite und Checkmk zusammen?"
         a: |
-          Es sind zwei getrennte Projekte, die eng zusammenarbeiten.
+          Robotmk ist kein eigenes Produkt neben Checkmk — es ist der technische Unterbau von Synthetic Monitoring **in** Checkmk.
 
-          **Checkmk** wird von der Checkmk GmbH entwickelt und vertrieben. Synthetic Monitoring ist dort fester Bestandteil des Produkts — inklusive Support und Dokumentation.
+          Robotmk begann als meine Open-Source-Entwicklung und wurde über Jahre eine der meistinstallierten Checkmk-Erweiterungen. Seit 2022 arbeite ich — neben meiner Selbstständigkeit — als Produktmanager für Synthetic Monitoring bei der Checkmk GmbH. Auf diesem Weg hat Robotmk Einzug in Checkmk gehalten: Was dort heute **Synthetic Monitoring** heißt, ist aus Robotmk hervorgegangen.
 
-          **robotmk.org** ist diese Seite: ein unabhängiges Projekt der ELABIT GmbH. Ich bin der Erfinder von Robotmk und arbeite in Teilzeit als Produktmanager bei Checkmk an der Integration mit. Parallel dazu setze ich Robotmk als Berater in Kundenprojekten ein.
+          Lizenzierung, Support und die verbindliche Dokumentation liegen deshalb bei der Checkmk GmbH — [checkmk.com](https://checkmk.com).
 
-          Diese Doppelrolle ist der eigentliche Punkt: Praxiserfahrung aus Projekten fließt in die Produktentwicklung zurück — und das Produktwissen wird hier weitergegeben.
+          **robotmk.org** ist keine zweite Produktschiene, sondern das Umfeld dazu: die Seite meiner ELABIT GmbH mit Praxiswissen, Tutorials und Kursen — und der Ort, an dem ich Kunden bei der Einführung begleite.
+
+          Der Nutzen dieser Doppelrolle: Erfahrung aus Kundenprojekten fließt in die Produktentwicklung zurück, und das Produktwissen wird hier weitergegeben.
 
       - q: "Kann ich Robotmk hier auf der Seite kaufen?"
         a: |
@@ -42,11 +44,11 @@ categories:
 
       - q: "Ist Robotmk Open Source?"
         a: |
-          Nicht mehr. Robotmk startete als Open-Source-Projekt auf GitHub und war jahrelang eine der meistinstallierten Checkmk-Erweiterungen.
-
-          Mit der Integration in Checkmk wurde daraus ein kommerzielles Produkt, das von der Checkmk GmbH entwickelt, gepflegt und supportet wird. Die frühere Open-Source-Version (v1) wird nicht mehr weiterentwickelt.
+          Nicht mehr. Robotmk startete als Open-Source-Projekt auf GitHub; mit der Integration in Checkmk wurde daraus ein kommerzielles Produkt, das von der Checkmk GmbH entwickelt, gepflegt und supportet wird. Die frühere Open-Source-Version (v1) wird nicht mehr weiterentwickelt.
 
           Die Robot-Framework-Welt selbst — das Framework und sein gesamtes Library-Ökosystem — bleibt davon unberührt und ist weiterhin vollständig Open Source.
+
+          Warum es diesen Schritt gebraucht hat, steht in der nächsten Frage.
 
       - q: "Ich finde es schade, dass Robotmk nicht mehr Open Source ist."
         a: |
@@ -83,19 +85,9 @@ categories:
         a: |
           Nein. Das ist eine bewusste Entscheidung, keine fehlende Funktion.
 
-          Hintergrund der Frage ist meist der Vorbehalt gegenüber dem „Programmieren“. Robot Framework hat keine grafische Test-Oberfläche; die Tests werden als Code geschrieben. Dank der Keyword-Syntax ist dieser Code allerdings ausgesprochen gut lesbar — einer der Gründe, aus denen Robot Framework überhaupt entstanden ist.
+          Ein Test besteht aus drei Ebenen: der **Test-Logik** (was zu tun ist), der **Test-Technik** (wie es umgesetzt wird) und den **Testdaten** (womit getestet wird). Ein Recorder vermischt alle drei. Das Ergebnis wirkt zunächst brauchbar, skaliert aber nicht: Jeder ähnliche Test muss erneut aufgezeichnet werden, und ändert sich Anwendung, Logik, Technik oder Testdaten, sind sämtliche betroffenen Tests neu aufzunehmen.
 
-          Gegen einen Recorder spricht der Aufbau eines Tests. Er besteht aus drei Ebenen:
-
-          - der **Test-Logik** (was zu tun ist),
-          - der **Test-Technik** (wie es umgesetzt wird),
-          - den **Testdaten** (womit getestet wird).
-
-          Ein Recorder vermischt alle drei. Das Ergebnis wirkt zunächst brauchbar, skaliert aber nicht: Jeder ähnliche Test muss erneut aufgezeichnet werden, und bei Änderungen an Anwendung, Logik, Technik oder Testdaten sind sämtliche betroffenen Tests neu aufzunehmen. Der Codebestand wächst dabei schnell ins Unwartbare.
-
-          Robot-Framework-Code lässt sich stattdessen schichten: Die oberste Keyword-Ebene beschreibt allein die Logik („WAS wird getestet?“), die darunterliegende Ebene die Teilschritte mit den Testdaten, die unterste die technische Umsetzung. Änderungen betreffen dann genau eine Schicht.
-
-          Ein Vergleich aus der HiFi-Technik verdeutlicht das Prinzip: Eine Anlage aus Einzelkomponenten — Quelle, Verstärker, Lautsprecher — weist jeder Komponente eine Aufgabe zu. Jede lässt sich reparieren, ersetzen und modernisieren; solche Anlagen halten entsprechend lange. Test-Recorder entsprechen Kompaktanlagen: zunächst praktisch, im Fehlerfall aber kaum zu reparieren, weil alles in einem Gehäuse verbaut ist.
+          Robot-Framework-Code lässt sich stattdessen schichten: Die oberste Keyword-Ebene beschreibt allein die Logik („WAS wird getestet?“), die darunterliegenden Ebenen die Teilschritte mit den Testdaten und die technische Umsetzung. Eine Änderung betrifft dann genau eine Schicht. Dank der Keyword-Syntax bleibt dieser Code trotzdem ausgesprochen gut lesbar — einer der Gründe, aus denen Robot Framework überhaupt entstanden ist.
 
   # ── 3 ───────────────────────────────────────────────────────────────────────
   - id: concepts
@@ -109,7 +101,7 @@ categories:
 
       - q: "Was ist ein „Test Case“?"
         a: |
-          Ein Test Case ist ein einzelnes **Szenario**, das einen bestimmten Aspekt einer Anwendung prüft. Eine <b>Suite</b> kann mehrere Test Cases enthalten, die nacheinander ausgeführt werden.
+          Ein Test Case ist ein einzelnes **Szenario**, das einen bestimmten Aspekt einer Anwendung prüft. Eine **Suite** kann mehrere Test Cases enthalten, die nacheinander ausgeführt werden.
 
           Test Cases sollten so granular wie möglich gehalten werden: Ein Test Case = ein Szenario. Das erleichtert die Wartung, macht die Ergebnisse aussagekräftiger und erlaubt eine gezieltere Alarmierung.
 
@@ -125,12 +117,41 @@ categories:
 
           Dieser Service zeigt den Zustand des Tests (erfolgreich / fehlgeschlagen), beinhaltet dessen menschenlesbares HTML-Logfile und alarmiert auch bei Laufzeitüberschreitungen.
 
-          Die Summe aller Test-Services innerhalb einer Checkmk-Subscription bestimmt den Umfang für Synthetic Monitoring — sie ist die einzige Größe, die für die Lizenzierung zählt.
+          Die Summe aller Test-Services innerhalb einer Checkmk-Subscription bestimmt den Umfang für Synthetic Monitoring — sie ist die einzige Größe, die für die Lizenzierung zählt. Wie sich diese Zahl aus den eigenen Suites ergibt, steht unter **Kosten & Modell**.
+
+      - q: "Was sehe ich, wenn ein Test fehlschlägt?"
+        a: |
+          Genau das, was Du von jedem anderen Checkmk-Service kennst — plus die Details des Testlaufs.
+
+          Der betroffene Test-Service wechselt auf **CRIT**, und die reguläre Benachrichtigungskette greift: dieselben Regeln, Kontakte und Eskalationen wie bei einem vollgelaufenen Dateisystem. Ein eigener Alarmierungsweg ist nicht nötig.
+
+          Am Service selbst hängt zusätzlich das **HTML-Logfile** von Robot Framework. Darin ist Schritt für Schritt nachvollziehbar, welches Keyword fehlgeschlagen ist und mit welcher Meldung. Tests, die eine Oberfläche bedienen, können beim Fehlschlag außerdem einen Screenshot ablegen — der Blick auf den Bildschirm im Moment des Fehlers.
+
+          Aus der Meldung „Login schlägt fehl“ wird damit ohne Umweg die Frage beantwortbar, woran es lag.
+
+      - q: "Worin unterscheiden sich Synthetic Monitoring und Real User Monitoring (RUM)?"
+        a: |
+          RUM misst passiv Deine echten Nutzer und liefert damit nur dort Daten, wo und wann tatsächlich jemand die Anwendung benutzt. Nachts, am Wochenende oder auf selten genutzten, aber kritischen Pfaden bleibt es still. Von einem Problem erfährst Du erst, wenn ein echter Kunde bereits darüber gestolpert ist.
+
+          Bei Robotmk spielt ein Roboter (Robot Framework) die kritischen Journeys — Login, Angebot, Checkout — nach einem festen Zeitplan durch. Rund um die Uhr, reproduzierbar, unabhängig davon, ob die Anwendung gerade jemand nutzt.
+
+          Beides schließt sich nicht aus: RUM zeigt, was Nutzer tatsächlich erlebt haben; Synthetic Monitoring zeigt, ob die Anwendung funktioniert, bevor es jemand erleben muss.
 
   # ── 4 ───────────────────────────────────────────────────────────────────────
   - id: technical
     name: "Technik & Voraussetzungen"
     questions:
+      - q: "Wo laufen die Tests — auf dem Checkmk-Server oder woanders?"
+        a: |
+          Auf eigenen Testclients, nicht auf dem Checkmk-Server. Die Rollen sind sauber getrennt:
+
+          - Auf dem **Testclient** läuft der Checkmk-Agent mit der Robotmk-Erweiterung. Er führt die Robot-Framework-Suites nach Zeitplan aus und hält die Ergebnisse bereit.
+          - Der **Checkmk-Server** holt diese Ergebnisse beim regulären Agenten-Abruf ab, wertet sie aus und legt daraus die Test-Services an.
+
+          Diese Trennung hat einen praktischen Grund: Ein Test, der einen Browser oder eine SAP GUI bedient, braucht Rechenleistung und teilweise eine echte Desktop-Sitzung. Beides gehört nicht auf den Monitoring-Server.
+
+          Der zweite Grund ist der Messpunkt: Ein Testclient am Standort der Anwender misst auch das, was die Anwender tatsächlich erleben — inklusive Netzwerkweg. Ein Testclient kann dabei mehrere Suites ausführen, und die Zahl der Testclients ist nicht begrenzt.
+
       - q: "Welche Voraussetzungen muss ein Testclient erfüllen?"
         a: |
           Unterstützt werden Windows- sowie Debian-/Ubuntu-Testclients mit mindestens **4 CPU-Kernen und 8 GB RAM**.
@@ -144,6 +165,27 @@ categories:
           Alle Tests, die die **grafische Oberfläche einer lokal installierten Anwendung** bedienen — etwa SAP GUI, Citrix-Clients oder klassische Windows-Software. Ohne angemeldete, entsperrte Benutzersitzung existiert dort keine bedienbare Oberfläche. Das ist keine Einschränkung von Robotmk, sondern eine technische Grundbedingung.
 
           Alles, was ohne GUI auskommt, läuft **headless** — also ohne Desktop-Sitzung. Dazu zählen auch Web-Tests: Firefox, Chromium und WebKit lassen sich im Headless-Modus betreiben.
+
+      - q: "Wie gehe ich mit Passwörtern und Testdaten um?"
+        a: |
+          Zugangsdaten gehören nicht im Klartext in die Suite — sie landen sonst in der Versionsverwaltung und unter Umständen im HTML-Log.
+
+          Zwei Wege haben sich bewährt:
+
+          - **Verschlüsselte Testdaten** — die [CryptoLibrary](/de/blog/cryptolibrary/) hält Passwörter verschlüsselt vor und entschlüsselt sie erst zur Laufzeit. Ein eigener Artikel beschreibt das Vorgehen im Detail.
+          - **Übergabe von außen** — Robot Framework nimmt Variablen beim Start entgegen. Der Wert kann damit aus einer geschützten Quelle stammen, statt in der Suite zu stehen.
+
+          Unabhängig vom Weg gilt: Robot Framework maskiert Werte nicht von sich aus. Damit ein Passwort nicht doch im Log auftaucht, ist die Protokollierung an den betreffenden Stellen gezielt herunterzusetzen.
+
+      - q: "Was passiert, wenn ein Test hängen bleibt?"
+        a: |
+          Er wird abgebrochen — dafür gibt es zwei Ebenen.
+
+          **Robot Framework** kennt Timeouts auf Test- und Keyword-Ebene. Wird die gesetzte Zeit überschritten, bricht der betroffene Test ab und gilt als fehlgeschlagen; die Suite läuft mit dem nächsten Test weiter.
+
+          **Robotmk** überwacht zusätzlich die Ausführung als Ganzes. Bleibt ein Lauf jenseits der konfigurierten Zeit stehen, wird er beendet, damit sich nicht mehrere Läufe überlagern.
+
+          Für den Betrieb ist der zweite Punkt der wichtigere: Ein hängender Test blockiert weder den Testclient noch das Monitoring. Und ein Test-Service, der keine frischen Ergebnisse mehr erhält, meldet genau das — statt still das letzte gute Ergebnis weiterzuzeigen.
 
       - q: "Was ist der Unterschied zwischen Robotmk v1 (MKP) und v2 (Synthetic Monitoring)?"
         a: |
@@ -167,8 +209,8 @@ categories:
           An den Robot-Framework-Suites selbst ist **keine Änderung** nötig. Der einzige zusätzliche Schritt: Je Suite ist eine Environment-Spezifikation (YAML) zu erstellen, damit die passende Umgebung automatisch erzeugt werden kann.
 
   # ── 5 ───────────────────────────────────────────────────────────────────────
-  - id: licensing
-    name: "Lizenzierung & Kosten"
+  - id: pricing
+    name: "Kosten & Modell"
     questions:
       - q: "Kann ich Synthetic Monitoring ausprobieren?"
         a: |
@@ -178,6 +220,16 @@ categories:
 
           Die jeweils gültigen Konditionen sind auf [checkmk.com](https://checkmk.com) dokumentiert.
 
+      - q: "Wie viele Test-Services entstehen aus einer Suite?"
+        a: |
+          Einer pro Test Case — nicht einer pro Suite.
+
+          Eine Suite mit zwölf Test Cases erzeugt also zwölf Test-Services. Wer den Umfang einer Subscription abschätzen will, zählt daher nicht die Suites, sondern die darin enthaltenen Test Cases.
+
+          Zwei Größen ändern diese Zahl nicht: wie oft eine Suite ausgeführt wird und wie viele Robotmk-Hosts in Checkmk konfiguriert sind. Läuft dieselbe Suite allerdings auf drei Testclients, entstehen dort jeweils eigene Test-Services — die Tests werden ja tatsächlich dreimal ausgeführt.
+
+          Die Rechnung für eine Subscription lautet damit: Test Cases je Suite, summiert über alle Suites und alle Testclients, auf denen sie laufen.
+
       - q: "Was passiert, wenn ich das Ausführungsintervall einer Suite verkürze?"
         a: |
           Nichts — abgesehen von einer höheren Auflösung der Testdaten.
@@ -186,7 +238,7 @@ categories:
 
           Die Tragweite dieses Unterschieds ist unter [Warum Robotmk](/de/why-robotmk/) im Detail vorgerechnet.
 
-      - q: "Ich will eine bestehende Synthetic-Monitoring Lösung ablösen. Wie schätze ich die Kosten ab?"
+      - q: "Ich will eine bestehende Synthetic-Monitoring-Lösung ablösen. Wie schätze ich die Kosten ab?"
         a: |
           Dafür genügen zwei Kennzahlen des Bestandssystems:
 
@@ -195,9 +247,9 @@ categories:
 
           Die erste Zahl entspricht näherungsweise der Anzahl der in Checkmk benötigten Test-Services — und damit dem Umfang der Subscription. Für eine erste belastbare Abschätzung ist mehr nicht erforderlich.
 
-          Gerne bin ich behilflich, die Zahlen im Rahmen eines [Clarity Calls](https://www.robotmk.org/de/services/)in eine konkrete Checkmk-Subscription zu übersetzen. 
+          Gerne bin ich behilflich, die Zahlen im Rahmen eines [Clarity Calls](/de/services/) in eine konkrete Checkmk-Subscription zu übersetzen.
 
-      - q: "Wie entwickelt sich der Preis, wenn ich RobotFramework-Tests an weiteren Standorte hinzunehme?"
+      - q: "Wie entwickelt sich der Preis, wenn ich Robot-Framework-Tests an weiteren Standorten hinzunehme?"
         a: |
           Standorte sind für die Lizenzierung keine eigene Größe — ebenso wenig wie die Anzahl der Robotmk-Hosts in Checkmk. Es wird weder pro Standort noch pro Host abgerechnet.
 
@@ -215,7 +267,27 @@ categories:
 
           Eine Subscription ist erst für **Robotmk** erforderlich — die Integrationsschicht, die Robot-Framework-Tests mit Checkmk verbindet. Bis zu drei Test-Services lassen sich zur Erprobung ohne Subscription betreiben.
 
-      - q: "Worin unterscheiden sich Synthetic Monitoring und Real User Monitoring (RUM)?"
+  # ── 6 ───────────────────────────────────────────────────────────────────────
+  - id: licensing
+    name: "Lizenz im Betrieb"
+    questions:
+      - q: "Wie aktiviere ich eine Synthetic-Monitoring-Subscription in Checkmk?"
         a: |
-          RUM misst passiv Ihre echten Nutzer und liefert damit nur dort Daten, wo und wann tatsächlich jemand die Anwendung benutzt. Nachts, am Wochenende oder auf selten genutzten, aber kritischen Pfaden bleibt es still. Und Sie erfahren von einem Problem erst, wenn ein echter Kunde bereits darüber gestolpert ist.
-          Bei Robotmk spielt ein Roboter (Robot Framework) die kritischen Journeys (z.B. Login, Angebot, Checkout) nach einem festem Zeitplan durch. Rund um die Uhr, reproduzierbar, egal ob die Anwendung gerade jemand nutzt.
+          Die Subscription wird nicht in Checkmk eingetragen, sondern von der Site abgeholt. Unter **Setup > Licensing** ist einsehbar, welche Lizenz die Site kennt.
+
+          Die Lizenzinformationen gelangen über den Checkmk License Server auf die Site, sobald von dort eine Verifizierung ausgelöst wird:
+
+          - **Online konfiguriert** — ein Klick auf *Online verification* genügt.
+          - **Offline konfiguriert** — die Übermittlung läuft über einen Dateiaustausch. Der Ablauf ist in der [Checkmk-Dokumentation](https://docs.checkmk.com/latest/de/license.html#heading_manualtrans) beschrieben.
+
+          Im **verteilten Monitoring** kommt es darauf an, wie die Sites verwaltet werden: Werden sie zentral konfiguriert, genügt es, die Verifizierung einmal auf der Zentralsite auszulösen. Verwaltet jede Site ihre Konfiguration selbst, ist der Schritt auf jeder Site einzeln nötig.
+
+      - q: "Was passiert, wenn ich mehr als drei Test-Services discovere?"
+        a: |
+          Das hängt davon ab, ob eine Subscription besteht.
+
+          **Ohne Subscription (Free Tier):** Die Discovery läuft weiterhin durch — die zusätzlichen Test-Services weisen dezent darauf hin, dass die drei freien Test-Services überschritten sind.
+
+          **Mit Subscription:** Zunächst passiert nichts. Es gibt keine technische Sperre, die das Monitoring anhält oder Services abschaltet. Checkmk gleicht im Rahmen des regulären Lizenzaudits ohnehin ab, ob die Installation wie lizenziert betrieben wird; ergibt sich dabei ein Mehrbedarf, wird schlicht nachlizenziert.
+
+          Das Monitoring steht also nie still, nur weil eine Grenze erreicht wurde.

@@ -53,7 +53,7 @@ solution:
 # ── Why Robotmk ───────────────────────────────────────────────────────────────
 why:
   eyebrow: "Warum Robotmk"
-  heading: "Zahl für das, was zählt. Nicht dafür, mehr zu testen vorzugaukeln."
+  heading: "Zahl für das, was zählt."
   body: "Manche Tools berechnen pro Netzwerk-Request, pro Check-Intervall, pro Minute. Checkmk Synthetic Monitoring berechnet genau eine Sache: die Anzahl der überwachten Testfälle. Teste so oft du willst, so gründlich du willst — der Preis bleibt gleich."
   stat_line: "Aktionsbasierte Wettbewerber können bis zu 10× teurer sein — und der Abstand wächst mit jedem kürzeren Testintervall."
   pillars:

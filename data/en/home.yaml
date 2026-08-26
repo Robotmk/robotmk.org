@@ -53,7 +53,7 @@ solution:
 # ── Why Robotmk ───────────────────────────────────────────────────────────────
 why:
   eyebrow: "Why Robotmk"
-  heading: "Pay for what matters. Not for pretending to test more."
+  heading: "Pay for what matters."
   body: "Some tools charge by network request, by check interval, by the minute. Checkmk Synthetic Monitoring charges for exactly one thing: the number of test cases you monitor. Test as often as you like, as thoroughly as you like — the price doesn't move."
   stat_line: "Action-based competitors can cost up to 10× more — and the gap grows every time you shorten the test interval."
   pillars:

@@ -312,6 +312,14 @@ a.post__cat:focus-visible {
   border-top: 1px solid var(--color-border);
 }
 
+/* Tag-Zeile im Artikel-Header: ohne Trennlinie, Abstand nach unten */
+.post__tags--header {
+  margin-top: 0;
+  margin-bottom: var(--space-sm);
+  padding-top: 0;
+  border-top: none;
+}
+
 .post__tag {
   position: relative;
   display: inline-block;

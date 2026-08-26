@@ -5,6 +5,7 @@
   <div class="container post__container">
 
     <header class="post__header">
+      {{ partial "post_tags.html" (dict "page" . "class" "post__tags--header") }}
       <div class="post__meta">
         <time datetime="{{ .Date.Format "2006-01-02" }}" class="post__date" itemprop="datePublished">
           {{- .Date.Format "January 2, 2006" -}}
@@ -37,12 +38,7 @@
       {{ .Content }}
     </div>
 
-    {{ with .Params.tags }}
-    <div class="post__tags">
-      {{ range . }}{{ $tag := . }}{{ $term := $.Site.GetPage (printf "/tags/%s" (. | urlize)) }}
-      <a href="{{ with $term }}{{ .RelPermalink }}{{ else }}{{ (printf "/tags/%s/" ($tag | urlize)) | relLangURL }}{{ end }}" class="badge post__tag">{{ with $term }}{{ .Title }}{{ else }}{{ $tag | humanize }}{{ end }}</a>{{ end }}
-    </div>
-    {{ end }}
+    {{ partial "post_tags.html" (dict "page" . "class" "") }}
     <br>
     <hr>
 

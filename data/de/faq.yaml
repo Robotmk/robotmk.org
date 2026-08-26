@@ -11,85 +11,6 @@ meta:
 
 categories:
   # ── 1 ───────────────────────────────────────────────────────────────────────
-  - id: checkmk
-    name: "Robotmk & Checkmk"
-    questions:
-      - q: "Warum sollte ich Robotmk einsetzen, wenn ich schon Checkmk habe?"
-        a: |
-          Beide beantworten unterschiedliche Fragen.
-
-          Checkmk überwacht **Systeme**: Läuft der Server? Ist die Datenbank erreichbar? Wie voll ist die Platte? Alle Ampeln können auf Grün stehen, während der Fachbereich meldet, dass die Bestellstrecke im Shop seit zwei Stunden hängt.
-
-          Robotmk schließt genau diese Lücke. Es bringt **Synthetic Monitoring** in Checkmk: automatisierte Tests, die Anwendungen so bedienen wie ein realer Anwender — einloggen, klicken, Formular abschicken, Ergebnis prüfen. Überwacht wird damit nicht mehr nur die Infrastruktur, sondern die **Benutzererfahrung**.
-
-          Ein zweites Werkzeug ist dafür nicht erforderlich: Die Testergebnisse erscheinen als reguläre Services in Checkmk — mit denselben Regeln, Benachrichtigungen und Dashboards wie alle übrigen Services.
-
-      - q: "Wie hängen Robotmk, diese Seite und Checkmk zusammen?"
-        a: |
-          Robotmk ist kein eigenes Produkt neben Checkmk — es ist der technische Unterbau von Synthetic Monitoring **in** Checkmk.
-
-          Robotmk begann als meine Open-Source-Entwicklung und wurde über Jahre eine der meistinstallierten Checkmk-Erweiterungen. Seit 2022 arbeite ich — neben meiner Selbstständigkeit — als Produktmanager für Synthetic Monitoring bei der Checkmk GmbH. Auf diesem Weg hat Robotmk Einzug in Checkmk gehalten: Was dort heute **Synthetic Monitoring** heißt, ist aus Robotmk hervorgegangen.
-
-          Lizenzierung, Support und die verbindliche Dokumentation liegen deshalb bei der Checkmk GmbH — [checkmk.com](https://checkmk.com).
-
-          **robotmk.org** ist keine zweite Produktschiene, sondern das Umfeld dazu: die Seite meiner ELABIT GmbH mit Praxiswissen, Tutorials und Kursen — und der Ort, an dem ich Kunden bei der Einführung begleite.
-
-          Der Nutzen dieser Doppelrolle: Erfahrung aus Kundenprojekten fließt in die Produktentwicklung zurück, und das Produktwissen wird hier weitergegeben.
-
-      - q: "Kann ich Robotmk hier auf der Seite kaufen?"
-        a: |
-          Nein. Robotmk ist Teil von Checkmk und wird ausschließlich über [checkmk.com](https://checkmk.com) lizenziert — Synthetic Monitoring ist eine Subscription-Erweiterung der Checkmk-Installation.
-
-          Diese Seite bietet das Umfeld dazu: Wissen, Praxiserfahrung und auf Wunsch Unterstützung bei der Einführung.
-
-      - q: "Ist Robotmk Open Source?"
-        a: |
-          Nicht mehr. Robotmk startete als Open-Source-Projekt auf GitHub; mit der Integration in Checkmk wurde daraus ein kommerzielles Produkt, das von der Checkmk GmbH entwickelt, gepflegt und supportet wird. Die frühere Open-Source-Version (v1) wird nicht mehr weiterentwickelt.
-
-          Die Robot-Framework-Welt selbst — das Framework und sein gesamtes Library-Ökosystem — bleibt davon unberührt und ist weiterhin vollständig Open Source.
-
-          Warum es diesen Schritt gebraucht hat, steht in der nächsten Frage.
-
-      - q: "Ich finde es schade, dass Robotmk nicht mehr Open Source ist."
-        a: |
-          Das ist nachvollziehbar — die Entscheidung ist mir nicht leichtgefallen.
-
-          Der Hintergrund: Ein Projekt dieser Größe benötigt verlässliche Weiterentwicklung, getestete Releases und belastbaren Support. Das ist nebenbei nicht zu leisten. Ein erheblicher Teil des heutigen Funktionsumfangs — die tiefe Integration in Checkmk, das automatische Environment-Management, die robuste Verarbeitung der Ergebnisse — wäre als nebenher gepflegtes Open-Source-Paket nicht entstanden.
-
-          Die kommerzielle Basis ist damit nicht der Preis für weniger Offenheit, sondern die Voraussetzung für den heutigen Funktions- und Qualitätsstand.
-
-  # ── 2 ───────────────────────────────────────────────────────────────────────
-  - id: learning
-    name: "Einstieg & Lernen"
-    questions:
-      - q: "Wie viele fertige Tests bringt Synthetic Monitoring mit?"
-        a: |
-          **Keine.** Diese Erwartung ist verbreitet, daher ausdrücklich:
-
-          Robotmk bzw. Synthetic Monitoring ist die Lösung, um Ergebnisse von Robot-Framework-Tests in Checkmk zu integrieren. Das *Schreiben* dieser Tests bleibt Aufgabe des Kunden — und das ist sachgerecht, denn die Kenntnis der eigenen Geschäftsprozesse liegt im Unternehmen.
-
-          Der Einstieg beginnt dabei nicht bei null: Das Robot-Framework-Ökosystem stellt fertige Libraries für praktisch jede Technologie bereit, und [robotmk-starter](https://github.com/elabit/robotmk-starter) enthält CI-getestete Beispiel-Testfälle als Ausgangspunkt.
-
-      - q: "Wie lerne ich Robot Framework und Robotmk?"
-        a: |
-          Es steht inzwischen eine Reihe geeigneter Einstiege zur Verfügung:
-
-          - **Checkmk-Dokumentation** — die verbindliche Referenz für Synthetic Monitoring.
-          - **Checkmk-YouTube-Kanal** — unter anderem „Getting Started with Synthetic Monitoring“ (Testclient aufsetzen, ersten Test schreiben) und „Integrating Robot Framework tests in Checkmk“ (Robotmk konfigurieren, Services discovern, Monitoring einrichten).
-          - **Robot Framework Slack** — eine ausgesprochen hilfsbereite Community.
-          - **Dieses Blog** — Tutorials, Best Practices und Neuigkeiten aus der Praxis.
-          - **[robotmk-starter](https://github.com/elabit/robotmk-starter)** — CI-getestete Boilerplate-Testfälle als Referenz.
-          - **Robotmk Academy** — mein Online-Kurs, zugeschnitten auf Synthetic Monitoring mit Robot Framework und Checkmk. Er bereitet zugleich auf die RFCP-Prüfung (Robot Framework Certified Professional) vor. Details unter [Services](/de/services/).
-
-      - q: "Gibt es eine Aufnahmefunktion für Tests („click and point“)?"
-        a: |
-          Nein. Das ist eine bewusste Entscheidung, keine fehlende Funktion.
-
-          Ein Test besteht aus drei Ebenen: der **Test-Logik** (was zu tun ist), der **Test-Technik** (wie es umgesetzt wird) und den **Testdaten** (womit getestet wird). Ein Recorder vermischt alle drei. Das Ergebnis wirkt zunächst brauchbar, skaliert aber nicht: Jeder ähnliche Test muss erneut aufgezeichnet werden, und ändert sich Anwendung, Logik, Technik oder Testdaten, sind sämtliche betroffenen Tests neu aufzunehmen.
-
-          Robot-Framework-Code lässt sich stattdessen schichten: Die oberste Keyword-Ebene beschreibt allein die Logik („WAS wird getestet?“), die darunterliegenden Ebenen die Teilschritte mit den Testdaten und die technische Umsetzung. Eine Änderung betrifft dann genau eine Schicht. Dank der Keyword-Syntax bleibt dieser Code trotzdem ausgesprochen gut lesbar — einer der Gründe, aus denen Robot Framework überhaupt entstanden ist.
-
-  # ── 3 ───────────────────────────────────────────────────────────────────────
   - id: concepts
     name: "Grundbegriffe"
     questions:
@@ -136,6 +57,85 @@ categories:
           Bei Robotmk spielt ein Roboter (Robot Framework) die kritischen Journeys — Login, Angebot, Checkout — nach einem festen Zeitplan durch. Rund um die Uhr, reproduzierbar, unabhängig davon, ob die Anwendung gerade jemand nutzt.
 
           Beides schließt sich nicht aus: RUM zeigt, was Nutzer tatsächlich erlebt haben; Synthetic Monitoring zeigt, ob die Anwendung funktioniert, bevor es jemand erleben muss.
+
+  # ── 2 ───────────────────────────────────────────────────────────────────────
+  - id: learning
+    name: "Einstieg & Lernen"
+    questions:
+      - q: "Wie viele fertige Tests bringt Synthetic Monitoring mit?"
+        a: |
+          **Keine.** Diese Erwartung ist verbreitet, daher ausdrücklich:
+
+          Robotmk bzw. Synthetic Monitoring ist die Lösung, um Ergebnisse von Robot-Framework-Tests in Checkmk zu integrieren. Das *Schreiben* dieser Tests bleibt Aufgabe des Kunden — und das ist sachgerecht, denn die Kenntnis der eigenen Geschäftsprozesse liegt im Unternehmen.
+
+          Der Einstieg beginnt dabei nicht bei null: Das Robot-Framework-Ökosystem stellt fertige Libraries für praktisch jede Technologie bereit, und [robotmk-starter](https://github.com/elabit/robotmk-starter) enthält CI-getestete Beispiel-Testfälle als Ausgangspunkt.
+
+      - q: "Wie lerne ich Robot Framework und Robotmk?"
+        a: |
+          Es steht inzwischen eine Reihe geeigneter Einstiege zur Verfügung:
+
+          - **Checkmk-Dokumentation** — die verbindliche Referenz für Synthetic Monitoring.
+          - **Checkmk-YouTube-Kanal** — unter anderem „Getting Started with Synthetic Monitoring“ (Testclient aufsetzen, ersten Test schreiben) und „Integrating Robot Framework tests in Checkmk“ (Robotmk konfigurieren, Services discovern, Monitoring einrichten).
+          - **Robot Framework Slack** — eine ausgesprochen hilfsbereite Community.
+          - **Dieses Blog** — Tutorials, Best Practices und Neuigkeiten aus der Praxis.
+          - **[robotmk-starter](https://github.com/elabit/robotmk-starter)** — CI-getestete Boilerplate-Testfälle als Referenz.
+          - **Robotmk Academy** — mein Online-Kurs, zugeschnitten auf Synthetic Monitoring mit Robot Framework und Checkmk. Er bereitet zugleich auf die RFCP-Prüfung (Robot Framework Certified Professional) vor. Details unter [Services](/de/services/).
+
+      - q: "Gibt es eine Aufnahmefunktion für Tests („click and point“)?"
+        a: |
+          Nein. Das ist eine bewusste Entscheidung, keine fehlende Funktion.
+
+          Ein Test besteht aus drei Ebenen: der **Test-Logik** (was zu tun ist), der **Test-Technik** (wie es umgesetzt wird) und den **Testdaten** (womit getestet wird). Ein Recorder vermischt alle drei. Das Ergebnis wirkt zunächst brauchbar, skaliert aber nicht: Jeder ähnliche Test muss erneut aufgezeichnet werden, und ändert sich Anwendung, Logik, Technik oder Testdaten, sind sämtliche betroffenen Tests neu aufzunehmen.
+
+          Robot-Framework-Code lässt sich stattdessen schichten: Die oberste Keyword-Ebene beschreibt allein die Logik („WAS wird getestet?“), die darunterliegenden Ebenen die Teilschritte mit den Testdaten und die technische Umsetzung. Eine Änderung betrifft dann genau eine Schicht. Dank der Keyword-Syntax bleibt dieser Code trotzdem ausgesprochen gut lesbar — einer der Gründe, aus denen Robot Framework überhaupt entstanden ist.
+
+  # ── 3 ───────────────────────────────────────────────────────────────────────
+  - id: checkmk
+    name: "Robotmk & Checkmk"
+    questions:
+      - q: "Warum sollte ich Robotmk einsetzen, wenn ich schon Checkmk habe?"
+        a: |
+          Beide beantworten unterschiedliche Fragen.
+
+          Checkmk überwacht **Systeme**: Läuft der Server? Ist die Datenbank erreichbar? Wie voll ist die Platte? Alle Ampeln können auf Grün stehen, während der Fachbereich meldet, dass die Bestellstrecke im Shop seit zwei Stunden hängt.
+
+          Robotmk schließt genau diese Lücke. Es bringt **Synthetic Monitoring** in Checkmk: automatisierte Tests, die Anwendungen so bedienen wie ein realer Anwender — einloggen, klicken, Formular abschicken, Ergebnis prüfen. Überwacht wird damit nicht mehr nur die Infrastruktur, sondern die **Benutzererfahrung**.
+
+          Ein zweites Werkzeug ist dafür nicht erforderlich: Die Testergebnisse erscheinen als reguläre Services in Checkmk — mit denselben Regeln, Benachrichtigungen und Dashboards wie alle übrigen Services.
+
+      - q: "Wie hängen Robotmk, diese Seite und Checkmk zusammen?"
+        a: |
+          Robotmk ist kein eigenes Produkt neben Checkmk — es ist der technische Unterbau von Synthetic Monitoring **in** Checkmk.
+
+          Robotmk begann als meine Open-Source-Entwicklung und wurde über Jahre eine der meistinstallierten Checkmk-Erweiterungen. Seit 2022 arbeite ich — neben meiner Selbstständigkeit — als Produktmanager für Synthetic Monitoring bei der Checkmk GmbH. Auf diesem Weg hat Robotmk Einzug in Checkmk gehalten: Was dort heute **Synthetic Monitoring** heißt, ist aus Robotmk hervorgegangen.
+
+          Lizenzierung, Support und die verbindliche Dokumentation liegen deshalb bei der Checkmk GmbH — [checkmk.com](https://checkmk.com).
+
+          **robotmk.org** ist keine zweite Produktschiene, sondern das Umfeld dazu: die Seite meiner ELABIT GmbH mit Praxiswissen, Tutorials und Kursen — und der Ort, an dem ich Kunden bei der Einführung begleite.
+
+          Der Nutzen dieser Doppelrolle: Erfahrung aus Kundenprojekten fließt in die Produktentwicklung zurück, und das Produktwissen wird hier weitergegeben.
+
+      - q: "Kann ich Robotmk hier auf der Seite kaufen?"
+        a: |
+          Nein. Robotmk ist Teil von Checkmk und wird ausschließlich über [checkmk.com](https://checkmk.com) lizenziert — Synthetic Monitoring ist eine Subscription-Erweiterung der Checkmk-Installation.
+
+          Diese Seite bietet das Umfeld dazu: Wissen, Praxiserfahrung und auf Wunsch Unterstützung bei der Einführung.
+
+      - q: "Ist Robotmk Open Source?"
+        a: |
+          Nicht mehr. Robotmk startete als Open-Source-Projekt auf GitHub; mit der Integration in Checkmk wurde daraus ein kommerzielles Produkt, das von der Checkmk GmbH entwickelt, gepflegt und supportet wird. Die frühere Open-Source-Version (v1) wird nicht mehr weiterentwickelt.
+
+          Die Robot-Framework-Welt selbst — das Framework und sein gesamtes Library-Ökosystem — bleibt davon unberührt und ist weiterhin vollständig Open Source.
+
+          Warum es diesen Schritt gebraucht hat, steht in der nächsten Frage.
+
+      - q: "Ich finde es schade, dass Robotmk nicht mehr Open Source ist."
+        a: |
+          Das ist nachvollziehbar — die Entscheidung ist mir nicht leichtgefallen.
+
+          Der Hintergrund: Ein Projekt dieser Größe benötigt verlässliche Weiterentwicklung, getestete Releases und belastbaren Support. Das ist nebenbei nicht zu leisten. Ein erheblicher Teil des heutigen Funktionsumfangs — die tiefe Integration in Checkmk, das automatische Environment-Management, die robuste Verarbeitung der Ergebnisse — wäre als nebenher gepflegtes Open-Source-Paket nicht entstanden.
+
+          Die kommerzielle Basis ist damit nicht der Preis für weniger Offenheit, sondern die Voraussetzung für den heutigen Funktions- und Qualitätsstand.
 
   # ── 4 ───────────────────────────────────────────────────────────────────────
   - id: technical

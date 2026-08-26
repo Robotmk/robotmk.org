@@ -1,0 +1,81 @@
+{{- /* Filterleiste für die Blog-Übersicht: Kategorien und Themen mit Anzahl.
+
+       Die Zähler kommen aus den übergebenen Seiten selbst, nicht aus
+       .Site.Taxonomies — so entspricht jede Zahl exakt der Menge an Karten, die
+       ein Klick auf den Chip stehen lässt.
+
+       Aufruf: partial "blog_taxonomy_filter.html" (dict "page" . "pages" .Pages) */ -}}
+
+{{- $ctx := .page -}}
+{{- $pages := .pages -}}
+{{- $topicLimit := 10 -}}
+
+{{- $counts := newScratch -}}
+{{- range $p := $pages -}}
+  {{- range $p.Params.categories -}}{{ $counts.Add (printf "categories|%s" (. | urlize)) 1 }}{{- end -}}
+  {{- range $p.Params.tags -}}{{ $counts.Add (printf "tags|%s" (. | urlize)) 1 }}{{- end -}}
+{{- end -}}
+
+{{- $categories := slice -}}
+{{- $topics := slice -}}
+{{- range $key, $count := $counts.Values -}}
+  {{- $parts := split $key "|" -}}
+  {{- $taxo := index $parts 0 -}}
+  {{- $slug := index $parts 1 -}}
+  {{- $term := $ctx.Site.GetPage (printf "/%s/%s" $taxo $slug) -}}
+  {{- $name := $slug | humanize -}}
+  {{- $url := printf "/%s/%s/" $taxo $slug | relLangURL -}}
+  {{- with $term -}}
+    {{- $name = .Title -}}
+    {{- $url = .RelPermalink -}}
+  {{- end -}}
+  {{- $item := dict "key" (printf "%s:%s" $taxo $slug) "name" $name "url" $url "count" $count -}}
+  {{- if eq $taxo "categories" -}}
+    {{- $categories = $categories | append $item -}}
+  {{- else -}}
+    {{- $topics = $topics | append $item -}}
+  {{- end -}}
+{{- end -}}
+
+{{- /* Nach Name vorsortieren, damit gleich häufige Terms alphabetisch stehen. */ -}}
+{{- $categories = sort (sort $categories "name") "count" "desc" -}}
+{{- $topics = sort (sort $topics "name") "count" "desc" -}}
+{{- $topTopics := first $topicLimit $topics -}}
+{{- $restTopics := after (len $topTopics) $topics -}}
+
+{{- if or $categories $topics }}
+<div class="blog-filter" data-blog-filter>
+  {{- with $categories }}
+  <div class="blog-filter__group">
+    <h2 class="blog-filter__label">{{ i18n "filter_categories" }}</h2>
+    <div class="blog-filter__chips">
+      {{ range . }}{{ partial "blog_filter_chip.html" . }}{{ end }}
+    </div>
+  </div>
+  {{- end }}
+
+  {{- with $topics }}
+  <div class="blog-filter__group">
+    <h2 class="blog-filter__label">{{ i18n "filter_topics" }}</h2>
+    <div class="blog-filter__chips">
+      {{ range $topTopics }}{{ partial "blog_filter_chip.html" . }}{{ end }}
+    </div>
+    {{- with $restTopics }}
+    <details class="blog-filter__more">
+      <summary class="blog-filter__more-toggle">{{ i18n "filter_show_all_topics" (dict "Count" (len $topics)) }}</summary>
+      <div class="blog-filter__chips">
+        {{ range . }}{{ partial "blog_filter_chip.html" . }}{{ end }}
+      </div>
+    </details>
+    {{- end }}
+  </div>
+  {{- end }}
+
+  {{- /* Zähler und Reset tun ohne JavaScript nichts, deshalb server-seitig
+         versteckt — blog-filter.js blendet sie ein. */}}
+  <div class="blog-filter__status">
+    <span class="blog-filter__count" data-blog-filter-count data-template="{{ i18n "filter_results" }}" hidden></span>
+    <button type="button" class="blog-filter__reset" data-blog-filter-reset hidden>{{ i18n "filter_reset" }}</button>
+  </div>
+</div>
+{{- end }}

@@ -151,3 +151,15 @@
 - id: nav_cta_mobile
   translation: "Clarity Call buchen &rarr;"
 
+
+# ── Blog-Filter ───────────────────────────────────────────────────────────────
+- id: filter_categories
+  translation: "Kategorien"
+- id: filter_topics
+  translation: "Themen"
+- id: filter_show_all_topics
+  translation: "Alle {{ .Count }} Themen zeigen"
+- id: filter_results
+  translation: "{shown} von {total} Artikeln"
+- id: filter_reset
+  translation: "Filter zurücksetzen"

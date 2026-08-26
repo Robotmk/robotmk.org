@@ -1,0 +1,7 @@
+{{- /* Ein Filter-Chip. Bleibt ein echter Link auf die Term-Seite, damit die
+       Leiste ohne JavaScript weiterhin bedienbar ist; blog-filter.js fängt den
+       Klick ab und filtert stattdessen in der Seite. */ -}}
+<a href="{{ .url }}" class="filter-chip" data-key="{{ .key }}">
+  <span class="filter-chip__name">{{ .name }}</span>
+  <span class="filter-chip__count">{{ .count }}</span>
+</a>

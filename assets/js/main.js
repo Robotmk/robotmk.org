@@ -6,6 +6,7 @@ import { init as initTestimonials }    from './testimonials.js';
 import { init as initPricingExplorer } from './pricing-explorer.js';
 import { init as initPillarExpand }    from './pillar-expand.js';
 import { init as initFaq }            from './faq.js';
+import { init as initBlogFilter }     from './blog-filter.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   initNav();
@@ -16,4 +17,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initPricingExplorer();
   initPillarExpand();
   initFaq();
+  initBlogFilter();
 });

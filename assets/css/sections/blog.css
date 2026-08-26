@@ -368,6 +368,129 @@ a.post__cat:focus-visible {
   color: var(--color-primary);
 }
 
+/* Blog-Intro und Taxonomie-Filter */
+.blog-intro {
+  padding: var(--space-lg) 0 0;
+}
+
+.blog-intro__text {
+  max-width: 68ch;
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  color: var(--color-text-secondary);
+}
+
+.blog-intro__text p {
+  margin-bottom: var(--space-sm);
+}
+
+.blog-filter {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  margin-top: var(--space-lg);
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--color-surface-border);
+}
+
+.blog-filter__label {
+  margin: 0 0 var(--space-xs);
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-on-surface-variant);
+}
+
+.blog-filter__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+}
+
+.filter-chip {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+  padding: 4px var(--space-sm);
+  font-size: var(--text-body-sm-size);
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--color-on-surface-variant);
+  text-decoration: none;
+  background: transparent;
+  border: 1px solid var(--color-surface-border);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: color var(--transition-fast),
+              border-color var(--transition-fast),
+              background-color var(--transition-fast);
+}
+
+.filter-chip:hover,
+.filter-chip:focus-visible {
+  color: var(--color-on-surface);
+  border-color: var(--color-on-surface-variant);
+}
+
+.filter-chip--active,
+.filter-chip--active:hover,
+.filter-chip--active:focus-visible {
+  color: var(--color-on-primary);
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.filter-chip__count {
+  font-size: 0.75em;
+  font-variant-numeric: tabular-nums;
+  opacity: 0.7;
+}
+
+.blog-filter__more {
+  margin-top: var(--space-xs);
+}
+
+.blog-filter__more-toggle {
+  display: inline-block;
+  padding: 4px 0;
+  font-size: var(--text-body-sm-size);
+  color: var(--color-primary);
+  cursor: pointer;
+}
+
+.blog-filter__more[open] .blog-filter__more-toggle {
+  margin-bottom: var(--space-xs);
+}
+
+.blog-filter__status {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  min-height: 1.5rem;
+  font-size: var(--text-body-sm-size);
+  color: var(--color-on-surface-variant);
+}
+
+.blog-filter__reset {
+  padding: 0;
+  font-family: inherit;
+  font-size: inherit;
+  color: var(--color-primary);
+  background: none;
+  border: 0;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+
+/* Der Filter versteckt Karten per [hidden]; .card setzt display, das sonst gewinnt. */
+.blog-card[hidden] {
+  display: none;
+}
+
 /* Taxonomy Pages */
 .taxonomy-list {
   padding: var(--space-xl) 0;

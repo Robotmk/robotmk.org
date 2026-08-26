@@ -152,3 +152,15 @@
   translation: "Web, Citrix, SAP, desktop, REST, SaaS — Robot Framework tests them all. Your team learns one language instead of five tools."
 - id: nav_cta_mobile
   translation: "Book a Clarity Call &rarr;"
+
+# ── Blog filter ───────────────────────────────────────────────────────────────
+- id: filter_categories
+  translation: "Categories"
+- id: filter_topics
+  translation: "Topics"
+- id: filter_show_all_topics
+  translation: "Show all {{ .Count }} topics"
+- id: filter_results
+  translation: "{shown} of {total} posts"
+- id: filter_reset
+  translation: "Clear filter"

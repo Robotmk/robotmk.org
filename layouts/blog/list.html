@@ -8,12 +8,22 @@
   </div>
 </section>
 
+<section class="blog-intro">
+  <div class="container">
+    {{ with .Content }}
+    <div class="blog-intro__text">{{ . }}</div>
+    {{ end }}
+    {{ partial "blog_taxonomy_filter.html" (dict "page" . "pages" .Pages) }}
+  </div>
+</section>
+
 <section class="blog-list">
   <div class="container">
     {{ if .Pages }}
     <div class="blog-list__grid">
       {{ range .Pages }}
-      <article class="card blog-card{{ if .Params.pinned }} blog-card--pinned{{ end }}">
+      <article class="card blog-card{{ if .Params.pinned }} blog-card--pinned{{ end }}"
+        data-terms="{{ range .Params.categories }}categories:{{ . | urlize }} {{ end }}{{ range .Params.tags }}tags:{{ . | urlize }} {{ end }}">
         {{ if .Params.pinned }}
         <span class="blog-card__pin-icon" aria-label="{{ i18n "badge_pinned" | default "Pinned" }}">
           <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">

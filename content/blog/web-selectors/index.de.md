@@ -208,7 +208,7 @@ Dort wo Klassennamen generiert und IDs dynamisch vergeben werden, bleibt zuminde
 
 Jetzt die praktische Frage: Wie sprichst Du den **Accessible Name** in einem Test überhaupt an?
 
-Hier lohnt sich ein kurzer Blick unter die Haube. Ich bin lange dem Irrtum aufgesessen, die Browser Library hätte nur vier feste Selektor-Strategien (CSS, XPath, ID und Text). Die [Doku der Browser-Library](https://marketsquare.github.io/robotframework-browser/Browser.html#Finding%20elements) stellt das zumindest immer noch so dar... 
+Hier lohnt sich ein kurzer Blick unter die Haube. Ich bin lange dem Irrtum aufgesessen, die Browser Library hätte nur vier feste Selektor-Strategien (CSS, XPath, ID und Text). 
 
 Tatsächlich reicht die BrowserLibrary den Selektor *direkt* an **Playwright** durch, und Playwright bringt *eine ganze Palette* an Strategien mit. (Wer es genau wissen will: [hier](https://github.com/microsoft/playwright/blob/368941457a82da112aa8610107e25f4bde94339a/packages/playwright-core/src/server/selectors.ts#L23) gehts zur "Selectors"-Klasse im Playwright-Quelltext)  
 
@@ -335,7 +335,7 @@ Das gibt Dir **Spielraum**: Du kannst im Test mit einem einzigen Selektor alle K
 Click    data-testid=save-form
 ```
 
-Quelle: [Browser Library: Finding Elements with Automation IDs](https://marketsquare.github.io/robotframework-browser/Browser.html#Finding%20elements)
+Quelle: [Browser Library: Finding Elements](https://robotframework-browser.org/docs/concepts/selectors/)
 
 **3) Text-Selektoren**
 
@@ -350,7 +350,7 @@ Click    text=Speichern      # Teilstring, case-insensitive - Vorsicht!
 Click    text="Speichern"    # exakt
 ```
 
-Quelle: [Browser Library: Finding Elements](https://marketsquare.github.io/robotframework-browser/Browser.html#Finding%20elements)
+Quelle: [Browser Library: Finding Elements](https://robotframework-browser.org/docs/concepts/selectors/)
 
 **4) CSS/XPath auf sonstige Attribute - und die blanke `id`**
 
@@ -383,7 +383,7 @@ Click    text="Ada Lovelace" >> role=button[name="Bearbeiten"]
 Das nimmt Dir den Druck, *den einen* perfekten CSS/XPath/Playwright-Selektor finden zu müssen: oft kommst Du mit zwei simplen, verketteten Selektoren weiter als mit einem einzigen komplizierten.  
 Sehr praktisch auch, um ein absichtlich mehrfach vergebenes `data-testid` vom Eltern-Element her gezielt einzugrenzen.
 
-Lies hier mehr dazu: [Browser Library: Cascaded selector syntax](https://marketsquare.github.io/robotframework-browser/Browser.html#Finding%20elements)
+Lies hier mehr dazu: [Browser Library: Cascaded selector syntax](https://robotframework-browser.org/docs/concepts/selectors/#cascading-selectors-with)
 
 ---
 

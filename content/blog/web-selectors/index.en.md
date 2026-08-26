@@ -206,7 +206,7 @@ Where class names are generated and IDs are assigned dynamically, at least the a
 
 ## Accessing the accessible name using the `role` strategy
 Now for the practical question: how do you actually target the **accessible name** in a test?
-It’s worth taking a quick look under the bonnet here. For a long time, I was under the misconception that the Browser Library only had four fixed selector strategies (CSS, XPath, ID and Text). The [Browser Library documentation](https://marketsquare.github.io/robotframework-browser/Browser.html#Finding%20elements) still presents it that way, at least...
+It’s worth taking a quick look under the bonnet here. For a long time, I was under the misconception that the Browser Library only had four fixed selector strategies (CSS, XPath, ID and Text). 
  
 In fact, the Browser Library passes the selector *directly* to **Playwright**, and Playwright comes with *a whole range* of strategies. (If you want to know the full story: [here](https://github.com/microsoft/playwright/blob/368941457a82da112aa8610107e25f4bde94339a/packages/playwright-core/src/server/selectors.ts#L23) is a link to the “Selectors” class in the Playwright source code)
   
@@ -310,7 +310,7 @@ This gives you **flexibility**: you can check all candidates in the test using a
 Click    data-testid=save-form
 ```
 
-Source: [Browser Library: Finding Elements with Automation IDs](https://marketsquare.github.io/robotframework-browser/Browser.html#Finding%20elements)
+Source: [Browser Library: Finding Elements with Automation IDs](https://robotframework-browser.org/docs/concepts/selectors/)
 
 **3) Text selectors**
 
@@ -325,7 +325,7 @@ Click    text=Save      # Partial, case-insensitive – also matches "Save and c
 Click    text="Save"    # Exact match
 ```
 
-Source: [Browser Library: Finding Elements](https://marketsquare.github.io/robotframework-browser/Browser.html#Finding%20elements)
+Source: [Browser Library: Finding Elements](https://robotframework-browser.org/docs/concepts/selectors/#cascading-selectors-with)
 
 **4) CSS/XPath on other attributes – and the plain `id`**
 
@@ -358,7 +358,7 @@ Click    text="Ada Lovelace" >> role=button[name="Edit"]
 This takes the pressure off you to find *that one* perfect CSS/XPath/Playwright selector: often, two simple, chained selectors will get you further than a single complicated one.  
 It’s also very handy for specifically narrowing down a `data-testid` that has been deliberately assigned multiple times, starting from the parent element.
 
-Read more on [Browser Library: Cascaded selector syntax](https://marketsquare.github.io/robotframework-browser/Browser.html#Finding%20elements)
+Read more on [Browser Library: Cascaded selector syntax](https://robotframework-browser.org/docs/concepts/selectors/#cascading-selectors-with)
 
 ---
 

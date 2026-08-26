@@ -35,7 +35,9 @@
             </time>
             {{ with .Params.categories }}
             <span class="blog-card__sep" aria-hidden="true">·</span>
-            {{ range first 2 . }}<span class="blog-card__cat">{{ . }}</span>{{ end }}
+            {{ range first 2 . }}{{ $term := $.Site.GetPage (printf "/categories/%s" (. | urlize)) }}
+            {{- if $term }}<a href="{{ $term.RelPermalink }}" class="blog-card__cat">{{ $term.Title }}</a>
+            {{- else }}<span class="blog-card__cat">{{ . | humanize }}</span>{{ end }}{{ end }}
             {{ end }}
           </div>
           <h2 class="blog-card__title">
@@ -48,7 +50,7 @@
           {{ end }}
           {{ with .Params.tags }}
           <div class="blog-card__tags">
-            {{ range . }}<span class="badge blog-card__tag">{{ . }}</span>{{ end }}
+            {{ range . }}{{ $term := $.Site.GetPage (printf "/tags/%s" (. | urlize)) }}<span class="badge blog-card__tag">{{ with $term }}{{ .Title }}{{ else }}{{ . | humanize }}{{ end }}</span>{{ end }}
           </div>
           {{ end }}
         </div>

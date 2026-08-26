@@ -12,10 +12,11 @@ slug: rcc-efficient-python-integration
 description:
 date: 2024-04-16T15:49:17+02:00
 categories:
-  - knowhow
+  - background
 tags:
-  - rcc
   - robotmk
+  - rcc
+  - environments
 authorbox: true
 sidebar: true
 pager: false

@@ -11,11 +11,11 @@ commentid: cryptolib-howto
 # description: null
 date: "2026-04-28T16:02:59+02:00"
 categories:
-  - tutorials
+  - how-to
 tags:
-  - "cryptolibrary"
-  - "encryption"
-  - "security"
+  - robot-framework
+  - security
+  - crypto-library
 authorbox: true
 sidebar: true
 pager: false

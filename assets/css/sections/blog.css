@@ -87,6 +87,12 @@
   text-transform: uppercase;
   letter-spacing: 0.06em;
   font-size: 0.75rem;
+  text-decoration: none;
+}
+
+a.blog-card__cat:hover,
+a.blog-card__cat:focus-visible {
+  text-decoration: underline;
 }
 
 .blog-card__title {
@@ -159,6 +165,12 @@
   text-transform: uppercase;
   letter-spacing: 0.06em;
   font-size: 0.75rem;
+  text-decoration: none;
+}
+
+a.post__cat:hover,
+a.post__cat:focus-visible {
+  text-decoration: underline;
 }
 
 .post__title {

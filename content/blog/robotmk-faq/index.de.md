@@ -12,9 +12,10 @@ title: "FAQ - Häufige Fragen zu Robotmk"
 description: 
 date: "2024-04-24T00:14:13+02:00"
 categories:
-  - ""
+  - background
 tags:
-  - ""
+  - robotmk
+  - checkmk
 authorbox: true
 sidebar: true
 pager: false

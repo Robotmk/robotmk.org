@@ -11,10 +11,9 @@ commentid: robocon26-recap-3
 description: null
 date: "2026-02-14T10:04:33+02:00"
 categories:
-  - news
-  - events
+  - event
 tags:
-  - "robocon"
+  - robocon
 authorbox: true
 sidebar: true
 pager: false

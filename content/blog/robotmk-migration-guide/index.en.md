@@ -12,10 +12,11 @@ slug: robotmk-v1-v2-migration
 description: 
 date: "2024-04-24T00:00:56+02:00"
 categories:
-  - "Tutorials"
+  - how-to
 tags:
-  - "Installation"
-  - "Robotmk"
+  - robotmk
+  - checkmk
+  - installation
 authorbox: true
 sidebar: true
 pager: false

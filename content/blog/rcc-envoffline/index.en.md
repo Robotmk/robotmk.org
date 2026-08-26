@@ -12,11 +12,12 @@ commentid: rcc-offline
 description: null
 date: "2026-04-26T16:02:59+02:00"
 categories:
-  - tutorials
+  - how-to
 tags:
-  - "rcc"
-  - "air-gapped"
-  - "offline"
+  - robotmk
+  - rcc
+  - environments
+  - air-gapped
 authorbox: true
 sidebar: true
 pager: false

@@ -12,13 +12,12 @@ commentid: alumnium-plugin
 description: 
 date: "2025-05-25T16:00:26+02:00"
 categories:
-  - "news"
-  - "libraries"
+  - background
 tags:
-  - "web-testing"
-  - "browserlibrary"
-  - "alumnium"
-  - "ai"
+  - robot-framework
+  - browser-library
+  - web-testing
+  - ai
 authorbox: true
 sidebar: true
 pager: false

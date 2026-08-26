@@ -11,9 +11,11 @@ commentid: helsinki-shortcut-for-vs-code
 description: null
 date: "2026-02-26T10:04:33+02:00"
 categories:
-  - knowhow
+  - background
 tags:
-  - vscode
+  - robot-framework
+  - vs-code
+  - ai
 authorbox: true
 sidebar: true
 pager: false

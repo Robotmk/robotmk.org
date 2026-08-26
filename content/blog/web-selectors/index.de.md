@@ -12,12 +12,13 @@ commentid: web-selectors
 #description: "Robotmk kann RCC-Environments vollständig offline aufbauen. Dieser Artikel erklärt, warum das wichtig ist und wie es in der Praxis funktioniert."
 date: "2026-07-31T10:42:47+02:00"
 categories:
-  - tutorials
+  - background
 tags:
+  - robot-framework
   - browser-library
-  - robotframework
   - web-testing
   - selectors
+  - accessibility
 authorbox: true
 sidebar: true
 pager: false

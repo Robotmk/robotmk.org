@@ -13,11 +13,12 @@ commentid: rcc-offline
 #description: "Robotmk kann RCC-Environments vollständig offline aufbauen. Dieser Artikel erklärt, warum das wichtig ist und wie es in der Praxis funktioniert."
 date: "2026-04-27T10:42:47+02:00"
 categories:
-  - tutorials
+  - how-to
 tags:
-  - "rcc"
-  - "air-gapped"
-  - "offline"
+  - robotmk
+  - rcc
+  - environments
+  - air-gapped
 authorbox: true
 sidebar: true
 pager: false

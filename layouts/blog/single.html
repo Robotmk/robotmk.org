@@ -11,7 +11,9 @@
         </time>
         {{ with .Params.categories }}
         <span class="post__sep" aria-hidden="true">·</span>
-        {{ range . }}<span class="post__cat">{{ . }}</span>{{ end }}
+        {{ range . }}{{ $term := $.Site.GetPage (printf "/categories/%s" (. | urlize)) }}
+        {{- if $term }}<a href="{{ $term.RelPermalink }}" class="post__cat">{{ $term.Title }}</a>
+        {{- else }}<span class="post__cat">{{ . | humanize }}</span>{{ end }}{{ end }}
         {{ end }}
       </div>
       {{ partial "vgwort.html" . }}      
@@ -37,7 +39,8 @@
 
     {{ with .Params.tags }}
     <div class="post__tags">
-      {{ range . }}<a href="{{ (printf "/en/tags/%s/" (. | urlize)) | relURL }}" class="badge post__tag">{{ . }}</a>{{ end }}
+      {{ range . }}{{ $tag := . }}{{ $term := $.Site.GetPage (printf "/tags/%s" (. | urlize)) }}
+      <a href="{{ with $term }}{{ .RelPermalink }}{{ else }}{{ (printf "/tags/%s/" ($tag | urlize)) | relLangURL }}{{ end }}" class="badge post__tag">{{ with $term }}{{ .Title }}{{ else }}{{ $tag | humanize }}{{ end }}</a>{{ end }}
     </div>
     {{ end }}
     <br>

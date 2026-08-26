@@ -12,11 +12,11 @@ commentid: rmk-starter
 #description: "Robotmk kann RCC-Environments vollständig offline aufbauen. Dieser Artikel erklärt, warum das wichtig ist und wie es in der Praxis funktioniert."
 date: "2026-05-06T10:42:47+02:00"
 categories:
-  - tutorials
+  - tutorial
 tags:
+  - robotmk
+  - rmk-starter
   - rcc
-  - robotframework
-  - getting-started
 authorbox: true
 sidebar: true
 pager: false

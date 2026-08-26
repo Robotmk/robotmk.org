@@ -12,10 +12,10 @@ commentid: web-selectors-2
 #description: 
 date: "2026-08-25T09:00:00+02:00"
 categories:
-  - tutorials
+  - background
 tags:
+  - robot-framework
   - browser-library
-  - robotframework
   - web-testing
   - selectors
   - accessibility
@@ -281,7 +281,7 @@ This case here is the continuation – and perhaps even the more interesting hal
 > The page is **exemplary in terms of accessibility**. The detailed sentence is a real boon for screen reader users.  
 > And **nevertheless**, the selector is fragile.
 
-This leads to a point that I presented a little too simplistically in the first part: **Good accessibility and a good selector are not the same goal.**  
+**Good accessibility and a good selector are not the same goal.**  
 They usually overlap – but not always.
 
 Text that has been optimised for humans is not automatically a good identifier for machines.  

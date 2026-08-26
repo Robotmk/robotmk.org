@@ -12,11 +12,11 @@ commentid: "secretvars"
 description: 
 date: "2025-10-09T07:35:47+02:00"
 categories:
-  - "knowhow"
+  - background
 tags:
-  - "security"
-  - "release"
-  - "robotframework"
+  - robot-framework
+  - security
+  - release
 authorbox: true
 sidebar: true
 pager: false

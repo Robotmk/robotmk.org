@@ -12,10 +12,10 @@ commentid: web-selectors-2
 #description: 
 date: "2026-08-25T09:00:00+02:00"
 categories:
-  - tutorials
+  - background
 tags:
+  - robot-framework
   - browser-library
-  - robotframework
   - web-testing
   - selectors
   - accessibility
@@ -281,7 +281,7 @@ Dieser Fall hier ist die Fortsetzung – und vielleicht auch noch die interessan
 > Die Seite ist **vorbildlich barrierefrei**. Der ausführliche Satz ist für Screenreader-Nutzer ein echter Gewinn.  
 > Und **trotzdem** ist der Selektor fragil.
 
-Daraus folgt etwas, das ich im ersten Teil zu glatt dargestellt habe: **Gute Accessibility und gute Selektoren verfolgen nicht dasselbe Ziel.**  
+**Gute Accessibility und gute Selektoren verfolgen nicht dasselbe Ziel.**  
 Sie überlappen meistens – aber eben nicht immer.
 
 Ein Text, der für Menschen optimiert wurde, ist nicht automatisch ein guter Bezeichner für Maschinen.  

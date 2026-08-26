@@ -13,9 +13,12 @@ title: "RCC Troubleshooting"
 description: Tips for quick troubleshooting when creating RCC environments
 date: "2025-05-06T16:02:59+02:00"
 categories:
-  - tutorials
+  - how-to
 tags:
-  - "rcc"
+  - robotmk
+  - rcc
+  - environments
+  - troubleshooting
 authorbox: true
 sidebar: true
 pager: false

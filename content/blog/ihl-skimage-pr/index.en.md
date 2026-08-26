@@ -6,10 +6,11 @@ commentid: ihl-edgedetection
 description: 
 date: 2022-02-24T12:23:07+01:00
 categories:
-  - libraries
+  - background
 tags:
-  - robotframework
-  - ui-testing
+  - robot-framework
+  - desktop-testing
+  - image-horizon-library
 authorbox: true
 sidebar: true
 pager: false

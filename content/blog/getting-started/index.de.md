@@ -7,9 +7,11 @@ commentid: rmkv2-quickstart
 menutitle: Getting Started
 date: 2025-11-08T21:37:42+02:00
 categories:
-  - tutorials
+  - tutorial
 tags:
-  - Installation
+  - robotmk
+  - checkmk
+  - installation
 authorbox: true
 sidebar: true
 pager: false

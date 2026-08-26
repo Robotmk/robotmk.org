@@ -12,9 +12,9 @@ title: "Robocon 25: Auf nach Helsinki! ✈️"
 description: 
 date: "2025-02-10T11:19:14+01:00"
 categories:
-  - ""
+  - event
 tags:
-  - "robocon"
+  - robocon
 authorbox: true
 sidebar: true
 pager: false

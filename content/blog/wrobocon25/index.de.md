@@ -12,9 +12,9 @@ commentid: "wrobocon25"
 description: 
 date: "2025-09-22T07:35:47+02:00"
 categories:
-  - "events"
+  - event
 tags:
-  - "wrobocon"
+  - wrobocon
 authorbox: true
 sidebar: true
 pager: false

@@ -12,9 +12,9 @@ commentid: robocon25-unconference
 description: null
 date: "2025-02-11T20:20:23+02:00"
 categories:
-  - news
+  - event
 tags:
-  - "robocon"
+  - robocon
 authorbox: true
 sidebar: true
 pager: false

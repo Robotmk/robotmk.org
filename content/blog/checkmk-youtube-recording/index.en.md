@@ -14,8 +14,8 @@ date: "2024-05-11T10:20:23+02:00"
 categories:
   - news
 tags:
-  - "robotmk"
-  - "youtube"
+  - robotmk
+  - checkmk
 authorbox: true
 sidebar: true
 pager: false

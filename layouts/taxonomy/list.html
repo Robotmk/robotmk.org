@@ -5,6 +5,7 @@
   <div class="container">
     <p class="page-hero__eyebrow">{{ .Type | humanize }}</p>
     <h1 class="page-hero__title">{{ .Title }}</h1>
+    {{ with .Content }}<div class="page-hero__intro">{{ . }}</div>{{ end }}
     <p class="page-hero__subtitle">{{ len .Pages }} {{ i18n "posts_count" | default "posts" }}</p>
   </div>
 </section>

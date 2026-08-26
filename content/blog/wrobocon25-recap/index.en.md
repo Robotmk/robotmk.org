@@ -12,9 +12,9 @@ commentid: wrobocon25-recap
 description: null
 date: "2025-10-25T11:00:23+02:00"
 categories:
-  - news
+  - event
 tags:
-  - "wrobocon"
+  - wrobocon
 authorbox: true
 sidebar: true
 pager: false

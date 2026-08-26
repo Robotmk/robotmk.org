@@ -14,8 +14,9 @@ date: "2024-04-29T20:46:10+02:00"
 categories:
   - news
 tags:
-  - "robotmk"
-  - "release"
+  - robotmk
+  - checkmk
+  - release
 authorbox: true
 sidebar: true
 pager: false

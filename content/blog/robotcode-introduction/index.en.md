@@ -12,9 +12,10 @@ title: "Using RobotCode the right way"
 description: 
 date: "2024-04-24T00:19:14+02:00"
 categories:
-  - ""
+  - background
 tags:
-  - ""
+  - robot-framework
+  - vs-code
 authorbox: true
 sidebar: true
 pager: false

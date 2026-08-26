@@ -12,14 +12,12 @@ commentid: rf-mcp-starter
 #description: "Claude Code im Codespace: Anleitung, Workarounds und Beispiele für Robot Framework" 
 date: "2026-05-20T10:00:00+02:00"
 categories:
-  - tutorials
+  - tutorial
 tags:
-  - codespaces
-  - claude
-  - copilot
+  - robot-framework
   - rmk-starter
-  - robotframework
   - mcp
+  - ai
 authorbox: true
 sidebar: true
 pager: false

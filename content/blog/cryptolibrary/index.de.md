@@ -12,11 +12,11 @@ commentid: cryptolib-howto
 #description: "Robotmk kann RCC-Environments vollständig offline aufbauen. Dieser Artikel erklärt, warum das wichtig ist und wie es in der Praxis funktioniert."
 date: "2026-04-28T10:42:47+02:00"
 categories:
-  - tutorials
+  - how-to
 tags:
-  - "cryptolibrary"
-  - "encryption"
-  - "security"
+  - robot-framework
+  - security
+  - crypto-library
 authorbox: true
 sidebar: true
 pager: false

@@ -14,7 +14,7 @@ categories:
   - id: concepts
     name: "Concepts & Terminology"
     questions:
-      - q: "What is a \"suite\"?"
+      - q: "What is a \"test suite\"?"
         a: |
           A suite is a text file containing Robot Framework code describing one or more tests (also called test cases). Robotmk executes these suites on the monitored hosts — on Windows as well as Linux.
 
@@ -26,7 +26,7 @@ categories:
 
           Test cases should be kept as granular as possible: one test case = one scenario. This facilitates maintenance, makes the results more meaningful, and allows for more targeted alerting.
 
-      - q: "What are keywords?"
+      - q: "What are \"keywords\"?"
         a: |
           Keywords are the building blocks that make up tests. They behave like functions in a programming language: they take parameters, can return values, and can be nested to any depth.
 
@@ -40,7 +40,7 @@ categories:
 
           The sum of all test services within a Checkmk subscription determines the scope for Synthetic Monitoring — it is the only figure that matters for licensing. How that figure follows from your own suites is covered under **Cost & Model**.
 
-      - q: "What do I see when a test fails?"
+      - q: "What do I see in Checkmk when a test fails?"
         a: |
           Exactly what you know from every other Checkmk service — plus the detail of the test run.
 
@@ -69,6 +69,18 @@ categories:
           Robotmk, or Synthetic Monitoring, is the solution for integrating Robot Framework test results into Checkmk. *Writing* those tests remains the customer's responsibility — and appropriately so, since knowledge of the relevant business processes sits within the organisation.
 
           That does not mean starting from a blank page: the Robot Framework ecosystem provides ready-made libraries for practically every technology, and [robotmk-starter](https://github.com/elabit/robotmk-starter) contains CI-tested example test cases as a starting point.
+
+      - q: "I could write web tests directly in Playwright. Why Robot Framework?"
+        a: |
+          It is not an either/or: the [Browser library](https://robotframework-browser.org/) **is** Playwright — it drives the very same engine. The question is therefore not "Playwright or Robot Framework", but whether there should be a layer on top of Playwright.
+
+          For monitoring, that layer pays off for three reasons:
+
+          - **One language for every technology.** Playwright does browsers. In practice, synthetic monitoring also runs into SAP GUI, Citrix, desktop applications, REST interfaces and databases. Robot Framework drives all of them with the same keyword syntax — your team learns one language instead of five tools.
+          - **A defined result format.** Every Robot Framework run produces the same standardised result. That is exactly what Robotmk turns into test services, HTML log attached. With raw Playwright, that integration would be a project of its own — and a topic again after every rework of the test.
+          - **Readability over years.** A monitoring test is not written once but maintained for years, often by people who are not TypeScript developers. The keyword syntax stays readable for them too.
+
+          If you only ever test the web, have a seasoned JavaScript team and need the results in CI only, Playwright on its own serves you well. The moment those tests are meant to land in Checkmk, the picture changes: Playwright remains the technology underneath, and Robot Framework turns it into something a monitoring team can operate.
 
       - q: "How do I learn Robot Framework and Robotmk?"
         a: |

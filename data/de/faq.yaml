@@ -12,27 +12,27 @@ meta:
 categories:
   # ── 1 ───────────────────────────────────────────────────────────────────────
   - id: concepts
-    name: "Grundbegriffe"
+    name: "Konzepte & Terminologie"
     questions:
-      - q: "Was ist eine „Suite“?"
+      - q: "Was ist eine \"Test Suite\"?"
         a: |
           Eine Suite ist eine Textdatei mit Robot-Framework-Code, in der ein oder mehrere Tests (auch „Test Cases“ genannt) beschrieben sind. Robotmk führt diese Suites auf den überwachten Hosts aus — unter Windows wie unter Linux.
 
           Suites dienen in erster Linie der Gruppierung von Tests.
 
-      - q: "Was ist ein „Test Case“?"
+      - q: "Was ist ein \"Test Case\"?"
         a: |
           Ein Test Case ist ein einzelnes **Szenario**, das einen bestimmten Aspekt einer Anwendung prüft. Eine **Suite** kann mehrere Test Cases enthalten, die nacheinander ausgeführt werden.
 
           Test Cases sollten so granular wie möglich gehalten werden: Ein Test Case = ein Szenario. Das erleichtert die Wartung, macht die Ergebnisse aussagekräftiger und erlaubt eine gezieltere Alarmierung.
 
-      - q: "Was sind Keywords?"
+      - q: "Was sind \"Keywords\"?"
         a: |
           Keywords sind die Bausteine, aus denen Tests bestehen. Sie verhalten sich wie Funktionen in einer Programmiersprache: Sie nehmen Parameter entgegen, können Rückgabewerte liefern und lassen sich beliebig tief ineinander verschachteln.
 
           Genau diese Verschachtelung macht Robot-Framework-Tests lesbar und langfristig wartbar.
 
-      - q: "Was sind „Test-Services“?"
+      - q: "Was sind \"Test-Services\"?"
         a: |
           Der Robotmk-Check auf dem Checkmk-Server wertet die Rohdaten der Robot-Framework-Ausführungen aus und legt für **jeden Test** einen eigenen Service an — den Test-Service.
 
@@ -40,7 +40,7 @@ categories:
 
           Die Summe aller Test-Services innerhalb einer Checkmk-Subscription bestimmt den Umfang für Synthetic Monitoring — sie ist die einzige Größe, die für die Lizenzierung zählt. Wie sich diese Zahl aus den eigenen Suites ergibt, steht unter **Kosten & Modell**.
 
-      - q: "Was sehe ich, wenn ein Test fehlschlägt?"
+      - q: "Was sehe ich in Checkmk, wenn ein Test fehlschlägt?"
         a: |
           Genau das, was Du von jedem anderen Checkmk-Service kennst — plus die Details des Testlaufs.
 
@@ -69,6 +69,18 @@ categories:
           Robotmk bzw. Synthetic Monitoring ist die Lösung, um Ergebnisse von Robot-Framework-Tests in Checkmk zu integrieren. Das *Schreiben* dieser Tests bleibt Aufgabe des Kunden — und das ist sachgerecht, denn die Kenntnis der eigenen Geschäftsprozesse liegt im Unternehmen.
 
           Der Einstieg beginnt dabei nicht bei null: Das Robot-Framework-Ökosystem stellt fertige Libraries für praktisch jede Technologie bereit, und [robotmk-starter](https://github.com/elabit/robotmk-starter) enthält CI-getestete Beispiel-Testfälle als Ausgangspunkt.
+
+      - q: "Web-Tests könnte ich doch auch mit Playwright direkt schreiben. Warum Robot Framework?"
+        a: |
+          Das ist kein Entweder-oder: Die [Browser Library](https://robotframework-browser.org/) **ist** Playwright — sie steuert dieselbe Engine. Die Frage lautet also nicht „Playwright oder Robot Framework“, sondern ob über Playwright noch eine Schicht liegen soll.
+
+          Für Monitoring lohnt sich diese Schicht aus drei Gründen:
+
+          - **Eine Sprache für alle Technologien.** Playwright kann Browser. Synthetic Monitoring trifft in der Praxis aber auch auf SAP GUI, Citrix, Desktop-Anwendungen, REST-Schnittstellen und Datenbanken. Robot Framework bedient all das mit derselben Keyword-Syntax — Dein Team lernt eine Sprache statt fünf Werkzeuge.
+          - **Ein definiertes Ergebnisformat.** Jeder Robot-Framework-Lauf erzeugt dasselbe standardisierte Ergebnis. Genau daraus baut Robotmk die Test-Services samt HTML-Log am Service. Mit rohem Playwright wäre diese Anbindung ein eigenes Projekt — und bei jedem Umbau des Tests wieder Thema.
+          - **Lesbarkeit über Jahre.** Ein Monitoring-Test wird nicht einmal geschrieben, sondern jahrelang gepflegt — oft von Menschen, die keine TypeScript-Entwickler sind. Die Keyword-Syntax bleibt auch für sie lesbar.
+
+          Wer ausschließlich Web testet, ein eingespieltes JavaScript-Team hat und die Ergebnisse nur in der CI braucht, fährt mit Playwright allein gut. Sobald die Tests in Checkmk landen sollen, dreht sich das Bild: Playwright bleibt die Technik im Unterbau, Robot Framework macht daraus etwas, das ein Monitoring-Team betreiben kann.
 
       - q: "Wie lerne ich Robot Framework und Robotmk?"
         a: |

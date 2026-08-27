@@ -1,6 +1,6 @@
 ---
 draft: false
-title: "Matche wenig, triff sicher"
+title: "Selektoren mit Accessible Names: Matche wenig, triff sicher"
 # --- Italic subheading
 lead: "Worauf Du achten solltest, wenn Du Accessible Names als Selektoren verwendest. Erkenntnisse aus der Praxis - Teil 2"
 # -- giscus id to match comments

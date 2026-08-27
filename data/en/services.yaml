@@ -11,7 +11,7 @@ clarity_call:
   tagline: "We'll clarify whether and where Synthetic Monitoring makes sense in your environment — no obligation, no sales pressure."
   desc: "A no-obligation, free initial consultation lasting around 30 minutes. <br><ul><li>We’ll clarify whether and where Synthetic Monitoring makes sense in your environment.</li><li>We’ll discuss your critical business processes, existing monitoring gaps and potential entry points with Robotmk.</li><li>By the end, you’ll know whether the next step is worth it for you.</li></ul><br>No obligation, no sales pressure."
   pending: "Calendar integration coming soon."
-  btn_email: "Book via email"
+  btn_email: "Book now"
   no_sales: "No sales conversation"
 
 # ── Partnerships ──────────────────────────────────────────────────────────────
@@ -47,7 +47,7 @@ demo:
   title: "Live Demo"
   tagline: "See Robotmk running in a real Checkmk environment — followed by open Q&A so you can ask exactly what matters to you."
   desc: "See Robotmk in action — a 60-minute session with a live demonstration of Synthetic Monitoring in a real Checkmk environment, followed by open Q&A."
-  btn_email: "Book demo via email"
+  btn_email: "Book demo"
 
 # ── Individual Consulting ─────────────────────────────────────────────────────
 consulting:
@@ -74,4 +74,4 @@ poc:
   title: "Proof of Concept"
   tagline: "One or two business-critical applications, fully integrated into Checkmk — including knowledge transfer. You'll leave with a running setup and a clear basis for deciding on a wider rollout."
   desc: "A streamlined and clearly defined project with a fixed timeframe and a fixed price.<br>Together, we will select one or two business-critical applications, develop robust Robot Framework tests for them, and fully integrate these into your Checkmk instance – including knowledge transfer and documentation. <br>You will receive a fully functional setup and a sound basis for deciding whether a wider rollout makes sense for you."
-  btn_email: "Book POC via email"
+  btn_email: "Request a POC"

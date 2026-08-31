@@ -55,6 +55,9 @@
 		{{ end }}
 	</main>
 
+	{{- /* Closing trust band — credentials, then the footer proper */ -}}
+	{{ partial "trust-band.html" . }}
+
 	{{- /* Footer — implemented in Story 1.6 */ -}}
 	{{ block "footer" . }}{{ partial "footer.html" . }}{{ end }}
 

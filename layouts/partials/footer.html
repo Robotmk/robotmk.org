@@ -1,27 +1,67 @@
+{{- /*
+  Site footer. Four columns of substance, one thin legal line beneath.
+
+  The brand column carries two sentences about who owns what — Robotmk the
+  technology belongs to Checkmk, the name and this site are run under licence.
+  Without them a first-time visitor cannot place this site at all.
+
+  Copy comes from data/<lang>/footer.yaml.
+*/ -}}
+{{- $f := index (index .Site.Data .Site.Language.Lang) "footer" -}}
+{{- $currentLang := .Site.Language.Lang -}}
 <footer class="footer">
   <div class="footer__container">
 
-    <nav class="footer__nav" aria-label="Footer navigation">
-      <ul class="footer__nav-links" role="list">
-        <li><a class="footer__link" href="{{ "/" | relLangURL }}">Home</a></li>
-        {{/*  <li><a class="footer__link" href="{{ "/learn/" | relLangURL }}">Learn</a></li>  */}}
-        <li><a class="footer__link" href="{{ "/services/" | relLangURL }}">Services</a></li>
-        <li><a class="footer__link" href="{{ "/blog/" | relLangURL }}">Blog</a></li>
-        {{/*  <li><a class="footer__link" href="{{ "/about/" | relLangURL }}">About</a></li>  */}}
-      </ul>
-    </nav>
-
-    <div class="footer__social">
-      <a class="footer__social-link" href="https://github.com/elabit/robotmk" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-        GitHub
+    <div class="footer__brand">
+      <a class="footer__brand-link" href="{{ "/" | relLangURL }}" aria-label="Robotmk">
+        {{- /* The transparent variant — nav-logo.png has its background baked
+               in and shows as a lighter box against the footer. */ -}}
+        <img class="footer__brand-logo"
+             src="{{ "/robotmk2_crop_transp.png" | relURL }}"
+             alt="Robotmk"
+             width="1389" height="339"
+             loading="lazy" decoding="async">
       </a>
-      <a class="footer__social-link" href="mailto:mail@robotmk.org" aria-label="E-Mail">
-        E-Mail
-      </a>
+      <p class="footer__brand-origin">{{ $f.brand.origin }}</p>
+      <p class="footer__brand-license">{{ $f.brand.license }}</p>
     </div>
 
-    <div class="footer__legal">
-      {{/*  <span class="footer__elabit">ELABIT GmbH</span>  */}}
+    <nav class="footer__cols" aria-label="Footer navigation">
+      {{- range $f.columns }}
+      <div class="footer__col">
+        <h2 class="footer__col-heading">{{ .heading }}</h2>
+        <ul class="footer__col-links" role="list">
+          {{- range .links }}
+          <li><a class="footer__link" href="{{ .url | relLangURL }}">{{ .label }}</a></li>
+          {{- end }}
+        </ul>
+      </div>
+      {{- end }}
+
+      <div class="footer__col">
+        <h2 class="footer__col-heading">{{ $f.connect.heading }}</h2>
+        <ul class="footer__col-links" role="list">
+          <li>
+            <a class="footer__link" href="mailto:{{ $f.connect.email }}">{{ $f.connect.email }}</a>
+          </li>
+          {{- range $f.connect.links }}
+          <li>
+            <a class="footer__link" href="{{ .url }}" target="_blank" rel="noopener noreferrer">{{ .label }}</a>
+          </li>
+          {{- end }}
+        </ul>
+      </div>
+    </nav>
+
+  </div>
+
+  <div class="footer__legal">
+    <div class="footer__legal-container">
+
+      <span class="footer__copyright">
+        &copy; {{ now.Format "2006" }} {{ .Site.Params.copyright | default .Site.Title }}
+      </span>
+
       <nav class="footer__legal-links" aria-label="Legal">
         {{- with .Site.GetPage "/imprint" }}
         <a href="{{ .RelPermalink }}" class="footer__legal-link">{{ .Title }}</a>
@@ -30,11 +70,26 @@
         <a href="{{ .RelPermalink }}" class="footer__legal-link">{{ .Title }}</a>
         {{- end }}
       </nav>
-      <span class="footer__copyright">
-        &copy; {{ now.Format "2006" }} {{ .Site.Params.copyright | default .Site.Title }}
-      </span>
-      
-    </div>
 
+      {{- /* Language switcher — the one in the nav is a long scroll away by now. */ -}}
+      <div class="footer__lang" aria-label="Language switcher">
+        {{- range .Site.Languages }}
+        {{- $lang := .Lang }}
+        {{- if eq $lang $currentLang }}
+        <span class="footer__lang-link footer__lang-link--active"
+              lang="{{ $lang }}"
+              aria-current="true">{{ $lang | upper }}</span>
+        {{- else }}
+        {{- $translation := index (where $.Translations "Lang" $lang) 0 }}
+        {{- $href := cond (ne $translation nil) $translation.RelPermalink (printf "/%s/" $lang) }}
+        <a class="footer__lang-link"
+           href="{{ $href }}"
+           hreflang="{{ $lang }}"
+           lang="{{ $lang }}">{{ $lang | upper }}</a>
+        {{- end }}
+        {{- end }}
+      </div>
+
+    </div>
   </div>
 </footer>

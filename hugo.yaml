@@ -84,7 +84,7 @@ languages:
     languageName: Deutsch
     weight: 2
     params:
-      description: Welcome to RobotMK. The most downloaded MKP extension for Checkmk.
+      description: Welcome to Robotmk, the Robot Framework integration for Checkmk.
     menu:
       main:
         - name: "Home"

@@ -1,0 +1,29 @@
+# Footer-Texte, gerendert von partials/footer.html.
+# Die Spaltenlinks sind bewusst kuratiert und nicht aus dem Hauptmenü abgeleitet,
+# damit der Footer Dinge nennen kann, die die Navigation nicht führt
+# (Newsletter, RSS).
+brand:
+  # Zwei Sätze, die Erstbesucher davor bewahren, diese Seite für die
+  # Produktseite des Herstellers zu halten — oder für eine unautorisierte.
+  origin: "Erfunden von Simon Meggle, heute Teil von Checkmk."
+  license: "robotmk.org wird unter Lizenz betrieben von der ELABIT GmbH, München."
+
+columns:
+  - heading: "Produkt"
+    links:
+      - { label: "Warum Robotmk", url: "/why-robotmk/" }
+      - { label: "Robotmk Bridge", url: "/bridge/" }
+      - { label: "Services", url: "/services/" }
+  - heading: "Lernen"
+    links:
+      - { label: "Blog", url: "/blog/" }
+      - { label: "FAQ", url: "/faq/" }
+      - { label: "Newsletter", url: "/newsletter/" }
+      - { label: "RSS", url: "/blog/index.xml" }
+
+connect:
+  heading: "Kontakt"
+  email: "mail@robotmk.org"
+  links:
+    - { label: "LinkedIn", url: "https://www.linkedin.com/in/simon-meggle/" }
+    - { label: "GitHub", url: "https://github.com/elabit/robotmk" }

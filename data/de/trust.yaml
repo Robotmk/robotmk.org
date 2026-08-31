@@ -1,0 +1,26 @@
+# Abschließendes Trust-Band, gerendert von partials/trust-band.html auf jeder Seite.
+# Logos liegen in static/images/trust/ — verwendet werden die weißen Varianten,
+# weil das Band in beiden Themes auf dauerhaft dunklem Grund sitzt.
+band:
+  slogan_line1: "Robotmk: Robot Framework trifft Checkmk."
+  slogan_line2: "Synthetic Monitoring, nativ integriert."
+
+  badges:
+    - image: "/images/trust/rfcp_accredited_trainer_M.png"
+      alt: "RFCP Accredited Trainer"
+      # Das Badge trägt "Accredited Trainer" bereits im Bild — die Unterschrift
+      # löst deshalb das Kürzel auf, statt es zu wiederholen.
+      caption: "Robot Framework Certified Professional"
+      size: "wide"
+      href: "https://robotframework.org/certification/"
+    - image: "/images/trust/robotframework_white_transparent.png"
+      alt: "Robot Framework"
+      caption: "Mitglied der Robot Framework Foundation"
+      size: "square"
+      href: "https://robotframework.org/foundation/"
+    - image: "/images/trust/checkmk_logo_white_transp.png"
+      alt: "Checkmk"
+      caption: "Checkmk Training Partner"
+      size: "square"
+      href: "https://checkmk.com/"
+

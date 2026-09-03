@@ -107,11 +107,13 @@ Nun folgen ein paar Kommandos, die Du in genau dieser Reihenfolge ausführen sol
 - `where python`: Diesmal erhalten wir von dem Kommando den Pfad zum Python-Interpreter im neu erstellten und jetzt aktivierten Environment zurück.
 - `where robot`: Nicht nur Python, sondern auch Robot Framework ist installiert (ist das nicht cool...? 😎).
 - `robot tests.robot`: Mit dem `robot`-Befehl können wir nun den RobotFramework-Test starten. Lass Dich überraschen 😉
-  
-> An dieser Stelle wirst Du unter Linux (Debian/Ubuntu) erst einmal Fehlermeldungen bekommen. Das liegt daran, dass bestimmte Pakete nachinstalliert werden müssen.  
-> Jetzt ist der richtige Zeitpunkt dafür denn: im aktivierten Environment kannst Du die Pakete direkt mit dem Befehl `npx playwright install-deps` installieren. Natürlich funktioniert das nur, wenn Du mit Deinem Benutzer **root-Rechte** hast.  
-> Andernfalls kannst Du `npx playwright install-deps --dry-run` ausführen und Dir die Kommandozeile für *apt install* einfach kopieren. Dann starte eine neue Shell mit root und füge sie dort ein. 
-> Starte danach den Robot erneut mit `robot tests.robot`. 
+
+### Fehlende Pakete unter Linux 
+
+Solltest Du auf **Ubuntu** oder **Debian** unterwegs sein, dann beschwert sich die BrowserLibrary eventuell über **fehlende Pakete**.  
+Diese installierst Du ganz einfach nach mit dem Befehl `sudo apt install -y <liste_der_pakete>` - die `<liste>` kopierst Du dir am besten aus meinem Robotmk-Starter-Repo ([Ubuntu](https://github.com/elabit/robotmk-starter/tree/main/os/ubuntu#packages-installed-by-ansible), [Debian](https://github.com/elabit/robotmk-starter/tree/main/os/debian#packages-installed-by-ansible)).
+
+Starte danach den Robot erneut mit `robot tests.robot`. 
 
 {{< figure src="img/rcc-task-shell-run2.gif" title="Start des Robots mit RCC" loading="lazy">}}
 

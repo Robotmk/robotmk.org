@@ -108,10 +108,12 @@ The command `where` is the equivalent of the Linux command `which` and attempts 
 - `where robot`: Not only Python, but also Robot Framework is installed (isn't that cool...? 😎).
 - `robot tests.robot`: With the `robot` command, we can now start the Robot Framework test. Let yourself be surprised 😉
 
-> At this point, you will initially see error messages under Linux (Debian/Ubuntu). This is because certain packages need to be installed.  
-> Now is the right time to do this because, in the activated environment, you can install the packages directly with the command `npx playwright install-deps`. Of course, this only works if you have **root privileges**.  
-> Otherwise, you can run `npx playwright install-deps --dry-run` and simply copy the command line for *apt install*. Then start a new shell with root and paste it there. 
-> Afterwards, restart the robot with `robot tests.robot`.
+### Missing packages on Linux 
+
+If you’re using **Ubuntu** or **Debian**, BrowserLibrary may complain about **missing packages**.  
+You can easily install these using the command `sudo apt install -y <list_of_packages>` – it’s best to copy the `<list>` from my Robotmk Starter repo ([Ubuntu](https://github.com/elabit/robotmk-starter/tree/main/os/ubuntu#packages-installed-by-ansible), [Debian](https://github.com/elabit/robotmk-starter/tree/main/os/debian#packages-installed-by-ansible)).
+
+Then restart the robot using `robot tests.robot`.
 
 {{< figure src="img/rcc-task-shell-run2.gif" title="Starting the robot with RCC" loading="lazy">}}
 

@@ -1,6 +1,6 @@
 ---
-draft: true
-title: "RCC in the Root Agent - the Details"
+draft: false
+title: "RCC in the CMK Root Agent - the Details"
 # --- Italic subheading
 lead: "What you need to watch out for when you build RCC environments with a root agent on Linux."
 # -- giscus id to match comments
@@ -10,7 +10,7 @@ commentid: rcc-root-agent-werks
 # -- for posts in menubar, use this (shorter) title
 # menutitle:
 #description:
-date: "2026-09-07T10:00:00+02:00"
+date: "2026-09-06T10:00:00+02:00"
 categories:
   - background
 tags:
@@ -26,7 +26,7 @@ pager: false
 #menu: main
 #weight: 10
 # --- must be in the leaf bundle folder or static
-#thumbnail: "img/title.png"
+thumbnail: "img/title1.png"
 vgwort:
 translationKey: "rcc-root-agent-werks"
 ---
@@ -51,10 +51,10 @@ RCC keeps its environments, caches and other data in a **base directory** of its
 > **Info:** RCC determines its base directory (`ROBOCORP_HOME`) depending on the user executing it. For regular users this is always inside the home directory.  
 > When RCC runs **as root**, however, the default on Linux is `/opt/robocorp`.
 
-And this is exactly where some odd behaviour was observed on SLES: if that directory did **not yet exist** and RCC created it as root, it modified the permissions of the *parent directory* `/opt` along the way.
+And this is exactly where some odd behavior was observed on SLES: if that directory did **not yet exist** and RCC created it as root, it modified the permissions of the *parent directory* `/opt` along the way.
 
 On many systems, `/opt` is the place where software gets installed.  
-On a Checkmk server, for example, the entire site structure lives under `/opt/omd`. If the permissions there get mangled, the site user can no longer reach its own site.  
+On a Checkmk server, for example, the entire site structure lives under `/opt/omd`. If the permissions there get mangled, the site user can no longer reach their own site.  
 And if the Robotmk host is used for other things as well (which we generally advise against), the problem can hit other software too.
 
 The reaction back in May was the obvious one: if a combination can cause damage, better not to allow it in the first place.  
@@ -67,7 +67,7 @@ As a migration path, the werk named two options: move the host to **non-root dep
 
 *(Werk [#20186](https://checkmk.com/werk/20186), 11 August 2026, from 2.5.0p12)*
 
-In practice it soon turned out that for customers with custom plugins, automations and test scripts which rely on **hard-coded paths** or need a root context for other reasons, the recommendation to switch the agent to non-root was a dead end.
+In practice it soon turned out that for customers with custom plugins, automations and test scripts that rely on **hard-coded paths** or need a root context for other reasons, the recommendation to switch the agent to non-root was a dead end.
 
 That is why an **"Allow agent deployment as root"** option showed up in August in the *"Robotmk Scheduler (Linux)"* rule, right next to the RCC settings.  
 It is disabled by default, and anyone who enables it implicitly confirms: *I have read werk 19460 and I know what I am getting into.*
@@ -79,16 +79,16 @@ On top of that, the option only appears in the *"Robotmk Scheduler (Linux)"* rul
 
 ---
 
-## Act 3: Guidance instead of prohibition
+## Act 3: Guidance
 
-*(Werk [#20190](https://checkmk.com/werk/20190), 2 September 2026, currently 3.0.0b1)*
+*(Werk [#20190](https://checkmk.com/werk/20190), 2 September 2026, currently 3.0.0b1, 2.5 and 2.4 follow)*
 
 The third step turns the perspective around.
 
 Both the original restriction **and** the bypass checkbox are gone.  
 Baking a Linux agent now always works - no matter which user context the agent runs in, and no matter whether RCC is involved.
 
-The ban has been replaced by **inline help**: wherever RCC can be picked as the *Environment Creation Mode*, the note sits right there next to it.
+The ban has been replaced by **inline help**: wherever RCC can be picked as the *Environment Creation Mode*, the note sits right next to it.
 
 In the werk's own words:
 
@@ -101,7 +101,7 @@ A ban covering the whole combination would have addressed a fraction of the case
 
 ## What does this mean for you?
 
-The most important part first, because it easily gets lost in the chronology of the werks:
+The most important message first, because it easily gets lost in the chronology of the werks:
 
 **You can stay with the root agent.**
 
@@ -109,9 +109,9 @@ The non-root agent is a good thing... and from a security point of view the bett
 But it is not a prerequisite for running Robotmk with RCC on Linux.  
 Depending on your version, the situation looks like this:
 
-- **2.4.0p33 / 2.5.0p6 to p11:** Baking aborts on root + RCC. Here you either update to p12, or take one of the two routes named in the werk (non-root or Conda).
-- **From 2.5.0p12:** The *"Allow agent deployment as root"* option in the *"Robotmk Scheduler (Linux)"* rule lifts the restriction. One checkbox, done.
-- **From 3.0:** You make the call, and the inline help gives you the context for it.
+- **2.4.0p33 / 2.5.0p6 to p11:** The build fails when run as root and after an RCC. To resolve this, either update to at least p12 or use one of the two methods described in the guide (non-root or Conda).
+- **From 2.5.0p12 onwards:** The option *“Allow agent deployment as root”* in the *“Robotmk Scheduler (Linux)”* rule removes the restriction. Simply tick the box.
+- **From 2.4.0p37 / 2.5.0p13/3.0:** You make the decision; the inline help provides the context.
 
 ---
 
@@ -121,10 +121,10 @@ At first glance the whole story may look a little like flip-flopping.
 
 The first reflex (**block it**) was absolutely right for a bug that can wreck a production system in the worst case.
 
-That the block turned out to be too coarse is something that, as a rule, only shows up out in the field.  
+That the block turned out to be too coarse is something that, as a rule, only shows up in the field.  
 And the fact that it was replaced by something more precise after four months speaks for the process rather than against it.
 
-It does put a certain amount of trust in the admin, of course. Reading the docs (or at least the inline help) has always been a good idea. 😉
+The new solution does put a certain amount of trust in the admin, of course. Reading the docs (or at least the inline help) has always been a good idea. 😉
 
 How do you handle this?
 

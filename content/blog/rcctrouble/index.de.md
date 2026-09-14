@@ -200,21 +200,35 @@ Danach den Host neu starten und die Erstellung des Environments erneut versuchen
 
 ---
 
-### LongPath Support
+### LongPath Support (Windows)
 
-**Fehler:** Beim Aktivieren der erforderlichen LongPath-Unterstützung mit `rcc config longpaths -e` erscheint diese Fehlermeldung:
+LongPath Support ist eine (unbedenkliche) Windows-Funktion, die die lästige [Beschränkung](https://learn.microsoft.com/en-us/windows/win32/fileio/maximum-file-path-limitation?tabs=registry) von Pfadlängen auf 260 aufhebt - für RCC ist das zwingend erforderlich, da die Pfade in den Environments sehr lang werden können.
+
+Der Robotmk-Scheduler aktiviert diese Funktion automatisch, wenn er die Umgebung erstellt.
+
+Zu Problem kann es kommen, wenn Du eineein Environment **manuell** erstellst oder auf einem Windows-Host arbeitest, der zentral über Gruppenrichtlinien verwaltet wird. Hier wird die Änderung des entsprechenden Registry-Eintrags blockiert, wodurch die LongPath-Unterstützung nicht aktiviert werden kann.
 
 ```
-WARNING! Long path support failed. Reason: exit status 1. WARNING! Long paths do not work!
-
-Error executing: rcc.exe configure longpaths --enable 
-Error code: undefined Error: error Stderr: Failure to modify registry: Access is denied.
+WARNING!  Long path support failed. Reason: exit status 1.
+WARNING!  See https://robocorp.com/docs/troubleshooting/windows-long-path for more details.
+Long paths do not work!
+[rcc] exit status will be: 2!
 ```
 
-**Beschreibung:** Offensichtlich wird der Windows-Rechner zentral über Gruppenrichtlinien verwaltet, wodurch die LongPath-Richtlinie nicht geändert werden kann.  
+(Der Link in der Fehlermeldung führt zu einer veralteten Dokumentation, die nicht mehr zutrifft.)
 
-**Lösung:** Bitte den für die GPOs zuständigen Administrator, diese Richtlinie zu setzen:
-`Local Computer Policy > Computer Configuration > Administrative Templates > System > Filesystem > NTFS > Enable Win32 long paths > Enabled`
+**Lösung**:
+
+Überprüfe, ob die LongPath-Unterstützung **manuell** gesetzt werden kann. Öffne dazu eine **Admin**-CMD und führe den Befehl aus: `rcc config longpaths --enable`. 
+
+```
+> rcc configure longpaths --enable
+OK.
+```
+
+Wenn der Windows-Rechner zentral über Gruppenrichtlinien verwaltet wird, bitte den zuständigen Administrator, diese Richtlinie zu setzen: `Local Computer Policy > Computer Configuration > Administrative Templates > System > Filesystem > NTFS > Enable Win32 long paths > Enabled`
+
+
 
 ---
 

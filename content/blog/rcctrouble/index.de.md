@@ -25,7 +25,7 @@ pager: false
 #menu: main
 #weight: 10
 # --- must be in the leaf bundle folder or static
-#thumbnail: ""
+thumbnail: "img/title.jpg"
 vgwort: https://vg04.met.vgwort.de/na/1360506dbdd3408db23ff8cf26aa26e4
 translationKey: "rcctrouble"
 ---

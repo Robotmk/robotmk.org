@@ -203,6 +203,10 @@ We will take a closer look at the use of RCC as a user below.
 
 Here you can follow the instructions as I have written them in the quick start article under [Download RCC]({{< ref "getting-started/index.de.md#download-von-rcc" >}}). RCC should be accessible via the user variable `%PATH%`.
 
+### Troubleshooting
+
+If you encounter any problems whilst using RCC, you’ll find some tips on how to resolve them in the [Troubleshooting]({{< ref "rcctrouble/index.en.md" >}}) article.
+
 ### Develop in an RCC environment
 
 This is the only point where you - at least for now, but we already have ideas - cannot completely avoid the command line: before you can start writing your Robot Framework tests with VS Code (recommended, but other editors are also possible), you must create and activate the corresponding RCC environment.

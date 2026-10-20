@@ -28,8 +28,7 @@ pager: false
 #weight: 10
 # --- must be in the leaf bundle folder or static
 thumbnail: "img/title.png"
-# TODO: eigene VG-Wort-Zählmarke eintragen
-vgwort:
+vgwort: https://vg04.met.vgwort.de/na/246279ddf54c4ba290df0e7da67536bf
 translationKey: "proxy-settings"
 ---
 

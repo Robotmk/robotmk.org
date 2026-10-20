@@ -27,7 +27,7 @@ pager: false
 #weight: 10
 # --- must be in the leaf bundle folder or static
 thumbnail: "img/title1.png"
-vgwort:
+vgwort: https://vg04.met.vgwort.de/na/7dfdd424354640d5a5bad9e8e03f0795
 translationKey: "rcc-root-agent-werks"
 ---
 

@@ -27,8 +27,7 @@ pager: false
 #weight: 10
 # --- must be in the leaf bundle folder or static
 thumbnail: "img/title2.png"
-# TODO: eigene VG-Wort-Zählmarke eintragen
-vgwort:
+vgwort: https://vg04.met.vgwort.de/na/9f1baf43099f43d79cfb152d8d7c1fff
 translationKey: "rcc-env-supplychain"
 ---
 

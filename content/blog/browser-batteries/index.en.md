@@ -28,7 +28,7 @@ pager: false
 #weight: 10
 # --- must be in the leaf bundle folder or static
 thumbnail: "img/title.jpg"
-# vgwort:
+vgwort: https://vg04.met.vgwort.de/na/9a364d9acbf449b881221fe73a425721
 translationKey: "browser-batteries"
 ---
 
